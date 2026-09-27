@@ -1,0 +1,46 @@
+---
+import Prose from '../views/Prose.astro';
+import { CONTACT_EMAIL } from '../config';
+---
+
+<Prose
+  lang="gl"
+  kicker="O proxecto"
+  title="Por que existe esta web"
+  lede="Galicia GMT é un proxecto cidadán e independente para explicar un problema pouco coñecido: vivimos cunha hora oficial que non corresponde á nosa xeografía."
+  alt="/es/sobre/"
+>
+  <h2>Que queremos</h2>
+  <p>
+    Que se abra un debate serio sobre a hora oficial en Galicia. Hai dúas saídas razoables: usar a mesma hora ca
+    Portugal e Canarias, ou polo menos deixar de adiantar o reloxo cada primavera. Non temos présa por impoñer ningunha
+    das dúas; queremos que se decida con datos.
+  </p>
+
+  <h2>Para quen escribimos</h2>
+  <ul>
+    <li><strong>Veciñanza</strong>: para que calquera poida entender o tema en cinco minutos e comprobar cada cifra.</li>
+    <li><strong>Xornalistas</strong>: todas as fontes están enlazadas e os textos pódense reutilizar citando a orixe.</li>
+    <li><strong>Concellos, Xunta e partidos</strong>: aquí atoparán argumentos a favor e en contra, sen maquillaxe.</li>
+  </ul>
+
+  <h2>Como traballamos</h2>
+  <ul>
+    <li>Cada dato leva a súa fonte enlazada. Se non hai fonte, non se publica.</li>
+    <li>Non inventamos apoios, citas nin testemuños. Se algún día amosamos apoios, serán reais e verificables.</li>
+    <li>Explicamos os contraargumentos con honestidade. A credibilidade é o único capital que temos.</li>
+    <li>Non estamos vinculados a ningún partido nin organización, e non falamos en nome de ninguén.</li>
+  </ul>
+
+  <h2>Quen o fai</h2>
+  <p>
+    Unha persoa promotora, que decide a liña do proxecto e revisa o traballo, e un sistema de intelixencia artificial
+    que investiga, redacta e mantén a web cada noche. Explicámolo con detalle en <a href="/ia/">Como se fai</a>.
+  </p>
+
+  <h2>Atopaches un erro?</h2>
+  <p>
+    Queremos sabelo. Corrixímolo e deixamos constancia da data de actualización no propio artigo.
+    {CONTACT_EMAIL && <>Escríbenos a <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</>}
+  </p>
+</Prose>

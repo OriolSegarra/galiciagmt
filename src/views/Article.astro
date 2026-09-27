@@ -1,0 +1,152 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Fontes from '../components/Fontes.astro';
+import Cta from '../components/Cta.astro';
+import { articleUrl, formatDate, r, t, type Lang } from '../i18n/ui';
+import { artigosDe, langOf, parDe, slugOf, type Artigo } from '../lib/artigos';
+
+interface Props {
+  entry: Artigo;
+}
+const { entry } = Astro.props;
+const lang: Lang = langOf(entry);
+const other = await parDe(entry);
+const otherLang: Lang = lang === 'gl' ? 'es' : 'gl';
+const alt = other ? articleUrl(otherLang, slugOf(other)) : r(otherLang, 'artigos');
+const { Content } = await render(entry);
+const d = entry.data;
+
+const all = await artigosDe(lang);
+const idx = all.findIndex((a) => a.id === entry.id);
+const next = all[(idx + 1) % all.length];
+---
+
+<Base lang={lang} title={d.titulo} description={d.entradilla} alt={alt} type="article">
+  <article class="wrap art">
+    <header class="head">
+      <p class="kicker">
+        <a href={r(lang, 'artigos')}>{t(lang, 'nav.artigos')}</a>
+        <span aria-hidden="true">/</span>
+        {t(lang, `section.${d.seccion}` as const)}
+      </p>
+      <h1>{d.titulo}</h1>
+      <p class="lede">{d.entradilla}</p>
+      <dl class="meta">
+        <div>
+          <dt>{t(lang, 'article.published')}</dt>
+          <dd><time datetime={d.data.toISOString()}>{formatDate(lang, d.data)}</time></dd>
+        </div>
+        {
+          d.actualizado && (
+            <div>
+              <dt>{t(lang, 'article.updated')}</dt>
+              <dd>
+                <time datetime={d.actualizado.toISOString()}>{formatDate(lang, d.actualizado)}</time>
+              </dd>
+            </div>
+          )
+        }
+        <div>
+          <dt>{t(lang, 'article.sources')}</dt>
+          <dd><a href="#fontes">{d.fontes.length}</a></dd>
+        </div>
+        {
+          other && (
+            <div>
+              <dt>{otherLang.toUpperCase()}</dt>
+              <dd>
+                <a href={alt} hreflang={otherLang}>
+                  {t(lang, 'article.other')}
+                </a>
+              </dd>
+            </div>
+          )
+        }
+      </dl>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <Fontes lang={lang} fontes={d.fontes} />
+
+    {
+      next && next.id !== entry.id && (
+        <a class="next" href={articleUrl(lang, slugOf(next))}>
+          <span class="kicker">{t(lang, 'article.next')}</span>
+          <span class="t">{next.data.titulo} →</span>
+        </a>
+      )
+    }
+  </article>
+  <Cta lang={lang} />
+</Base>
+
+<style>
+  .art {
+    padding-top: 3rem;
+  }
+  .head {
+    max-width: 52rem;
+    margin-bottom: 3rem;
+  }
+  .kicker a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .kicker span {
+    margin-inline: 0.4em;
+  }
+  h1 {
+    margin: 1rem 0 1.2rem;
+    font-size: clamp(2.2rem, 5.6vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+  }
+  .lede {
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    line-height: 1.45;
+    color: var(--ink-2);
+    margin: 0 0 1.8rem;
+    max-width: 46ch;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2.2rem;
+    margin: 0;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--ink);
+    font-size: 0.875rem;
+  }
+  .meta dt {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .meta dd {
+    margin: 0.1rem 0 0;
+    font-weight: 600;
+  }
+  .next {
+    display: grid;
+    gap: 0.3rem;
+    margin-top: 3rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    text-decoration: none;
+    max-width: var(--measure);
+  }
+  .next .t {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+</style>

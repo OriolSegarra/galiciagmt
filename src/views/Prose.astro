@@ -1,0 +1,52 @@
+---
+/* Plantilla para páxinas de texto (O proxecto, IA). */
+import Base from '../layouts/Base.astro';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  lede: string;
+  alt: string;
+  kicker?: string;
+}
+const { lang, title, lede, alt, kicker } = Astro.props;
+---
+
+<Base lang={lang} title={title} description={lede} alt={alt}>
+  <article class="wrap page">
+    <header>
+      {kicker && <p class="kicker">{kicker}</p>}
+      <h1>{title}</h1>
+      <p class="lede">{lede}</p>
+    </header>
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .page {
+    padding-top: 3.5rem;
+  }
+  header {
+    max-width: 52rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2rem;
+  }
+  h1 {
+    margin: 0.6rem 0 1.2rem;
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    font-weight: 800;
+  }
+  .lede {
+    font-size: 1.25rem;
+    color: var(--ink-2);
+    max-width: 46ch;
+    margin: 0;
+  }
+</style>

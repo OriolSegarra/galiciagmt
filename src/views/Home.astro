@@ -1,0 +1,194 @@
+---
+import Base from '../layouts/Base.astro';
+import SolarClock from '../components/SolarClock.astro';
+import DayBars from '../components/DayBars.astro';
+import ArticleList from '../components/ArticleList.astro';
+import Cta from '../components/Cta.astro';
+import { articleUrl, r, type Lang } from '../i18n/ui';
+import { artigosDe, slugOf } from '../lib/artigos';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const items = await artigosDe(lang);
+
+const c = {
+  gl: {
+    kicker: 'Hora oficial e hora do sol',
+    h1: ['En Galicia, o reloxo', 'vai por diante do sol.'],
+    lede: 'Hora e media en inverno. Dúas horas e media no verán. Desde 1940 vivimos coa hora de Europa central, aínda que Galicia está ao oeste de Greenwich, como Portugal. Esta web explica por que, que custo pode ter e que se podería facer.',
+    read: 'Comezar polo principio',
+    ask: 'Que propoñemos',
+    askTitle: 'Dúas saídas razoables. Calquera das dúas mellora a actual.',
+    a1t: 'A hora de Portugal',
+    a1: 'Que Galicia use a mesma hora oficial ca Portugal e Canarias (zona Europe/Lisbon): unha hora menos ca agora durante todo o ano.',
+    a2t: 'Sen horario de verán',
+    a2: 'Se o cambio de fuso non é posible, polo menos deixar de adiantar o reloxo en marzo. É o que pide a Sociedade Española de Sono para toda España.',
+    a2src: 'Ver fonte',
+    listK: 'Para entendelo en cinco lecturas',
+    all: 'Todos os artigos',
+  },
+  es: {
+    kicker: 'Hora oficial y hora del sol',
+    h1: ['En Galicia, el reloj', 'va por delante del sol.'],
+    lede: 'Hora y media en invierno. Dos horas y media en verano. Desde 1940 vivimos con la hora de Europa central, aunque Galicia está al oeste de Greenwich, como Portugal. Esta web explica por qué, qué coste puede tener y qué se podría hacer.',
+    read: 'Empezar por el principio',
+    ask: 'Qué proponemos',
+    askTitle: 'Dos salidas razonables. Cualquiera de las dos mejora la actual.',
+    a1t: 'La hora de Portugal',
+    a1: 'Que Galicia use la misma hora oficial que Portugal y Canarias (zona Europe/Lisbon): una hora menos que ahora durante todo el año.',
+    a2t: 'Sin horario de verano',
+    a2: 'Si el cambio de huso no es posible, al menos dejar de adelantar el reloj en marzo. Es lo que pide la Sociedad Española de Sueño para toda España.',
+    a2src: 'Ver fuente',
+    listK: 'Para entenderlo en cinco lecturas',
+    all: 'Todos los artículos',
+  },
+}[lang];
+
+const first = items[0];
+---
+
+<Base lang={lang} alt={lang === 'gl' ? '/es/' : '/'}>
+  <section class="hero wrap">
+    <div class="copy">
+      <p class="kicker">{c.kicker}</p>
+      <h1>{c.h1[0]}<br /><span>{c.h1[1]}</span></h1>
+      <p class="lede">{c.lede}</p>
+      {first && <a class="btn" href={articleUrl(lang, slugOf(first))}>{c.read} →</a>}
+    </div>
+    <div class="side">
+      <SolarClock lang={lang} />
+    </div>
+  </section>
+
+  <section class="wrap block">
+    <DayBars lang={lang} />
+  </section>
+
+  <section class="wrap block ask">
+    <p class="kicker">{c.ask}</p>
+    <h2>{c.askTitle}</h2>
+    <div class="options">
+      <div>
+        <span class="tag num">A</span>
+        <h3>{c.a1t}</h3>
+        <p>{c.a1}</p>
+      </div>
+      <div>
+        <span class="tag num">B</span>
+        <h3>{c.a2t}</h3>
+        <p>
+          {c.a2}{' '}
+          <a href="https://www.saludadiario.es/profesionales/la-sociedad-espanola-de-sueno-aconseja-suprimir-los-cambios-horarios/">{c.a2src}</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap block">
+    <div class="head">
+      <p class="kicker">{c.listK}</p>
+      <a href={r(lang, 'artigos')}>{c.all} →</a>
+    </div>
+    <ArticleList lang={lang} items={items.slice(0, 5)} />
+  </section>
+
+  <Cta lang={lang} />
+</Base>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 3rem;
+    padding-top: clamp(2.5rem, 7vw, 5.5rem);
+    padding-bottom: 3rem;
+    align-items: end;
+  }
+  h1 {
+    margin: 0.8rem 0 1.4rem;
+    font-size: clamp(2.6rem, 7.2vw, 5.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+  }
+  h1 span {
+    color: var(--blue);
+  }
+  .lede {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    max-width: 44ch;
+    margin: 0 0 1.8rem;
+    color: var(--ink-2);
+  }
+  .block {
+    margin-top: 4rem;
+  }
+  .ask h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    margin: 0.6rem 0 2rem;
+    max-width: 24ch;
+  }
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .options > div {
+    padding: 1.4rem 2rem 1.4rem 0;
+  }
+  .options > div + div {
+    border-left: 1px solid var(--ink);
+    padding-left: 2rem;
+  }
+  .tag {
+    display: inline-block;
+    font-weight: 800;
+    font-size: 0.85rem;
+    background: var(--ink);
+    color: var(--paper);
+    width: 1.6rem;
+    text-align: center;
+    line-height: 1.6rem;
+  }
+  h3 {
+    font-size: 1.35rem;
+    margin: 0.8rem 0 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .options p {
+    margin: 0;
+    color: var(--ink-2);
+    max-width: 44ch;
+  }
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+  .head a {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 860px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .options {
+      grid-template-columns: 1fr;
+    }
+    .options > div + div {
+      border-left: 0;
+      border-top: 1px solid var(--rule);
+      padding-left: 0;
+    }
+  }
+</style>

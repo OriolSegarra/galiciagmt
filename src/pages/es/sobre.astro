@@ -1,0 +1,46 @@
+---
+import Prose from '../../views/Prose.astro';
+import { CONTACT_EMAIL } from '../../config';
+---
+
+<Prose
+  lang="es"
+  kicker="El proyecto"
+  title="Por qué existe esta web"
+  lede="Galicia GMT es un proyecto ciudadano e independiente para explicar un problema poco conocido: vivimos con una hora oficial que no corresponde a nuestra geografía."
+  alt="/sobre/"
+>
+  <h2>Qué queremos</h2>
+  <p>
+    Que se abra un debate serio sobre la hora oficial en Galicia. Hay dos salidas razonables: usar la misma hora que
+    Portugal y Canarias, o al menos dejar de adelantar el reloj cada primavera. No tenemos prisa por imponer ninguna de
+    las dos; queremos que se decida con datos.
+  </p>
+
+  <h2>Para quién escribimos</h2>
+  <ul>
+    <li><strong>Ciudadanía</strong>: para que cualquiera pueda entender el tema en cinco minutos y comprobar cada cifra.</li>
+    <li><strong>Periodistas</strong>: todas las fuentes están enlazadas y los textos se pueden reutilizar citando el origen.</li>
+    <li><strong>Ayuntamientos, Xunta y partidos</strong>: aquí encontrarán argumentos a favor y en contra, sin maquillaje.</li>
+  </ul>
+
+  <h2>Cómo trabajamos</h2>
+  <ul>
+    <li>Cada dato lleva su fuente enlazada. Si no hay fuente, no se publica.</li>
+    <li>No inventamos apoyos, citas ni testimonios. Si algún día mostramos apoyos, serán reales y verificables.</li>
+    <li>Explicamos los contraargumentos con honestidad. La credibilidad es el único capital que tenemos.</li>
+    <li>No estamos vinculados a ningún partido ni organización, y no hablamos en nombre de nadie.</li>
+  </ul>
+
+  <h2>Quién lo hace</h2>
+  <p>
+    Una persona promotora, que decide la línea del proyecto y revisa el trabajo, y un sistema de inteligencia artificial
+    que investiga, redacta y mantiene la web cada noche. Lo explicamos con detalle en <a href="/es/ia/">Cómo se hace</a>.
+  </p>
+
+  <h2>¿Has encontrado un error?</h2>
+  <p>
+    Queremos saberlo. Lo corregimos y dejamos constancia de la fecha de actualización en el propio artículo.
+    {CONTACT_EMAIL && <>Escríbenos a <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</>}
+  </p>
+</Prose>

@@ -1,0 +1,51 @@
+---
+import Prose from '../../views/Prose.astro';
+---
+
+<Prose
+  lang="es"
+  kicker="Transparencia"
+  title="Cómo se hace esta web"
+  lede="Galicia GMT la mantiene una inteligencia artificial bajo supervisión humana. Lo contamos porque creemos que tienes derecho a saberlo y porque las reglas que sigue son parte del proyecto."
+  alt="/ia/"
+>
+  <h2>El ciclo de cada noche</h2>
+  <p>Cada noche, un agente de IA (Claude, de Anthropic) ejecuta una rutina fija:</p>
+  <ol>
+    <li>Lee las instrucciones del proyecto, el diario de las sesiones anteriores y la lista de ideas pendientes.</li>
+    <li>Busca novedades sobre la hora oficial, el cambio de hora, el sueño y el debate en la UE y en Galicia.</li>
+    <li>Elige <strong>una sola tarea</strong>: un artículo, una herramienta, una mejora de la web o repensar las prioridades.</li>
+    <li>La ejecuta repartiendo el trabajo entre agentes especializados.</li>
+    <li>Pasa siempre por una revisión antes de publicar. Si la revisión no es favorable, no se publica.</li>
+    <li>Deja registrado qué hizo, qué funcionó y qué queda pendiente.</li>
+  </ol>
+
+  <h2>Los cuatro agentes</h2>
+  <ul>
+    <li><strong>Investigador</strong>: busca fuentes fiables (estudios, BOE, organismos oficiales, prensa) y devuelve solo lo esencial, con el enlace y el dato literal.</li>
+    <li><strong>Redactor</strong>: escribe en gallego y en castellano a partir de las fuentes que recibe. No puede añadir datos que no le hayan pasado.</li>
+    <li><strong>Desarrollador</strong>: construye las herramientas interactivas y las mejoras de la web.</li>
+    <li><strong>Verificador</strong>: revisa lo que se va a publicar. Solo puede leer, no editar. Comprueba que cada cifra tiene fuente, que no hay apoyos ni citas inventadas, que el gallego es correcto y que la web compila. Devuelve una lista de problemas o «APTO».</li>
+  </ul>
+
+  <h2>Las reglas que no se saltan</h2>
+  <ul>
+    <li>Cada dato o cifra lleva su fuente enlazada. Sin fuente, no se publica. La web está programada para no compilar si un artículo no tiene fuentes.</li>
+    <li>Nunca se inventan apoyos, citas, firmas ni testimonios.</li>
+    <li>La IA nunca escribe a personas reales ni habla en nombre de nadie.</li>
+    <li>Los contraargumentos se muestran con honestidad.</li>
+  </ul>
+
+  <h2>El papel humano</h2>
+  <p>
+    La persona promotora del proyecto define la misión y las reglas, revisa lo que se publica y puede corregir o
+    retirar cualquier contenido. También puede pedirle tareas concretas al agente, que las trata como prioridad.
+  </p>
+
+  <h2>Límites</h2>
+  <p>
+    Una IA puede equivocarse: interpretar mal un estudio, traducir con torpeza o quedarse desactualizada. Por eso cada
+    cifra lleva enlace, para que cualquiera pueda comprobarla. Si encuentras un error, avísanos y lo corregiremos
+    dejando constancia de la fecha.
+  </p>
+</Prose>

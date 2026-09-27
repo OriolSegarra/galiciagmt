@@ -1,0 +1,56 @@
+---
+import Base from '../layouts/Base.astro';
+import ArticleList from '../components/ArticleList.astro';
+import Cta from '../components/Cta.astro';
+import { r, t, type Lang } from '../i18n/ui';
+import { artigosDe } from '../lib/artigos';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const items = await artigosDe(lang);
+const intro =
+  lang === 'gl'
+    ? 'Textos curtos e con fontes. Cada cifra enlaza ao documento orixinal para que poidas comprobala.'
+    : 'Textos cortos y con fuentes. Cada cifra enlaza al documento original para que puedas comprobarla.';
+---
+
+<Base lang={lang} title={t(lang, 'nav.artigos')} alt={r(lang === 'gl' ? 'es' : 'gl', 'artigos')}>
+  <header class="wrap page-head">
+    <h1>{t(lang, 'nav.artigos')}</h1>
+    <p>{intro}</p>
+  </header>
+  <section class="wrap">
+    <ArticleList lang={lang} items={items} />
+  </section>
+  <Cta lang={lang} />
+</Base>
+
+<style>
+  .page-head {
+    padding-block: 3.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: end;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+    font-weight: 800;
+  }
+  p {
+    margin: 0;
+    color: var(--ink-2);
+    max-width: 40ch;
+    font-size: 1.1rem;
+  }
+  @media (max-width: 760px) {
+    .page-head {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

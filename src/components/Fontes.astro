@@ -1,0 +1,76 @@
+---
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  fontes: { titulo: string; url: string; dato?: string }[];
+}
+const { lang, fontes } = Astro.props;
+const host = (u: string) => new URL(u).hostname.replace(/^www\./, '');
+---
+
+<section class="fontes" id="fontes" aria-labelledby="fontes-h">
+  <h2 id="fontes-h" class="kicker">{t(lang, 'article.sources')}</h2>
+  <ol>
+    {
+      fontes.map((f) => (
+        <li>
+          <a href={f.url} rel="noopener">
+            {f.titulo}
+          </a>
+          <span class="host">{host(f.url)}</span>
+          {f.dato && <p>{f.dato}</p>}
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  .fontes {
+    margin-top: 4rem;
+    border-top: 3px solid var(--ink);
+    padding-top: 1rem;
+    max-width: var(--measure);
+  }
+  h2 {
+    margin: 0 0 1rem;
+  }
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: f;
+  }
+  li {
+    counter-increment: f;
+    position: relative;
+    padding: 0.8rem 0 0.8rem 2.2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.95rem;
+  }
+  li::before {
+    content: counter(f, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  a {
+    font-weight: 600;
+  }
+  .host {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  p {
+    margin: 0.3rem 0 0;
+    color: var(--ink-2);
+    font-size: 0.9rem;
+  }
+</style>

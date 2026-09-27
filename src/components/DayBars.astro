@@ -1,0 +1,181 @@
+---
+/*
+  Barras de luz diurna (0–24 h, hora oficial) para o 21 de decembro de 2026.
+  Datos de timeanddate.com, recollidos en fontes/dossier-lanzamento.md.
+*/
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const rows = [
+  {
+    city: 'Santiago de Compostela',
+    rise: '9:01',
+    set: '18:02',
+    noon: '13:32',
+    src: 'https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026',
+  },
+  {
+    city: 'Lisboa',
+    rise: '7:50',
+    set: '17:18',
+    noon: '12:34',
+    src: 'https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026',
+  },
+];
+
+const toMin = (s: string) => {
+  const [h, m] = s.split(':').map(Number);
+  return h * 60 + m;
+};
+const pct = (s: string) => (toMin(s) / 1440) * 100;
+
+const txt = {
+  gl: {
+    title: '21 de decembro de 2026, en hora oficial',
+    noon: 'mediodía solar',
+    source: 'Fonte',
+    note: 'O sol está no máis alto ás 13:32 en Santiago e ás 12:34 en Lisboa, a pesar de estaren case no mesmo meridiano.',
+  },
+  es: {
+    title: '21 de diciembre de 2026, en hora oficial',
+    noon: 'mediodía solar',
+    source: 'Fuente',
+    note: 'El sol está en lo más alto a las 13:32 en Santiago y a las 12:34 en Lisboa, a pesar de estar casi en el mismo meridiano.',
+  },
+}[lang];
+
+const ticks = [0, 6, 12, 18, 24];
+---
+
+<figure class="bars">
+  <figcaption class="kicker">{txt.title}</figcaption>
+  <div class="scale" aria-hidden="true">
+    {ticks.map((h) => <span style={`left:${(h / 24) * 100}%`}>{h}h</span>)}
+  </div>
+  {
+    rows.map((r) => (
+      <div class="row">
+        <div class="label">
+          <strong>{r.city}</strong>
+          <span class="num">
+            {r.rise} – {r.set}
+          </span>
+        </div>
+        <div class="track" role="img" aria-label={`${r.city}: ${r.rise}–${r.set}, ${txt.noon} ${r.noon}`}>
+          <div class="day" style={`left:${pct(r.rise)}%;width:${pct(r.set) - pct(r.rise)}%`} />
+          <div class="noon" style={`left:${pct(r.noon)}%`}>
+            <span class="num">{r.noon}</span>
+          </div>
+          <div class="twelve" style="left:50%" />
+        </div>
+      </div>
+    ))
+  }
+  <p class="note">
+    {txt.note}
+    {' '}
+    {txt.source}:{' '}
+    {rows.map((r, i) => (
+      <>
+        <a href={r.src}>timeanddate.com ({r.city})</a>
+        {i < rows.length - 1 ? ', ' : '.'}
+      </>
+    ))}
+  </p>
+</figure>
+
+<style>
+  .bars {
+    margin: 0;
+  }
+  .scale {
+    position: relative;
+    height: 1.2rem;
+    margin-left: var(--label-w);
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .scale span {
+    position: absolute;
+    transform: translateX(-50%);
+  }
+  .scale span:first-child {
+    transform: none;
+  }
+  .scale span:last-child {
+    transform: translateX(-100%);
+  }
+  .bars {
+    --label-w: 13rem;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: var(--label-w) 1fr;
+    align-items: center;
+    border-top: 1px solid var(--rule);
+    padding-block: 0.9rem;
+  }
+  .label {
+    display: grid;
+    font-size: 0.95rem;
+  }
+  .label .num {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .track {
+    position: relative;
+    height: 2.4rem;
+    background: var(--ink);
+  }
+  .day {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: var(--sun-soft);
+  }
+  .noon {
+    position: absolute;
+    top: -0.35rem;
+    bottom: -0.35rem;
+    width: 2px;
+    background: var(--sun);
+  }
+  .noon span {
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .twelve {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-left: 1px dashed var(--ink-2);
+  }
+  .note {
+    margin: 0.8rem 0 0;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+  @media (max-width: 640px) {
+    .bars {
+      --label-w: 0rem;
+    }
+    .row {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+    .scale {
+      margin-left: 0;
+    }
+  }
+</style>

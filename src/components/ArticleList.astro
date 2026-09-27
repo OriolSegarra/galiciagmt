@@ -1,0 +1,94 @@
+---
+import { articleUrl, t, type Lang } from '../i18n/ui';
+import { slugOf, type Artigo } from '../lib/artigos';
+
+interface Props {
+  lang: Lang;
+  items: Artigo[];
+}
+const { lang, items } = Astro.props;
+---
+
+<ol class="list">
+  {
+    items.map((a, i) => (
+      <li>
+        <a href={articleUrl(lang, slugOf(a))}>
+          <span class="n num">{String(i + 1).padStart(2, '0')}</span>
+          <span class="body">
+            <span class="kicker">{t(lang, `section.${a.data.seccion}` as const)}</span>
+            <span class="title">{a.data.titulo}</span>
+            <span class="lede">{a.data.entradilla}</span>
+          </span>
+          <span class="arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+  li {
+    border-top: 1px solid var(--ink);
+  }
+  a {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr 2rem;
+    gap: 1rem;
+    padding-block: 1.4rem;
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--ink);
+    background: linear-gradient(var(--paper-2), var(--paper-2));
+  }
+  a:hover .arrow {
+    transform: translateX(4px);
+    color: var(--blue);
+  }
+  .n {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--muted);
+    padding-left: 0.2rem;
+  }
+  .body {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .title {
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+  .lede {
+    color: var(--ink-2);
+    max-width: 60ch;
+  }
+  .arrow {
+    font-size: 1.4rem;
+    align-self: center;
+    transition: transform 0.15s;
+  }
+  @media (max-width: 640px) {
+    a {
+      grid-template-columns: 2.6rem 1fr;
+    }
+    .n {
+      font-size: 1.3rem;
+    }
+    .arrow {
+      display: none;
+    }
+  }
+</style>

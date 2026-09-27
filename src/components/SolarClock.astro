@@ -1,0 +1,111 @@
+---
+import { t, type Lang } from '../i18n/ui';
+import { SANTIAGO_LON } from '../config';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<figure class="clock" data-lon={SANTIAGO_LON} data-lang={lang}>
+  <div class="row">
+    <div class="cell">
+      <span class="kicker">{t(lang, 'clock.official')}</span>
+      <span class="time num" data-official>--:--</span>
+    </div>
+    <div class="cell solar">
+      <span class="kicker">{t(lang, 'clock.solar')}</span>
+      <span class="time num" data-solar>--:--</span>
+    </div>
+  </div>
+  <div class="gap">
+    <span class="num" data-gap>—</span>
+    <span>{t(lang, 'clock.gap')}</span>
+  </div>
+  <figcaption>{t(lang, 'clock.note')}</figcaption>
+</figure>
+
+<script>
+  function pad(n: number) {
+    return String(n).padStart(2, '0');
+  }
+
+  function tick(el: HTMLElement) {
+    const lon = Number(el.dataset.lon);
+    const now = new Date();
+    const official = new Intl.DateTimeFormat('es-ES', {
+      timeZone: 'Europe/Madrid',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+    }).format(now);
+
+    // Hora solar media: UTC + lonxitude × 4 min/grao.
+    const utcMin = now.getUTCHours() * 60 + now.getUTCMinutes() + now.getUTCSeconds() / 60;
+    const solarMin = (((utcMin + lon * 4) % 1440) + 1440) % 1440;
+    const solar = `${pad(Math.floor(solarMin / 60))}:${pad(Math.floor(solarMin % 60))}`;
+
+    const [oh, om] = official.split(':').map(Number);
+    let diff = Math.round(oh * 60 + om - solarMin);
+    diff = ((diff % 1440) + 1440) % 1440;
+    if (diff > 720) diff -= 1440;
+    const h = Math.floor(Math.abs(diff) / 60);
+    const m = Math.abs(diff) % 60;
+
+    el.querySelector('[data-official]')!.textContent = official;
+    el.querySelector('[data-solar]')!.textContent = solar;
+    el.querySelector('[data-gap]')!.textContent = `${h} h ${pad(m)} min`;
+  }
+
+  document.querySelectorAll<HTMLElement>('.clock').forEach((el) => {
+    tick(el);
+    setInterval(() => tick(el), 15_000);
+  });
+</script>
+
+<style>
+  .clock {
+    margin: 0;
+    border-top: 3px solid var(--ink);
+    padding-top: 1rem;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .cell {
+    display: grid;
+    gap: 0.2rem;
+  }
+  .time {
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .solar .time {
+    color: var(--sun);
+  }
+  .gap {
+    margin-top: 1.2rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+    font-size: 1.1rem;
+  }
+  .gap .num {
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: -0.02em;
+  }
+  figcaption {
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    max-width: 44ch;
+  }
+</style>

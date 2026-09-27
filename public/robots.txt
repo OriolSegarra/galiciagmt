@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://galiciagmt.vercel.app/sitemap-index.xml

@@ -1,0 +1,80 @@
+---
+import { r, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap grid">
+    <div class="ai">
+      <p class="big">{t(lang, 'footer.ai')}</p>
+      <p><a href={r(lang, 'ia')}>{t(lang, 'footer.ai.more')} →</a></p>
+    </div>
+    <div class="links">
+      <ul>
+        <li><a href={r(lang, 'artigos')}>{t(lang, 'nav.artigos')}</a></li>
+        <li><a href={r(lang, 'asinao')}>{t(lang, 'nav.asinao')}</a></li>
+        <li><a href={r(lang, 'sobre')}>{t(lang, 'nav.sobre')}</a></li>
+        <li><a href={r(lang, 'ia')}>{t(lang, 'nav.ia')}</a></li>
+      </ul>
+    </div>
+    <div class="small">
+      <p>{t(lang, 'footer.rules')}</p>
+      <p>{t(lang, 'footer.license')} {year}.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 6rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding-block: 3rem 3.5rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.4fr;
+    gap: 2rem;
+  }
+  .big {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 0.8rem;
+    max-width: 20ch;
+  }
+  a {
+    color: var(--paper);
+  }
+  a:hover {
+    color: var(--sun);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+    font-weight: 600;
+  }
+  ul a {
+    text-decoration: none;
+  }
+  .small {
+    font-size: 0.875rem;
+    color: #b9b6ae;
+  }
+  .small p {
+    margin: 0 0 0.6rem;
+  }
+  @media (max-width: 760px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

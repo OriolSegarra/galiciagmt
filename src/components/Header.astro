@@ -1,0 +1,141 @@
+---
+import { r, t, type Lang } from '../i18n/ui';
+import Logo from './Logo.astro';
+
+interface Props {
+  lang: Lang;
+  alt?: string;
+}
+const { lang, alt } = Astro.props;
+const path = Astro.url.pathname;
+const altHref = alt ?? (lang === 'gl' ? '/es/' : '/');
+
+const items = [
+  { href: r(lang, 'artigos'), label: t(lang, 'nav.artigos') },
+  { href: r(lang, 'sobre'), label: t(lang, 'nav.sobre') },
+  { href: r(lang, 'ia'), label: t(lang, 'nav.ia') },
+];
+const isActive = (href: string) => path.startsWith(href) && href !== '/' && href !== '/es/';
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href={r(lang, 'home')} aria-label={t(lang, 'site.name')}>
+      <Logo />
+    </a>
+    <nav aria-label="Principal">
+      <ul>
+        {
+          items.map((i) => (
+            <li>
+              <a href={i.href} aria-current={isActive(i.href) ? 'page' : undefined}>
+                {i.label}
+              </a>
+            </li>
+          ))
+        }
+        <li class="sign">
+          <a href={r(lang, 'asinao')} aria-current={isActive(r(lang, 'asinao')) ? 'page' : undefined}>
+            {t(lang, 'nav.asinao')}
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="lang">
+      <span aria-current="true">{lang.toUpperCase()}</span>
+      <a href={altHref} hreflang={lang === 'gl' ? 'es' : 'gl'} lang={lang === 'gl' ? 'es' : 'gl'}>
+        {lang === 'gl' ? 'ES' : 'GL'}
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--ink);
+    background: var(--paper);
+  }
+  .bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem 2rem;
+    min-height: 4rem;
+  }
+  .brand {
+    text-decoration: none;
+    color: var(--ink);
+  }
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.6rem;
+    justify-content: flex-end;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  nav a {
+    text-decoration: none;
+    padding-block: 0.3rem;
+    border-bottom: 2px solid transparent;
+  }
+  nav a[aria-current='page'] {
+    border-bottom-color: var(--ink);
+  }
+  .sign a {
+    background: var(--sun);
+    padding: 0.35rem 0.7rem;
+    border: 0;
+    color: var(--ink);
+  }
+  .sign a:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .lang {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-left: 1px solid var(--rule);
+    padding-left: 1.2rem;
+  }
+  .lang span {
+    color: var(--ink);
+  }
+  .lang a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .lang a:hover {
+    color: var(--blue);
+  }
+
+  @media (max-width: 760px) {
+    .bar {
+      grid-template-columns: 1fr auto;
+      padding-block: 0.8rem;
+    }
+    nav {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      overflow-x: auto;
+      margin-inline: calc(var(--gutter) * -1);
+      padding-inline: var(--gutter);
+      border-top: 1px solid var(--rule);
+      padding-top: 0.6rem;
+    }
+    nav ul {
+      justify-content: flex-start;
+      gap: 1.2rem;
+      white-space: nowrap;
+    }
+    .lang {
+      border: 0;
+      padding: 0;
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** Ruta equivalente no outro idioma, para o selector e hreflang. */
+  alt?: string;
+  type?: 'website' | 'article';
+}
+
+const { lang, title, description, alt, type = 'website' } = Astro.props;
+const siteName = t(lang, 'site.name');
+const fullTitle = title ? `${title} — ${siteName}` : `${siteName} · ${t(lang, 'site.tagline')}`;
+const desc = description ?? t(lang, 'site.description');
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const altLang: Lang = lang === 'gl' ? 'es' : 'gl';
+const og = new URL('/og.png', Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    {alt && <link rel="alternate" hreflang={lang} href={canonical} />}
+    {alt && <link rel="alternate" hreflang={altLang} href={new URL(alt, Astro.site)} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#f3f0e8" />
+    <meta name="color-scheme" content="light" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title ?? siteName} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:locale" content={lang === 'gl' ? 'gl_ES' : 'es_ES'} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip visually-hidden" href="#main">{lang === 'gl' ? 'Ir ao contido' : 'Ir al contenido'}</a>
+    <Header lang={lang} alt={alt} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

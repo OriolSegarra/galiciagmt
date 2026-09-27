@@ -1,0 +1,12 @@
+---
+import Article from '../../../views/Article.astro';
+import { artigosDe, slugOf } from '../../../lib/artigos';
+
+export async function getStaticPaths() {
+  const list = await artigosDe('es');
+  return list.map((entry) => ({ params: { slug: slugOf(entry) }, props: { entry } }));
+}
+const { entry } = Astro.props;
+---
+
+<Article entry={entry} />
