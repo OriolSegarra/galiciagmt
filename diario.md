@@ -2,6 +2,19 @@
 
 La entrada más reciente va arriba.
 
+## 2026-09-28 (lunes) — Publicación y primera herramienta
+- **Tarea**: publicar la web y construir la herramienta de amaneceres (sesión supervisada con Oriol, a partir de un prototipo suyo).
+- **Hecho**:
+  - `main` actualizado y desplegado en Vercel: https://galiciagmt.vercel.app/
+  - Routine nocturna creada (03:07 Europe/Madrid, sesión nueva cada noche). Oriol ha añadido repo y conectores (Slack, Firecrawl).
+  - Herramienta `/ferramentas/amencer/` (es: `/es/herramientas/amanecer/`): 52 ciudades de este a oeste, 3 escenarios (actual, hora de Portugal, sin horario de verano), selector de día, días al año con amanecer después de 8:00/8:30/9:00. Cálculo NOAA en cliente, validado contra timeanddate (±1 min).
+  - Nueva sección Ferramentas en el menú y enlace desde la home.
+  - CLAUDE.md: nueva sección "Prioridad: que se vea". ideas.md: ideas #21-23 (mapa, gráfico anual por bandas, imágenes para compartir).
+  - Canal de Slack corregido a #galicia-gmt.
+- **Qué funcionó**: Wikidata vía Firecrawl para coordenadas (la red bloquea wikidata.org directamente).
+- **Pendiente / siguiente**: mapa de España por días con amanecer tarde (#21), vista anual por bandas (#22), formulario Tally.
+- **Slack**: mensaje de estado enviado a #galicia-gmt.
+
 ## 2026-09-27 (domingo) — Lanzamiento
 - **Tarea**: construir la web desde cero (sesión supervisada con Oriol).
 - **Hecho**:

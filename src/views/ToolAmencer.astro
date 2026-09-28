@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+import AmencerEspana from '../components/AmencerEspana.astro';
+import Fontes from '../components/Fontes.astro';
+import Cta from '../components/Cta.astro';
+import { articleUrl, r, type Lang } from '../i18n/ui';
+import { WIKIDATA_SRC } from '../data/cidades';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const c = {
+  gl: {
+    kicker: 'Ferramenta',
+    h1: 'A que hora amence en cada cidade?',
+    lede: 'Todas as capitais peninsulares e de Baleares, ordenadas de leste a oeste. Cambia o escenario e o día e mira como o mesmo reloxo cae moi distinto en Xirona e en Vigo.',
+    readH: 'Como lela',
+    read: [
+      'Cada punto é a hora oficial á que sae o sol ese día. Canto máis á dereita, máis tarde amence.',
+      'A zona raiada marca os amenceres despois da hora que elixas. Os puntos laranxa xa caen nela.',
+      'A columna da dereita conta cantos días do ano amence despois desa hora.',
+      'Nos escenarios alternativos, o círculo baleiro indica onde estaría o amencer co horario actual.',
+    ],
+    methodH: 'Método',
+    method:
+      'Os amenceres calcúlanse no teu navegador coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe refracción e tamaño do disco solar). Contrastámolos cos datos de timeanddate.com para Santiago e Lisboa e a diferenza é de 0 a 1 minuto. O horario de verán aplícase do último domingo de marzo ao último de outubro, como fixa o Real Decreto 236/2002. As coordenadas das cidades proceden de Wikidata. Canarias non aparece porque xa ten unha hora menos ca Península.',
+    related: 'Para entender por que pasa isto',
+    relatedLink: 'Galicia está ao oeste de Greenwich',
+    relatedSlug: 'galicia-ao-oeste-de-greenwich',
+  },
+  es: {
+    kicker: 'Herramienta',
+    h1: '¿A qué hora amanece en cada ciudad?',
+    lede: 'Todas las capitales peninsulares y de Baleares, ordenadas de este a oeste. Cambia el escenario y el día y mira cómo el mismo reloj cae muy distinto en Girona y en Vigo.',
+    readH: 'Cómo leerla',
+    read: [
+      'Cada punto es la hora oficial a la que sale el sol ese día. Cuanto más a la derecha, más tarde amanece.',
+      'La zona rayada marca los amaneceres después de la hora que elijas. Los puntos naranjas ya caen en ella.',
+      'La columna de la derecha cuenta cuántos días del año amanece después de esa hora.',
+      'En los escenarios alternativos, el círculo vacío indica dónde estaría el amanecer con el horario actual.',
+    ],
+    methodH: 'Método',
+    method:
+      'Los amaneceres se calculan en tu navegador con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye refracción y tamaño del disco solar). Los hemos contrastado con los datos de timeanddate.com para Santiago y Lisboa y la diferencia es de 0 a 1 minuto. El horario de verano se aplica del último domingo de marzo al último de octubre, como fija el Real Decreto 236/2002. Las coordenadas de las ciudades proceden de Wikidata. Canarias no aparece porque ya tiene una hora menos que la Península.',
+    related: 'Para entender por qué pasa esto',
+    relatedLink: 'Galicia está al oeste de Greenwich',
+    relatedSlug: 'galicia-al-oeste-de-greenwich',
+  },
+}[lang];
+
+const fontes = [
+  {
+    titulo: 'NOAA — General Solar Position Calculations',
+    url: 'https://gml.noaa.gov/grad/solcalc/solareqns.PDF',
+    dato: lang === 'gl' ? 'Ecuacións de amencer e solpor (cénit 90,833°)' : 'Ecuaciones de amanecer y puesta de sol (cénit 90,833°)',
+  },
+  {
+    titulo: 'Wikidata — coordenadas (P625)',
+    url: WIKIDATA_SRC,
+    dato: lang === 'gl' ? 'Lonxitude e latitude de cada cidade (CC0)' : 'Longitud y latitud de cada ciudad (CC0)',
+  },
+  {
+    titulo: 'BOE — Real Decreto 236/2002, hora de verán',
+    url: 'https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221',
+    dato: lang === 'gl' ? 'Verán: do último domingo de marzo ao último de outubro' : 'Verano: del último domingo de marzo al último de octubre',
+  },
+  {
+    titulo: 'timeanddate.com — Santiago de Compostela, decembro 2026',
+    url: 'https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026',
+    dato: lang === 'gl' ? 'Validación: 21/12 amence ás 9:01 (o cálculo dá 9:01)' : 'Validación: 21/12 amanece a las 9:01 (el cálculo da 9:01)',
+  },
+  {
+    titulo: 'timeanddate.com — Lisboa, decembro 2026',
+    url: 'https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026',
+    dato: lang === 'gl' ? 'Validación: 21/12 amence ás 7:50 (o cálculo dá 7:51)' : 'Validación: 21/12 amanece a las 7:50 (el cálculo da 7:51)',
+  },
+];
+---
+
+<Base lang={lang} title={c.h1} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'amencer')}>
+  <div class="wrap page">
+    <header class="head">
+      <p class="kicker"><a href={r(lang, 'ferramentas')}>{c.kicker}</a></p>
+      <h1>{c.h1}</h1>
+      <p class="lede">{c.lede}</p>
+    </header>
+
+    <AmencerEspana lang={lang} />
+
+    <div class="notes">
+      <section>
+        <h2 class="kicker">{c.readH}</h2>
+        <ul>{c.read.map((x) => <li>{x}</li>)}</ul>
+      </section>
+      <section>
+        <h2 class="kicker">{c.methodH}</h2>
+        <p>{c.method}</p>
+        <p>
+          {c.related}: <a href={articleUrl(lang, c.relatedSlug)}>{c.relatedLink} →</a>
+        </p>
+      </section>
+    </div>
+
+    <Fontes lang={lang} fontes={fontes} />
+  </div>
+  <Cta lang={lang} />
+</Base>
+
+<style>
+  .page {
+    padding-top: 3rem;
+  }
+  .head {
+    max-width: 52rem;
+    margin-bottom: 2.2rem;
+  }
+  .kicker a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h1 {
+    margin: 0.8rem 0 1rem;
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    font-weight: 800;
+  }
+  .lede {
+    font-size: 1.2rem;
+    color: var(--ink-2);
+    max-width: 50ch;
+    margin: 0;
+  }
+  .notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+  .notes h2 {
+    margin: 0 0 0.6rem;
+  }
+  .notes ul {
+    padding-left: 1.1rem;
+    margin: 0;
+  }
+  .notes li + li {
+    margin-top: 0.4rem;
+  }
+  .notes p {
+    margin: 0 0 0.8rem;
+  }
+  @media (max-width: 760px) {
+    .notes {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

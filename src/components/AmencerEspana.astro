@@ -1,0 +1,571 @@
+---
+/*
+  Ferramenta: a que hora amence en cada cidade de España segundo o horario oficial.
+  Cálculo no navegador (src/lib/sol.ts, método NOAA). Render inicial no servidor para que funcione sen JS.
+*/
+import { cidades, WIKIDATA_SRC } from '../data/cidades';
+import { amencer, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const ANO = new Date().getUTCFullYear();
+const DOY_INICIAL = Math.round((Date.UTC(ANO, 11, 21) - Date.UTC(ANO, 0, 0)) / 86_400_000);
+const LIMIAR = 510; // 8:30
+const EIXO = { min: 300, max: 600 }; // axustase á data (ver eixoPara)
+
+const t = {
+  gl: {
+    esc: 'Escenario',
+    actual: 'Horario actual',
+    actualSub: 'UTC+1 / verán UTC+2',
+    portugal: 'Hora de Portugal',
+    portugalSub: 'UTC+0 / verán UTC+1',
+    senVeran: 'Sen horario de verán',
+    senVeranSub: 'UTC+1 todo o ano',
+    data: 'Día',
+    inverno: '21 dec',
+    hoxe: 'Hoxe',
+    veran: '21 xuñ',
+    limiar: 'Contar días con amencer despois das',
+    dias: 'días/ano',
+    diasLong: 'días ao ano con amencer despois das',
+    oeste: 'Oeste',
+    leste: 'Leste',
+    agora: 'hora actual',
+    meses: ['xan', 'feb', 'mar', 'abr', 'mai', 'xuñ', 'xul', 'ago', 'set', 'out', 'nov', 'dec'],
+    titular: (d: string, e: string, a: string, b: string, na: string, nb: string, dif: number) =>
+      `${d}, ${e}: o sol sae ás ${a} en ${na} e ás ${b} en ${nb}. ${dif} minutos de diferenza co mesmo reloxo.`,
+    escTxt: { actual: 'co horario actual', portugal: 'coa hora de Portugal', senVeran: 'sen horario de verán' },
+    cidade: 'Cidade',
+    amencer: 'Amencer',
+  },
+  es: {
+    esc: 'Escenario',
+    actual: 'Horario actual',
+    actualSub: 'UTC+1 / verano UTC+2',
+    portugal: 'Hora de Portugal',
+    portugalSub: 'UTC+0 / verano UTC+1',
+    senVeran: 'Sin horario de verano',
+    senVeranSub: 'UTC+1 todo el año',
+    data: 'Día',
+    inverno: '21 dic',
+    hoxe: 'Hoy',
+    veran: '21 jun',
+    limiar: 'Contar días con amanecer después de las',
+    dias: 'días/año',
+    diasLong: 'días al año con amanecer después de las',
+    oeste: 'Oeste',
+    leste: 'Este',
+    agora: 'hora actual',
+    meses: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+    titular: (d: string, e: string, a: string, b: string, na: string, nb: string, dif: number) =>
+      `${d}, ${e}: el sol sale a las ${a} en ${na} y a las ${b} en ${nb}. ${dif} minutos de diferencia con el mismo reloj.`,
+    escTxt: { actual: 'con el horario actual', portugal: 'con la hora de Portugal', senVeran: 'sin horario de verano' },
+    cidade: 'Ciudad',
+    amencer: 'Amanecer',
+  },
+}[lang];
+
+const esc: Escenario = 'actual';
+const dataIni = new Date(Date.UTC(ANO, 0, DOY_INICIAL, 12));
+function eixoPara(d: Date) {
+  const todos = cidades.flatMap((c) => (['actual', 'portugal', 'senVeran'] as Escenario[]).map((e) => amencer(d, c.lat, c.lon, e)));
+  return { min: Math.floor((Math.min(...todos) - 10) / 60) * 60, max: Math.ceil((Math.max(...todos) + 10) / 60) * 60 };
+}
+const ex = eixoPara(dataIni);
+EIXO.min = ex.min;
+EIXO.max = ex.max;
+const pct = (m: number) => ((Math.min(EIXO.max, Math.max(EIXO.min, m)) - EIXO.min) / (EIXO.max - EIXO.min)) * 100;
+const filas = cidades.map((c) => {
+  const a = amencer(dataIni, c.lat, c.lon, esc);
+  return { ...c, a, dias: diasDespoisDe(ANO, c.lat, c.lon, esc, LIMIAR) };
+});
+const leste = filas[0];
+const oeste = filas[filas.length - 1];
+const fmtData = (d: Date) => `${d.getUTCDate()} ${t.meses[d.getUTCMonth()]}`;
+const titularIni = t.titular(
+  fmtData(dataIni),
+  t.escTxt[esc],
+  hhmm(leste.a),
+  hhmm(oeste.a),
+  lang === 'gl' ? leste.gl : leste.es,
+  lang === 'gl' ? oeste.gl : oeste.es,
+  Math.round(oeste.a - leste.a),
+);
+const ticks = Array.from({ length: (EIXO.max - EIXO.min) / 60 + 1 }, (_, i) => EIXO.min / 60 + i);
+const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
+---
+
+<section
+  class="tool"
+  data-ano={ANO}
+  data-min={EIXO.min}
+  data-max={EIXO.max}
+  data-i18n={JSON.stringify(i18n)}
+  data-cidades={JSON.stringify(cidades)}
+>
+  <div class="controls">
+    <fieldset class="seg" data-control="esc">
+      <legend class="kicker">{t.esc}</legend>
+      <button type="button" data-v="actual" aria-pressed="true"><b>{t.actual}</b><span>{t.actualSub}</span></button>
+      <button type="button" data-v="portugal" aria-pressed="false"><b>{t.portugal}</b><span>{t.portugalSub}</span></button>
+      <button type="button" data-v="senVeran" aria-pressed="false"><b>{t.senVeran}</b><span>{t.senVeranSub}</span></button>
+    </fieldset>
+
+    <div class="row2">
+      <div class="date">
+        <label class="kicker" for="doy">{t.data}: <output data-out="data">{fmtData(dataIni)}</output></label>
+        <input id="doy" type="range" min="1" max="365" value={DOY_INICIAL} data-control="doy" />
+        <div class="quick">
+          <button type="button" data-doy="inverno">{t.inverno}</button>
+          <button type="button" data-doy="hoxe">{t.hoxe}</button>
+          <button type="button" data-doy="veran">{t.veran}</button>
+        </div>
+      </div>
+      <fieldset class="seg small" data-control="lim">
+        <legend class="kicker">{t.limiar}</legend>
+        <button type="button" data-v="480" aria-pressed="false">8:00</button>
+        <button type="button" data-v="510" aria-pressed="true">8:30</button>
+        <button type="button" data-v="540" aria-pressed="false">9:00</button>
+      </fieldset>
+    </div>
+  </div>
+
+  <p class="headline" data-out="titular" aria-live="polite">{titularIni}</p>
+
+  <div class="chart" role="table" aria-label={t.amencer}>
+    <div class="head" role="row">
+      <span role="columnheader" class="kicker">{t.cidade}</span>
+      <span role="columnheader" class="axis" aria-hidden="true">
+        {ticks.map((h) => <i style={`left:${pct(h * 60)}%`}>{h}:00</i>)}
+      </span>
+      <span role="columnheader" class="kicker right"><span class="lg">{t.dias} &gt; <output data-out="lim">8:30</output></span><span class="sm">{t.dias.split('/')[0]}</span></span>
+    </div>
+    {
+      filas.map((f, i) => (
+        <div class:list={['r', { gz: f.galicia }]} role="row" data-i={i}>
+          <span role="cell" class="name">
+            {lang === 'gl' ? f.gl : f.es}
+          </span>
+          <span role="cell" class="track">
+            <span class="late" style={`left:${pct(LIMIAR)}%`} />
+            <span class="ghost" style={`left:${pct(f.a)}%`} hidden />
+            <span class="dot" style={`left:${pct(f.a)}%`} title={hhmm(f.a)} />
+            <span class="t num">{hhmm(f.a)}</span>
+          </span>
+          <span role="cell" class="days num">
+            <span class="bar" style={`width:${(f.dias / 365) * 100}%`} />
+            <b>{f.dias}</b>
+          </span>
+        </div>
+      ))
+    }
+  </div>
+  <p class="legend">
+    <span><i class="k-dot" /> {t.amencer}</span>
+    <span class="lg-ghost" hidden><i class="k-ghost" /> {t.agora}</span>
+    <span><i class="k-late" /> {t.diasLong} <output data-out="lim2">8:30</output></span>
+  </p>
+</section>
+
+<script>
+  import { amencer, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
+
+  type C = { gl: string; es: string; lat: number; lon: number; galicia?: boolean };
+
+  document.querySelectorAll<HTMLElement>('.tool').forEach((root) => {
+    const ano = Number(root.dataset.ano);
+    let min = Number(root.dataset.min);
+    let max = Number(root.dataset.max);
+    const axis = root.querySelector<HTMLElement>('.axis')!;
+    const cidades: C[] = JSON.parse(root.dataset.cidades!);
+    const i18n = JSON.parse(root.dataset.i18n!) as {
+      meses: string[];
+      escTxt: Record<Escenario, string>;
+      lang: 'gl' | 'es';
+    };
+    const rows = [...root.querySelectorAll<HTMLElement>('.r')];
+    const range = root.querySelector<HTMLInputElement>('[data-control="doy"]')!;
+    const state = { esc: 'actual' as Escenario, doy: Number(range.value), lim: 510 };
+    const cache = new Map<string, number[]>();
+
+    const pct = (m: number) => ((Math.min(max, Math.max(min, m)) - min) / (max - min)) * 100;
+    const dateOf = (doy: number) => new Date(Date.UTC(ano, 0, doy, 12));
+    const nome = (c: C) => (i18n.lang === 'gl' ? c.gl : c.es);
+
+    function dias(): number[] {
+      const k = `${state.esc}-${state.lim}`;
+      if (!cache.has(k)) cache.set(k, cidades.map((c) => diasDespoisDe(ano, c.lat, c.lon, state.esc, state.lim)));
+      return cache.get(k)!;
+    }
+
+    function render() {
+      const d = dateOf(state.doy);
+      const todos = cidades.flatMap((c) =>
+        (['actual', 'portugal', 'senVeran'] as Escenario[]).map((e) => amencer(d, c.lat, c.lon, e)),
+      );
+      const nmin = Math.floor((Math.min(...todos) - 10) / 60) * 60;
+      const nmax = Math.ceil((Math.max(...todos) + 10) / 60) * 60;
+      if (nmin !== min || nmax !== max) {
+        min = nmin;
+        max = nmax;
+        axis.innerHTML = '';
+        for (let h = min / 60; h <= max / 60; h++) {
+          const i = document.createElement('i');
+          i.style.left = pct(h * 60) + '%';
+          i.textContent = `${h}:00`;
+          axis.appendChild(i);
+        }
+      }
+      const ds = dias();
+      const am = cidades.map((c) => amencer(d, c.lat, c.lon, state.esc));
+      const act = cidades.map((c) => amencer(d, c.lat, c.lon, 'actual'));
+      const showGhost = state.esc !== 'actual';
+      rows.forEach((row, i) => {
+        const dot = row.querySelector<HTMLElement>('.dot')!;
+        const ghost = row.querySelector<HTMLElement>('.ghost')!;
+        dot.style.left = pct(am[i]) + '%';
+        dot.title = hhmm(am[i]);
+        row.querySelector('.t')!.textContent = hhmm(am[i]);
+        ghost.hidden = !showGhost || Math.abs(act[i] - am[i]) < 1;
+        ghost.style.left = pct(act[i]) + '%';
+        row.querySelector<HTMLElement>('.late')!.style.left = pct(state.lim) + '%';
+        row.querySelector<HTMLElement>('.bar')!.style.width = (ds[i] / 365) * 100 + '%';
+        row.querySelector('.days b')!.textContent = String(ds[i]);
+        row.classList.toggle('is-late', am[i] > state.lim);
+      });
+      root.querySelector<HTMLElement>('.lg-ghost')!.hidden = !showGhost;
+      const fecha = `${d.getUTCDate()} ${i18n.meses[d.getUTCMonth()]}`;
+      root.querySelector('[data-out="data"]')!.textContent = fecha;
+      const limTxt = hhmm(state.lim);
+      root.querySelector('[data-out="lim"]')!.textContent = limTxt;
+      root.querySelector('[data-out="lim2"]')!.textContent = limTxt;
+      const a = am[0];
+      const b = am[am.length - 1];
+      const txt =
+        i18n.lang === 'gl'
+          ? `${fecha}, ${i18n.escTxt[state.esc]}: o sol sae ás ${hhmm(a)} en ${nome(cidades[0])} e ás ${hhmm(b)} en ${nome(cidades[cidades.length - 1])}. ${Math.round(b - a)} minutos de diferenza co mesmo reloxo.`
+          : `${fecha}, ${i18n.escTxt[state.esc]}: el sol sale a las ${hhmm(a)} en ${nome(cidades[0])} y a las ${hhmm(b)} en ${nome(cidades[cidades.length - 1])}. ${Math.round(b - a)} minutos de diferencia con el mismo reloj.`;
+      root.querySelector('[data-out="titular"]')!.textContent = txt;
+    }
+
+    function seg(sel: string, cb: (v: string) => void) {
+      const box = root.querySelector(sel)!;
+      box.querySelectorAll<HTMLButtonElement>('button').forEach((b) =>
+        b.addEventListener('click', () => {
+          box.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+          cb(b.dataset.v!);
+          render();
+        }),
+      );
+    }
+    seg('[data-control="esc"]', (v) => (state.esc = v as Escenario));
+    seg('[data-control="lim"]', (v) => (state.lim = Number(v)));
+    range.addEventListener('input', () => {
+      state.doy = Number(range.value);
+      render();
+    });
+    root.querySelectorAll<HTMLButtonElement>('[data-doy]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const k = b.dataset.doy;
+        const doy =
+          k === 'inverno'
+            ? Math.round((Date.UTC(ano, 11, 21) - Date.UTC(ano, 0, 0)) / 86_400_000)
+            : k === 'veran'
+              ? Math.round((Date.UTC(ano, 5, 21) - Date.UTC(ano, 0, 0)) / 86_400_000)
+              : Math.min(365, Math.round((Date.now() - Date.UTC(new Date().getUTCFullYear(), 0, 0)) / 86_400_000));
+        state.doy = doy;
+        range.value = String(doy);
+        render();
+      }),
+    );
+    render();
+  });
+</script>
+
+<style>
+  .tool {
+    --name-w: 7.5rem;
+    --days-w: 9rem;
+  }
+  .controls {
+    display: grid;
+    gap: 1.4rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  legend {
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  .seg {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .seg legend {
+    width: 100%;
+  }
+  .seg button {
+    font: inherit;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    text-align: left;
+    display: grid;
+    gap: 0.1rem;
+    margin-right: -1px;
+  }
+  .seg button b {
+    font-weight: 700;
+  }
+  .seg button span {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .seg button[aria-pressed='true'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .seg button[aria-pressed='true'] span {
+    color: #c9c6be;
+  }
+  .seg button:hover:not([aria-pressed='true']) {
+    background: var(--paper-2);
+  }
+  .seg.small button {
+    padding: 0.45rem 0.9rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .row2 {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2rem;
+    align-items: end;
+  }
+  .date label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .date output {
+    color: var(--ink);
+  }
+  input[type='range'] {
+    width: 100%;
+    accent-color: var(--blue);
+  }
+  .quick {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.3rem;
+  }
+  .quick button {
+    font: inherit;
+    font-size: 0.85rem;
+    background: none;
+    border: 0;
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+    color: var(--ink-2);
+  }
+  .headline {
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin: 1.6rem 0 1.4rem;
+    max-width: 52ch;
+  }
+  .chart {
+    font-size: 0.85rem;
+  }
+  .head,
+  .r {
+    display: grid;
+    grid-template-columns: var(--name-w) 1fr var(--days-w);
+    gap: 1rem;
+    align-items: center;
+  }
+  .head {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  .head small {
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .axis {
+    position: relative;
+    height: 1rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .axis i {
+    position: absolute;
+    font-style: normal;
+    transform: translateX(-50%);
+  }
+  .right {
+    text-align: right;
+  }
+  .right .sm {
+    display: none;
+  }
+  .r {
+    height: 1.55rem;
+    border-bottom: 1px solid #e3ddcf;
+  }
+  .r.gz {
+    background: var(--paper-2);
+  }
+  .r.gz .name {
+    font-weight: 800;
+    color: var(--blue);
+  }
+  .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .track {
+    position: relative;
+    height: 100%;
+  }
+  .late {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: repeating-linear-gradient(135deg, transparent 0 4px, rgba(17, 20, 23, 0.07) 4px 5px);
+    border-left: 1px dashed var(--ink-2);
+  }
+  .dot,
+  .ghost {
+    position: absolute;
+    top: 50%;
+    width: 0.7rem;
+    height: 0.7rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: left 0.25s ease;
+  }
+  .dot {
+    background: var(--ink);
+    z-index: 2;
+  }
+  .r.gz .dot {
+    background: var(--blue);
+  }
+  .r.is-late .dot {
+    background: var(--sun);
+    outline: 2px solid var(--ink);
+  }
+  .ghost {
+    border: 1.5px solid var(--muted);
+    background: var(--paper);
+  }
+  .t {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: var(--ink-2);
+    background: var(--paper);
+    padding-left: 0.3rem;
+  }
+  .r.gz .t {
+    background: var(--paper-2);
+  }
+  .days {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  .bar {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    bottom: 30%;
+    background: var(--sun);
+    transition: width 0.25s ease;
+  }
+  .days b {
+    position: relative;
+    font-weight: 700;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.6rem;
+    font-size: 0.8rem;
+    color: var(--ink-2);
+    margin-top: 1rem;
+  }
+  .legend i {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    vertical-align: -0.05rem;
+    margin-right: 0.3rem;
+  }
+  .k-dot {
+    background: var(--ink);
+    border-radius: 50%;
+  }
+  .k-ghost {
+    border: 1.5px solid var(--muted);
+    border-radius: 50%;
+  }
+  .k-late {
+    background: var(--sun);
+  }
+  @media (max-width: 700px) {
+    .tool {
+      --name-w: 5.6rem;
+      --days-w: 2.4rem;
+    }
+    .row2 {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+    .seg button {
+      flex: 1 1 30%;
+      padding: 0.5rem 0.6rem;
+      font-size: 0.85rem;
+    }
+    .bar,
+    .t,
+    .head small {
+      display: none;
+    }
+    .right .lg,
+    .seg button span {
+      display: none;
+    }
+    .right .sm {
+      display: inline;
+    }
+    .tool {
+      --days-w: 2.2rem;
+    }
+  }
+</style>

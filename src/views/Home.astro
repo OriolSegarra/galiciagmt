@@ -28,6 +28,8 @@ const c = {
     a2src: 'Ver fonte',
     listK: 'Para entendelo en cinco lecturas',
     all: 'Todos os artigos',
+    toolK: 'Ferramenta',
+    toolT: 'A que hora amence en 52 cidades de España, de Xirona a Vigo',
   },
   es: {
     kicker: 'Hora oficial y hora del sol',
@@ -43,6 +45,8 @@ const c = {
     a2src: 'Ver fuente',
     listK: 'Para entenderlo en cinco lecturas',
     all: 'Todos los artículos',
+    toolK: 'Herramienta',
+    toolT: 'A qué hora amanece en 52 ciudades de España, de Girona a Vigo',
   },
 }[lang];
 
@@ -64,6 +68,10 @@ const first = items[0];
 
   <section class="wrap block">
     <DayBars lang={lang} />
+    <a class="toolink" href={r(lang, 'amencer')}>
+      <span class="kicker">{c.toolK}</span>
+      <span class="tt">{c.toolT} →</span>
+    </a>
   </section>
 
   <section class="wrap block ask">
@@ -125,6 +133,27 @@ const first = items[0];
   }
   .block {
     margin-top: 4rem;
+  }
+  .toolink {
+    display: grid;
+    gap: 0.3rem;
+    margin-top: 1.6rem;
+    padding: 1.1rem 1.2rem;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+  }
+  .toolink .kicker {
+    color: var(--sun);
+  }
+  .toolink .tt {
+    font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+  .toolink:hover {
+    background: var(--blue);
+    color: var(--paper);
   }
   .ask h2 {
     font-size: clamp(1.6rem, 3.4vw, 2.4rem);

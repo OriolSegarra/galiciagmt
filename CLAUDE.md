@@ -25,6 +25,12 @@ El objetivo no es "ganar una discusión", sino que el tema entre en la agenda p�
 - **Sin tics de IA**: nada de "en un mundo donde…", "cabe destacar", tríadas de adjetivos, moralejas finales, emojis.
 - Idioma principal **gallego normativo (RAG)**; toda pieza existe también en castellano.
 
+## Prioridad: que se vea (indicación de Oriol, 28/09/2026)
+Las piezas **visuales e interactivas** son las que mejor explican el problema y las que más se comparten. Buscar siempre la forma de enseñarlo con un gráfico, una comparativa o una herramienta, no solo contarlo.
+- Idea clave a transmitir: el desfase **no es igual en toda España**. Mallorca, Barcelona o Valencia encajan bien en UTC+1; de Madrid hacia el Atlántico cada vez encaja peor, y Galicia es el extremo. Ver `/ferramentas/amencer/`.
+- Cada artículo nuevo debería llevar, cuando tenga sentido, al menos un elemento visual (tabla, gráfico SVG, comparativa, enlace a una herramienta con el estado preconfigurado).
+- Reutiliza `src/lib/sol.ts` (cálculo NOAA de amanecer/atardecer, validado ±1 min) y `src/data/cidades.ts` (52 ciudades, coordenadas de Wikidata) para nuevas visualizaciones.
+
 ## Reglas fijas (no negociables)
 1. **Cada dato o cifra lleva su fuente enlazada. Sin fuente, no se publica.** (El build falla si un artículo no tiene `fontes`.)
 2. **Nunca inventar apoyos, citas, firmas ni testimonios.** Tampoco contadores de firmas falsos ni "X concellos apoyan…" sin prueba pública.

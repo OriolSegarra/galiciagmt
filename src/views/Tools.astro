@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+import { r, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const c = {
+  gl: {
+    lede: 'Ferramentas para velo cos teus propios ollos. Todas calculan no teu navegador e explican o método.',
+    items: [
+      {
+        href: r('gl', 'amencer'),
+        t: 'A que hora amence en cada cidade?',
+        d: 'Cincuenta e dúas cidades de leste a oeste, tres escenarios horarios e calquera día do ano.',
+      },
+    ],
+  },
+  es: {
+    lede: 'Herramientas para verlo con tus propios ojos. Todas calculan en tu navegador y explican el método.',
+    items: [
+      {
+        href: r('es', 'amencer'),
+        t: '¿A qué hora amanece en cada ciudad?',
+        d: 'Cincuenta y dos ciudades de este a oeste, tres escenarios horarios y cualquier día del año.',
+      },
+    ],
+  },
+}[lang];
+---
+
+<Base lang={lang} title={t(lang, 'nav.ferramentas')} alt={r(lang === 'gl' ? 'es' : 'gl', 'ferramentas')}>
+  <header class="wrap head">
+    <h1>{t(lang, 'nav.ferramentas')}</h1>
+    <p>{c.lede}</p>
+  </header>
+  <ol class="wrap list">
+    {
+      c.items.map((i, n) => (
+        <li>
+          <a href={i.href}>
+            <span class="n num">{String(n + 1).padStart(2, '0')}</span>
+            <span>
+              <span class="t">{i.t}</span>
+              <span class="d">{i.d}</span>
+            </span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</Base>
+
+<style>
+  .head {
+    padding-block: 3.5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: end;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+    font-weight: 800;
+  }
+  .head p {
+    margin: 0;
+    color: var(--ink-2);
+    max-width: 40ch;
+    font-size: 1.1rem;
+  }
+  .list {
+    list-style: none;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .list li {
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .list a {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr 2rem;
+    gap: 1rem;
+    padding-block: 1.4rem;
+    text-decoration: none;
+    align-items: center;
+  }
+  .n {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--muted);
+  }
+  .t {
+    display: block;
+    font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+  .d {
+    display: block;
+    color: var(--ink-2);
+    margin-top: 0.3rem;
+  }
+  @media (max-width: 760px) {
+    .head {
+      grid-template-columns: 1fr;
+    }
+    .list a {
+      grid-template-columns: 2.6rem 1fr;
+    }
+    .list a > span:last-child {
+      display: none;
+    }
+  }
+</style>

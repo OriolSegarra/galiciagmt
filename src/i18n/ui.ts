@@ -6,6 +6,8 @@ export const langs: Record<Lang, string> = { gl: 'Galego', es: 'Castellano' };
 export const routes = {
   home: { gl: '/', es: '/es/' },
   artigos: { gl: '/artigos/', es: '/es/articulos/' },
+  ferramentas: { gl: '/ferramentas/', es: '/es/herramientas/' },
+  amencer: { gl: '/ferramentas/amencer/', es: '/es/herramientas/amanecer/' },
   asinao: { gl: '/asinao/', es: '/es/firmalo/' },
   sobre: { gl: '/sobre/', es: '/es/sobre/' },
   ia: { gl: '/ia/', es: '/es/ia/' },
@@ -20,6 +22,7 @@ export const ui = {
     'site.description':
       'Divulgación e campaña para que Galicia recupere a hora de Greenwich (como Portugal e Canarias) ou, polo menos, deixe de adiantar o reloxo no verán.',
     'nav.artigos': 'Artigos',
+    'nav.ferramentas': 'Ferramentas',
     'nav.asinao': 'Asínao',
     'nav.sobre': 'O proxecto',
     'nav.ia': 'Como se fai',
@@ -56,6 +59,7 @@ export const ui = {
     'site.description':
       'Divulgación y campaña para que Galicia recupere la hora de Greenwich (como Portugal y Canarias) o, al menos, deje de adelantar el reloj en verano.',
     'nav.artigos': 'Artículos',
+    'nav.ferramentas': 'Herramientas',
     'nav.asinao': 'Fírmalo',
     'nav.sobre': 'El proyecto',
     'nav.ia': 'Cómo se hace',
