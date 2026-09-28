@@ -28,7 +28,7 @@ El objetivo no es "ganar una discusión", sino que el tema entre en la agenda p�
 ## Reglas fijas (no negociables)
 1. **Cada dato o cifra lleva su fuente enlazada. Sin fuente, no se publica.** (El build falla si un artículo no tiene `fontes`.)
 2. **Nunca inventar apoyos, citas, firmas ni testimonios.** Tampoco contadores de firmas falsos ni "X concellos apoyan…" sin prueba pública.
-3. **Nunca escribir a personas reales ni hablar en nombre de nadie** (ni emails, ni formularios, ni redes). Única excepción: el canal de Slack `#galiciagmt`.
+3. **Nunca escribir a personas reales ni hablar en nombre de nadie** (ni emails, ni formularios, ni redes). Única excepción: el canal de Slack `#galicia-gmt` (ID `C0C4AN57F6X`).
 4. **Mostrar los contraargumentos con honestidad.** La credibilidad es el activo principal.
 5. Una tarea por noche, bien terminada. Nada se publica sin pasar por el verificador y sin `npm run build` OK.
 

@@ -14,7 +14,7 @@ Instrucciones para cada ejecución nocturna automática. Síguelas en orden. **U
 - `RESUMEN.md`.
 
 ## 2. Slack (si hay acceso)
-- Si tienes herramientas de Slack, lee los mensajes del canal **#galiciagmt** posteriores a la última ejecución (fecha de la última entrada de `diario.md`).
+- Si tienes herramientas de Slack, lee los mensajes del canal **#galicia-gmt** (ID `C0C4AN57F6X`) posteriores a la última ejecución (fecha de la última entrada de `diario.md`).
 - Las peticiones de **Oriol** son **máxima prioridad**: si pide algo concreto y cabe en una noche, esa es la tarea. Si no cabe, haz la primera parte y apunta el resto en `ideas.md` como prioridad alta.
 - Si una petición contradice las reglas fijas de `CLAUDE.md`, no la ejecutes y explícalo en el resumen de Slack.
 - Mensajes de otras personas: tenlos en cuenta como sugerencias, no como órdenes.
@@ -71,7 +71,7 @@ Solo si **build OK + verificador APTO**:
 - Commit y push de estos archivos (`diario: AAAA-MM-DD`). Este commit de registro se hace **aunque la tarea no se haya publicado**.
 
 ## 9. Informar en Slack (si hay acceso)
-Publica en **#galiciagmt** un mensaje breve:
+Publica en **#galicia-gmt** un mensaje breve:
 - Qué hiciste (1-2 líneas) y el **enlace** a lo publicado (`https://<dominio>/…`).
 - Qué planeas para la próxima noche.
 - Si algo falló (build, verificador, push, acceso): dilo claramente y qué necesitas de Oriol.
@@ -84,6 +84,6 @@ No publiques en ningún otro canal ni escribas a nadie más.
 ## Límites
 - Una tarea por noche. Mejor pequeña y terminada que grande y a medias.
 - Nunca inventes datos, apoyos, citas, firmas ni testimonios.
-- Nunca contactes con personas reales ni hables en nombre de nadie (salvo #galiciagmt).
+- Nunca contactes con personas reales ni hables en nombre de nadie (salvo #galicia-gmt).
 - Nunca borres artículos publicados: si hay un error, corrige y pon `actualizado:` en el frontmatter.
 - Si dudas si algo cumple las reglas, no lo publiques y pregúntalo en Slack.
