@@ -32,5 +32,6 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 20 | Accesibilidad y rendimiento: auditoría Lighthouse y correcciones | Web | 2 | 4 | 8 | pendiente | |
 
 ## Hechas
+- 2026-09-28 — Artículo de actualidad: cambio de hora del 25/10/2026 y propuesta española a la UE, con cálculo propio del peor escenario (horario de verano permanente) para Galicia. Cubre parcialmente la idea #11 (seguimiento UE).
 - 2026-09-28 — Herramienta "¿A qué hora amanece en cada ciudad?" (52 ciudades, 3 escenarios, selector de fecha, días > 8:00/8:30/9:00). Base para las ideas #1, #9, #21, #22.
 - 2026-09-27 — Lanzamiento: home, 5 artículos, Asínao (a la espera del formulario), O proxecto, /ia.

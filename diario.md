@@ -2,6 +2,27 @@
 
 La entrada más reciente va arriba.
 
+## 2026-09-28 (lunes) — Segunda ejecución de prueba: confirmado el push a main
+- **Tarea**: prueba de la Routine (pedida por Oriol) para confirmar que `git push origin main` funciona tras añadir el repo a los "sources" autorizados; como tarea de contenido, artículo de actualidad sobre el cambio de hora del 25 de octubre de 2026 y la propuesta española a la UE (la primera prueba, de esta misma mañana, lo había escrito pero no pudo publicarlo por un 403 del proxy — ver entrada siguiente).
+- **Hecho**:
+  - `git push origin main` **funciona**: bloqueante resuelto.
+  - Artículo nuevo gl/es publicado en `main`: "O 25 de outubro atrasamos o reloxo: por que iso non arranxa o problema de Galicia" / "El 25 de octubre atrasamos el reloj…" → `/artigos/cambio-de-hora-outubro-2026/` y `/es/articulos/cambio-de-hora-octubre-2026/`.
+  - Contenido: fin del horario de verano (BOE, Orden PCM/186/2022), propuesta española de octubre de 2025 de derogar el cambio de hora en la UE (El País, Expansión) y estado estancado del expediente COM(2018)639 desde 2018 (Consilium, Comisión Europea). Incluye tabla comparativa con cálculo propio (método NOAA de `sol.ts`): si algún día se impusiera el horario de verano permanente en vez de eliminar el cambio de hora, en Santiago el sol saldría sobre las 10:01 el 21 de diciembre (frente a las 9:01 actuales). Enlaza a `/ferramentas/amencer/`.
+  - Fuentes nuevas verificadas con Firecrawl (BOE, El País, Consilium, Comisión Europea, EUR-Lex, Expansión); no se ha creado un dossier nuevo en `fontes/` porque las 6 fuentes ya quedan citadas íntegras en el propio artículo.
+- **Verificador**: NO APTO en la 1ª vuelta (una cita de una fuente diplomática, tomada del artículo de El País de 20/10/2025, se presentaba como declarada en 2025 cuando en realidad la hizo en 2021 y El País solo la recuerda) → corregido (se aclaró la fecha real de la cita en ambos idiomas y en el frontmatter) → **APTO en la 2ª vuelta**. `npm run build` OK en ambas rondas.
+- **Qué funcionó**: Firecrawl (`formats: ["query"]`) para verificar citas exactas contra la fuente original de El País, incluso detectando una fecha mal atribuida que el investigador no había distinguido.
+- **Qué no / aprendizajes**: el investigador puede mezclar la fecha de publicación de un artículo con la fecha real de una cita que ese artículo recuerda de años anteriores — pedir siempre al verificador que compruebe fechas de citas, no solo su literalidad.
+- **Pendiente / siguiente**: retomar el ritmo normal de ideas.md (la #21, mapa de España, es la siguiente pieza grande para un lunes). Seguir con el backlog de campañas (moción modelo, kit de prensa) cuando Oriol confirme el formulario Tally.
+- **Slack**: leído. Petición de Oriol (mensajes "Prueba 2" pendientes de confirmación de push): confirmar que `git push origin main` funciona — confirmado, ver arriba.
+
+## 2026-09-28 (lunes) — Prueba de la Routine (bloqueada, sin publicar)
+- **Tarea**: primera ejecución de prueba de la Routine (pedida por Oriol). Se escribió un artículo de actualidad sobre el cambio de hora del 25/10/2026 y la propuesta española a la UE, con verificador pasado (APTO en 2ª vuelta), pero **no se pudo publicar**.
+- **Hecho**: dossier de fuentes (BOE, El País/Expansión, Consilium, Comisión Europea) y artículo gl/es redactados y verificados en el entorno de esa sesión; `npm run build` OK.
+- **Verificador**: APTO en la 2ª vuelta (en esa sesión; el trabajo en sí no se conservó, ver abajo).
+- **Qué no / aprendizajes**: `git push origin main` falló con 403 (`repo no autorizado en el conjunto de fuentes de la sesión`) — el repo se había añadido a la Routine con la sesión ya iniciada, y esa lista de repos autorizados no se recarga en caliente. El commit local de esa sesión se perdió al terminar el contenedor (cada ejecución nocturna arranca un contenedor nuevo): no había forma de recuperarlo desde una sesión posterior, así que el artículo se rehizo desde cero en la siguiente ejecución (ver entrada de arriba).
+- **Pendiente / siguiente**: confirmar en una nueva ejecución que el push funciona (hecho, ver entrada de arriba) y no depender nunca de que el trabajo local de una sesión sobreviva a otra.
+- **Slack**: leído/escrito. Se informó del bloqueo y se pidió a Oriol añadir el repo a los "sources" del entorno/trigger programado.
+
 ## 2026-09-28 (lunes) — Publicación y primera herramienta
 - **Tarea**: publicar la web y construir la herramienta de amaneceres (sesión supervisada con Oriol, a partir de un prototipo suyo).
 - **Hecho**:
