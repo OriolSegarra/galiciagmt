@@ -16,7 +16,7 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 4 | Activar el formulario de firmas (Tally) en Asínao | Campaña | 5 | 5 | 25 | pendiente | **Requiere a Oriol**: crear el form en tally.so y pasar el ID → `src/config.ts` |
 | 5 | **Test: ¿cuánto te afecta el desfase?** (5 preguntas: hora de despertar, cronotipo, trabajo) | Herramienta | 4 | 3 | 12 | pendiente | No es diagnóstico médico; explicarlo. Sin guardar datos |
 | 6 | **Mapa de apoyos**: concellos/entidades que se pronuncian públicamente | Herramienta | 5 | 2 | 10 | pendiente | SOLO con acuerdos plenarios o declaraciones públicas enlazadas. Vacío hasta que exista el primero |
-| 7 | Artículo: **¿Quién puede cambiar la hora de Galicia?** Marco legal (RD 236/2002, competencias, precedente Canarias) | Artículo | 5 | 3 | 15 | pendiente | Buscar análisis jurídico serio; no afirmar sin fuente |
+| 7 | Artículo: **¿Quién puede cambiar la hora de Galicia?** Marco legal (RD 236/2002, competencias, precedente Canarias) | Artículo | 5 | 3 | 15 | hecha 2026-09-29 | Buscar análisis jurídico serio; no afirmar sin fuente |
 | 8 | Artículo: **El colegio a oscuras**: horarios escolares y luz en enero en Galicia | Artículo | 4 | 3 | 12 | pendiente | Datos: calendario escolar Xunta + amaneceres |
 | 9 | Gráfico anual: hora de amanecer y atardecer en Santiago todo el año, con CET vs GMT | Herramienta | 4 | 4 | 16 | pendiente | Se integra en la home o en el artículo 1 |
 | 10 | Artículo: **La frontera del Miño**: vivir con una hora de diferencia (Tui–Valença) | Artículo | 4 | 3 | 12 | pendiente | Buscar datos de trabajadores transfronterizos (EURES, Eixo Atlántico, AECT). No usar sin fuente |
@@ -32,6 +32,7 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 20 | Accesibilidad y rendimiento: auditoría Lighthouse y correcciones | Web | 2 | 4 | 8 | pendiente | |
 
 ## Hechas
+- 2026-09-29 — Artículo: ¿Quién puede cambiar la hora oficial de Galicia? (CE 149.1.12.ª, RD 1308/1992, RD 236/2002). Queda pendiente verificar la norma de Canarias y el trámite parlamentario.
 - 2026-09-28 — Artículo de actualidad: cambio de hora del 25/10/2026 y propuesta española a la UE, con cálculo propio del peor escenario (horario de verano permanente) para Galicia. Cubre parcialmente la idea #11 (seguimiento UE).
 - 2026-09-28 — Herramienta "¿A qué hora amanece en cada ciudad?" (52 ciudades, 3 escenarios, selector de fecha, días > 8:00/8:30/9:00). Base para las ideas #1, #9, #21, #22.
 - 2026-09-27 — Lanzamiento: home, 5 artículos, Asínao (a la espera del formulario), O proxecto, /ia.

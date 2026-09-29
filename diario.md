@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-09-29 (martes)
+- **Tarea**: artículo "¿Quién puede cambiar la hora oficial de Galicia?" (idea #7).
+- **Hecho**: `/artigos/quen-pode-cambiar-a-hora-de-galicia/` y `/es/articulos/quien-puede-cambiar-la-hora-de-galicia/`. Marco legal: CE 149.1.12.ª (hora oficial, competencia exclusiva del Estado), RD 1308/1992, RD 236/2002. Dossier en `fontes/marco-legal-hora-oficial.md`. Noticias de la semana: nada nuevo sobre Galicia.
+- **Verificador**: NO APTO a la 1ª vuelta (frase de Greenwich sin fuente, entradilla que citaba a las Cortes sin respaldo, `orde` duplicado) → corregido → APTO a la 2ª. Build OK.
+- **Qué funcionó**: Firecrawl con `directQuote` contra el BOE.
+- **Qué no / aprendizajes**: los subagentes `redactor`, `verificador`, `investigador` y `desarrollador` dejaron de estar disponibles a mitad de sesión; redacté yo y usé un agente general-purpose como verificador. El investigador no pudo confirmar la norma original de Canarias ni el trámite parlamentario: quedan como "lo que no sabemos" en el artículo.
+- **Pendiente / siguiente**: moción modelo (#2), que se apoya en este artículo; buscar el Reglamento del Congreso y la norma de Canarias con fuente primaria. Próximo lunes: mapa de España (#21).
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-09-28 (lunes) — Segunda ejecución de prueba: confirmado el push a main
 - **Tarea**: prueba de la Routine (pedida por Oriol) para confirmar que `git push origin main` funciona tras añadir el repo a los "sources" autorizados; como tarea de contenido, artículo de actualidad sobre el cambio de hora del 25 de octubre de 2026 y la propuesta española a la UE (la primera prueba, de esta misma mañana, lo había escrito pero no pudo publicarlo por un 403 del proxy — ver entrada siguiente).
 - **Hecho**:
