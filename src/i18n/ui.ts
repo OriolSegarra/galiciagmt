@@ -9,6 +9,7 @@ export const routes = {
   ferramentas: { gl: '/ferramentas/', es: '/es/herramientas/' },
   amencer: { gl: '/ferramentas/amencer/', es: '/es/herramientas/amanecer/' },
   asinao: { gl: '/asinao/', es: '/es/firmalo/' },
+  mocion: { gl: '/mocion/', es: '/es/mocion/' },
   sobre: { gl: '/sobre/', es: '/es/sobre/' },
   ia: { gl: '/ia/', es: '/es/ia/' },
 } as const;
