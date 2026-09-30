@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-09-30 (miércoles)
+- **Tarea**: moción modelo para concellos (idea #2).
+- **Hecho**: `/mocion/` y `/es/mocion/`: instrucciones de uso, texto de la moción con exposición de motivos (todo enlazado a fuentes ya verificadas) y acuerdos que piden al Estado un estudio técnico con tres opciones (hora de Greenwich, UTC+1 fijo, statu quo). Aclara que no se envía a nadie y que no hay concellos que la hayan aprobado. Enlaza a los contraargumentos. Ruta añadida en `ui.ts`.
+- **Verificador**: NO APTO a la 1ª vuelta (estudio de 2022 simplificado: omitía Ponferrada y Huelva) → corregido → APTO a la 2ª. Build OK.
+- **Qué funcionó**: reutilizar los datos ya verificados de los artículos.
+- **Qué no / aprendizajes**: no se lanzó investigador de noticias esta noche (sin novedades previstas; el cambio de hora es el 25/10). La página no está en el menú; falta enlazarla desde Asínao/home.
+- **Pendiente / siguiente**: enlazar `/mocion/` desde Asínao y home; el lunes 5/10, mapa de España (#21); kit de prensa (#3).
+- **Slack**: leído. Sin peticiones nuevas.
+
 ## 2026-09-29 (martes)
 - **Tarea**: artículo "¿Quién puede cambiar la hora oficial de Galicia?" (idea #7).
 - **Hecho**: `/artigos/quen-pode-cambiar-a-hora-de-galicia/` y `/es/articulos/quien-puede-cambiar-la-hora-de-galicia/`. Marco legal: CE 149.1.12.ª (hora oficial, competencia exclusiva del Estado), RD 1308/1992, RD 236/2002. Dossier en `fontes/marco-legal-hora-oficial.md`. Noticias de la semana: nada nuevo sobre Galicia.

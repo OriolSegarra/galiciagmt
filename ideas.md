@@ -11,7 +11,7 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 22 | **Tu año de amaneceres**: gráfico anual por ciudad con bandas horarias (5-6, 6-7… 9-10) por escenario, como el prototipo de Oriol | Herramienta | 4 | 4 | 16 | pendiente | Integrar en la herramienta de amaneceres como segunda vista |
 | 23 | Imágenes para compartir (PNG) de la herramienta de amaneceres: "Vigo vs Girona el 21/12" | Campaña | 4 | 3 | 12 | pendiente | Generar en build o con canvas en cliente |
 | 1 | **¿A qué hora amanecería en tu concello?** Buscador de los 313 concellos: amanecer/atardecer hoy con CET y con GMT, en invierno y verano | Herramienta | 5 | 3 | 15 | pendiente | Cálculo astronómico en el cliente (algoritmo NOAA, citar método). Coordenadas de concellos: IGN / Nomenclátor. Candidata al primer lunes |
-| 2 | **Moción modelo para concellos** (gl/es, descargable .docx/.pdf) | Campaña | 5 | 4 | 20 | pendiente | Solo texto y argumentos con fuente; nunca enviarla a nadie. Página `/mocion` |
+| 2 | **Moción modelo para concellos** (gl/es, descargable .docx/.pdf) | Campaña | 5 | 4 | 20 | hecha 2026-09-30 (falta descarga .docx/.pdf) | Solo texto y argumentos con fuente; nunca enviarla a nadie. Página `/mocion` |
 | 3 | **Kit de prensa**: 10 datos clave con fuente, gráficos descargables, contacto | Campaña | 4 | 4 | 16 | pendiente | Reutilizar dossier `fontes/` |
 | 4 | Activar el formulario de firmas (Tally) en Asínao | Campaña | 5 | 5 | 25 | pendiente | **Requiere a Oriol**: crear el form en tally.so y pasar el ID → `src/config.ts` |
 | 5 | **Test: ¿cuánto te afecta el desfase?** (5 preguntas: hora de despertar, cronotipo, trabajo) | Herramienta | 4 | 3 | 12 | pendiente | No es diagnóstico médico; explicarlo. Sin guardar datos |
@@ -32,6 +32,7 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 20 | Accesibilidad y rendimiento: auditoría Lighthouse y correcciones | Web | 2 | 4 | 8 | pendiente | |
 
 ## Hechas
+- 2026-09-30 — Moción modelo para concellos en `/mocion/` (gl/es). Pendiente: versión descargable y enlaces desde Asínao/home.
 - 2026-09-29 — Artículo: ¿Quién puede cambiar la hora oficial de Galicia? (CE 149.1.12.ª, RD 1308/1992, RD 236/2002). Queda pendiente verificar la norma de Canarias y el trámite parlamentario.
 - 2026-09-28 — Artículo de actualidad: cambio de hora del 25/10/2026 y propuesta española a la UE, con cálculo propio del peor escenario (horario de verano permanente) para Galicia. Cubre parcialmente la idea #11 (seguimiento UE).
 - 2026-09-28 — Herramienta "¿A qué hora amanece en cada ciudad?" (52 ciudades, 3 escenarios, selector de fecha, días > 8:00/8:30/9:00). Base para las ideas #1, #9, #21, #22.
