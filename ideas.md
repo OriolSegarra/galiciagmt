@@ -3,21 +3,26 @@
 Puntuación: **Impacto** (1-5) × **Facilidad** (1-5, 5 = muy fácil) = **Prioridad**. Se trabaja de mayor a menor salvo el ritmo de AGENTE_NOCHE.md (lunes = herramienta o pieza grande; día 1 = revisión estratégica).
 Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)`.
 
-Última revisión: 2026-09-27 (lanzamiento).
+Última revisión: 2026-10-01 (revisión estratégica mensual). Calendario: lunes 5/10 mapa (#21); semana del 19-25/10 piezas ligadas al cambio de hora del 25/10 (#8, #11, #26).
 
 | # | Idea | Tipo | Imp. | Fac. | Prio. | Estado | Notas |
 |---|---|---|---|---|---|---|---|
-| 21 | **Mapa de España** coloreado por días al año con amanecer después de las 8:30 (actual vs Portugal vs sin verano) | Herramienta | 5 | 3 | 15 | pendiente | Reutilizar `sol.ts` + `cidades.ts`; SVG propio, sin librerías pesadas. Muy compartible |
+| 21 | **Mapa de España** coloreado por días al año con amanecer después de las 8:30 (actual vs Portugal vs sin verano) | Herramienta | 5 | 3 | 15 | pendiente (lunes 5/10; ya existe el gráfico por ciudades `AmencerEspana`, el mapa es la vista nueva) | Reutilizar `sol.ts` + `cidades.ts`; SVG propio, sin librerías pesadas. Muy compartible |
 | 22 | **Tu año de amaneceres**: gráfico anual por ciudad con bandas horarias (5-6, 6-7… 9-10) por escenario, como el prototipo de Oriol | Herramienta | 4 | 4 | 16 | pendiente | Integrar en la herramienta de amaneceres como segunda vista |
 | 23 | Imágenes para compartir (PNG) de la herramienta de amaneceres: "Vigo vs Girona el 21/12" | Campaña | 4 | 3 | 12 | pendiente | Generar en build o con canvas en cliente |
 | 1 | **¿A qué hora amanecería en tu concello?** Buscador de los 313 concellos: amanecer/atardecer hoy con CET y con GMT, en invierno y verano | Herramienta | 5 | 3 | 15 | pendiente | Cálculo astronómico en el cliente (algoritmo NOAA, citar método). Coordenadas de concellos: IGN / Nomenclátor. Candidata al primer lunes |
 | 2 | **Moción modelo para concellos** (gl/es, descargable .docx/.pdf) | Campaña | 5 | 4 | 20 | hecha 2026-09-30 (falta descarga .docx/.pdf) | Solo texto y argumentos con fuente; nunca enviarla a nadie. Página `/mocion` |
+| 24 | Enlazar `/mocion/` desde Asínao, home y pie; añadir versión descargable (.pdf/.docx) | Web | 4 | 5 | 20 | pendiente | Cierra la idea #2. Una noche corta; combinar con otra mejora pequeña |
+| 25 | Revisar enlaces internos y de menú: que ninguna página nueva (moción, herramientas) quede huérfana | Web | 3 | 5 | 15 | pendiente | Auditoría rápida de `ui.ts` |
+| 26 | Artículo/guía para el 25/10: "Qué hora es en Galicia cuando amanece: guía del cambio de hora para prensa" con enlaces a la herramienta preconfigurada | Artículo | 4 | 4 | 16 | pendiente | Publicar ~20-24/10; reutilizar el artículo del cambio de hora; incluir contraargumentos |
+| 27 | Enlaces con estado preconfigurado a la herramienta (ciudad/fecha/escenario por URL) | Herramienta | 4 | 4 | 16 | pendiente | Permite citar "Vigo el 21/12" desde artículos y redes; base de #23 |
+| 28 | Dossier de contraargumentos para Xunta/Parlamento: opciones, costes y calendario de trámite (sin atribuir posturas a nadie) | Campaña | 4 | 3 | 12 | pendiente | Complementa #17 |
 | 3 | **Kit de prensa**: 10 datos clave con fuente, gráficos descargables, contacto | Campaña | 4 | 4 | 16 | pendiente | Reutilizar dossier `fontes/` |
-| 4 | Activar el formulario de firmas (Tally) en Asínao | Campaña | 5 | 5 | 25 | pendiente | **Requiere a Oriol**: crear el form en tally.so y pasar el ID → `src/config.ts` |
+| 4 | Activar el formulario de firmas (Tally) en Asínao | Campaña | 5 | 5 | 25 | pendiente, BLOQUEADA (3 semanas sin ID en `src/config.ts`; recordar en Slack) | **Requiere a Oriol**: crear el form en tally.so y pasar el ID → `src/config.ts` |
 | 5 | **Test: ¿cuánto te afecta el desfase?** (5 preguntas: hora de despertar, cronotipo, trabajo) | Herramienta | 4 | 3 | 12 | pendiente | No es diagnóstico médico; explicarlo. Sin guardar datos |
 | 6 | **Mapa de apoyos**: concellos/entidades que se pronuncian públicamente | Herramienta | 5 | 2 | 10 | pendiente | SOLO con acuerdos plenarios o declaraciones públicas enlazadas. Vacío hasta que exista el primero |
 | 7 | Artículo: **¿Quién puede cambiar la hora de Galicia?** Marco legal (RD 236/2002, competencias, precedente Canarias) | Artículo | 5 | 3 | 15 | hecha 2026-09-29 | Buscar análisis jurídico serio; no afirmar sin fuente |
-| 8 | Artículo: **El colegio a oscuras**: horarios escolares y luz en enero en Galicia | Artículo | 4 | 3 | 12 | pendiente | Datos: calendario escolar Xunta + amaneceres |
+| 8 | Artículo: **El colegio a oscuras**: horarios escolares y luz en enero en Galicia | Artículo | 4 | 4 | 16 | pendiente (sube: curso recién empezado, gancho estacional) | Datos: calendario escolar Xunta + amaneceres |
 | 9 | Gráfico anual: hora de amanecer y atardecer en Santiago todo el año, con CET vs GMT | Herramienta | 4 | 4 | 16 | pendiente | Se integra en la home o en el artículo 1 |
 | 10 | Artículo: **La frontera del Miño**: vivir con una hora de diferencia (Tui–Valença) | Artículo | 4 | 3 | 12 | pendiente | Buscar datos de trabajadores transfronterizos (EURES, Eixo Atlántico, AECT). No usar sin fuente |
 | 11 | Seguimiento UE: estado de COM(2018) 639 y Consejo; página "Onde estamos" actualizable | Artículo | 3 | 4 | 12 | pendiente | Ideal tras cada noticia UE |

@@ -2,6 +2,19 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-01 (jueves) — Revisión estratégica mensual
+- **Tarea**: día 1 del mes: revisión estratégica y reescritura parcial del backlog. No se publica contenido nuevo.
+- **Hecho**: `ideas.md` repuntuado (#8 sube por curso escolar y gancho estacional; #21 anotada para el lunes 5/10; #4 marcada como bloqueada) y 5 ideas nuevas (#24-28). Sin cambios en la web publicada. Build OK al empezar (31 páginas).
+- **Estrategia del mes (octubre)**:
+  - Septiembre: lanzamiento, herramienta de amaneceres con gráfico por ciudades, artículo del cambio de hora, marco legal y moción modelo. Funcionó: reutilizar fuentes ya verificadas; Firecrawl para fuentes primarias. Falló: el verificador cazó un error en 3 de 4 piezas (cifras mal resumidas, citas con fecha incorrecta), así que se mantiene como paso obligatorio; los subagentes a veces no están disponibles.
+  - Foco de octubre: (1) lunes 5/10 mapa de España; (2) cerrar la moción con enlaces y descarga; (3) piezas para el cambio de hora del 25/10, el momento de mayor atención mediática; (4) kit de prensa antes del 20/10.
+  - Cuello de botella: el formulario de firmas (#4) depende de Oriol desde el 28/09; sin él la web no recoge apoyo real. Se recuerda en Slack.
+  - Métrica: no hay analítica; no inventar cifras de alcance. Valorar con Oriol activar una analítica respetuosa con la privacidad.
+- **Verificador**: no aplica (solo cambios en `ideas.md`/`diario.md`/`RESUMEN.md`, sin contenido publicado).
+- **Qué no / aprendizajes**: no se lanzó investigador de noticias: el día 1 no se publica contenido y la última revisión (29-30/9) no halló novedades sobre Galicia.
+- **Pendiente / siguiente**: lunes 5/10, mapa de España (#21).
+- **Slack**: leído. Sin peticiones nuevas de Oriol (último mensaje, el informe del 30/9).
+
 ## 2026-09-30 (miércoles)
 - **Tarea**: moción modelo para concellos (idea #2).
 - **Hecho**: `/mocion/` y `/es/mocion/`: instrucciones de uso, texto de la moción con exposición de motivos (todo enlazado a fuentes ya verificadas) y acuerdos que piden al Estado un estudio técnico con tres opciones (hora de Greenwich, UTC+1 fijo, statu quo). Aclara que no se envía a nadie y que no hay concellos que la hayan aprobado. Enlaza a los contraargumentos. Ruta añadida en `ui.ts`.

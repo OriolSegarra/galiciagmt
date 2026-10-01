@@ -1,5 +1,4 @@
-# RESUMEN — última ejecución (2026-09-30)
+# RESUMEN — última ejecución (2026-10-01)
 
-Nueva página gl/es: moción modelo para concellos, con exposición de motivos fuente a fuente y acuerdos que piden al Estado un estudio técnico de la hora oficial en Galicia. `/mocion/` y `/es/mocion/`.
-Verificador: NO APTO en la 1ª vuelta (estudio de 2022 mal resumido) → corregido → APTO en la 2ª. Build OK.
-Siguiente: enlazarla desde Asínao y la home; el lunes, mapa de España (#21).
+Revisión estratégica mensual (día 1): backlog repuntuado, 5 ideas nuevas (#24-28) y apartado "Estrategia del mes" en el diario. No se publicó contenido nuevo.
+Foco de octubre: mapa de España (lunes 5/10), cerrar la moción con enlaces, piezas para el cambio de hora del 25/10 y kit de prensa. El formulario de firmas sigue bloqueado a la espera del ID de Tally (Oriol).
