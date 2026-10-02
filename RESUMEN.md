@@ -1,4 +1,4 @@
-# RESUMEN — última ejecución (2026-10-01)
+# RESUMEN — última ejecución (2026-10-02)
 
-Revisión estratégica mensual (día 1): backlog repuntuado, 5 ideas nuevas (#24-28) y apartado "Estrategia del mes" en el diario. No se publicó contenido nuevo.
-Foco de octubre: mapa de España (lunes 5/10), cerrar la moción con enlaces, piezas para el cambio de hora del 25/10 y kit de prensa. El formulario de firmas sigue bloqueado a la espera del ID de Tally (Oriol).
+Atendida la petición de Oriol: artículo sobre ritmo circadiano y luz solar, con tabla del amanecer en 14 ciudades que muestra que el desfase afecta a toda la mitad oeste de la península. /artigos/como-funciona-o-reloxo-do-corpo/ (es: /es/articulos/como-funciona-el-reloj-del-cuerpo/). Verificador y build OK.
+Siguiente: lunes 5/10, mapa de España (#21); más piezas de la serie circadiana (#29). El formulario Tally sigue sin ID en `src/config.ts`.

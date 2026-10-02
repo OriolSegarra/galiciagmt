@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-02 (viernes)
+- **Tarea**: petición de Oriol en Slack (1/10): artículos sobre ritmo circadiano y luz solar, y contenido sobre toda la mitad oeste de la península, no solo Galicia.
+- **Hecho**: artículo "Como funciona o reloxo do corpo: luz, sono e hora oficial" → `/artigos/como-funciona-o-reloxo-do-corpo/` y `/es/articulos/como-funciona-el-reloj-del-cuerpo/`. Fuentes: Nobel 2017, Wright 2013, Khalsa 2003, Roenneberg 2012, Gibson y Shrader 2018. Tabla propia (sol.ts) del amanecer del 21/12 en 14 ciudades, de Girona a Santiago, que muestra el gradiente este-oeste. Incluye "lo que no sabemos" (sin estudio del coste en euros).
+- **Verificador**: 1ª vuelta; única objeción (tilde en "merecen") descartada por incorrecta según la RAG. Fuentes, cifras y tabla confirmadas. Build OK (33 páginas).
+- **Qué funcionó**: investigador con fuentes primarias; reutilizar sol.ts.
+- **Qué no / aprendizajes**: el verificador puede dar falsos positivos de ortografía gallega; contrastar con la RAG. Fuente de Gibson y Shrader enlazada al repositorio de datos (no a la revista).
+- **Pendiente / siguiente**: más piezas sobre ritmo circadiano (cronotipo, adolescentes) y ampliar a la mitad oeste (idea #29); lunes 5/10, mapa de España (#21). Formulario Tally: Oriol dice haber conectado el MCP; no se ha tocado esta noche (crear/publicar el formulario es decisión de Oriol).
+- **Slack**: leído. Petición de Oriol atendida (primera parte).
+
 ## 2026-10-01 (jueves) — Revisión estratégica mensual
 - **Tarea**: día 1 del mes: revisión estratégica y reescritura parcial del backlog. No se publica contenido nuevo.
 - **Hecho**: `ideas.md` repuntuado (#8 sube por curso escolar y gancho estacional; #21 anotada para el lunes 5/10; #4 marcada como bloqueada) y 5 ideas nuevas (#24-28). Sin cambios en la web publicada. Build OK al empezar (31 páginas).
