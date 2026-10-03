@@ -45,6 +45,10 @@ La comparación con Lisboa, que comparte prácticamente la misma latitud pero es
 
 Más de una hora de diferencia en la salida del sol entre dos ciudades casi vecinas, con latitudes aproximadamente iguales, simplemente porque una vive en el huso de Greenwich y la otra en el centroeuropeo.
 
+El gráfico muestra el amanecer en Santiago cada día de 2026, con la hora oficial actual (línea negra) y con la de Lisboa (línea naranja). La línea azul discontinua marca las 8:30. Es un cálculo propio con el método de nuestra [herramienta de amaneceres](/es/herramientas/amanecer/); los saltos de las líneas coinciden con los cambios de hora de marzo y octubre.
+
+![Gráfico: hora del amanecer en Santiago cada día de 2026 con la hora actual y con la hora de Lisboa](/img/amencer-santiago-ano-es.svg)
+
 ## Una honestidad necesaria
 
 Conviene decirlo con claridad: este desfase no lo sufre por igual toda España. El propio documento UPM recoge la valoración de un experto sobre lo que pasaría si se cambiara de huso: en Galicia se corregiría la anomalía de que en invierno no hay luz a las nueve de la mañana y en verano se hace de noche casi a las once; pero en Barcelona, mucho más al este, el mismo cambio haría que en invierno anocheciera casi a las cuatro de la tarde, "lo cual sería un fiasco para esa zona". El argumento geográfico no es un capricho local: es literalmente una cuestión de longitud, y por eso lo que sobra en un extremo de la Península puede faltar en el otro.

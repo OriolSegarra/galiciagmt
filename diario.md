@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-03 (sábado)
+- **Tarea**: petición de Oriol en Slack (2/10): acompañar los posts con visuales propios, no solo texto y tablas.
+- **Hecho**: `scripts/figuras.ts` genera SVG con `sol.ts` y `cidades.ts` (`node scripts/figuras.ts` → `public/img/`). Dos figuras, en gl y es: (1) gradiente del amanecer el 21/12/2026 en 14 ciudades, de Girona a Santiago, con hora actual y hora de Lisboa, en `como-funciona-o-reloxo-do-corpo` / `como-funciona-el-reloj-del-cuerpo`; (2) amanecer en Santiago todo 2026 con ambas horas y la línea de las 8:30, en `galicia-ao-oeste-de-greenwich` / `galicia-al-oeste-de-greenwich`, con un párrafo que la presenta.
+- **Verificador**: NO APTO a la 1ª vuelta (enlace a la herramienta sin ruta es; concordancia gl) → corregido → APTO a la 2ª vuelta. Build OK (33 páginas).
+- **Qué funcionó**: SVG generados en script, con los mismos colores del sistema visual; revisión visual con captura de Chromium.
+- **Qué no / aprendizajes**: en markdown no se pueden incrustar componentes Astro; las figuras van como imágenes SVG estáticas (hay que regenerarlas si cambia `sol.ts`). Las figuras no tienen enlace propio a la fuente: se cita en el pie del SVG y en el texto.
+- **Pendiente / siguiente**: añadir figuras a los demás artículos (portugal-e-canarias, cambio de hora, os contraargumentos, 1940); lunes 5/10, mapa de España (#21).
+- **Slack**: leído. Petición de Oriol atendida (primera parte; nueva idea #30).
+
 ## 2026-10-02 (viernes)
 - **Tarea**: petición de Oriol en Slack (1/10): artículos sobre ritmo circadiano y luz solar, y contenido sobre toda la mitad oeste de la península, no solo Galicia.
 - **Hecho**: artículo "Como funciona o reloxo do corpo: luz, sono e hora oficial" → `/artigos/como-funciona-o-reloxo-do-corpo/` y `/es/articulos/como-funciona-el-reloj-del-cuerpo/`. Fuentes: Nobel 2017, Wright 2013, Khalsa 2003, Roenneberg 2012, Gibson y Shrader 2018. Tabla propia (sol.ts) del amanecer del 21/12 en 14 ciudades, de Girona a Santiago, que muestra el gradiente este-oeste. Incluye "lo que no sabemos" (sin estudio del coste en euros).

@@ -65,6 +65,8 @@ Isto non pasa só en Galicia. O desfase crece canto máis ao oeste se está dent
 | Vigo | 9:00 | 8:00 |
 | Santiago | 9:01 | 8:01 |
 
+![Gráfico: hora do amencer o 21 de decembro de 2026 en 14 cidades, con puntos para a hora actual e para a hora de Lisboa, de Xirona a Santiago](/img/gradiente-amencer-gl.svg)
+
 Entre Xirona e Santiago hai case unha hora de diferenza no amencer co mesmo reloxo. Pero a cuestión non é só Galicia: Asturias, León, Castela e León, Extremadura e o oeste de Andalucía están no mesmo gradiente. Por iso esta web fala de Galicia porque é o extremo, non porque sexa o único lugar afectado.
 
 ## Saúde, produtividade e economía: que se sabe e que non

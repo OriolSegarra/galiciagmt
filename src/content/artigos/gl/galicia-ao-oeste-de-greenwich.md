@@ -45,6 +45,10 @@ A comparación con Lisboa, que comparte practicamente a mesma latitude pero est�
 
 Máis dunha hora de diferenza na saída do sol entre dúas cidades case veciñas, coas mesmas latitudes aproximadas, simplemente porque unha vive no fuso de Greenwich e a outra no centroeuropeo.
 
+O gráfico mostra o amencer en Santiago cada día de 2026, coa hora oficial actual (liña negra) e coa de Lisboa (liña laranxa). A liña azul tracexada marca as 8:30. É un cálculo propio co método da nosa [ferramenta de amenceres](/ferramentas/amencer/); os saltos das liñas coinciden cos cambios de hora de marzo e outubro.
+
+![Gráfico: hora do amencer en Santiago cada día de 2026 coa hora actual e coa hora de Lisboa](/img/amencer-santiago-ano-gl.svg)
+
 ## Unha honestidade necesaria
 
 Convén dicilo con claridade: este desfase non o sofre por igual toda España. O propio documento UPM recolle a valoración dun experto sobre o que pasaría se se mudase de fuso: en Galicia, corrixiríase a anomalía de que en inverno non hai luz ás nove da mañá e en verán se fai de noite case ás once; pero en Barcelona, moito máis ao leste, o mesmo cambio faría que en inverno anoitecese case ás catro da tarde, "lo cual sería un fiasco para esa zona". O argumento xeográfico non é un capricho local: é literalmente unha cuestión de lonxitude, e por iso o que sobra nun extremo da Península pode faltar no outro.

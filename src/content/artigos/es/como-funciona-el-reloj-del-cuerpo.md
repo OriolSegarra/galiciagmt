@@ -65,6 +65,8 @@ Esto no pasa solo en Galicia. El desfase crece cuanto más al oeste se está den
 | Vigo | 9:00 | 8:00 |
 | Santiago | 9:01 | 8:01 |
 
+![Gráfico: hora del amanecer el 21 de diciembre de 2026 en 14 ciudades, con puntos para la hora actual y para la hora de Lisboa, de Girona a Santiago](/img/gradiente-amencer-es.svg)
+
 Entre Girona y Santiago hay casi una hora de diferencia en el amanecer con el mismo reloj. Pero la cuestión no es solo Galicia: Asturias, León, Castilla y León, Extremadura y el oeste de Andalucía están en el mismo gradiente. Por eso esta web habla de Galicia: porque es el extremo, no porque sea el único lugar afectado.
 
 ## Salud, productividad y economía: qué se sabe y qué no
