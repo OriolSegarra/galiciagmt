@@ -51,6 +51,10 @@ Fixemos o cálculo nós mesmos, co mesmo método (o algoritmo solar da NOAA, val
 | Hora actual (CET, UTC+1) | 9:01 | 9:05 |
 | Con verán permanente (UTC+2) | 10:01 | 10:05 |
 
+O gráfico mostra o ano completo en tres horarios: o actual, o inverno fixo todo o ano e o verán permanente. Co verán permanente, segundo o noso cálculo, o sol sairía despois das 10:00 durante 32 días do ano e o máis tarde o 10:05; co horario actual, ningún día.
+
+![Gráfico: hora do amencer en Santiago cada día de 2026 co horario actual, co inverno fixo (UTC+1) e co verán permanente (UTC+2)](/img/amencer-santiago-tres-horarios-gl.svg)
+
 Un neno saíndo da casa cara ao colexio ás oito da mañá, en pleno inverno, faríao ás escuras case ata as dez. Non é unha hipótese remota: en 2019, unha comisión de expertos xa recolleu voces favorables a fixar o horario de verán por razóns turísticas, e barómetros posteriores mostran que boa parte da poboación española prefire esa opción, como recollemos no artigo sobre [os contraargumentos](/artigos/os-contraargumentos/). Se algunha vez se impuxese, sería o escenario máis desfavorable posible para a xeografía galega: máis lonxe aínda do que marca o sol, non máis preto.
 
 ## A nosa posición, sen bandeira de ningún partido

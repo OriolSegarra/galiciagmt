@@ -51,6 +51,10 @@ Hemos hecho el cálculo nosotros mismos, con el mismo método (el algoritmo sola
 | Hora actual (CET, UTC+1) | 9:01 | 9:05 |
 | Con verano permanente (UTC+2) | 10:01 | 10:05 |
 
+El gráfico muestra el año completo con tres horarios: el actual, el invierno fijo todo el año y el verano permanente. Con el verano permanente, según nuestro cálculo, el sol saldría después de las 10:00 durante 32 días del año y como muy tarde a las 10:05; con el horario actual, ningún día.
+
+![Gráfico: hora del amanecer en Santiago cada día de 2026 con el horario actual, con el invierno fijo (UTC+1) y con el verano permanente (UTC+2)](/img/amencer-santiago-tres-horarios-es.svg)
+
 Un niño saliendo de casa hacia el colegio a las ocho de la mañana, en pleno invierno, lo haría a oscuras casi hasta las diez. No es una hipótesis remota: en 2019, una comisión de expertos ya recogió voces favorables a fijar el horario de verano por razones turísticas, y barómetros posteriores muestran que buena parte de la población española prefiere esa opción, como recogemos en el artículo sobre [los contraargumentos](/es/articulos/los-contraargumentos/). Si alguna vez se impusiera, sería el escenario más desfavorable posible para la geografía gallega: más lejos aún de lo que marca el sol, no más cerca.
 
 ## Nuestra posición, sin bandera de ningún partido

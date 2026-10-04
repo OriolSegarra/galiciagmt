@@ -89,8 +89,52 @@ function anual(lang: L): string {
   return s;
 }
 
+// ---------- Figura 3: tres horarios posibles en Santiago (cambio de hora 2026) ----------
+function escenarios(lang: L): string {
+  const T = {
+    gl: { t: 'Amencer en Santiago en 2026 con tres horarios', a: 'Horario actual (CET/CEST)', b: 'Inverno fixo todo o ano (UTC+1)', c: 'Verán permanente (UTC+2)', fonte: 'Cálculo propio (método NOAA, ±1-2 min). O verán permanente suma unha hora ao horario de inverno todo o ano.', meses: ['X', 'F', 'M', 'A', 'M', 'X', 'X', 'A', 'S', 'O', 'N', 'D'], desc: 'Gráfico: hora do amencer en Santiago cada día de 2026 con tres horarios: o actual, o inverno fixo e o verán permanente' },
+    es: { t: 'Amanecer en Santiago en 2026 con tres horarios', a: 'Horario actual (CET/CEST)', b: 'Invierno fijo todo el año (UTC+1)', c: 'Verano permanente (UTC+2)', fonte: 'Cálculo propio (método NOAA, ±1-2 min). El verano permanente suma una hora al horario de invierno todo el año.', meses: ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'], desc: 'Gráfico: hora del amanecer en Santiago cada día de 2026 con tres horarios: el actual, el invierno fijo y el verano permanente' },
+  }[lang];
+  const c = cidades.find((k) => k.gl === 'Santiago')!;
+  const W = 760, H = 450, l = 56, r = 24, top = 122, bot = 50;
+  const y0 = 6 * 60, y1 = 11 * 60;
+  const X = (i: number) => l + (i / 364) * (W - l - r);
+  const Y = (m: number) => top + ((m - y0) / (y1 - y0)) * (H - top - bot);
+  const path = (f: (d: Date) => number) => {
+    let d = '';
+    let prev = NaN;
+    for (let i = 0; i < 365; i++) {
+      const v = f(new Date(Date.UTC(2026, 0, 1 + i, 12)));
+      const brk = !isNaN(prev) && Math.abs(v - prev) > 30;
+      d += `${i === 0 || brk ? 'M' : 'L'}${X(i).toFixed(1)} ${Y(v).toFixed(1)} `;
+      prev = v;
+    }
+    return d;
+  };
+  const fx = (d: Date) => amencer(d, c.lat, c.lon, 'actual');
+  const fy = (d: Date) => amencer(d, c.lat, c.lon, 'senVeran');
+  const fz = (d: Date) => amencer(d, c.lat, c.lon, 'senVeran') + 60;
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(T.desc)}" ${FONT}>`;
+  s += `<rect width="${W}" height="${H}" fill="${PAPER}"/>`;
+  s += `<text x="20" y="32" font-size="20" font-weight="800" fill="${INK}">${esc(T.t)}</text>`;
+  s += `<line x1="24" x2="48" y1="56" y2="56" stroke="${INK}" stroke-width="3"/><text x="56" y="60" font-size="13" fill="${INK}">${esc(T.a)}</text>`;
+  s += `<line x1="24" x2="48" y1="78" y2="78" stroke="${BLUE}" stroke-width="3"/><text x="56" y="82" font-size="13" fill="${INK}">${esc(T.b)}</text>`;
+  s += `<line x1="24" x2="48" y1="100" y2="100" stroke="${SUN}" stroke-width="3"/><text x="56" y="104" font-size="13" fill="${INK}">${esc(T.c)}</text>`;
+  for (let m = 6 * 60; m <= 11 * 60; m += 60) {
+    s += `<line x1="${l}" x2="${W - r}" y1="${Y(m)}" y2="${Y(m)}" stroke="${RULE}"/><text x="${l - 8}" y="${Y(m) + 4}" font-size="12" text-anchor="end" fill="${MUTED}">${m / 60}:00</text>`;
+  }
+  const ini = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+  ini.forEach((d, i) => { s += `<text x="${X(d + 15)}" y="${H - 24}" font-size="12" text-anchor="middle" fill="${MUTED}">${T.meses[i]}</text>`; });
+  s += `<path d="${path(fz)}" fill="none" stroke="${SUN}" stroke-width="2.5"/>`;
+  s += `<path d="${path(fy)}" fill="none" stroke="${BLUE}" stroke-width="2.5"/>`;
+  s += `<path d="${path(fx)}" fill="none" stroke="${INK}" stroke-width="2.5"/>`;
+  s += `<text x="20" y="${H - 2}" font-size="10" fill="${MUTED}">${esc(T.fonte)}</text></svg>`;
+  return s;
+}
+
 for (const lang of ['gl', 'es'] as const) {
   writeFileSync(`public/img/gradiente-amencer-${lang}.svg`, gradiente(lang));
   writeFileSync(`public/img/amencer-santiago-ano-${lang}.svg`, anual(lang));
+  writeFileSync(`public/img/amencer-santiago-tres-horarios-${lang}.svg`, escenarios(lang));
 }
 console.log('ok');
