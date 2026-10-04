@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-04 (domingo)
+- **Tarea**: continuar la idea #30 (petición de Oriol 2/10): figura propia en el artículo del cambio de hora.
+- **Hecho**: nueva figura SVG (`scripts/figuras.ts`): amanecer en Santiago en 2026 con tres horarios (actual, UTC+1 fijo, UTC+2 permanente), en gl y es, insertada en `cambio-de-hora-outubro-2026` / `cambio-de-hora-octubre-2026`. Cifra propia: con verano permanente, 32 días con amanecer después de las 10:00 (máximo 10:05); con el horario actual, ninguno. Noticias de la semana en `fontes/noticias-2026-10-04.md` (sin verificar; sin novedades de Galicia).
+- **Verificador**: APTO a la 1ª vuelta. Build OK (33 páginas).
+- **Qué funcionó**: reutilizar el escenario `senVeran` de `sol.ts` (+60 min para el verano permanente).
+- **Qué no / aprendizajes**: el investigador citó una comunicación UE C/2026/1660 (calendario hasta 2031) sin contrastar; verificar en EUR-Lex antes de usarla.
+- **Pendiente / siguiente**: lunes 5/10, mapa de España (#21); figuras para portugal-e-canarias, contraargumentos, 1940 (#30).
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-03 (sábado)
 - **Tarea**: petición de Oriol en Slack (2/10): acompañar los posts con visuales propios, no solo texto y tablas.
 - **Hecho**: `scripts/figuras.ts` genera SVG con `sol.ts` y `cidades.ts` (`node scripts/figuras.ts` → `public/img/`). Dos figuras, en gl y es: (1) gradiente del amanecer el 21/12/2026 en 14 ciudades, de Girona a Santiago, con hora actual y hora de Lisboa, en `como-funciona-o-reloxo-do-corpo` / `como-funciona-el-reloj-del-cuerpo`; (2) amanecer en Santiago todo 2026 con ambas horas y la línea de las 8:30, en `galicia-ao-oeste-de-greenwich` / `galicia-al-oeste-de-greenwich`, con un párrafo que la presenta.
