@@ -29,6 +29,7 @@ const c = {
     related: 'Para entender por que pasa isto',
     relatedLink: 'Galicia está ao oeste de Greenwich',
     relatedSlug: 'galicia-ao-oeste-de-greenwich',
+    mapa: 'Velo nun mapa: días ao ano con amencer despois das 8:30',
   },
   es: {
     kicker: 'Herramienta',
@@ -47,6 +48,7 @@ const c = {
     related: 'Para entender por qué pasa esto',
     relatedLink: 'Galicia está al oeste de Greenwich',
     relatedSlug: 'galicia-al-oeste-de-greenwich',
+    mapa: 'Verlo en un mapa: días al año con amanecer después de las 8:30',
   },
 }[lang];
 
@@ -100,6 +102,7 @@ const fontes = [
         <p>
           {c.related}: <a href={articleUrl(lang, c.relatedSlug)}>{c.relatedLink} →</a>
         </p>
+        <p><a href={r(lang, 'mapa')}>{c.mapa} →</a></p>
       </section>
     </div>
 

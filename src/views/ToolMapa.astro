@@ -1,0 +1,563 @@
+---
+/*
+  Ferramenta: mapa de España coloreado polos días do ano con amencer despois das 8:30.
+  Todo calculado no build (src/lib/sol.ts, método NOAA) e debuxado como SVG estático.
+*/
+import Base from '../layouts/Base.astro';
+import Fontes from '../components/Fontes.astro';
+import Cta from '../components/Cta.astro';
+import { articleUrl, r, type Lang } from '../i18n/ui';
+import { cidades, WIKIDATA_SRC } from '../data/cidades';
+import { diasDespoisDe, solpor, hhmm, type Escenario } from '../lib/sol';
+import contorno from '../data/contorno.json';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const ANO = new Date().getUTCFullYear();
+const LIMIAR = 510; // 8:30, limiar ilustrativo
+const PASO = 0.15; // graos da cuadrícula
+const CORR = Math.cos((40 * Math.PI) / 180);
+const S = 50; // unidades SVG por grao de latitude
+const LON0 = -10.1;
+const LAT0 = 44;
+const LON1 = 3.9;
+const LAT1 = 35.9;
+const W = Math.round((LON1 - LON0) * CORR * S);
+const H = Math.round((LAT0 - LAT1) * S);
+const X = (lon: number) => (lon - LON0) * CORR * S;
+const Y = (lat: number) => (LAT0 - lat) * S;
+const f1 = (n: number) => Math.round(n * 10) / 10;
+
+type Pt = [number, number];
+const esp = contorno.esp as Pt[][];
+const prt = contorno.prt as Pt[][];
+
+function dentro(lon: number, lat: number): boolean {
+  let in_ = false;
+  for (const ring of esp) {
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i];
+      const [xj, yj] = ring[j];
+      if (yi > lat !== yj > lat && lon < ((xj - xi) * (lat - yi)) / (yj - yi) + xi) in_ = !in_;
+    }
+  }
+  return in_;
+}
+const camiño = (rings: Pt[][]) =>
+  rings.map((ring) => 'M' + ring.map(([lo, la]) => `${f1(X(lo))} ${f1(Y(la))}`).join('L') + 'Z').join('');
+
+const escenarios: { k: Escenario }[] = [{ k: 'actual' }, { k: 'portugal' }, { k: 'senVeran' }];
+
+// Cuadrícula: celas con centro dentro de España; días calculados con sol.ts.
+const celas: { x: number; y: number; d: Record<Escenario, number> }[] = [];
+for (let lat = LAT1 + PASO / 2; lat < LAT0; lat += PASO) {
+  for (let lon = LON0 + PASO / 2; lon < LON1; lon += PASO) {
+    if (!dentro(lon, lat)) continue;
+    celas.push({
+      x: lon,
+      y: lat,
+      d: {
+        actual: diasDespoisDe(ANO, lat, lon, 'actual', LIMIAR),
+        portugal: diasDespoisDe(ANO, lat, lon, 'portugal', LIMIAR),
+        senVeran: diasDespoisDe(ANO, lat, lon, 'senVeran', LIMIAR),
+      },
+    });
+  }
+}
+const PASO_COR = 10; // días por tramo de cor
+const MAX = Math.max(30, Math.ceil(Math.max(...celas.flatMap((c) => Object.values(c.d))) / 30) * 30);
+const NIV = MAX / PASO_COR;
+const PAPER: [number, number, number] = [243, 240, 232];
+const BLUE: [number, number, number] = [13, 59, 102];
+const cor = (nivel: number) => {
+  const t = nivel / (NIV - 1);
+  return `rgb(${PAPER.map((p, i) => Math.round(p + (BLUE[i] - p) * t)).join(',')})`;
+};
+const nivelDe = (d: number) => Math.min(NIV - 1, Math.floor(d / PASO_COR));
+const wc = f1(PASO * CORR * S + 0.4);
+const hc = f1(PASO * S + 0.4);
+
+function pathsPara(esc: Escenario) {
+  const por = new Map<number, string>();
+  for (const c of celas) {
+    const n = nivelDe(c.d[esc]);
+    por.set(n, (por.get(n) ?? '') + `M${f1(X(c.x) - wc / 2)} ${f1(Y(c.y) - hc / 2)}h${wc}v${hc}h${-wc}z`);
+  }
+  return [...por.entries()].map(([n, d]) => ({ fill: cor(n), d }));
+}
+
+const REF = ['Xirona', 'Madrid', 'Santiago', 'Vigo'];
+const refs = REF.map((n) => {
+  const c = cidades.find((x) => x.gl === n)!;
+  return {
+    ...c,
+    nome: lang === 'gl' ? c.gl : c.es,
+    d: Object.fromEntries(escenarios.map(({ k }) => [k, diasDespoisDe(ANO, c.lat, c.lon, k, LIMIAR)])) as Record<Escenario, number>,
+  };
+});
+const vigo = refs.find((x) => x.gl === 'Vigo')!;
+const girona = refs.find((x) => x.gl === 'Xirona')!;
+// Solpor o 21 de xuño en Vigo (contrapartida da hora de Portugal).
+const solstic = new Date(Date.UTC(ANO, 5, 21, 12));
+const solActual = hhmm(solpor(solstic, vigo.lat, vigo.lon, 'actual'));
+const solPt = hhmm(solpor(solstic, vigo.lat, vigo.lon, 'portugal'));
+
+const c = {
+  gl: {
+    kicker: 'Ferramenta',
+    h1: 'Mapa: días ao ano con amencer despois das 8:30',
+    lede: 'Tres mapas de España co mesmo criterio e a mesma escala: cantos días de 2026 sae o sol despois das 8:30 segundo a hora oficial.',
+    titular: (a: number, b: number, s: number, g: number) =>
+      `En Vigo o sol sae despois das 8:30 ${a} días ao ano co horario actual e ${b} coa hora de Portugal. En Xirona, ${g} co horario actual.`,
+    escs: {
+      actual: ['Horario actual', 'UTC+1 / verán UTC+2'],
+      portugal: ['Hora de Portugal', 'UTC+0 / verán UTC+1'],
+      senVeran: ['Sen horario de verán', 'UTC+1 todo o ano'],
+    },
+    mapaLabel: (e: string, s: string) => `Mapa de España: días de ${ANO} con amencer despois das 8:30, ${e.toLowerCase()} (${s}).`,
+    mapaTit: (e: string) => `Días con amencer despois das 8:30, ${e.toLowerCase()}`,
+    leyenda: 'Días ao ano con amencer despois das 8:30',
+    leyendaLabel: (m: number) => `Escala de cor de 0 a ${m} días, de papel a azul escuro.`,
+    portugalCtx: 'Portugal (contexto)',
+    tabH: 'Os mesmos datos en táboa',
+    cap: `Días de ${ANO} con amencer despois das 8:30 en catro cidades, segundo o escenario horario.`,
+    cidade: 'Cidade',
+    readH: 'Como lelo',
+    read: [
+      'Canto máis escuro o azul, máis días do ano o sol sae despois das 8:30. O branco-papel significa poucos ou ningún.',
+      'Os tres mapas usan a mesma escala, así que se poden comparar directamente. As catro cidades levan a súa cifra exacta.',
+      'Cada cadradiño do mapa é un punto da cuadrícula (0,15°, uns 15 km) coa súa propia latitude e lonxitude: o resultado cambia suavemente de leste a oeste.',
+    ],
+    methodH: 'Método',
+    method: [
+      `Para cada punto da cuadrícula contamos os días de ${ANO} nos que o amencer cae despois das 8:30 de hora oficial. Os amenceres calculámolos coas ecuacións de posición solar da NOAA (cénit de 90,833°); contrastámolos con timeanddate.com para Santiago e Lisboa e a diferenza é de 0 a 1 minuto.`,
+      'O horario de verán aplícase do último domingo de marzo ao último de outubro (Real Decreto 236/2002). As coordenadas das cidades son de Wikidata e o contorno de España e Portugal é de Natural Earth (dominio público), simplificado. Canarias, Ceuta e Melilla non aparecen.',
+      'As 8:30 son un límiar ilustrativo que eliximos nós para facer visible o desfase. Non é un estándar médico nin legal.',
+    ],
+    contraH: 'O que hai que ter en conta',
+    contra: `A hora de Portugal adianta o amencer, pero tamén o solpor. O 21 de xuño, en Vigo o sol ponse ás ${solPt} coa hora de Portugal e ás ${solActual} co horario actual: unha hora antes. Quen valora as tardes longas de verán pode preferir manter o horario actual.`,
+    related: 'Para entender por que pasa isto',
+    relatedLink: 'Galicia está ao oeste de Greenwich',
+    relatedSlug: 'galicia-ao-oeste-de-greenwich',
+    cidadesLink: 'Ver as 52 cidades, o día e o limiar que queiras',
+  },
+  es: {
+    kicker: 'Herramienta',
+    h1: 'Mapa: días al año con amanecer después de las 8:30',
+    lede: 'Tres mapas de España con el mismo criterio y la misma escala: cuántos días de 2026 sale el sol después de las 8:30 según la hora oficial.',
+    titular: (a: number, b: number, s: number, g: number) =>
+      `En Vigo el sol sale después de las 8:30 ${a} días al año con el horario actual y ${b} con la hora de Portugal. En Girona, ${g} con el horario actual.`,
+    escs: {
+      actual: ['Horario actual', 'UTC+1 / verano UTC+2'],
+      portugal: ['Hora de Portugal', 'UTC+0 / verano UTC+1'],
+      senVeran: ['Sin horario de verano', 'UTC+1 todo el año'],
+    },
+    mapaLabel: (e: string, s: string) => `Mapa de España: días de ${ANO} con amanecer después de las 8:30, ${e.toLowerCase()} (${s}).`,
+    mapaTit: (e: string) => `Días con amanecer después de las 8:30, ${e.toLowerCase()}`,
+    leyenda: 'Días al año con amanecer después de las 8:30',
+    leyendaLabel: (m: number) => `Escala de color de 0 a ${m} días, de papel a azul oscuro.`,
+    portugalCtx: 'Portugal (contexto)',
+    tabH: 'Los mismos datos en tabla',
+    cap: `Días de ${ANO} con amanecer después de las 8:30 en cuatro ciudades, según el escenario horario.`,
+    cidade: 'Ciudad',
+    readH: 'Cómo leerlo',
+    read: [
+      'Cuanto más oscuro es el azul, más días del año el sol sale después de las 8:30. El color papel significa pocos o ninguno.',
+      'Los tres mapas usan la misma escala, así que se pueden comparar directamente. Las cuatro ciudades llevan su cifra exacta.',
+      'Cada cuadradito del mapa es un punto de la cuadrícula (0,15°, unos 15 km) con su propia latitud y longitud: el resultado cambia suavemente de este a oeste.',
+    ],
+    methodH: 'Método',
+    method: [
+      `Para cada punto de la cuadrícula contamos los días de ${ANO} en los que el amanecer cae después de las 8:30 de hora oficial. Los amaneceres se calculan con las ecuaciones de posición solar de la NOAA (cénit de 90,833°); los hemos contrastado con timeanddate.com para Santiago y Lisboa y la diferencia es de 0 a 1 minuto.`,
+      'El horario de verano se aplica del último domingo de marzo al último de octubre (Real Decreto 236/2002). Las coordenadas de las ciudades son de Wikidata y el contorno de España y Portugal es de Natural Earth (dominio público), simplificado. Canarias, Ceuta y Melilla no aparecen.',
+      'Las 8:30 son un umbral ilustrativo que hemos elegido nosotros para hacer visible el desfase. No es un estándar médico ni legal.',
+    ],
+    contraH: 'Lo que conviene tener en cuenta',
+    contra: `La hora de Portugal adelanta el amanecer, pero también la puesta de sol. El 21 de junio, en Vigo el sol se pone a las ${solPt} con la hora de Portugal y a las ${solActual} con el horario actual: una hora antes. Quien valore las tardes largas de verano puede preferir mantener el horario actual.`,
+    related: 'Para entender por qué pasa esto',
+    relatedLink: 'Galicia está al oeste de Greenwich',
+    relatedSlug: 'galicia-al-oeste-de-greenwich',
+    cidadesLink: 'Ver las 52 ciudades, el día y el umbral que quieras',
+  },
+}[lang];
+
+const fontes = [
+  {
+    titulo: 'NOAA — General Solar Position Calculations',
+    url: 'https://gml.noaa.gov/grad/solcalc/solareqns.PDF',
+    dato: lang === 'gl' ? 'Ecuacións de amencer e solpor (cénit 90,833°)' : 'Ecuaciones de amanecer y puesta de sol (cénit 90,833°)',
+  },
+  {
+    titulo: 'Wikidata — coordenadas (P625)',
+    url: WIKIDATA_SRC,
+    dato: lang === 'gl' ? 'Lonxitude e latitude de cada cidade (CC0)' : 'Longitud y latitud de cada ciudad (CC0)',
+  },
+  {
+    titulo: 'Natural Earth — Admin 0 Countries, 50m',
+    url: 'https://www.naturalearthdata.com/',
+    dato: lang === 'gl' ? 'Contorno de España e Portugal (dominio público), simplificado' : 'Contorno de España y Portugal (dominio público), simplificado',
+  },
+  {
+    titulo: 'BOE — Real Decreto 236/2002, hora de verán',
+    url: 'https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221',
+    dato: lang === 'gl' ? 'Verán: do último domingo de marzo ao último de outubro' : 'Verano: del último domingo de marzo al último de octubre',
+  },
+  {
+    titulo: 'timeanddate.com — Santiago de Compostela, decembro 2026',
+    url: 'https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026',
+    dato: lang === 'gl' ? 'Validación: 21/12 amence ás 9:01 (o cálculo dá 9:01)' : 'Validación: 21/12 amanece a las 9:01 (el cálculo da 9:01)',
+  },
+  {
+    titulo: 'timeanddate.com — Lisboa, decembro 2026',
+    url: 'https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026',
+    dato: lang === 'gl' ? 'Validación: 21/12 amence ás 7:50 (o cálculo dá 7:51)' : 'Validación: 21/12 amanece a las 7:50 (el cálculo da 7:51)',
+  },
+];
+
+const mapas = escenarios.map(({ k }) => ({
+  k,
+  nome: c.escs[k][0],
+  sub: c.escs[k][1],
+  paths: pathsPara(k),
+}));
+const ticks = Array.from({ length: MAX / 60 + 1 }, (_, i) => i * 60).filter((v) => v <= MAX);
+const FS = 17;
+// Colocación das etiquetas: [anchor, dx, dy]
+const pos: Record<string, ['start' | 'end', number, number]> = {
+  Xirona: ['end', -10, -8],
+  Madrid: ['start', 10, 5],
+  Santiago: ['start', 12, -8],
+  Vigo: ['start', 12, 16],
+};
+---
+
+<Base lang={lang} title={c.h1} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'mapa')}>
+  <div class="wrap page">
+    <header class="head">
+      <p class="kicker"><a href={r(lang, 'ferramentas')}>{c.kicker}</a></p>
+      <h1>{c.h1}</h1>
+      <p class="lede">{c.lede}</p>
+    </header>
+
+    <p class="headline">{c.titular(vigo.d.actual, vigo.d.portugal, vigo.d.senVeran, girona.d.actual)}</p>
+
+    <div class="maps">
+      {
+        mapas.map((m) => (
+          <figure>
+            <figcaption>
+              <b>{m.nome}</b>
+              <span>{m.sub}</span>
+            </figcaption>
+            <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby={`t-${m.k}`}>
+              <title id={`t-${m.k}`}>
+                {c.mapaLabel(m.nome, m.sub)} {refs.map((x) => `${x.nome}: ${x.d[m.k]}`).join('; ')}.
+              </title>
+              <path d={camiño(prt)} class="prt" />
+              <g shape-rendering="crispEdges">{m.paths.map((p) => <path d={p.d} fill={p.fill} />)}</g>
+              <path d={camiño(esp)} class="esp" />
+              {refs.map((x) => {
+                const [anchor, dx, dy] = pos[x.gl];
+                const txt = `${x.nome} ${x.d[m.k]}`;
+                const w = txt.length * FS * 0.56 + 8;
+                const px = X(x.lon);
+                const py = Y(x.lat);
+                const tx = px + dx;
+                const ty = py + dy;
+                const rx = anchor === 'end' ? tx - w + 4 : tx - 4;
+                return (
+                  <g>
+                    {x.galicia && <rect x={f1(rx)} y={f1(ty - FS + 2)} width={f1(w)} height={FS + 5} class="sun" />}
+                    <circle cx={f1(px)} cy={f1(py)} r="4.5" class="pt" />
+                    <text x={f1(tx)} y={f1(ty)} text-anchor={anchor} font-size={FS} class={x.galicia ? 'lab gz' : 'lab'}>
+                      {x.nome} <tspan font-weight="800">{x.d[m.k]}</tspan>
+                    </text>
+                  </g>
+                );
+              })}
+            </svg>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="legend" role="img" aria-label={c.leyendaLabel(MAX)}>
+      <p class="kicker">{c.leyenda}</p>
+      <div class="scale" aria-hidden="true">
+        {Array.from({ length: NIV }, (_, i) => <i style={`background:${cor(i)}`} />)}
+      </div>
+      <div class="ticks" aria-hidden="true">
+        {ticks.map((v) => <span style={`left:${(v / MAX) * 100}%`}>{v}</span>)}
+      </div>
+      <p class="ctx"><i class="k-prt"></i> {c.portugalCtx}</p>
+    </div>
+
+    <section class="tabela">
+      <h2 class="kicker">{c.tabH}</h2>
+      <table>
+        <caption class="sr">{c.cap}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{c.cidade}</th>
+            {escenarios.map(({ k }) => <th scope="col" class="num">{c.escs[k][0]}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            refs.map((x) => (
+              <tr class:list={{ gz: x.galicia }}>
+                <th scope="row">{x.nome}</th>
+                {escenarios.map(({ k }) => <td class="num">{x.d[k]}</td>)}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <p class="more"><a href={r(lang, 'amencer')}>{c.cidadesLink} →</a></p>
+    </section>
+
+    <div class="notes">
+      <section>
+        <h2 class="kicker">{c.readH}</h2>
+        <ul>{c.read.map((x) => <li>{x}</li>)}</ul>
+        <h2 class="kicker second">{c.contraH}</h2>
+        <p>{c.contra}</p>
+      </section>
+      <section>
+        <h2 class="kicker">{c.methodH}</h2>
+        {c.method.map((x) => <p>{x}</p>)}
+        <p>
+          {c.related}: <a href={articleUrl(lang, c.relatedSlug)}>{c.relatedLink} →</a>
+        </p>
+      </section>
+    </div>
+
+    <Fontes lang={lang} fontes={fontes} />
+  </div>
+  <Cta lang={lang} />
+</Base>
+
+<style>
+  .page {
+    padding-top: 3rem;
+  }
+  .head {
+    max-width: 52rem;
+    margin-bottom: 2rem;
+  }
+  .kicker a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h1 {
+    margin: 0.8rem 0 1rem;
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    font-weight: 800;
+  }
+  .lede {
+    font-size: 1.2rem;
+    color: var(--ink-2);
+    max-width: 50ch;
+    margin: 0;
+  }
+  .headline {
+    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin: 0 0 1.6rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--ink);
+    max-width: 52ch;
+  }
+  .maps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+  figure {
+    margin: 0;
+    min-width: 0;
+  }
+  figcaption {
+    display: grid;
+    gap: 0.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  figcaption span {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .prt {
+    fill: var(--paper-2);
+    stroke: var(--rule);
+    stroke-width: 1;
+  }
+  .esp {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 0.8;
+    stroke-linejoin: round;
+  }
+  .pt {
+    fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 1.8;
+  }
+  .sun {
+    fill: var(--sun);
+  }
+  .lab {
+    fill: var(--ink);
+    stroke: var(--paper);
+    stroke-width: 4;
+    paint-order: stroke;
+    font-family: inherit;
+  }
+  .lab.gz {
+    stroke: var(--sun);
+    stroke-width: 0;
+  }
+  .legend {
+    margin-top: 1.4rem;
+    max-width: 34rem;
+  }
+  .legend .kicker {
+    margin: 0 0 0.4rem;
+  }
+  .scale {
+    display: flex;
+    height: 0.8rem;
+    border: 1px solid var(--ink);
+  }
+  .scale i {
+    flex: 1;
+  }
+  .ticks {
+    position: relative;
+    height: 1.2rem;
+    font-size: 0.75rem;
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .ticks span {
+    position: absolute;
+    top: 0.2rem;
+    transform: translateX(-50%);
+  }
+  .ticks span:first-child {
+    transform: none;
+  }
+  .ticks span:last-child {
+    transform: translateX(-100%);
+  }
+  .ctx {
+    font-size: 0.8rem;
+    color: var(--ink-2);
+    margin: 0.2rem 0 0;
+  }
+  .k-prt {
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    vertical-align: -0.05rem;
+  }
+  .tabela {
+    margin-top: 2.4rem;
+    max-width: 44rem;
+  }
+  .tabela h2 {
+    margin: 0 0 0.6rem;
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  th,
+  td {
+    padding: 0.55rem 0.5rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: left;
+    vertical-align: bottom;
+  }
+  thead th {
+    border-bottom: 1px solid var(--ink);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  td.num,
+  th.num {
+    text-align: right;
+    padding-right: 0.8rem;
+  }
+  td.num {
+    font-weight: 700;
+  }
+  tr.gz th {
+    color: var(--blue);
+    font-weight: 800;
+  }
+  .more {
+    font-size: 0.9rem;
+    margin: 0.8rem 0 0;
+  }
+  .notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+  .notes h2 {
+    margin: 0 0 0.6rem;
+  }
+  .notes h2.second {
+    margin-top: 1.6rem;
+  }
+  .notes ul {
+    padding-left: 1.1rem;
+    margin: 0;
+  }
+  .notes li + li {
+    margin-top: 0.4rem;
+  }
+  .notes p {
+    margin: 0 0 0.8rem;
+  }
+  @media (max-width: 900px) {
+    .maps {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  @media (max-width: 760px) {
+    .notes {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>

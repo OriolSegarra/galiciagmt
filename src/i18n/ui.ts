@@ -8,6 +8,7 @@ export const routes = {
   artigos: { gl: '/artigos/', es: '/es/articulos/' },
   ferramentas: { gl: '/ferramentas/', es: '/es/herramientas/' },
   amencer: { gl: '/ferramentas/amencer/', es: '/es/herramientas/amanecer/' },
+  mapa: { gl: '/ferramentas/mapa/', es: '/es/herramientas/mapa/' },
   asinao: { gl: '/asinao/', es: '/es/firmalo/' },
   mocion: { gl: '/mocion/', es: '/es/mocion/' },
   sobre: { gl: '/sobre/', es: '/es/sobre/' },
