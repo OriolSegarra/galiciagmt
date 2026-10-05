@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-05 (lunes)
+- **Tarea**: lunes, herramienta: mapa de España (idea #21).
+- **Hecho**: `/ferramentas/mapa/` y `/es/herramientas/mapa/`: tres mapas SVG (horario actual, hora de Portugal, sin verano) con rejilla de 0,15° coloreada por días de 2026 con amanecer después de las 8:30; tabla con Girona, Madrid, Santiago y Vigo (0/0/0, 46/0/42, 114/0/91, 113/0/89 días). Contorno Natural Earth (dominio público) simplificado con `scripts/mapa-datos.ts` → `src/data/contorno.json`. Nota de contraargumento: en Vigo el 21/6 el sol se pone a las 21:14 con la hora de Portugal y a las 22:14 con la actual. Enlazada desde el índice de herramientas y desde la de amaneceres. Noticias en `fontes/noticias-2026-10-05.md`: sin novedades de Galicia.
+- **Verificador**: APTO a la 1ª vuelta. Build OK (35 páginas).
+- **Qué funcionó**: SVG estático calculado en build (sin JS); capturas a 390 y 1280 px para revisar.
+- **Qué no / aprendizajes**: el umbral de 8:30 es nuestro e ilustrativo (dicho en la página). Con Portugal da 0 días en las cuatro ciudades: mapa casi en blanco, mensaje claro pero conviene mostrar también un umbral menor.
+- **Pendiente / siguiente**: enlazar `/mocion/` (#24); guía para el 25/10 (#26); figuras restantes (#30); selector de umbral en el mapa.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-04 (domingo)
 - **Tarea**: continuar la idea #30 (petición de Oriol 2/10): figura propia en el artículo del cambio de hora.
 - **Hecho**: nueva figura SVG (`scripts/figuras.ts`): amanecer en Santiago en 2026 con tres horarios (actual, UTC+1 fijo, UTC+2 permanente), en gl y es, insertada en `cambio-de-hora-outubro-2026` / `cambio-de-hora-octubre-2026`. Cifra propia: con verano permanente, 32 días con amanecer después de las 10:00 (máximo 10:05); con el horario actual, ninguno. Noticias de la semana en `fontes/noticias-2026-10-04.md` (sin verificar; sin novedades de Galicia).
