@@ -23,6 +23,8 @@ const c = {
     pending: 'O formulario abrirase moi pronto.',
     pendingText: 'Estamos a preparar o sistema de sinaturas. Mentres tanto, a mellor forma de axudar é ler e compartir os artigos.',
     read: 'Ler os artigos',
+    council: 'É dun concello? Hai un modelo de moción para pedir ao Estado un estudo técnico.',
+    councilLink: 'Ver a moción modelo',
     count: 'Non publicaremos contadores ata ter un sistema que evite sinaturas duplicadas. Preferimos poucas e reais.',
   },
   es: {
@@ -39,6 +41,8 @@ const c = {
     pending: 'El formulario se abrirá muy pronto.',
     pendingText: 'Estamos preparando el sistema de firmas. Mientras tanto, la mejor forma de ayudar es leer y compartir los artículos.',
     read: 'Leer los artículos',
+    council: '¿Eres de un ayuntamiento? Hay un modelo de moción para pedir al Estado un estudio técnico.',
+    councilLink: 'Ver la moción modelo',
     count: 'No publicaremos contadores hasta tener un sistema que evite firmas duplicadas. Preferimos pocas y reales.',
   },
 }[lang];
@@ -59,6 +63,7 @@ const tallySrc = TALLY_FORM_ID
       </ol>
       <p class="small">{c.privacy}</p>
       <p class="small">{c.count}</p>
+      <p class="small">{c.council} <a href={r(lang, 'mocion')}>{c.councilLink} →</a></p>
     </header>
 
     <section class="form">

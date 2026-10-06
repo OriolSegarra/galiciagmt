@@ -28,6 +28,7 @@ const c = {
     a2src: 'Ver fonte',
     listK: 'Para entendelo en cinco lecturas',
     all: 'Todos os artigos',
+    councilT: 'Para concellos: moción modelo para pedir un estudo técnico',
     toolK: 'Ferramenta',
     toolT: 'A que hora amence en 52 cidades de España, de Xirona a Vigo',
   },
@@ -45,6 +46,7 @@ const c = {
     a2src: 'Ver fuente',
     listK: 'Para entenderlo en cinco lecturas',
     all: 'Todos los artículos',
+    councilT: 'Para ayuntamientos: moción modelo para pedir un estudio técnico',
     toolK: 'Herramienta',
     toolT: 'A qué hora amanece en 52 ciudades de España, de Girona a Vigo',
   },
@@ -92,6 +94,7 @@ const first = items[0];
         </p>
       </div>
     </div>
+    <p class="council"><a href={r(lang, 'mocion')}>{c.councilT} →</a></p>
   </section>
 
   <section class="wrap block">
@@ -106,6 +109,10 @@ const first = items[0];
 </Base>
 
 <style>
+  .council {
+    margin: 1.5rem 0 0;
+    font-weight: 600;
+  }
   .hero {
     display: grid;
     grid-template-columns: 1.35fr 1fr;
