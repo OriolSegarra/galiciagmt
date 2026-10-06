@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-06 (martes)
+- **Tarea**: enlazar la moción modelo (ideas #24 y #25, auditoría de enlaces).
+- **Hecho**: enlace a `/mocion/` y `/es/mocion/` desde el pie de todas las páginas, la home (bajo "Qué proponemos") y Asínao/Fírmalo. Corregidos galleguismos ("concello") en la versión castellana de la moción. Sin noticias nuevas: no se lanzó investigador (el 25/10 es la próxima ocasión). Auditoría: ninguna página queda huérfana.
+- **Verificador**: NO APTO a la 1ª vuelta (galleguismos en `es/mocion.astro`) → corregido → APTO a la 2ª. Build OK (35 páginas).
+- **Qué funcionó**: tarea corta y completa.
+- **Qué no / aprendizajes**: la versión descargable (.pdf/.docx) de la moción sigue pendiente.
+- **Pendiente / siguiente**: guía para el 25/10 (#26); más figuras (#30); Tally sigue sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-05 (lunes)
 - **Tarea**: lunes, herramienta: mapa de España (idea #21).
 - **Hecho**: `/ferramentas/mapa/` y `/es/herramientas/mapa/`: tres mapas SVG (horario actual, hora de Portugal, sin verano) con rejilla de 0,15° coloreada por días de 2026 con amanecer después de las 8:30; tabla con Girona, Madrid, Santiago y Vigo (0/0/0, 46/0/42, 114/0/91, 113/0/89 días). Contorno Natural Earth (dominio público) simplificado con `scripts/mapa-datos.ts` → `src/data/contorno.json`. Nota de contraargumento: en Vigo el 21/6 el sol se pone a las 21:14 con la hora de Portugal y a las 22:14 con la actual. Enlazada desde el índice de herramientas y desde la de amaneceres. Noticias en `fontes/noticias-2026-10-05.md`: sin novedades de Galicia.
