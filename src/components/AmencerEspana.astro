@@ -203,6 +203,7 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
       return cache.get(k)!;
     }
 
+    let urlLista = false;
     function render() {
       const d = dateOf(state.doy);
       const todos = cidades.flatMap((c) =>
@@ -251,6 +252,7 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
           ? `${fecha}, ${i18n.escTxt[state.esc]}: o sol sae ás ${hhmm(a)} en ${nome(cidades[0])} e ás ${hhmm(b)} en ${nome(cidades[cidades.length - 1])}. ${Math.round(b - a)} minutos de diferenza co mesmo reloxo.`
           : `${fecha}, ${i18n.escTxt[state.esc]}: el sol sale a las ${hhmm(a)} en ${nome(cidades[0])} y a las ${hhmm(b)} en ${nome(cidades[cidades.length - 1])}. ${Math.round(b - a)} minutos de diferencia con el mismo reloj.`;
       root.querySelector('[data-out="titular"]')!.textContent = txt;
+      if (urlLista) gardaUrl();
     }
 
     function seg(sel: string, cb: (v: string) => void) {
@@ -263,6 +265,44 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
         }),
       );
     }
+    // Estado na URL: ?esc=actual|portugal|senveran &data=MM-DD &lim=480|510|540 &cidade=vigo
+    const ESC: Record<string, Escenario> = { actual: 'actual', portugal: 'portugal', senveran: 'senVeran' };
+    const LIM = [480, 510, 540];
+    const norm = (t: string) => t.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    function gardaUrl() {
+      const u = new URL(location.href);
+      const d = dateOf(state.doy);
+      u.searchParams.set('esc', state.esc.toLowerCase());
+      u.searchParams.set('data', `${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`);
+      u.searchParams.set('lim', String(state.lim));
+      history.replaceState(null, '', u);
+    }
+    function pressed(sel: string, v: string) {
+      root.querySelectorAll<HTMLButtonElement>(`${sel} button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === v)));
+    }
+    const q = new URLSearchParams(location.search);
+    const qe = ESC[(q.get('esc') ?? '').toLowerCase()];
+    if (qe) {
+      state.esc = qe;
+      pressed('[data-control="esc"]', qe);
+    }
+    const ql = Number(q.get('lim'));
+    if (LIM.includes(ql)) {
+      state.lim = ql;
+      pressed('[data-control="lim"]', String(ql));
+    }
+    const qd = /^(\d{2})-(\d{2})$/.exec(q.get('data') ?? '');
+    if (qd) {
+      const dt = new Date(Date.UTC(ano, Number(qd[1]) - 1, Number(qd[2])));
+      if (dt.getUTCMonth() === Number(qd[1]) - 1) {
+        state.doy = Math.round((dt.getTime() - Date.UTC(ano, 0, 0)) / 86_400_000);
+        range.value = String(state.doy);
+      }
+    }
+    const qc = norm(q.get('cidade') ?? '');
+    if (qc) cidades.forEach((c, i) => {
+      if (norm(c.gl) === qc || norm(c.es) === qc) rows[i].classList.add('is-focus');
+    });
     seg('[data-control="esc"]', (v) => (state.esc = v as Escenario));
     seg('[data-control="lim"]', (v) => (state.lim = Number(v)));
     range.addEventListener('input', () => {
@@ -284,6 +324,7 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
       }),
     );
     render();
+    urlLista = true;
   });
 </script>
 
@@ -567,5 +608,9 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
     .tool {
       --days-w: 2.2rem;
     }
+  }
+  .r.is-focus {
+    outline: 2px solid var(--blue);
+    outline-offset: -2px;
   }
 </style>

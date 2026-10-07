@@ -29,6 +29,13 @@ const c = {
     related: 'Para entender por que pasa isto',
     relatedLink: 'Galicia está ao oeste de Greenwich',
     relatedSlug: 'galicia-ao-oeste-de-greenwich',
+    shareH: 'Comparte un exemplo concreto',
+    share: 'A dirección garda o escenario, o día e a hora límite que elixiches: copia o enderezo do navegador e xa podes citalo. Exemplos:',
+    ex: [
+      ['Vigo o 21 de decembro, coa hora actual', '?esc=actual&data=12-21&lim=510&cidade=vigo'],
+      ['Vigo o 21 de decembro, coa hora de Portugal', '?esc=portugal&data=12-21&lim=510&cidade=vigo'],
+      ['Santiago o 21 de decembro, sen verán', '?esc=senveran&data=12-21&lim=510&cidade=santiago'],
+    ],
     mapa: 'Velo nun mapa: días ao ano con amencer despois das 8:30',
   },
   es: {
@@ -48,6 +55,13 @@ const c = {
     related: 'Para entender por qué pasa esto',
     relatedLink: 'Galicia está al oeste de Greenwich',
     relatedSlug: 'galicia-al-oeste-de-greenwich',
+    shareH: 'Comparte un caso concreto',
+    share: 'La dirección guarda el escenario, el día y la hora límite que elijas: copia la dirección del navegador y ya puedes citarlo. Ejemplos:',
+    ex: [
+      ['Vigo el 21 de diciembre, con la hora actual', '?esc=actual&data=12-21&lim=510&cidade=vigo'],
+      ['Vigo el 21 de diciembre, con la hora de Portugal', '?esc=portugal&data=12-21&lim=510&cidade=vigo'],
+      ['Santiago el 21 de diciembre, sin verano', '?esc=senveran&data=12-21&lim=510&cidade=santiago'],
+    ],
     mapa: 'Verlo en un mapa: días al año con amanecer después de las 8:30',
   },
 }[lang];
@@ -102,6 +116,9 @@ const fontes = [
         <p>
           {c.related}: <a href={articleUrl(lang, c.relatedSlug)}>{c.relatedLink} →</a>
         </p>
+        <h2 class="kicker">{c.shareH}</h2>
+        <p>{c.share}</p>
+        <ul>{c.ex.map(([t, q]) => <li><a href={q}>{t}</a></li>)}</ul>
         <p><a href={r(lang, 'mapa')}>{c.mapa} →</a></p>
       </section>
     </div>
