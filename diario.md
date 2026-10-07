@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-07 (miércoles)
+- **Tarea**: idea #27, enlaces con estado preconfigurado a la herramienta de amaneceres (base de #23 y de la guía del 25/10, #26).
+- **Hecho**: `/ferramentas/amencer/` y `/es/herramientas/amanecer/` leen y escriben en la URL `?esc=actual|portugal|senveran&data=MM-DD&lim=480|510|540&cidade=vigo` (la ciudad queda resaltada). Apartado "Comparte un exemplo/caso concreto" con 3 enlaces de ejemplo. Probado con Chromium a 390 px. Noticias en `fontes/noticias-2026-10-07.md`: sin novedades de Galicia; el cambio de hora es el 25/10 a las 3:00.
+- **Verificador**: NO APTO a la 1ª vuelta (titular idéntico en gl y es; en realidad válido en RAG, pero se diferenció) → APTO a la 2ª. Build OK (35 páginas).
+- **Qué funcionó**: cambio pequeño y completo; era requisito para la guía de prensa.
+- **Qué no / aprendizajes**: para #8 (colegio a oscuras) no hay fuente oficial de horas de entrada en Galicia (el DOG solo da el calendario 9/9/2026-21/6/2027); sin esa cifra se pospone. Hay que cuidar que el verificador no dé falsos positivos de gallego.
+- **Pendiente / siguiente**: guía de prensa del 25/10 (#26) usando los enlaces nuevos, publicarla ~20-24/10; #23 imágenes para compartir; Tally sigue sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-06 (martes)
 - **Tarea**: enlazar la moción modelo (ideas #24 y #25, auditoría de enlaces).
 - **Hecho**: enlace a `/mocion/` y `/es/mocion/` desde el pie de todas las páginas, la home (bajo "Qué proponemos") y Asínao/Fírmalo. Corregidos galleguismos ("concello") en la versión castellana de la moción. Sin noticias nuevas: no se lanzó investigador (el 25/10 es la próxima ocasión). Auditoría: ninguna página queda huérfana.
