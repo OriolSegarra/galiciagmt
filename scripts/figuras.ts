@@ -132,9 +132,60 @@ function escenarios(lang: L): string {
   return s;
 }
 
+// ---------- Figura 4: días lectivos con amencer despois da hora de entrada ----------
+function colexio(lang: L): string {
+  const T = {
+    gl: { t: 'Días lectivos de 2026-27 con amencer despois da hora de entrada', a: 'Horario actual', b: 'Hora de Lisboa (UTC+0; UTC+1 no verán)', ent: 'Entrada ás', dias: 'días', fonte: 'Cálculo propio (método NOAA, ±1-2 min): días de luns a venres entre o 9/9/2026 e o 21/6/2027 (204), sen descontar festivos.', desc: 'Gráfico de barras: días lectivos con amencer despois das 8:00, 8:30 e 9:00 en Xirona, Madrid e Santiago co horario actual e coa hora de Lisboa' },
+    es: { t: 'Días lectivos de 2026-27 con amanecer después de la hora de entrada', a: 'Horario actual', b: 'Hora de Lisboa (UTC+0; UTC+1 en verano)', ent: 'Entrada a las', dias: 'días', fonte: 'Cálculo propio (método NOAA, ±1-2 min): días de lunes a viernes entre el 9/9/2026 y el 21/6/2027 (204), sin descontar festivos.', desc: 'Gráfico de barras: días lectivos con amanecer después de las 8:00, 8:30 y 9:00 en Girona, Madrid y Santiago con el horario actual y con la hora de Lisboa' },
+  }[lang];
+  const nm = lang === 'gl' ? ['Xirona', 'Madrid', 'Santiago'] : ['Girona', 'Madrid', 'Santiago'];
+  const ids = ['Xirona', 'Madrid', 'Santiago'];
+  const ini = Date.UTC(2026, 8, 9), fin = Date.UTC(2027, 5, 21);
+  const conta = (id: string, esc: 'actual' | 'portugal', lim: number) => {
+    const c = cidades.find((k) => k.gl === id)!;
+    let n = 0;
+    for (let t = ini; t <= fin; t += 864e5) {
+      const d = new Date(t + 12 * 36e5);
+      const w = d.getUTCDay();
+      if (w === 0 || w === 6) continue;
+      if (amencer(d, c.lat, c.lon, esc) > lim) n++;
+    }
+    return n;
+  };
+  const lims = [480, 510, 540];
+  const W = 760, H = 500, l = 120, r = 56, maxV = 204;
+  const bw = (W - l - r);
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(T.desc)}" ${FONT}>`;
+  s += `<rect width="${W}" height="${H}" fill="${PAPER}"/>`;
+  s += `<text x="20" y="32" font-size="20" font-weight="800" fill="${INK}">${esc(T.t)}</text>`;
+  s += `<rect x="24" y="52" width="18" height="12" fill="${INK}"/><text x="50" y="63" font-size="13" fill="${INK}">${esc(T.a)}</text>`;
+  s += `<rect x="224" y="52" width="18" height="12" fill="${SUN}"/><text x="250" y="63" font-size="13" fill="${INK}">${esc(T.b)}</text>`;
+  let y = 96;
+  for (const lim of lims) {
+    s += `<text x="20" y="${y}" font-size="14" font-weight="700" fill="${BLUE}">${esc(T.ent)} ${hhmm(lim)}</text>`;
+    s += `<line x1="${l}" x2="${W - r}" y1="${y + 8}" y2="${y + 8}" stroke="${RULE}"/>`;
+    y += 14;
+    ids.forEach((id, i) => {
+      s += `<text x="${l - 8}" y="${y + 17}" font-size="13" text-anchor="end" fill="${INK}">${esc(nm[i])}</text>`;
+      (['actual', 'portugal'] as const).forEach((e, j) => {
+        const v = conta(id, e, lim);
+        const w = (v / maxV) * bw;
+        const yy = y + j * 12;
+        s += `<rect x="${l}" y="${yy}" width="${Math.max(w, 0)}" height="10" fill="${j ? SUN : INK}"/>`;
+        s += `<text x="${l + w + 6}" y="${yy + 9}" font-size="11" fill="${INK}">${v}</text>`;
+      });
+      y += 32;
+    });
+    y += 14;
+  }
+  s += `<text x="20" y="${H - 8}" font-size="10" fill="${MUTED}">${esc(T.fonte)}</text></svg>`;
+  return s;
+}
+
 for (const lang of ['gl', 'es'] as const) {
   writeFileSync(`public/img/gradiente-amencer-${lang}.svg`, gradiente(lang));
   writeFileSync(`public/img/amencer-santiago-ano-${lang}.svg`, anual(lang));
   writeFileSync(`public/img/amencer-santiago-tres-horarios-${lang}.svg`, escenarios(lang));
+  writeFileSync(`public/img/colexio-amencer-${lang}.svg`, colexio(lang));
 }
 console.log('ok');

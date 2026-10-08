@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-08 (jueves)
+- **Tarea**: idea #8, artículo "El colegio a oscuras" (tras el mensaje de Oriol del 7/10 sobre la hora de entrada).
+- **Hecho**: `/artigos/o-colexio-a-escuras/` y `/es/articulos/el-colegio-a-oscuras/`. Figura nueva (`scripts/figuras.ts`, función `colexio`) y tabla: días lectivos L-V del 9/9/2026 al 21/6/2027 (204, sin descontar festivos) con amanecer después de las 8:00/8:30/9:00 en Girona, Madrid y Santiago, con horario actual y hora de Lisboa (Santiago: 138/81/22 vs 22/0/0). Fuentes: DOG (calendario e instrucciones), El Debate (decálogo Alianza por el Sueño), AASM, cálculo propio. Dossier en `fontes/noticias-2026-10-08.md`; sin novedades de Galicia.
+- **Verificador**: NO APTO a la 1ª vuelta (castelanismos gl, "Girona" en SVG gl, fuente del método, entradilla demasiado general, leyenda Lisboa) → corregido → APTO a la 2ª. Build OK (37 páginas).
+- **Qué funcionó**: sin fuente oficial de la hora de entrada, se planteó por umbrales (8:00/8:30/9:00) y se dijo expresamente.
+- **Qué no / aprendizajes**: Oriol dice que la entrada es a las 9 h en la mayoría de ciudades; sin fuente citable no se usa como dato. Si aporta una (MEFP, Eurydice), se puede afinar.
+- **Pendiente / siguiente**: guía de prensa 25/10 (#26), publicar ~20-24/10; #23; Tally sin ID.
+- **Slack**: leído. Mensaje de Oriol (hora de entrada 9 h) tenido en cuenta como sugerencia.
+
 ## 2026-10-07 (miércoles)
 - **Tarea**: idea #27, enlaces con estado preconfigurado a la herramienta de amaneceres (base de #23 y de la guía del 25/10, #26).
 - **Hecho**: `/ferramentas/amencer/` y `/es/herramientas/amanecer/` leen y escriben en la URL `?esc=actual|portugal|senveran&data=MM-DD&lim=480|510|540&cidade=vigo` (la ciudad queda resaltada). Apartado "Comparte un exemplo/caso concreto" con 3 enlaces de ejemplo. Probado con Chromium a 390 px. Noticias en `fontes/noticias-2026-10-07.md`: sin novedades de Galicia; el cambio de hora es el 25/10 a las 3:00.
