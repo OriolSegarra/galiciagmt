@@ -182,10 +182,44 @@ function colexio(lang: L): string {
   return s;
 }
 
+// ---------- Figura 5: Santiago e Lisboa o 21/12/2026 ----------
+function lisboa(lang: L): string {
+  const T = {
+    gl: { t: 'Amencer o 21 de decembro de 2026: Lisboa e Santiago', a: 'Lisboa, hora de Portugal', b: 'Santiago, hora de inverno (CET)', c: 'Santiago, coa hora de Lisboa', fonte: 'Lisboa: timeanddate.com. Santiago: cálculo propio (método NOAA, ±1-2 min).', desc: 'Gráfico: hora do amencer en Lisboa e en Santiago o 21 de decembro de 2026' },
+    es: { t: 'Amanecer el 21 de diciembre de 2026: Lisboa y Santiago', a: 'Lisboa, hora de Portugal', b: 'Santiago, hora de invierno (CET)', c: 'Santiago, con la hora de Lisboa', fonte: 'Lisboa: timeanddate.com. Santiago: cálculo propio (método NOAA, ±1-2 min).', desc: 'Gráfico: hora del amanecer en Lisboa y en Santiago el 21 de diciembre de 2026' },
+  }[lang];
+  const c = cidades.find((k) => k.gl === 'Santiago')!;
+  const d = new Date(Date.UTC(2026, 11, 21, 12));
+  const filas = [
+    { n: T.a, v: 7 * 60 + 50, col: SUN },
+    { n: T.b, v: amencer(d, c.lat, c.lon, 'actual'), col: INK },
+    { n: T.c, v: amencer(d, c.lat, c.lon, 'portugal'), col: BLUE },
+  ];
+  const W = 760, left = 210, right = 60, top = 70, rowH = 46, H = top + filas.length * rowH + 50;
+  const x0 = 6.5 * 60, x1 = 9.5 * 60;
+  const X = (m: number) => left + ((m - x0) / (x1 - x0)) * (W - left - right);
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(T.desc)}" ${FONT}>`;
+  s += `<rect width="${W}" height="${H}" fill="${PAPER}"/>`;
+  s += `<text x="20" y="32" font-size="20" font-weight="800" fill="${INK}">${esc(T.t)}</text>`;
+  for (let m = 7 * 60; m <= 9 * 60; m += 60) {
+    s += `<line x1="${X(m)}" x2="${X(m)}" y1="${top - 8}" y2="${top + filas.length * rowH - 10}" stroke="${RULE}"/>`;
+    s += `<text x="${X(m)}" y="${top - 14}" font-size="12" text-anchor="middle" fill="${MUTED}">${hhmm(m)}</text>`;
+  }
+  filas.forEach((f, i) => {
+    const y = top + i * rowH;
+    s += `<text x="${left - 12}" y="${y + 18}" font-size="14" text-anchor="end" font-weight="${i ? 700 : 500}" fill="${INK}">${esc(f.n)}</text>`;
+    s += `<rect x="${left}" y="${y + 4}" width="${X(f.v) - left}" height="20" fill="${f.col}"/>`;
+    s += `<text x="${X(f.v) + 8}" y="${y + 19}" font-size="14" font-weight="700" fill="${INK}">${hhmm(f.v)}</text>`;
+  });
+  s += `<text x="20" y="${H - 14}" font-size="11" fill="${MUTED}">${esc(T.fonte)}</text></svg>`;
+  return s;
+}
+
 for (const lang of ['gl', 'es'] as const) {
   writeFileSync(`public/img/gradiente-amencer-${lang}.svg`, gradiente(lang));
   writeFileSync(`public/img/amencer-santiago-ano-${lang}.svg`, anual(lang));
   writeFileSync(`public/img/amencer-santiago-tres-horarios-${lang}.svg`, escenarios(lang));
   writeFileSync(`public/img/colexio-amencer-${lang}.svg`, colexio(lang));
+  writeFileSync(`public/img/amencer-lisboa-santiago-${lang}.svg`, lisboa(lang));
 }
 console.log('ok');

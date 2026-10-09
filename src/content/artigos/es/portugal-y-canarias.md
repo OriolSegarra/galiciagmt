@@ -46,6 +46,10 @@ Hoy esa diferencia sigue regulada por ley. El Real Decreto 236/2002, que fija el
 
 La diferencia entre tener GMT o CET se hace visible al comparar el amanecer. El 21 de diciembre de 2026, el sol sale en Santiago de Compostela a las 9:01 de la mañana; en Lisboa, ese mismo día, sale a las 7:50 ([timeanddate, Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026); [timeanddate, Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026)). Más de una hora de diferencia en cuándo amanece, entre dos puntos que comparten huso geográfico pero no hora oficial. Existen además estudios que comparan directamente la salud del sueño entre Lugo y Coimbra bajo esa misma disparidad horaria; de eso se habla con detalle en el artículo dedicado a la salud.
 
+![Gráfico: hora del amanecer en Lisboa y en Santiago el 21 de diciembre de 2026](/img/amencer-lisboa-santiago-es.svg)
+
+Con la hora de Lisboa, Santiago amanecería a las 8:01 (cálculo propio: el 9:01 de [timeanddate, Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026) en hora de invierno, restando una hora).
+
 ## Un Estado, un archipiélago, y el caso gallego
 
 Conviene ser honestos con lo que cada ejemplo demuestra y con lo que no. Portugal es un Estado entero: cuando cambia la hora, cambia para todo el territorio, sin ninguna frontera horaria interna que gestionar. Canarias es un archipiélago separado por mar del resto de España: la frontera horaria no la cruza nadie caminando o conduciendo cada día.
