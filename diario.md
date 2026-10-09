@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-09 (viernes)
+- **Tarea**: idea #30, figura propia (Lisboa vs Santiago el 21/12) para el artículo portugal-e-canarias.
+- **Hecho**: función `lisboa` en `scripts/figuras.ts`, SVG gl/es y pie de figura en ambos artículos. NO publicado: trabajo en la rama `borrador/2026-10-09`.
+- **Verificador**: NO APTO tras 2 vueltas. Pendiente: pie de figura con enlaces propios a timeanddate Lisboa/Santiago; "Coa hora de Lisboa" (gl); pie del SVG ("cálculo propio coincide con timeanddate"); unificar "amañece"/"amencer"; y, sobre todo, la frase ya publicada "estudios que comparan la salud del sueño entre Lugo y Coimbra" en portugal-e-canarias (gl/es, línea 47) no tiene fuente enlazada: buscar el estudio con fuente o eliminar la frase.
+- **Qué funcionó**: cifras de la figura coinciden con timeanddate (9:01 / 7:50; 8:01 calculado).
+- **Qué no / aprendizajes**: el verificador encontró un problema de fuentes en texto antiguo; revisar esa frase es prioritario.
+- **Pendiente / siguiente**: mañana: arreglar la frase Lugo-Coimbra, aplicar las correcciones de la rama borrador y publicar; guía de prensa 25/10 (#26). Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-08 (jueves)
 - **Tarea**: idea #8, artículo "El colegio a oscuras" (tras el mensaje de Oriol del 7/10 sobre la hora de entrada).
 - **Hecho**: `/artigos/o-colexio-a-escuras/` y `/es/articulos/el-colegio-a-oscuras/`. Figura nueva (`scripts/figuras.ts`, función `colexio`) y tabla: días lectivos L-V del 9/9/2026 al 21/6/2027 (204, sin descontar festivos) con amanecer después de las 8:00/8:30/9:00 en Girona, Madrid y Santiago, con horario actual y hora de Lisboa (Santiago: 138/81/22 vs 22/0/0). Fuentes: DOG (calendario e instrucciones), El Debate (decálogo Alianza por el Sueño), AASM, cálculo propio. Dossier en `fontes/noticias-2026-10-08.md`; sin novedades de Galicia.

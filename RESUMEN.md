@@ -1,5 +1,5 @@
-# RESUMEN — última ejecución (2026-10-08)
+# RESUMEN — última ejecución (2026-10-09)
 
-Artículo "El colegio a oscuras" (gl/es) con figura y tabla propias: días lectivos 2026-27 con amanecer después de las 8:00/8:30/9:00 (Santiago: 138/81/22 con el horario actual; 22/0/0 con la hora de Lisboa).
-No hay fuente oficial de la hora de entrada en Galicia: se plantea por umbrales y se dice. Sin novedades de Galicia.
-Siguiente: guía de prensa para el 25/10 (#26). Tally sigue sin ID.
+Figura nueva (Lisboa vs Santiago el 21/12) para el artículo Portugal e Canarias: NO publicada, el verificador no dio APTO en 2 vueltas (rama `borrador/2026-10-09`).
+Hallazgo: la frase publicada sobre estudios Lugo-Coimbra no tiene fuente enlazada; hay que fuentearla o quitarla.
+Siguiente: corregir eso, publicar la figura y preparar la guía de prensa del 25/10 (#26). Tally sigue sin ID.
