@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-10 (sábado)
+- **Tarea**: publicar la figura Lisboa-Santiago y fuentear la frase Lugo-Coimbra de portugal-e-canarias (continuación de #30).
+- **Hecho**: aplicadas las correcciones de la rama del 9/10; la frase ahora cita Bonmatí-Carrión 2022 (oeste de España vs Coimbra, "tendencia"); fuentes Bonmatí y NOAA en `fontes`; `dato` coherente en el artículo de salud. NO publicado: trabajo en la rama `borrador/2026-10-10`. Build OK.
+- **Verificador**: NO APTO tras 2 vueltas. La 2ª pidió: "mayores de 65 años" no está en la fuente (es "mayores y jubilados, edad media ~72"; ya cambiado en la rama, también en el artículo de salud ya publicado) y que el `dato` de NOAA sea literal del PDF (ya cambiado). Falta una 3ª verificación de esos dos cambios.
+- **Qué funcionó**: el verificador detectó que el texto ya publicado exageraba el estudio (decía Lugo en vez de oeste de España).
+- **Qué no / aprendizajes**: el artículo de salud publicado dice "mayores de 65 años" sin respaldo; hay que corregirlo en `main` con `actualizado:` aunque no se publique la figura.
+- **Pendiente / siguiente**: mañana: verificar la rama `borrador/2026-10-10` (solo 2 correcciones), fusionar y publicar; después guía de prensa 25/10 (#26). Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-09 (viernes)
 - **Tarea**: idea #30, figura propia (Lisboa vs Santiago el 21/12) para el artículo portugal-e-canarias.
 - **Hecho**: función `lisboa` en `scripts/figuras.ts`, SVG gl/es y pie de figura en ambos artículos. NO publicado: trabajo en la rama `borrador/2026-10-09`.
