@@ -24,6 +24,12 @@ fontes:
   - titulo: "timeanddate.com — Lisboa, diciembre 2026"
     url: "https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026"
     dato: "El 21/12/2026 el sol sale en Lisboa a las 7:50"
+  - titulo: "Bonmatí-Carrión et al. (2022), Biology"
+    url: "https://www.mdpi.com/2079-7737/11/8/1130"
+    dato: "Tendencia a mayor desincronización circadiana en el oeste de España (Lugo, Ponferrada, Huelva) que en Coimbra, en mayores y jubiladas, de unos 72 años de media"
+  - titulo: "Método NOAA de ecuacións solares (base do cálculo propio, src/lib/sol.ts)"
+    url: "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
+    dato: "Para amanecer y atardecer se fija el cénit en 90,833° (refracción y tamaño del disco solar)"
 ---
 
 Cuando se plantea que Galicia use la hora de Greenwich, suele salir la misma objeción: "eso sería un lío". Pero ya tenemos dos ejemplos reales, muy cerca de nosotros, de territorios que viven con una hora distinta a la del resto del Estado al que pertenecen. Uno salió mal y se rectificó. El otro lleva un siglo funcionando sin que nadie lo cuestione. Merece la pena mirar los dos con calma antes de sacar conclusiones.
@@ -44,7 +50,11 @@ Hoy esa diferencia sigue regulada por ley. El Real Decreto 236/2002, que fija el
 
 ## Santiago y Lisboa, latitud parecida, horas distintas
 
-La diferencia entre tener GMT o CET se hace visible al comparar el amanecer. El 21 de diciembre de 2026, el sol sale en Santiago de Compostela a las 9:01 de la mañana; en Lisboa, ese mismo día, sale a las 7:50 ([timeanddate, Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026); [timeanddate, Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026)). Más de una hora de diferencia en cuándo amanece, entre dos puntos que comparten huso geográfico pero no hora oficial. Existen además estudios que comparan directamente la salud del sueño entre Lugo y Coimbra bajo esa misma disparidad horaria; de eso se habla con detalle en el artículo dedicado a la salud.
+La diferencia entre tener GMT o CET se hace visible al comparar el amanecer. El 21 de diciembre de 2026, el sol sale en Santiago de Compostela a las 9:01 de la mañana; en Lisboa, ese mismo día, sale a las 7:50 ([timeanddate, Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026); [timeanddate, Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026)). Más de una hora de diferencia en cuándo amanece, entre dos puntos que comparten huso geográfico pero no hora oficial. Un estudio de 2022 comparó a personas mayores y jubiladas, de unos 72 años de media del oeste de España (Lugo, Ponferrada y Huelva) con las de Coimbra y encontró una tendencia a mayor desincronización circadiana en las primeras ([Bonmatí-Carrión et al., Biology](https://www.mdpi.com/2079-7737/11/8/1130)); sus limitaciones se explican en el artículo dedicado a la salud.
+
+![Gráfico: hora del amanecer en Lisboa y en Santiago el 21 de diciembre de 2026](/img/amencer-lisboa-santiago-es.svg)
+
+Con la hora de Lisboa, Santiago amanecería a las 8:01 (cálculo propio: el 9:01 de [timeanddate, Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026) en hora de invierno, restando una hora). Lisboa, 7:50 según [timeanddate, Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026); nuestro cálculo para Santiago coincide con el de timeanddate (9:01).
 
 ## Un Estado, un archipiélago, y el caso gallego
 
