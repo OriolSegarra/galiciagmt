@@ -2,6 +2,7 @@
 titulo: "Amaneceres tardíos, sueño y salud: qué dice la evidencia"
 entradilla: "Qué sabemos de verdad sobre el desajuste entre el reloj solar y el social, y qué preguntas siguen abiertas."
 data: 2026-09-27
+actualizado: 2026-10-11
 par: saude
 orde: 3
 seccion: saude
@@ -48,4 +49,4 @@ En el caso español, la Sociedad Española de Sueño (SES) se manifestó en 2018
 
 ## Qué no sabemos
 
-La evidencia disponible es parcial y conviene decirlo con claridad. No hay estudios específicos sobre la población gallega en general —el trabajo de Lugo se ciñó a mayores y jubiladas, de unos 72 años de media sin trabajo remunerado—. No hay datos que midan directamente en Galicia los efectos en salud que Giuntella y Mazzonna encontraron en Estados Unidos; esos hallazgos son de otro país, otro sistema sanitario y otras condiciones sociales. Tampoco está claro, según reconoce la propia AASM, qué pasaría a largo plazo con un horario de verano permanente, opción que en todo caso no es la que defiende este medio. Lo que sí muestran los datos disponibles es que existe un desajuste medible entre reloj solar y social en esta zona, que sociedades médicas de referencia piden acabar con los cambios estacionales, y que la discusión sobre cuál debe ser el horario fijo —invierno, verano o GMT— sigue abierta y merece basarse en datos, no en intuiciones.
+La evidencia disponible es parcial y conviene decirlo con claridad. No hay estudios específicos sobre la población gallega en general —el trabajo sobre Lugo, Ponferrada y Huelva se ciñó a personas mayores y jubiladas, de unos 72 años de media, presuntamente sin trabajo remunerado—. No hay datos que midan directamente en Galicia los efectos en salud que Giuntella y Mazzonna encontraron en Estados Unidos; esos hallazgos son de otro país, otro sistema sanitario y otras condiciones sociales. Tampoco está claro, según reconoce la propia AASM, qué pasaría a largo plazo con un horario de verano permanente, opción que en todo caso no es la que defiende este medio. Lo que sí muestran los datos disponibles es que existe un desajuste medible entre reloj solar y social en esta zona, que sociedades médicas de referencia piden acabar con los cambios estacionales, y que la discusión sobre cuál debe ser el horario fijo —invierno, verano o GMT— sigue abierta y merece basarse en datos, no en intuiciones.

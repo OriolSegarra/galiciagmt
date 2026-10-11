@@ -2,6 +2,7 @@
 titulo: "Portugal y Canarias: cómo funciona tener otra hora en la península"
 entradilla: "Portugal ya probó el cambio contrario y dio marcha atrás. Canarias lleva una hora menos desde 1922. Qué dicen esas dos experiencias sobre el caso gallego."
 data: 2026-09-27
+actualizado: 2026-10-11
 par: comparativa
 orde: 4
 seccion: comparativa
@@ -26,10 +27,10 @@ fontes:
     dato: "El 21/12/2026 el sol sale en Lisboa a las 7:50"
   - titulo: "Bonmatí-Carrión et al. (2022), Biology"
     url: "https://www.mdpi.com/2079-7737/11/8/1130"
-    dato: "Tendencia a mayor desincronización circadiana en el oeste de España (Lugo, Ponferrada, Huelva) que en Coimbra, en mayores y jubiladas, de unos 72 años de media"
+    dato: "Tendencia a mayor desincronización circadiana en el oeste de España (Lugo, Ponferrada, Huelva) que en Coimbra, en personas mayores y jubiladas, de unos 72 años de media"
   - titulo: "Método NOAA de ecuacións solares (base do cálculo propio, src/lib/sol.ts)"
     url: "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
-    dato: "Para amanecer y atardecer se fija el cénit en 90,833° (refracción y tamaño del disco solar)"
+    dato: "(traducción) «El cénit se fija en 90,833° (corrección aproximada por la refracción atmosférica al amanecer y atardecer y por el tamaño del disco solar)»"
 ---
 
 Cuando se plantea que Galicia use la hora de Greenwich, suele salir la misma objeción: "eso sería un lío". Pero ya tenemos dos ejemplos reales, muy cerca de nosotros, de territorios que viven con una hora distinta a la del resto del Estado al que pertenecen. Uno salió mal y se rectificó. El otro lleva un siglo funcionando sin que nadie lo cuestione. Merece la pena mirar los dos con calma antes de sacar conclusiones.

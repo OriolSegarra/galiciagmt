@@ -2,6 +2,7 @@
 titulo: "Amenceres tardíos, sono e saúde: que di a evidencia"
 entradilla: "Que sabemos de verdade sobre o desfase entre o reloxo solar e o social, e que preguntas seguen abertas."
 data: 2026-09-27
+actualizado: 2026-10-11
 par: saude
 orde: 3
 seccion: saude
@@ -48,4 +49,4 @@ No caso español, a Sociedade Española de Sueño (SES) manifestouse en 2018 a f
 
 ## Que non sabemos
 
-A evidencia dispoñible é parcial e conviña dicilo con claridade. Non hai estudos específicos sobre a poboación galega en xeral —o traballo de Lugo cinguiuse a maiores e xubiladas, de preto de 72 anos de media sen traballo remunerado—. Non hai datos que midan directamente en Galicia os efectos en saúde que Giuntella e Mazzonna atoparon nos Estados Unidos; eses achados son doutro país, doutro sistema sanitario e doutras condicións sociais. Tampouco está claro, segundo recoñece a propia AASM, que pasaría a longo prazo cun horario de verán permanente, opción que en todo caso non é a que defende este medio. O que si mostran os datos dispoñibles é que existe un desfase medible entre reloxo solar e social nesta zona, que sociedades médicas de referencia piden acabar cos cambios estacionais, e que a discusión sobre cal debe ser o horario fixo —inverno, verán ou GMT— segue aberta e merece basearse en datos, non en intuicións.
+A evidencia dispoñible é parcial e conviña dicilo con claridade. Non hai estudos específicos sobre a poboación galega en xeral —o traballo sobre Lugo, Ponferrada e Huelva cinguiuse a persoas maiores e xubiladas, de preto de 72 anos de media, presuntamente sen traballo remunerado—. Non hai datos que midan directamente en Galicia os efectos en saúde que Giuntella e Mazzonna atoparon nos Estados Unidos; eses achados son doutro país, doutro sistema sanitario e doutras condicións sociais. Tampouco está claro, segundo recoñece a propia AASM, que pasaría a longo prazo cun horario de verán permanente, opción que en todo caso non é a que defende este medio. O que si mostran os datos dispoñibles é que existe un desfase medible entre reloxo solar e social nesta zona, que sociedades médicas de referencia piden acabar cos cambios estacionais, e que a discusión sobre cal debe ser o horario fixo —inverno, verán ou GMT— segue aberta e merece basearse en datos, non en intuicións.
