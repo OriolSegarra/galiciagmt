@@ -8,7 +8,7 @@ seccion: saude
 fontes:
   - titulo: "Bonmatí-Carrión et al. (2022), Biology"
     url: "https://www.mdpi.com/2079-7737/11/8/1130"
-    dato: "En Lugo houbo maior desincronización circadiana ca en Coimbra, aínda que ambas as poboacións durmiron 7-8 horas"
+    dato: "Tendencia a maior desincronización circadiana no oeste de España (Lugo, Ponferrada, Huelva) ca en Coimbra, aínda que ambas as poboacións durmiron 7-8 horas"
   - titulo: "Giuntella & Mazzonna (2019), Journal of Health Economics"
     url: "https://pubmed.ncbi.nlm.nih.gov/31030116/"
     dato: "Nos EUA, unha hora extra de luz pola tarde reduce o sono en 19 minutos de media"
@@ -28,7 +28,7 @@ Cando o horario oficial non coincide co movemento do sol, o corpo recibe sinais 
 
 ## O estudo máis próximo a Galicia: Lugo fronte a Coimbra
 
-O traballo que mellor achega datos dunha zona comparable á nosa é o de Bonmatí-Carrión e equipo, publicado en 2022 en Biology. Compararon poboación de Lugo, Ponferrada e Huelva (España occidental) coa de Coimbra (Portugal), que usa a hora GMT/Europa-Lisboa. É importante coñecer quen participou: persoas maiores de 65 anos, sen traballo remunerado, o que limita canto se pode extrapolar a poboación activa ou a nenos e adolescentes, cuxos horarios escolares e laborais introducen outras presións.
+O traballo que mellor achega datos dunha zona comparable á nosa é o de Bonmatí-Carrión e equipo, publicado en 2022 en Biology. Compararon poboación de Lugo, Ponferrada e Huelva (España occidental) coa de Coimbra (Portugal), que usa a hora GMT/Europa-Lisboa. É importante coñecer quen participou: persoas maiores e xubiladas, de preto de 72 anos de media, sen traballo remunerado, o que limita canto se pode extrapolar a poboación activa ou a nenos e adolescentes, cuxos horarios escolares e laborais introducen outras presións.
 
 O resultado principal non foi que unha poboación durmise menos ca outra: ambas as mostras durmiron dentro do rango recomendado para a súa idade, entre 7 e 8 horas. A diferenza apareceu noutro plano, o da robustez do ritmo circadiano —medida a través de indicadores como a estabilidade interdiaria e a amplitude relativa—, que foi maior en Portugal, especialmente entre semana. En España occidental detectouse maior desincronización. Ademais, unha vez corrixidos os horarios a GMT+0, as comidas tiveron lugar máis tarde en España ca en Portugal.
 
@@ -48,4 +48,4 @@ No caso español, a Sociedade Española de Sueño (SES) manifestouse en 2018 a f
 
 ## Que non sabemos
 
-A evidencia dispoñible é parcial e conviña dicilo con claridade. Non hai estudos específicos sobre a poboación galega en xeral —o traballo de Lugo cinguiuse a maiores de 65 anos sen traballo remunerado—. Non hai datos que midan directamente en Galicia os efectos en saúde que Giuntella e Mazzonna atoparon nos Estados Unidos; eses achados son doutro país, doutro sistema sanitario e doutras condicións sociais. Tampouco está claro, segundo recoñece a propia AASM, que pasaría a longo prazo cun horario de verán permanente, opción que en todo caso non é a que defende este medio. O que si mostran os datos dispoñibles é que existe un desfase medible entre reloxo solar e social nesta zona, que sociedades médicas de referencia piden acabar cos cambios estacionais, e que a discusión sobre cal debe ser o horario fixo —inverno, verán ou GMT— segue aberta e merece basearse en datos, non en intuicións.
+A evidencia dispoñible é parcial e conviña dicilo con claridade. Non hai estudos específicos sobre a poboación galega en xeral —o traballo de Lugo cinguiuse a maiores e xubiladas, de preto de 72 anos de media sen traballo remunerado—. Non hai datos que midan directamente en Galicia os efectos en saúde que Giuntella e Mazzonna atoparon nos Estados Unidos; eses achados son doutro país, doutro sistema sanitario e doutras condicións sociais. Tampouco está claro, segundo recoñece a propia AASM, que pasaría a longo prazo cun horario de verán permanente, opción que en todo caso non é a que defende este medio. O que si mostran os datos dispoñibles é que existe un desfase medible entre reloxo solar e social nesta zona, que sociedades médicas de referencia piden acabar cos cambios estacionais, e que a discusión sobre cal debe ser o horario fixo —inverno, verán ou GMT— segue aberta e merece basearse en datos, non en intuicións.
