@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-11 (domingo)
+- **Tarea**: verificar y publicar la rama `borrador/2026-10-10` (figura Lisboa-Santiago, fuente del estudio Bonmatí-Carrión, corrección de edad).
+- **Hecho**: fusionada y publicada en `main`. `/artigos/portugal-e-canarias/` (y es) con figura Lisboa vs Santiago el 21/12 y la frase del estudio ahora con fuente (tendencia en el oeste de España vs Coimbra). Corregido "mayores de 65 años" por "personas mayores y jubiladas, ~72 años de media" en el artículo de salud ya publicado; `actualizado: 2026-10-11` en los cuatro archivos. Build OK (37 páginas). Sin investigador (el 25/10 es la próxima ocasión de noticias).
+- **Verificador**: NO APTO a la 1ª vuelta (falta "personas", dato NOAA no literal, "presuntamente sin trabajo remunerado") → corregido → APTO a la 2ª.
+- **Qué funcionó**: el verificador comprobó el estudio original (n=294 y 135; 71,8 y 72,1 años).
+- **Qué no / aprendizajes**: el contenedor no alcanza gml.noaa.gov; el dato NOAA se marca como traducción de la cita literal del dossier. Opcional futuro: mencionar Coimbra en la frase de limitaciones.
+- **Pendiente / siguiente**: guía de prensa 25/10 (#26), publicar ~20-24/10. Mañana lunes: herramienta o pieza grande. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-10 (sábado)
 - **Tarea**: publicar la figura Lisboa-Santiago y fuentear la frase Lugo-Coimbra de portugal-e-canarias (continuación de #30).
 - **Hecho**: aplicadas las correcciones de la rama del 9/10; la frase ahora cita Bonmatí-Carrión 2022 (oeste de España vs Coimbra, "tendencia"); fuentes Bonmatí y NOAA en `fontes`; `dato` coherente en el artículo de salud. NO publicado: trabajo en la rama `borrador/2026-10-10`. Build OK.
