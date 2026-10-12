@@ -1,0 +1,315 @@
+---
+/*
+  Ferramenta: o ano de amenceres dunha cidade en tres escenarios horarios.
+  Cálculo no navegador (src/lib/sol.ts, método NOAA). Sen JS móstrase só o aviso.
+*/
+import { cidades } from '../data/cidades';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const ANO = new Date().getUTCFullYear();
+
+const t = {
+  gl: {
+    cidade: 'Cidade',
+    meses: ['xan', 'feb', 'mar', 'abr', 'mai', 'xuñ', 'xul', 'ago', 'set', 'out', 'nov', 'dec'],
+    esc: { actual: 'Horario actual', portugal: 'Hora de Portugal', senVeran: 'Sen horario de verán' },
+    sub: { actual: 'UTC+1 / verán UTC+2', portugal: 'UTC+0 / verán UTC+1', senVeran: 'UTC+1 todo o ano' },
+    legend: 'Hora do amencer',
+    ref: '8:30',
+    colEsc: 'Escenario',
+    noscript: 'Esta ferramenta calcula no navegador e necesita JavaScript.',
+  },
+  es: {
+    cidade: 'Ciudad',
+    meses: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+    esc: { actual: 'Horario actual', portugal: 'Hora de Portugal', senVeran: 'Sin horario de verano' },
+    sub: { actual: 'UTC+1 / verano UTC+2', portugal: 'UTC+0 / verano UTC+1', senVeran: 'UTC+1 todo el año' },
+    legend: 'Hora del amanecer',
+    ref: '8:30',
+    colEsc: 'Escenario',
+    noscript: 'Esta herramienta calcula en el navegador y necesita JavaScript.',
+  },
+}[lang];
+
+const data = {
+  ano: ANO,
+  lang,
+  t: { meses: t.meses, esc: t.esc, sub: t.sub, legend: t.legend },
+  cidades: cidades.map((c) => ({ gl: c.gl, es: c.es, lat: c.lat, lon: c.lon })),
+};
+const bandas = [5, 6, 7, 8, 9];
+---
+
+<section class="tool" data-cfg={JSON.stringify(data)} aria-label={t.cidade}>
+  <div class="sel">
+    <label class="kicker" for="ano-cidade">{t.cidade}</label>
+    <select id="ano-cidade">
+      {cidades.map((c) => <option value={c.gl}>{lang === 'gl' ? c.gl : c.es}</option>)}
+    </select>
+  </div>
+
+  <ul class="legend" aria-label={t.legend}>
+    {bandas.map((b, i) => <li><span class="sw" style={`--o:${0.1 + i * 0.1}`}></span>{b}–{b + 1} h</li>)}
+    <li><span class="ref"></span>{t.ref}</li>
+  </ul>
+
+  <noscript><p>{t.noscript}</p></noscript>
+  <div class="panels" data-panels></div>
+
+  <h2 class="kicker tabh" data-tabh></h2>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th scope="col">{t.colEsc}</th><th scope="col">&gt; 8:00</th><th scope="col">&gt; 8:30</th><th scope="col">&gt; 9:00</th></tr>
+      </thead>
+      <tbody data-body></tbody>
+    </table>
+  </div>
+  <p class="sol" data-sol></p>
+</section>
+
+<script>
+  import { amencer, solpor, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
+
+  const root = document.querySelector<HTMLElement>('.tool')!;
+  const cfg = JSON.parse(root.dataset.cfg!) as {
+    ano: number;
+    lang: 'gl' | 'es';
+    t: { meses: string[]; esc: Record<Escenario, string>; sub: Record<Escenario, string>; legend: string };
+    cidades: { gl: string; es: string; lat: number; lon: number }[];
+  };
+  const textos = cfg.lang === 'gl'
+    ? {
+        aria: (c: string, e: string, a: string, b: string, n: number) =>
+          `Hora do amencer en ${c} ao longo de ${cfg.ano}, ${e}. Mínimo ás ${a}, máximo ás ${b}. ${n} días con amencer despois das 8:30.`,
+        tabH: (c: string) => `Días de ${cfg.ano} con amencer despois de cada hora, en ${c}`,
+        sol: (c: string, a1: string, p1: string, a2: string, p2: string) =>
+          `En ${c}, o 21 de xuño o sol pónse ás ${a1} co horario actual e ás ${p1} coa hora de Portugal. O 21 de decembro, ás ${a2} e ás ${p2}.`,
+      }
+    : {
+        aria: (c: string, e: string, a: string, b: string, n: number) =>
+          `Hora del amanecer en ${c} a lo largo de ${cfg.ano}, ${e}. Mínimo a las ${a}, máximo a las ${b}. ${n} días con amanecer después de las 8:30.`,
+        tabH: (c: string) => `Días de ${cfg.ano} con amanecer después de cada hora, en ${c}`,
+        sol: (c: string, a1: string, p1: string, a2: string, p2: string) =>
+          `En ${c}, el 21 de junio el sol se pone a las ${a1} con el horario actual y a las ${p1} con la hora de Portugal. El 21 de diciembre, a las ${a2} y a las ${p2}.`,
+      };
+
+  const ESCS: Escenario[] = ['actual', 'portugal', 'senVeran'];
+  const W = 400, H = 180, L = 30, R = 10, T = 8, B = 22;
+  const YMIN = 300, YMAX = 600; // 5:00 a 10:00
+  const sel = root.querySelector<HTMLSelectElement>('#ano-cidade')!;
+  const panels = root.querySelector<HTMLElement>('[data-panels]')!;
+  const body = root.querySelector<HTMLElement>('[data-body]')!;
+  const tabh = root.querySelector<HTMLElement>('[data-tabh]')!;
+  const solEl = root.querySelector<HTMLElement>('[data-sol]')!;
+
+  const norm = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, '-');
+  const nome = (c: { gl: string; es: string }) => (cfg.lang === 'gl' ? c.gl : c.es);
+  const x = (i: number, n: number) => L + (i / (n - 1)) * (W - L - R);
+  const y = (m: number) => T + (1 - (Math.min(YMAX, Math.max(YMIN, m)) - YMIN) / (YMAX - YMIN)) * (H - T - B);
+  const f = (v: number) => v.toFixed(1);
+  const dia = (mes: number, d: number) => new Date(Date.UTC(cfg.ano, mes, d, 12));
+
+  function render(idx: number) {
+    const c = cfg.cidades[idx];
+    const n = (Date.UTC(cfg.ano, 11, 31) - Date.UTC(cfg.ano, 0, 0)) / 86_400_000;
+    let html = '';
+    for (const e of ESCS) {
+      const v: number[] = [];
+      for (let i = 0; i < n; i++) v.push(amencer(dia(0, 1 + i), c.lat, c.lon, e));
+      let d = '';
+      v.forEach((m, i) => {
+        const salto = i === 0 || Math.abs(m - v[i - 1]) > 30;
+        d += `${salto ? 'M' : 'L'}${f(x(i, n))} ${f(y(m))}`;
+      });
+      let bandas = '';
+      for (let h = 5; h < 10; h++) {
+        bandas += `<rect x="${L}" y="${f(y(h * 60 + 60))}" width="${W - L - R}" height="${f(y(h * 60) - y(h * 60 + 60))}" fill="#0d3b66" fill-opacity="${(0.1 + (h - 5) * 0.1).toFixed(1)}"/>`;
+        bandas += `<text x="${L - 4}" y="${f(y(h * 60) + 3)}" text-anchor="end" class="tk">${h}</text>`;
+      }
+      bandas += `<text x="${L - 4}" y="${f(y(600) + 3)}" text-anchor="end" class="tk">10</text>`;
+      let meses = '';
+      cfg.t.meses.forEach((m, k) => {
+        const i = Math.round((Date.UTC(cfg.ano, k, 1) - Date.UTC(cfg.ano, 0, 1)) / 86_400_000);
+        meses += `<line x1="${f(x(i, n))}" x2="${f(x(i, n))}" y1="${H - B}" y2="${H - B + 3}" stroke="#111417" stroke-width="0.6"/>`;
+        meses += `<text x="${f(x(i + 15, n))}" y="${H - 6}" text-anchor="middle" class="tk">${m.charAt(0)}</text>`;
+      });
+      const nDias = diasDespoisDe(cfg.ano, c.lat, c.lon, e, 510);
+      const label = textos.aria(nome(c), cfg.t.esc[e], hhmm(Math.min(...v)), hhmm(Math.max(...v)), nDias);
+      html += `<figure class="panel"><figcaption><b>${cfg.t.esc[e]}</b><span>${cfg.t.sub[e]}</span></figcaption>` +
+        `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${label}" focusable="false">` +
+        bandas +
+        `<line x1="${L}" x2="${W - R}" y1="${f(y(510))}" y2="${f(y(510))}" stroke="#111417" stroke-width="1" stroke-dasharray="4 3"/>` +
+        `<path d="${d}" fill="none" stroke="#111417" stroke-width="1.2" stroke-linejoin="round"/>` +
+        `<line x1="${L}" x2="${W - R}" y1="${H - B}" y2="${H - B}" stroke="#111417" stroke-width="0.6"/>` +
+        meses +
+        `</svg></figure>`;
+    }
+    panels.innerHTML = html;
+
+    body.innerHTML = '';
+    for (const e of ESCS) {
+      const tr = document.createElement('tr');
+      const th = document.createElement('th');
+      th.scope = 'row';
+      th.textContent = cfg.t.esc[e];
+      tr.append(th);
+      for (const lim of [480, 510, 540]) {
+        const td = document.createElement('td');
+        td.className = 'num';
+        td.textContent = String(diasDespoisDe(cfg.ano, c.lat, c.lon, e, lim));
+        tr.append(td);
+      }
+      body.append(tr);
+    }
+    tabh.textContent = textos.tabH(nome(c));
+    const jun = dia(5, 21), dec = dia(11, 21);
+    solEl.textContent = textos.sol(
+      nome(c),
+      hhmm(solpor(jun, c.lat, c.lon, 'actual')),
+      hhmm(solpor(jun, c.lat, c.lon, 'portugal')),
+      hhmm(solpor(dec, c.lat, c.lon, 'actual')),
+      hhmm(solpor(dec, c.lat, c.lon, 'portugal')),
+    );
+  }
+
+  const q = norm(new URLSearchParams(location.search).get('cidade') ?? '');
+  let ini = cfg.cidades.findIndex((c) => norm(c.gl) === q || norm(c.es) === q);
+  if (ini < 0) ini = cfg.cidades.findIndex((c) => c.gl === 'Vigo');
+  sel.selectedIndex = ini;
+  sel.addEventListener('change', () => {
+    const u = new URL(location.href);
+    u.searchParams.set('cidade', norm(cfg.cidades[sel.selectedIndex].gl));
+    history.replaceState(null, '', u);
+    render(sel.selectedIndex);
+  });
+  render(ini);
+</script>
+
+<style>
+  .sel {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-block: 0.8rem;
+  }
+  select {
+    font: inherit;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    padding: 0.4rem 0.6rem;
+    min-width: 12rem;
+  }
+  select:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+  .legend {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    padding: 0;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+  }
+  .legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .sw {
+    width: 1.4rem;
+    height: 0.8rem;
+    background: var(--blue);
+    opacity: var(--o);
+    border: 1px solid var(--ink);
+  }
+  .ref {
+    width: 1.4rem;
+    border-top: 1px dashed var(--ink);
+  }
+  .panels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  :global(.panel) {
+    margin: 0;
+  }
+  :global(.panel figcaption) {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--ink);
+    padding-top: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+  :global(.panel figcaption span) {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  :global(.panel svg) {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: var(--paper);
+  }
+  :global(.panel .tk) {
+    font-size: 10px;
+    fill: var(--ink-2);
+    font-family: var(--font);
+  }
+  .tabh {
+    margin: 2rem 0 0.6rem;
+  }
+  .tw {
+    overflow-x: auto;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 40rem;
+    font-size: 0.95rem;
+  }
+  th,
+  td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--rule);
+    text-align: right;
+  }
+  thead th {
+    border-bottom: 1px solid var(--ink);
+    font-size: 0.85rem;
+  }
+  th:first-child {
+    text-align: left;
+    font-weight: 600;
+  }
+  .sol {
+    margin: 1rem 0 0;
+    color: var(--ink-2);
+    max-width: 52ch;
+  }
+  @media (max-width: 760px) {
+    .panels {
+      grid-template-columns: 1fr;
+    }
+    .sel {
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    select {
+      width: 100%;
+    }
+  }
+</style>

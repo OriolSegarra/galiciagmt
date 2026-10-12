@@ -1,0 +1,193 @@
+---
+import Base from '../layouts/Base.astro';
+import AnoAmenceres from '../components/AnoAmenceres.astro';
+import Fontes from '../components/Fontes.astro';
+import Cta from '../components/Cta.astro';
+import { articleUrl, r, type Lang } from '../i18n/ui';
+import { WIKIDATA_SRC } from '../data/cidades';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const c = {
+  gl: {
+    kicker: 'Ferramenta',
+    h1: 'O teu ano de amenceres',
+    lede: 'Elixe unha cidade e mira a que hora saíu o sol cada día do ano, con tres reloxos distintos: o actual, o de Portugal e o actual sen cambio de hora no verán.',
+    readH: 'Como lelo',
+    read: [
+      'Cada gráfico é un ano: o eixo horizontal son os días e o vertical a hora oficial do amencer.',
+      'As franxas azuis agrupan o amencer por hora: canto máis escura, máis tarde sae o sol. A liña de trazos marca as 8:30.',
+      'Os saltos de marzo e outubro son os cambios de hora.',
+      'A táboa conta os días do ano con amencer despois das 8:00, as 8:30 e as 9:00.',
+    ],
+    methodH: 'Método',
+    method:
+      'Os amenceres e solpores calcúlanse no teu navegador coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe refracción e tamaño do disco solar). Contrastámolos cos datos de timeanddate.com para Santiago e Lisboa para o 21 de decembro de 2026 e a diferenza é de 0 a 1 minuto. O horario de verán aplícase do último domingo de marzo ao último de outubro, como fixa o Real Decreto 236/2002. As coordenadas das cidades proceden de Wikidata. Os días contados son os do ano en curso.',
+    counterH: 'O reverso',
+    counter: 'Coa hora de Portugal os amenceres e os solpores adiántanse unha hora todo o ano: o sol sae antes, pero tamén se pon unha hora antes ca agora, tamén no verán. Non hai opción sen contrapartida, e por iso mostramos tamén o solpor da cidade elixida. Un exemplo concreto, para Vigo en xaneiro, está en',
+    counterLink: 'O colexio a escuras',
+    counterSlug: 'o-colexio-a-escuras',
+    related: 'Para entender por que pasa isto',
+    relatedLink: 'Galicia está ao oeste de Greenwich',
+    relatedSlug: 'galicia-ao-oeste-de-greenwich',
+    shareH: 'Comparte unha cidade',
+    share: 'A dirección garda a cidade que elixiches: copia o enderezo do navegador. Exemplos:',
+    ex: [
+      ['Vigo', '?cidade=vigo'],
+      ['Madrid', '?cidade=madrid'],
+      ['Barcelona', '?cidade=barcelona'],
+    ],
+    mapa: 'Velo nun mapa: días ao ano con amencer despois das 8:30',
+  },
+  es: {
+    kicker: 'Herramienta',
+    h1: 'Tu año de amaneceres',
+    lede: 'Elige una ciudad y mira a qué hora sale el sol cada día del año, con tres relojes distintos: el actual, el de Portugal y el actual sin cambio de hora en verano.',
+    readH: 'Cómo leerlo',
+    read: [
+      'Cada gráfico es un año: el eje horizontal son los días y el vertical la hora oficial del amanecer.',
+      'Las franjas azules agrupan el amanecer por hora: cuanto más oscura, más tarde sale el sol. La línea de trazos marca las 8:30.',
+      'Los saltos de marzo y octubre son los cambios de hora.',
+      'La tabla cuenta los días del año con amanecer después de las 8:00, las 8:30 y las 9:00.',
+    ],
+    methodH: 'Método',
+    method:
+      'Los amaneceres y puestas de sol se calculan en tu navegador con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye refracción y tamaño del disco solar). Los hemos contrastado con los datos de timeanddate.com para Santiago y Lisboa para el 21 de diciembre de 2026 y la diferencia es de 0 a 1 minuto. El horario de verano se aplica del último domingo de marzo al último de octubre, como fija el Real Decreto 236/2002. Las coordenadas de las ciudades proceden de Wikidata. Los días contados son los del año en curso.',
+    counterH: 'El reverso',
+    counter: 'Con la hora de Portugal los amaneceres y las puestas de sol se adelantan una hora todo el año: el sol sale antes, pero también se pone una hora antes que ahora, también en verano. No hay opción sin contrapartida, y por eso mostramos también la puesta de sol de la ciudad elegida. Un ejemplo concreto, para Vigo en enero, está en',
+    counterLink: 'El colegio a oscuras',
+    counterSlug: 'el-colegio-a-oscuras',
+    related: 'Para entender por qué pasa esto',
+    relatedLink: 'Galicia está al oeste de Greenwich',
+    relatedSlug: 'galicia-al-oeste-de-greenwich',
+    shareH: 'Comparte una ciudad',
+    share: 'La dirección guarda la ciudad que elijas: copia la dirección del navegador. Ejemplos:',
+    ex: [
+      ['Vigo', '?cidade=vigo'],
+      ['Madrid', '?cidade=madrid'],
+      ['Barcelona', '?cidade=barcelona'],
+    ],
+    mapa: 'Verlo en un mapa: días al año con amanecer después de las 8:30',
+  },
+}[lang];
+
+const fontes = [
+  {
+    titulo: 'NOAA — General Solar Position Calculations',
+    url: 'https://gml.noaa.gov/grad/solcalc/solareqns.PDF',
+    dato: lang === 'gl' ? 'Ecuacións de amencer e solpor (cénit 90,833°)' : 'Ecuaciones de amanecer y puesta de sol (cénit 90,833°)',
+  },
+  {
+    titulo: 'Wikidata — coordenadas (P625)',
+    url: WIKIDATA_SRC,
+    dato: lang === 'gl' ? 'Lonxitude e latitude de cada cidade (CC0)' : 'Longitud y latitud de cada ciudad (CC0)',
+  },
+  {
+    titulo: 'BOE — Real Decreto 236/2002, hora de verán',
+    url: 'https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221',
+    dato: lang === 'gl' ? 'Verán: do último domingo de marzo ao último de outubro' : 'Verano: del último domingo de marzo al último de octubre',
+  },
+  {
+    titulo: 'timeanddate.com — Santiago de Compostela, decembro 2026',
+    url: 'https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026',
+    dato: lang === 'gl' ? 'Validación: 21/12 amence ás 9:01 (o cálculo dá 9:01)' : 'Validación: 21/12 amanece a las 9:01 (el cálculo da 9:01)',
+  },
+  {
+    titulo: 'timeanddate.com — Lisboa, decembro 2026',
+    url: 'https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026',
+    dato: lang === 'gl' ? 'Validación: 21/12 amence ás 7:50 (o cálculo dá 7:51)' : 'Validación: 21/12 amanece a las 7:50 (el cálculo da 7:51)',
+  },
+];
+---
+
+<Base lang={lang} title={c.h1} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'ano')}>
+  <div class="wrap page">
+    <header class="head">
+      <p class="kicker"><a href={r(lang, 'ferramentas')}>{c.kicker}</a></p>
+      <h1>{c.h1}</h1>
+      <p class="lede">{c.lede}</p>
+    </header>
+
+    <AnoAmenceres lang={lang} />
+
+    <div class="notes">
+      <section>
+        <h2 class="kicker">{c.readH}</h2>
+        <ul>{c.read.map((x) => <li>{x}</li>)}</ul>
+      </section>
+      <section>
+        <h2 class="kicker">{c.methodH}</h2>
+        <p>{c.method}</p>
+        <h2 class="kicker">{c.counterH}</h2>
+        <p>{c.counter} <a href={articleUrl(lang, c.counterSlug)}>{c.counterLink} →</a></p>
+        <p>
+          {c.related}: <a href={articleUrl(lang, c.relatedSlug)}>{c.relatedLink} →</a>
+        </p>
+        <h2 class="kicker">{c.shareH}</h2>
+        <p>{c.share}</p>
+        <ul>{c.ex.map(([t, q]) => <li><a href={q}>{t}</a></li>)}</ul>
+        <p><a href={r(lang, 'mapa')}>{c.mapa} →</a></p>
+      </section>
+    </div>
+
+    <Fontes lang={lang} fontes={fontes} />
+  </div>
+  <Cta lang={lang} />
+</Base>
+
+<style>
+  .page {
+    padding-top: 3rem;
+  }
+  .head {
+    max-width: 52rem;
+    margin-bottom: 2.2rem;
+  }
+  .kicker a {
+    color: inherit;
+    text-decoration: none;
+  }
+  h1 {
+    margin: 0.8rem 0 1rem;
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    font-weight: 800;
+  }
+  .lede {
+    font-size: 1.2rem;
+    color: var(--ink-2);
+    max-width: 50ch;
+    margin: 0;
+  }
+  .notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+  .notes h2 {
+    margin: 0 0 0.6rem;
+  }
+  .notes ul {
+    padding-left: 1.1rem;
+    margin: 0;
+  }
+  .notes li + li {
+    margin-top: 0.4rem;
+  }
+  .notes p {
+    margin: 0 0 0.8rem;
+  }
+  @media (max-width: 760px) {
+    .notes {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+</style>
