@@ -28,7 +28,7 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 9 | Gráfico anual: hora de amanecer y atardecer en Santiago todo el año, con CET vs GMT | Herramienta | 4 | 4 | 16 | pendiente | Se integra en la home o en el artículo 1 |
 | 10 | Artículo: **La frontera del Miño**: vivir con una hora de diferencia (Tui–Valença) | Artículo | 4 | 3 | 12 | pendiente | Buscar datos de trabajadores transfronterizos (EURES, Eixo Atlántico, AECT). No usar sin fuente |
 | 11 | Seguimiento UE: estado de COM(2018) 639 y Consejo; página "Onde estamos" actualizable | Artículo | 3 | 4 | 12 | pendiente | Ideal tras cada noticia UE |
-| 12 | Preguntas frecuentes (FAQ) gl/es | Web | 3 | 5 | 15 | pendiente | Respuestas cortas con enlace a artículos |
+| 12 | Preguntas frecuentes (FAQ) gl/es | Web | 3 | 5 | 15 | en curso (borrador/2026-10-13, falta verificar) | Respuestas cortas con enlace a artículos |
 | 13 | Imagen OG por artículo (generada en build) | Web | 3 | 3 | 9 | pendiente | Mejora cómo se comparten en WhatsApp/redes |
 | 14 | Artículo: **Qué pasó en Portugal 1992-1996** en profundidad (prensa portuguesa de la época, OAL) | Artículo | 3 | 3 | 9 | pendiente | |
 | 15 | Artículo: **Luz de tarde vs luz de mañana**: qué preferimos y por qué (CIS 2026) | Artículo | 4 | 4 | 16 | pendiente | Honesto: la mayoría prefiere verano |

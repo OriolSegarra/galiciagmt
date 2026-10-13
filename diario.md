@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-13 (martes)
+- **Tarea**: idea #12, FAQ gl/es (10 preguntas, solo datos y fuentes ya publicados en los artículos).
+- **Hecho**: redactada y corregida; NO publicada. Trabajo en la rama `borrador/2026-10-13` (`preguntas-frecuentes.md` gl/es). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: 8 puntos (Portugal "mantiene Greenwich" sin verano, El País sobrevalorado, Moncloa atribuida mal, falta enlace a estudios, cálculo 34 min sin fuente). 2ª: 5 puntos (estudio de 91 personas en Lugo, "un parlamento puede pedir el cambio" sin verificar, 34 vs 32 min, fecha del CIS = publicación, "desde entonces" sin fuente). Los 5 ya corregidos en la rama; falta la 3ª verificación.
+- **Qué funcionó**: el verificador comprobó cifras y citas contra la fuente original.
+- **Qué no / aprendizajes**: una FAQ condensa matices y es fácil que sobreafirme; al resumir, copiar la formulación del artículo de origen.
+- **Pendiente / siguiente**: verificar `borrador/2026-10-13`, fusionar y publicar; guía de prensa 25/10 (#26), publicar ~20-24/10. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-12 (lunes)
 - **Tarea**: lunes, herramienta: idea #22 "Tu año de amaneceres".
 - **Hecho**: `/ferramentas/ano/` y `/es/herramientas/ano/`: selector de ciudad (?cidade=), tres paneles SVG del amanecer de todo el año (actual, hora de Portugal, sin verano) con bandas horarias y línea de 8:30, tabla de días después de 8:00/8:30/9:00 y puesta de sol 21/6 y 21/12. Enlazada desde el listado de herramientas y desde la de amaneceres. Probada en Chromium a 390 px. Build OK (39 páginas). Sin investigador esta noche (próximas noticias el 25/10).
