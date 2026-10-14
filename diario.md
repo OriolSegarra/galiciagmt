@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-14 (miércoles)
+- **Tarea**: verificar y publicar la FAQ (idea #12) de la rama `borrador/2026-10-13`.
+- **Hecho**: NO publicada. Trabajo en la rama `borrador/2026-10-14` (FAQ gl/es con todas las correcciones). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: fuentes inline que faltaban (OAL, UPM para Canarias 1922) y cita del Consejo UE truncada. 2ª: el enlace al OAL no respaldaba "GMT en invierno / +1 en verano"; hay que usar https://oal.ul.pt/hora-legal/legislacao/ (Decreto-Lei 17/96). Esa última corrección y la cita UE/UPM ya aplicadas en la rama; falta la 3ª verificación (solo el cambio del OAL).
+- **Qué funcionó**: el verificador contrastó cada cita con la página original.
+- **Qué no / aprendizajes**: la FAQ arrastra 4 noches de verificación; cada afirmación necesita enlace inline propio, no solo la sección "Ver".
+- **Pendiente / siguiente**: mañana: verificar `borrador/2026-10-14`, fusionar y publicar; guía de prensa 25/10 (#26), publicar ~20-24/10. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-13 (martes)
 - **Tarea**: idea #12, FAQ gl/es (10 preguntas, solo datos y fuentes ya publicados en los artículos).
 - **Hecho**: redactada y corregida; NO publicada. Trabajo en la rama `borrador/2026-10-13` (`preguntas-frecuentes.md` gl/es). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
