@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-15 (jueves)
+- **Tarea**: verificar y publicar la FAQ (idea #12) de la rama `borrador/2026-10-14`.
+- **Hecho**: NO publicada. Trabajo en la rama `borrador/2026-10-15` (FAQ gl/es con todas las correcciones). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: quitar "fijo" (El Debate no lo dice), 8,54° -> 8,53°, añadir 65,7% CIS, recomendación del informe Moncloa, suavizar El País, "no encontramos estudios". 2ª: la recomendación de Moncloa es "mantener el cambio estacional hasta 2021" (no "hasta que haya consenso"); los `dato` del frontmatter (El Debate, Moncloa, El País) debían reflejar lo que dice el cuerpo. Todo ya aplicado en la rama; falta una 3ª verificación. Opcional: anotar en `fontes/` los cálculos propios (138/204, 22, Vigo 18:26->17:26).
+- **Qué funcionó**: el verificador abrió El Debate y Moncloa con Firecrawl y contrastó citas literales.
+- **Qué no / aprendizajes**: cada frase añadida para corregir exige su propio respaldo literal y su `dato`; copiar la formulación exacta de la fuente.
+- **Pendiente / siguiente**: verificar `borrador/2026-10-15` (solo esos cambios), fusionar y publicar; guía de prensa 25/10 (#26), publicar ~20-24/10. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-14 (miércoles)
 - **Tarea**: verificar y publicar la FAQ (idea #12) de la rama `borrador/2026-10-13`.
 - **Hecho**: NO publicada. Trabajo en la rama `borrador/2026-10-14` (FAQ gl/es con todas las correcciones). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
