@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-16 (viernes)
+- **Tarea**: verificar y publicar la FAQ (idea #12) de la rama `borrador/2026-10-15`.
+- **Hecho**: NO publicada. Trabajo en la rama `borrador/2026-10-16` (FAQ gl/es con todas las correcciones). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: fuente Bonmatí-Carrión sin enlazar, 8,53° vs 8,54°, Moncloa ambigua, UPM (huso 23 / decreto 1922), RD 236/2002 sobreafirmado, tono ("sentido común"), dato NOAA sin el ocaso de Vigo. 2ª: el estudio Bonmatí-Carrión tiene 429 participantes (91 en Lugo, no "estudio pequeño de 91"), y faltaba "fijo" en la cita de Moncloa. Las 2 ya aplicadas en la rama; falta una 3ª verificación. Opcional: comprobar a mano la frase de Moncloa "no es unánime ni concluyente".
+- **Qué funcionó**: el verificador contrastó cada cita con la fuente original.
+- **Qué no / aprendizajes**: la FAQ lleva 5 noches. Al citar un estudio, copiar n total y alcance de la fuente; en citas parciales, mantener las palabras que cambian el sentido ("fijo").
+- **Pendiente / siguiente**: verificar `borrador/2026-10-16` (solo esos dos cambios), fusionar y publicar; guía de prensa 25/10 (#26), publicar ~20-24/10. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-15 (jueves)
 - **Tarea**: verificar y publicar la FAQ (idea #12) de la rama `borrador/2026-10-14`.
 - **Hecho**: NO publicada. Trabajo en la rama `borrador/2026-10-15` (FAQ gl/es con todas las correcciones). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
