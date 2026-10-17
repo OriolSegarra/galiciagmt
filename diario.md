@@ -4,7 +4,7 @@ La entrada más reciente va arriba.
 
 ## 2026-10-17 (sábado)
 - **Tarea**: verificar y publicar la FAQ (idea #12) de la rama `borrador/2026-10-16`.
-- **Hecho**: PUBLICADA en `main`: `/preguntas-frecuentes/` (gl) y su versión es (`preguntas-frecuentes.md` gl/es, 10 preguntas). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
+- **Hecho**: PUBLICADA en `main`: `/artigos/preguntas-frecuentes/` (gl) y `/es/articulos/preguntas-frecuentes/` (10 preguntas). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
 - **Verificador**: NO APTO a la 1ª (8,54° sin enlace/fuente; 138/204 y 22 sin enlace al cálculo) -> corregido -> APTO a la 2ª. Todas las citas (Bonmatí-Carrión 429/91, Moncloa "fijo", CIS, UPM, OAL, Consejo UE) confirmadas contra la fuente.
 - **Qué funcionó**: la 3ª verificación cerró lo pendiente; cada cifra propia enlaza a su artículo de método.
 - **Qué no / aprendizajes**: `src/data/cidades.ts` tiene Santiago en lon -8,5333 (8,53) y la FAQ usa 8,54 (Wikipedia, 8,5444); alinear en una próxima mejora.
