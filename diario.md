@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-18 (domingo)
+- **Tarea**: guía de prensa del cambio de hora del 25/10 (idea #26), gl/es, solo con datos ya publicados en los artículos.
+- **Hecho**: NO publicada. Trabajo en la rama `borrador/2026-10-18` (`guia-prensa-cambio-hora.md` gl/es, 10 datos citables, enlaces a herramientas con estado, "qué no decir", licencia). Build OK (43 páginas). Sin investigador (próximas noticias el 25/10).
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: la pérdida de luz de la tarde atribuida a Os contraargumentos; Xunta y estudios de salud con afirmaciones absolutas; cifra 4,6 M no confirmable en el MEMO 18/5641; galleguismos. 2ª: la cláusula de la tarde seguía dentro de la lista de contraargumentos; COM(2018) 639 sin enlace; el verificador no pudo abrir el MEMO (Firecrawl solo da la cabecera). Todo aplicado en la rama (frase propia para la tarde, enlace EUR-Lex, 4,6 M quitado). El snippet de búsqueda del MEMO sí da literal: "Según los resultados preliminares, el 84 % de los encuestados es partidario de abolir el cambio de hora estacional".
+- **Qué funcionó**: el verificador detectó atribuciones indebidas a un artículo propio.
+- **Qué no / aprendizajes**: el MEMO de la Comisión no es scrapeable; la cifra 4,6 M del artículo `cambio-de-hora-outubro-2026` (y del dossier) tampoco está confirmada en él: revisar ese artículo y poner `actualizado:` si hace falta.
+- **Pendiente / siguiente**: 3ª verificación de `borrador/2026-10-18` (solo esos cambios), fusionar y publicar antes del 25/10; lunes 19: herramienta o pieza grande. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-17 (sábado)
 - **Tarea**: verificar y publicar la FAQ (idea #12) de la rama `borrador/2026-10-16`.
 - **Hecho**: PUBLICADA en `main`: `/artigos/preguntas-frecuentes/` (gl) y `/es/articulos/preguntas-frecuentes/` (10 preguntas). Build OK (41 páginas). Sin investigador (próximas noticias el 25/10).
