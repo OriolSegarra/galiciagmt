@@ -1,7 +1,8 @@
 ---
 titulo: "O 25 de outubro atrasamos o reloxo: por que iso non arranxa o problema de Galicia"
-entradilla: "O domingo 25 de outubro remata o horario de verán. España propuxo á UE eliminar ese cambio, pero o expediente segue estancado — e o verán permanente sería o peor escenario posible para Galicia."
+entradilla: "O domingo 25 de outubro remata o horario de verán. España propuxo á UE eliminar ese cambio, pero non hai decisión nin prazo — e o verán permanente sería o peor escenario posible para Galicia."
 data: 2026-09-28
+actualizado: 2026-10-19
 par: cambio-hora-2026
 orde: 0
 seccion: actualidade
@@ -9,19 +10,22 @@ fontes:
   - titulo: "Orde PCM/186/2022 (BOE)"
     url: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026"
     dato: "Fixa o calendario oficial do cambio de hora: o domingo 25 de outubro de 2026 remata o horario de verán"
-  - titulo: "El País — 'El Gobierno propone acabar con el cambio de hora estacional desde 2026' (20/10/2025)"
+  - titulo: "El País — 'El Gobierno propone acabar con el cambio de hora estacional en la UE desde 2026' (20/10/2025)"
     url: "https://elpais.com/espana/2025-10-20/el-gobierno-propone-acabar-con-el-cambio-de-hora-estacional-desde-2026.html"
-    dato: "Sánchez propuxo no Consello Europeo derogar a directiva do cambio de hora estacional a partir de 2026; o artigo recorda que en 2021 unha fonte diplomática xa recoñecera que o expediente 'sigue estancado' coma en 2018"
+    dato: "O Goberno español propuxo á UE acabar co cambio de hora estacional no Consello de Enerxía"
+  - titulo: "El País — 'El cambio de hora se mantiene a pesar del intento de la Comisión Europea de abolirlo' (29/10/2021)"
+    url: "https://elpais.com/sociedad/2021-10-29/el-cambio-de-hora-se-mantiene-a-pesar-del-intento-de-la-comision-europea-de-abolirlo.html"
+    dato: "Unha fonte diplomática do Consello da UE: 'no hay novedades, el expediente sigue estancado más o menos en la misma posición que en 2018'"
   - titulo: "Consello da UE — 'Cambio de hora estacional na UE'"
     url: "https://www.consilium.europa.eu/es/policies/seasonal-time-changes/"
     dato: "'No se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo'"
   - titulo: "Comisión Europea, consulta cidadá 2018"
     url: "https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641"
-    dato: "A consulta recibiu 4,6 millóns de respostas; o 84% pedía abolir o cambio de hora estacional"
+    dato: "Segundo os resultados preliminares da consulta, o 84% pedía abolir o cambio de hora estacional"
   - titulo: "Comisión Europea, COM(2018) 639 (proposta de directiva)"
     url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639"
     dato: "Proposta de 2018 que segue sen aprobarse no Consello da UE"
-  - titulo: "Expansión — 'Sánchez propone acabar con el cambio de hora' (20/10/2025)"
+  - titulo: "Expansión — 'Pedro Sánchez propondrá a la UE derogar el cambio de hora en 2026' (20/10/2025)"
     url: "https://www.expansion.com/economia/2025/10/20/68f5df23468aeb79778b457e.html"
     dato: "Confirma a proposta española de derogar a directiva do cambio de hora desde 2026"
 ---
@@ -34,11 +38,11 @@ Convén non confundir ese trámite cos problemas que denunciamos nesta web. O qu
 
 ## Unha proposta na mesa da UE, estancada dende 2018
 
-O 20 de outubro de 2025, o presidente do Goberno español, Pedro Sánchez, "propondrá hoy en el Consejo Europeo derogar la directiva europea del cambio de hora estacional a partir de 2026", segundo informou [El País](https://elpais.com/espana/2025-10-20/el-gobierno-propone-acabar-con-el-cambio-de-hora-estacional-desde-2026.html). A mesma proposta foi recollida por [Expansión](https://www.expansion.com/economia/2025/10/20/68f5df23468aeb79778b457e.html).
+O 20 de outubro de 2025, o Goberno español propuxo á UE acabar co cambio de hora estacional no Consello de Enerxía, segundo informou [El País](https://elpais.com/espana/2025-10-20/el-gobierno-propone-acabar-con-el-cambio-de-hora-estacional-desde-2026.html). A mesma proposta foi recollida por [Expansión](https://www.expansion.com/economia/2025/10/20/68f5df23468aeb79778b457e.html).
 
-A idea de acabar cos cambios estacionais non é nova: a Comisión Europea xa a levara ao papel en 2018, tras unha consulta cidadá que recibiu 4,6 millóns de respostas, das que "el 84 % de los encuestados es partidario de abolir el cambio de hora estacional" ([Comisión Europea, MEMO/18/5641](https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641)). Esa consulta deu lugar a unha proposta formal de directiva, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), que segue sen aprobarse case oito anos despois.
+A idea de acabar cos cambios estacionais non é nova: a Comisión Europea xa a levara ao papel en 2018, tras unha consulta cidadá na que, segundo os resultados preliminares, "el 84 % de los encuestados es partidario de abolir el cambio de hora estacional" ([Comisión Europea, MEMO/18/5641](https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641)). Esa consulta deu lugar a unha proposta formal de directiva, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), que segue sen aprobarse case oito anos despois.
 
-Xa en 2021 unha fonte diplomática recoñecía a EL PAÍS que "no hay novedades, el expediente sigue estancado más o menos en la misma posición que en 2018", tal e como recorda o propio [El País](https://elpais.com/espana/2025-10-20/el-gobierno-propone-acabar-con-el-cambio-de-hora-estacional-desde-2026.html) na súa cobertura da nova proposta española de outubro de 2025. O propio Consello da UE confirma o bloqueo na súa páxina oficial: "no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión" ([Consello da UE](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/)). É dicir: hai unha proposta enriba da mesa, pero ningunha data para que se converta en lei.
+Xa en 2021 unha fonte diplomática recoñecía a EL PAÍS que "no hay novedades, el expediente sigue estancado más o menos en la misma posición que en 2018", tal e como recolleu [El País](https://elpais.com/sociedad/2021-10-29/el-cambio-de-hora-se-mantiene-a-pesar-del-intento-de-la-comision-europea-de-abolirlo.html) en 2021. O propio Consello da UE confirma que non hai decisión definitiva nin prazo na súa páxina oficial: "no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión" ([Consello da UE](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/)). É dicir: hai unha proposta enriba da mesa, pero ningunha data para que se converta en lei.
 
 ## O peor escenario posible para Galicia: o verán permanente
 
