@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-19 (lunes)
+- **Tarea**: publicar la guía de prensa del cambio de hora (idea #26) y revisar la cifra 4,6 M del artículo del 25/10. Sin herramienta nueva (lunes) por ser #26 sensible al plazo del 25/10.
+- **Hecho**: NO publicada. Rama `borrador/2026-10-19` (guía gl/es + ajustes en `cambio-de-hora-*-2026`: cifra 4,6 M quitada con `actualizado:`, cita de El País parafraseada, fuente El País 2021 añadida, fuentes AASM/SES/MDPI en la guía). Build OK (43 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: cita de El País no literal y Consejo Europeo vs Energía, fuentes SES/AASM/MDPI sin enlace, redacción del CIS. 2ª: títulos de fuente entre comillas no literales (El País, Expansión), "confirma el bloqueo" sobreafirmado, "estancado" sin fuente de 2025-26, SES en presente (es de 2018). Los 5 puntos ya aplicados en la rama; falta una 3ª verificación. Nota: la cifra 4,6 M SÍ figura en COM(2018) 639 (EUR-Lex), se puede restaurar citando esa fuente.
+- **Qué funcionó**: el verificador abre las fuentes y detecta títulos y tiempos verbales inexactos.
+- **Qué no / aprendizajes**: no entrecomillar títulos de fuente sin copiarlos; evitar presente para posturas antiguas.
+- **Pendiente / siguiente**: 3ª verificación de `borrador/2026-10-19` (solo esos cambios), fusionar y publicar antes del 25/10. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-18 (domingo)
 - **Tarea**: guía de prensa del cambio de hora del 25/10 (idea #26), gl/es, solo con datos ya publicados en los artículos.
 - **Hecho**: NO publicada. Trabajo en la rama `borrador/2026-10-18` (`guia-prensa-cambio-hora.md` gl/es, 10 datos citables, enlaces a herramientas con estado, "qué no decir", licencia). Build OK (43 páginas). Sin investigador (próximas noticias el 25/10).
