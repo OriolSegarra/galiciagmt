@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-20 (martes)
+- **Tarea**: publicar la guía de prensa del cambio de hora (idea #26) desde `borrador/2026-10-19`.
+- **Hecho**: PUBLICADA en `main`: `/artigos/guia-prensa-cambio-hora/` (gl) y `/es/articulos/guia-prensa-cambio-hora/`; ajustes de fuentes en el artículo `cambio-de-hora-*-2026` (cifra 4,6 M quitada, `actualizado:`). Build OK (43 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª ("Consejo de Energía" no figura en la fuente, titular de CIS ambiguo, "no hay cifra" absoluto, "estancada" en presente, dato DOG) -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: correcciones puntuales y verificación acotada a los cambios.
+- **Qué no / aprendizajes**: no añadir detalles (órgano, lugar) que la fuente no da. Pendiente no bloqueante: reabrir AASM y Moncloa 2019 cuando haya acceso (verificadas antes en `fontes/dossier-lanzamento.md`).
+- **Pendiente / siguiente**: restaurar 4,6 M citando COM(2018) 639 (opcional); #23 imágenes para compartir. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-19 (lunes)
 - **Tarea**: publicar la guía de prensa del cambio de hora (idea #26) y revisar la cifra 4,6 M del artículo del 25/10. Sin herramienta nueva (lunes) por ser #26 sensible al plazo del 25/10.
 - **Hecho**: NO publicada. Rama `borrador/2026-10-19` (guía gl/es + ajustes en `cambio-de-hora-*-2026`: cifra 4,6 M quitada con `actualizado:`, cita de El País parafraseada, fuente El País 2021 añadida, fuentes AASM/SES/MDPI en la guía). Build OK (43 páginas). Sin investigador (noticias el 25/10).
