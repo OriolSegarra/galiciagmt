@@ -5,7 +5,9 @@
 */
 import { cidades, WIKIDATA_SRC } from '../data/cidades';
 import { amencer, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
+import { t as ui } from '../i18n/ui';
 import type { Lang } from '../i18n/ui';
+import { SITE_URL } from '../config';
 
 interface Props {
   lang: Lang;
@@ -97,7 +99,22 @@ const titularIni = t.titular(
   Math.round(oeste.a - leste.a),
 );
 const ticks = Array.from({ length: (EIXO.max - EIXO.min) / 60 + 1 }, (_, i) => EIXO.min / 60 + i);
-const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
+const i18n = {
+  meses: t.meses,
+  escTxt: t.escTxt,
+  lang,
+  img: {
+    title: ui(lang, 'amencer.img.title'),
+    note: ui(lang, 'amencer.img.note'),
+    mesesLong:
+      lang === 'gl'
+        ? ['xaneiro', 'febreiro', 'marzo', 'abril', 'maio', 'xuño', 'xullo', 'agosto', 'setembro', 'outubro', 'novembro', 'decembro']
+        : ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+    site: SITE_URL.replace(/^https?:\/\//, ''),
+    esc: { actual: t.actual, portugal: t.portugal, senVeran: t.senVeran },
+    sub: { actual: t.actualSub, portugal: t.portugalSub, senVeran: t.senVeranSub },
+  },
+};
 ---
 
 <section
@@ -170,6 +187,15 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
     <span class="lg-ghost" hidden><i class="k-ghost" /> {t.agora}</span>
     <span><i class="k-late" /> {t.diasLong} <output data-out="lim2">8:30</output></span>
   </p>
+
+  <div class="dl">
+    <label class="kicker" for="img-city">{ui(lang, 'amencer.img.city')}</label>
+    <select id="img-city" data-control="imgcity">
+      {cidades.map((c, i) => <option value={i} selected={c.gl === 'Santiago'}>{lang === 'gl' ? c.gl : c.es}</option>)}
+    </select>
+    <button type="button" class="btn" data-action="download">{ui(lang, 'amencer.img.button')}</button>
+    <p class="hint">{ui(lang, 'amencer.img.hint')}</p>
+  </div>
 </section>
 
 <script>
@@ -187,6 +213,14 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
       meses: string[];
       escTxt: Record<Escenario, string>;
       lang: 'gl' | 'es';
+      img: {
+        title: string;
+        note: string;
+        site: string;
+        mesesLong: string[];
+        esc: Record<Escenario, string>;
+        sub: Record<Escenario, string>;
+      };
     };
     const rows = [...root.querySelectorAll<HTMLElement>('.r')];
     const range = root.querySelector<HTMLInputElement>('[data-control="doy"]')!;
@@ -323,6 +357,118 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
         render();
       }),
     );
+
+    // Descarga dunha imaxe PNG 1200x630 (canvas, sen librarías).
+    const imgSel = root.querySelector<HTMLSelectElement>('[data-control="imgcity"]')!;
+    const qIdx = cidades.findIndex((c) => norm(c.gl) === qc || norm(c.es) === qc);
+    if (qc && qIdx >= 0) imgSel.value = String(qIdx);
+    imgSel.addEventListener('change', () => {
+      rows.forEach((r) => r.classList.remove('is-focus'));
+      rows[Number(imgSel.value)].classList.add('is-focus');
+    });
+    const cs = getComputedStyle(document.documentElement);
+    const css = (n: string, d: string) => cs.getPropertyValue(n).trim() || d;
+    root.querySelector<HTMLButtonElement>('[data-action="download"]')!.addEventListener('click', async () => {
+      const c = cidades[Number(imgSel.value)];
+      const d = dateOf(state.doy);
+      const W = 1200;
+      const H = 630;
+      const paper = css('--paper', '#f3f0e8');
+      const ink = css('--ink', '#111417');
+      const blue = css('--blue', '#0d3b66');
+      const sun = css('--sun', '#e8a33d');
+      const muted = css('--muted', '#6b6f74');
+      const fam = `"Schibsted Grotesk Variable", "Helvetica Neue", Arial, sans-serif`;
+      try {
+        await Promise.all([document.fonts.load(`800 40px ${fam}`), document.fonts.load(`400 20px ${fam}`)]);
+      } catch {}
+      const cv = document.createElement('canvas');
+      cv.width = W;
+      cv.height = H;
+      const g = cv.getContext('2d')!;
+      g.fillStyle = paper;
+      g.fillRect(0, 0, W, H);
+      const fecha = `${d.getUTCDate()} de ${i18n.img.mesesLong[d.getUTCMonth()]}`;
+      const titulo = i18n.img.title.replace('{c}', nome(c)).replace('{d}', fecha);
+      g.fillStyle = ink;
+      g.textBaseline = 'alphabetic';
+      let fs = 58;
+      do {
+        g.font = `800 ${fs}px ${fam}`;
+        fs -= 2;
+      } while (g.measureText(titulo).width > W - 120 && fs > 24);
+      g.fillText(titulo, 60, 100);
+      g.fillStyle = ink;
+      g.fillRect(60, 130, W - 120, 2);
+
+      const escs: Escenario[] = ['actual', 'portugal', 'senVeran'];
+      const vals = escs.map((e) => amencer(d, c.lat, c.lon, e));
+      const amin = Math.floor((Math.min(...vals) - 30) / 60) * 60;
+      const amax = Math.ceil((Math.max(...vals) + 30) / 60) * 60;
+      const tx0 = 450;
+      const tx1 = 1010;
+      const px = (m: number) => tx0 + ((m - amin) / (amax - amin)) * (tx1 - tx0);
+      const cols = [ink, blue, sun];
+      const rowH = 110;
+      const y0 = 150;
+      escs.forEach((e, i) => {
+        const y = y0 + i * rowH;
+        const cy = y + rowH / 2;
+        g.fillStyle = ink;
+        g.font = `700 30px ${fam}`;
+        g.fillText(i18n.img.esc[e], 60, cy - 2);
+        g.fillStyle = muted;
+        g.font = `400 20px ${fam}`;
+        g.fillText(i18n.img.sub[e], 60, cy + 26);
+        g.fillStyle = ink;
+        g.fillRect(tx0, cy - 0.5, tx1 - tx0, 1);
+        g.beginPath();
+        g.arc(px(vals[i]), cy, 14, 0, Math.PI * 2);
+        g.fillStyle = cols[i];
+        g.fill();
+        g.lineWidth = 2;
+        g.strokeStyle = ink;
+        g.stroke();
+        g.fillStyle = ink;
+        g.font = `800 52px ${fam}`;
+        g.textAlign = 'right';
+        g.fillText(hhmm(vals[i]), W - 60, cy + 18);
+        g.textAlign = 'left';
+        g.fillStyle = css('--paper-2', '#e9e4d8');
+        g.fillRect(60, y + rowH - 1, W - 120, 1);
+      });
+      // Eixo de horas
+      g.fillStyle = muted;
+      g.font = `400 18px ${fam}`;
+      g.textAlign = 'center';
+      for (let m = amin; m <= amax; m += 60) {
+        g.fillRect(px(m), y0 + 3 * rowH + 4, 1, 8);
+        g.fillText(`${m / 60}:00`, px(m), y0 + 3 * rowH + 34);
+      }
+      g.textAlign = 'left';
+      // Pé
+      g.fillStyle = ink;
+      g.fillRect(60, 570, W - 120, 1);
+      g.font = `700 22px ${fam}`;
+      g.fillText(i18n.img.site, 60, 603);
+      g.fillStyle = muted;
+      g.font = `400 22px ${fam}`;
+      g.textAlign = 'right';
+      g.fillText(i18n.img.note, W - 60, 603);
+
+      const slug = norm(c.gl).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const iso = `${ano}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
+      cv.toBlob((b) => {
+        if (!b) return;
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(b);
+        a.download = `amencer-${slug}-${iso}.png`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      }, 'image/png');
+    });
     render();
     urlLista = true;
   });
@@ -608,6 +754,29 @@ const i18n = { meses: t.meses, escTxt: t.escTxt, lang };
     .tool {
       --days-w: 2.2rem;
     }
+  }
+  .dl {
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--ink);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    align-items: center;
+  }
+  .dl select {
+    font: inherit;
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 0.55rem 0.7rem;
+  }
+  .dl .hint {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ink-2);
   }
   .r.is-focus {
     outline: 2px solid var(--blue);

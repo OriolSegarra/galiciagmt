@@ -56,6 +56,11 @@ export const ui = {
     'section.debate': 'Debate',
     'section.actualidade': 'Actualidade',
     'section.campaña': 'Campaña',
+    'amencer.img.city': 'Cidade para a imaxe',
+    'amencer.img.button': 'Descargar imaxe',
+    'amencer.img.title': 'Amencer en {c} o {d}',
+    'amencer.img.note': 'Cálculo NOAA (gml.noaa.gov/grad/solcalc), ±1-2 min',
+    'amencer.img.hint': 'PNG de 1200×630 co día e a cidade elixidos, para compartir.',
   },
   es: {
     'site.name': 'Galicia GMT',
@@ -94,6 +99,11 @@ export const ui = {
     'section.debate': 'Debate',
     'section.actualidade': 'Actualidad',
     'section.campaña': 'Campaña',
+    'amencer.img.city': 'Ciudad para la imagen',
+    'amencer.img.button': 'Descargar imagen',
+    'amencer.img.title': 'Amanecer en {c} el {d}',
+    'amencer.img.note': 'Cálculo NOAA (gml.noaa.gov/grad/solcalc), ±1-2 min',
+    'amencer.img.hint': 'PNG de 1200×630 con el día y la ciudad elegidos, para compartir.',
   },
 } as const;
 
