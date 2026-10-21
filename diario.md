@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-21 (miércoles)
+- **Tarea**: imágenes para compartir (idea #23).
+- **Hecho**: PUBLICADO en `main`: botón "Descargar imaxe/imagen" en `/ferramentas/amencer/` (es: `/es/herramientas/amanecer/`). PNG 1200x630 por canvas con el amanecer de la ciudad elegida en los 3 escenarios. Archivos: `AmencerEspana.astro`, `ui.ts`. Build OK (43 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª (precisión ±1 min vs ±1-2 de sol.ts, fuente NOAA sin enlace en el pie, color fijo) -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: el desarrollador probó la descarga a 390 px con Playwright.
+- **Qué no / aprendizajes**: no repetir la precisión sin contrastarla con `sol.ts`.
+- **Pendiente / siguiente**: ver si el artículo del 25/10 dice ±1 min (sol.ts dice ±1-2) y alinear; jueves: siguiente idea del backlog. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-20 (martes)
 - **Tarea**: publicar la guía de prensa del cambio de hora (idea #26) desde `borrador/2026-10-19`.
 - **Hecho**: PUBLICADA en `main`: `/artigos/guia-prensa-cambio-hora/` (gl) y `/es/articulos/guia-prensa-cambio-hora/`; ajustes de fuentes en el artículo `cambio-de-hora-*-2026` (cifra 4,6 M quitada, `actualizado:`). Build OK (43 páginas). Sin investigador (noticias el 25/10).
