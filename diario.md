@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-22 (jueves)
+- **Tarea**: corrección de precisión del cálculo solar en el artículo del cambio de hora (pendiente del 21/10).
+- **Hecho**: PUBLICADO en `main`: "validado con ±1 minuto" -> "precisión esperada de ±1-2 minutos" (alineado con `sol.ts`) en `cambio-de-hora-outubro-2026` (gl) y `cambio-de-hora-octubre-2026` (es); `actualizado: 2026-10-22`. Build OK (43 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: APTO a la 1ª vuelta.
+- **Qué funcionó**: tarea pequeña y acotada.
+- **Qué no / aprendizajes**: `CLAUDE.md` (sección Prioridad) aún dice "validado ±1 min" para sol.ts; no lo edito de forma autónoma, queda para Oriol.
+- **Pendiente / siguiente**: siguiente idea del backlog (p. ej. #17 página para partidos/instituciones o #15 luz de tarde vs mañana); 25/10 cambio de hora. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-21 (miércoles)
 - **Tarea**: imágenes para compartir (idea #23).
 - **Hecho**: PUBLICADO en `main`: botón "Descargar imaxe/imagen" en `/ferramentas/amencer/` (es: `/es/herramientas/amanecer/`). PNG 1200x630 por canvas con el amanecer de la ciudad elegida en los 3 escenarios. Archivos: `AmencerEspana.astro`, `ui.ts`. Build OK (43 páginas). Sin investigador (noticias el 25/10).
