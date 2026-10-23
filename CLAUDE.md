@@ -45,6 +45,7 @@ AGENTE_NOCHE.md      ← instrucciones del ciclo nocturno (síguelas al pie de l
 ideas.md             ← backlog priorizado (impacto/esfuerzo)
 diario.md            ← registro de cada sesión (la más reciente arriba)
 RESUMEN.md           ← resumen de la última ejecución (3-5 líneas)
+metricas.md          ← registro semanal de visitas y firmas (PostHog); úsalo para decidir qué crear
 fontes/              ← dossiers de fuentes verificadas (reutilízalos antes de volver a buscar)
 .claude/agents/      ← subagentes: investigador, redactor, desarrollador, verificador
 src/

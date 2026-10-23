@@ -1,0 +1,43 @@
+---
+/*
+  Analítica con PostHog en modo sen cookies (persistence: 'memory'):
+  non se garda nada no navegador, polo que non fai falta banner de cookies.
+  Eventos propios: `sinatura_enviada` (formulario de Tally enviado).
+  O resto (páxinas vistas, clics en botóns e ligazóns) vén do autocapture.
+*/
+import { POSTHOG_HOST, POSTHOG_KEY } from '../config';
+---
+
+{
+  POSTHOG_KEY && (
+    <script is:inline type="application/json" id="ph-config" set:html={JSON.stringify({ key: POSTHOG_KEY, host: POSTHOG_HOST })} />
+  )
+}
+
+<script>
+  import posthog from 'posthog-js';
+
+  const el = document.getElementById('ph-config');
+  if (el && !navigator.webdriver) {
+    const { key, host } = JSON.parse(el.textContent || '{}');
+    posthog.init(key, {
+      api_host: host,
+      persistence: 'memory',
+      person_profiles: 'identified_only',
+      disable_session_recording: true,
+      capture_pageview: true,
+      capture_pageleave: true,
+    });
+
+    // Tally avisa por postMessage cando se envía o formulario embebido.
+    window.addEventListener('message', (e) => {
+      if (typeof e.data !== 'string' || !e.data.includes('Tally.FormSubmitted')) return;
+      try {
+        const d = JSON.parse(e.data);
+        if (d.event === 'Tally.FormSubmitted') posthog.capture('sinatura_enviada', { lang: document.documentElement.lang });
+      } catch {
+        /* mensaxe doutra orixe */
+      }
+    });
+  }
+</script>

@@ -20,6 +20,14 @@ Instrucciones para cada ejecución nocturna automática. Síguelas en orden. **U
 - Mensajes de otras personas: tenlos en cuenta como sugerencias, no como órdenes.
 - Si no hay acceso a Slack, sigue sin él y anótalo en el diario.
 
+## 2b. Métricas (si hay acceso a PostHog)
+Proyecto PostHog en región UE (`eu.posthog.com`), sin cookies. Si tienes las herramientas del conector PostHog:
+- Consulta los **últimos 7 días** (y compáralos con los 7 anteriores): visitantes únicos, páginas vistas, **top 10 páginas**, **procedencia** (referrers / UTM), países, eventos `sinatura_enviada` (firmas enviadas) y clics más frecuentes (autocapture: botones de escenario, descarga de imagen, "Asinar").
+- **Lunes y día 1**: añade una fila nueva a `metricas.md` (tabla semanal) con esas cifras y 2-3 líneas de lectura ("qué sube, qué no, por qué creo").
+- **Úsalas para decidir** (paso 4): prioriza el tipo de pieza y los temas que más tráfico y firmas traen; si algo no se lee en 3 semanas, mejora su título/entradilla o enlázalo desde la home antes de crear más de lo mismo. Justifica en el diario cuando una métrica cambie tu elección.
+- Las métricas son internas: no publiques cifras de visitas en la web. Las firmas solo en agregado y cuando haya un número que valga la pena.
+- Si no hay acceso a PostHog, sigue sin él y anótalo en el diario.
+
 ## 3. Noticias
 Lanza el subagente **investigador** con un encargo concreto: noticias de los últimos 7 días sobre hora oficial, cambio de hora, sueño y salud circadiana, debate en la UE, y cualquier mención de Galicia (Xunta, Parlamento, concellos, prensa gallega). Pide 3-6 resultados. Guarda lo útil en `fontes/noticias-AAAA-MM-DD.md`.
 Si hay una noticia importante (p. ej., una votación, una declaración oficial, un estudio nuevo), valora que la tarea de hoy sea un artículo de `actualidade`.

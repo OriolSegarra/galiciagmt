@@ -14,3 +14,10 @@ export const SANTIAGO_LON = -8.5448;
 
 /** Correo de contacto público. Baleiro = non se amosa. */
 export const CONTACT_EMAIL = 'info@galiciagmt.es';
+
+/**
+ * PostHog (analítica sen cookies, rexión UE). A clave de proxecto é pública.
+ * Baleiro = sen analítica.
+ */
+export const POSTHOG_KEY = 'phc_oXXBGQMkYfSkga5NfKueFrwMHJtk74fLcfkVKK5hmzeV';
+export const POSTHOG_HOST = 'https://eu.i.posthog.com';
