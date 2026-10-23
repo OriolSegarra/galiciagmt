@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-23 (viernes)
+- **Tarea**: página "Para partidos e institucións" (idea #17).
+- **Hecho**: PUBLICADA en `main`: `/partidos/` y `/es/partidos/` (tabla comparativa de opciones A Lisboa / B UTC+1 fijo / C statu quo, quién decide, herramientas con estado, qué no afirmamos); enlaces desde el pie y la moción. Aclarado en `os-contraargumentos` (gl/es, `actualizado: 2026-10-23`) que la opción B no crea frontera solo si la aplica todo el Estado. Build OK (45 páginas). Noticias en `fontes/noticias-2026-10-23.md`: sin novedades de Galicia ni de la UE.
+- **Verificador**: NO APTO a la 1ª (B sin matiz estatal, AASM sin "nacional") -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: el verificador detectó una lectura laxa de un artículo propio.
+- **Qué no / aprendizajes**: no probado a 390 px (tabla con scroll horizontal).
+- **Pendiente / siguiente**: revisar la tabla en móvil; #15 luz de tarde vs mañana; 25/10 cambio de hora; Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-22 (jueves)
 - **Tarea**: corrección de precisión del cálculo solar en el artículo del cambio de hora (pendiente del 21/10).
 - **Hecho**: PUBLICADO en `main`: "validado con ±1 minuto" -> "precisión esperada de ±1-2 minutos" (alineado con `sol.ts`) en `cambio-de-hora-outubro-2026` (gl) y `cambio-de-hora-octubre-2026` (es); `actualizado: 2026-10-22`. Build OK (43 páginas). Sin investigador (noticias el 25/10).

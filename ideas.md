@@ -33,7 +33,7 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 14 | Artículo: **Qué pasó en Portugal 1992-1996** en profundidad (prensa portuguesa de la época, OAL) | Artículo | 3 | 3 | 9 | pendiente | |
 | 15 | Artículo: **Luz de tarde vs luz de mañana**: qué preferimos y por qué (CIS 2026) | Artículo | 4 | 4 | 16 | pendiente | Honesto: la mayoría prefiere verano |
 | 16 | Newsletter mensual (solo si hay sistema de altas con consentimiento) | Campaña | 3 | 2 | 6 | pendiente | Requiere decisión de Oriol |
-| 17 | Página "Para partidos e institucións": resumen de 1 página + opciones | Campaña | 4 | 4 | 16 | pendiente | Tono neutral |
+| 17 | Página "Para partidos e institucións": resumen de 1 página + opciones | Campaña | 4 | 4 | 16 | hecha 2026-10-23 (`/partidos/`) | Tono neutral |
 | 18 | Hoja de datos descargable (PDF 1 página) para imprimir | Campaña | 3 | 4 | 12 | pendiente | |
 | 19 | Artículo: **Irlanda, Reino Unido y otros husos vecinos** en Europa | Artículo | 3 | 3 | 9 | pendiente | |
 | 20 | Accesibilidad y rendimiento: auditoría Lighthouse y correcciones | Web | 2 | 4 | 8 | pendiente | |
