@@ -1,0 +1,81 @@
+---
+import Prose from '../../views/Prose.astro';
+---
+
+<Prose
+  lang="es"
+  kicker="Para partidos e instituciones"
+  title="Para partidos e instituciones: las opciones en una página"
+  lede="Un resumen para quien tiene que opinar o decidir: tres opciones sobre la hora oficial de Galicia, con argumentos a favor y en contra, quién decide y qué se puede hacer. Sin posturas de partidos, gobiernos ni personas."
+  alt="/partidos/"
+>
+  <h2>La cuestión en cinco líneas</h2>
+  <ul>
+    <li>Galicia usa la hora centroeuropea (CET, UTC+1) en invierno. El 21 de diciembre de 2026 el sol sale en <a href="https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&amp;year=2026">Santiago a las 9:01</a> y en <a href="https://www.timeanddate.com/sun/portugal/lisbon?month=12&amp;year=2026">Lisboa a las 7:50</a>.</li>
+    <li>Según un <a href="https://oa.upm.es/45296/1/CCG_2017_Es-nuestro-huso-horario-un-problema.pdf">documento de la Universidad Politécnica de Madrid</a>, a España, salvo Canarias y parte del oeste de Galicia, le corresponde por su meridiano el huso GMT+0.</li>
+    <li>El 25 de octubre de 2026 termina el horario de verano, según la <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026">Orden PCM/186/2022</a>. La UE tiene una propuesta para eliminar el cambio estacional (<a href="https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639">COM(2018) 639</a>), pero el Consejo dice que <a href="https://www.consilium.europa.eu/es/policies/seasonal-time-changes/">no se ha adoptado ninguna decisión definitiva ni se ha establecido ningún plazo</a>.</li>
+    <li>La hora oficial es <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229">competencia exclusiva del Estado</a>.</li>
+    <li>Esta web defiende la opción A o, como mínimo, la B. Aquí presentamos las tres con el mismo rigor, incluidas las razones para no cambiar.</li>
+  </ul>
+
+  <h2>Qué opciones hay</h2>
+  <table>
+    <caption class="visually-hidden">Comparación de las tres opciones sobre la hora oficial de Galicia</caption>
+    <thead>
+      <tr>
+        <th scope="col">Opción</th>
+        <th scope="col">En qué consiste</th>
+        <th scope="col">Argumentos a favor</th>
+        <th scope="col">Argumentos en contra</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">A. Hora de Greenwich (Europe/Lisbon)</th>
+        <td>Galicia pasa a UTC+0 en invierno y UTC+1 en verano, como Portugal y Canarias. En Portugal, según el <a href="https://oal.ul.pt/hora-legal/legislacao/">Observatório Astronómico de Lisboa</a>, la hora de invierno es UTC y la de verano UTC+1.</td>
+        <td>El 21 de diciembre el sol saldría en Santiago a las 8:01 (<a href="/es/articulos/portugal-y-canarias/">cálculo propio</a>, restando una hora al dato de timeanddate). Hay precedentes: Canarias tiene <a href="https://oa.upm.es/45296/1/CCG_2017_Es-nuestro-huso-horario-un-problema.pdf">una hora menos desde 1922</a> y Portugal <a href="https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/">volvió a la hora de Greenwich en 1996</a>.</td>
+        <td>La puesta de sol se adelanta una hora: en Vigo, el 15 de enero de 2027 pasaría de las 18:26 a las 17:26 (<a href="/es/articulos/preguntas-frecuentes/">cálculo propio</a>). Crearía una frontera horaria terrestre con el resto de la Península, sin equivalente exacto en Portugal ni en Canarias (<a href="/es/articulos/portugal-y-canarias/">Portugal y Canarias</a>). Según <a href="https://elpais.com/sociedad/2025-10-24/geopolitica-del-cambio-de-hora-una-economia-desincronizada-y-otros-temores-para-no-abolirlo-en-la-ue.html">El País</a>, elegir hora propia conlleva el riesgo de romper la sincronización del mercado interior.</td>
+      </tr>
+      <tr>
+        <th scope="row">B. UTC+1 todo el año, sin horario de verano</th>
+        <td>Galicia se queda con el horario de invierno actual y no adelanta el reloj en marzo.</td>
+        <td>La <a href="https://www.saludadiario.es/profesionales/la-sociedad-espanola-de-sueno-aconseja-suprimir-los-cambios-horarios/">Sociedad Española de Sueño</a> recomienda mantener de forma permanente el horario de invierno (GMT+1), y la <a href="https://aasm.org/advocacy/position-statements/daylight-saving-time-an-american-academy-of-sleep-medicine-position-statement/">AASM</a> pide un horario estándar fijo, nacional, todo el año. Si lo adopta todo el Estado, no crea frontera interna con el resto de la Península, según <a href="/es/articulos/los-contraargumentos/">Los contraargumentos</a>.</td>
+        <td>No resuelve el amanecer tardío de diciembre: 9:01 en Santiago. Si lo adoptase solo Galicia, habría una hora de diferencia con Madrid de marzo a octubre. El <a href="https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html">CIS de abril de 2026</a> recoge que un 66,4 % preferiría el horario de verano fijo, frente a un 22 % que prefiere el de invierno. Depende de una decisión estatal y, en parte, del debate europeo, parado desde 2018.</td>
+      </tr>
+      <tr>
+        <th scope="row">C. Mantener la situación actual o lo que decida la UE</th>
+        <td>Sin cambios en Galicia; si la UE aprueba algún día acabar con el cambio estacional, cada Estado elegiría hora fija.</td>
+        <td>El informe de 2019 recogido por <a href="https://www.lamoncloa.gob.es/consejodeministros/paginas/enlaces/220319-enlacehorario.aspx">La Moncloa</a> señala que el turismo representa en torno a un 12 % del PIB y cita expertos favorables a mantener fijo el horario de verano. Según ese informe, la opinión de los expertos no es unánime ni concluyente. No hay frontera horaria. El CIS recoge una mayoría favorable al horario de verano, aunque un 65,7 % preferiría acabar con el cambio de hora (<a href="https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html">El Debate</a>).</td>
+        <td>Mantiene el desfase solar de Galicia en invierno. Si la UE o el Estado eligieran el verano permanente (UTC+2), el sol saldría en Santiago después de las 10:00 durante 32 días del año, según <a href="/es/articulos/cambio-de-hora-octubre-2026/">nuestro cálculo</a>.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Hay objeciones y dudas sin resolver en <a href="/es/articulos/los-contraargumentos/">Los contraargumentos</a>, por ejemplo que no conocemos un estudio concluyente del impacto sanitario en Galicia ni una cifra del impacto turístico gallego.</p>
+
+  <h2>Quién decide y por qué vía</h2>
+  <ul>
+    <li><strong>Quién decide.</strong> El Estado. El <a href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229">artículo 149.1.12.ª de la Constitución</a> reserva al Estado la «determinación de la hora oficial». La base de la hora legal es el tiempo universal coordinado, según el <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-1992-26093">Real Decreto 1308/1992</a>, y el <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221">Real Decreto 236/2002</a> reconoce dos horas oficiales (Península y Baleares, y Canarias) y regula el horario de verano, en transposición de la Directiva 2000/84/CE.</li>
+    <li><strong>Trámite.</strong> No hemos encontrado en fuentes oficiales el procedimiento exacto para llevar una propuesta gallega a las Cortes, ni la norma original que fijó la hora de Canarias. No lo damos por supuesto (<a href="/es/articulos/quien-puede-cambiar-la-hora-de-galicia/">¿Quién puede cambiar la hora oficial de Galicia?</a>).</li>
+    <li><strong>Ayuntamientos.</strong> Pueden pedir al Estado que estudie la cuestión: tenemos una <a href="/es/mocion/">moción modelo</a>. No cambia la hora, solo deja constancia de la petición.</li>
+    <li><strong>Parlamento y Xunta.</strong> Según el artículo citado, ninguna institución autonómica o local puede fijar la hora de Galicia, pero nada impide pedirla, aprobar iniciativas o pronunciarse. No tenemos fuente sobre el instrumento parlamentario concreto, así que no lo indicamos.</li>
+    <li><strong>Vía europea.</strong> El cambio estacional viene de una directiva de la UE que España aplicó por real decreto. Una decisión europea sobre el horario fijo cambiaría el marco, pero sigue sin plazo (<a href="/es/articulos/cambio-de-hora-octubre-2026/">El 25 de octubre atrasamos el reloj</a>).</li>
+  </ul>
+
+  <h2>Para comprobarlo con datos</h2>
+  <ul>
+    <li><a href="/es/herramientas/amanecer/?esc=actual&amp;data=12-21&amp;lim=480&amp;cidade=santiago">Amanecer en Santiago el 21 de diciembre con el horario actual</a> (opciones C y, en invierno, B).</li>
+    <li><a href="/es/herramientas/amanecer/?esc=portugal&amp;data=12-21&amp;lim=480&amp;cidade=santiago">El mismo día con la hora de Lisboa</a> (opción A).</li>
+    <li><a href="/es/herramientas/ano/?cidade=santiago">El año de amaneceres en Santiago</a>, con los tres horarios.</li>
+    <li><a href="/es/herramientas/mapa/">Mapa de España</a>: el desfase no es igual en toda España.</li>
+    <li>Artículos: <a href="/es/articulos/quien-puede-cambiar-la-hora-de-galicia/">Quién puede cambiar la hora</a>, <a href="/es/articulos/los-contraargumentos/">Los contraargumentos</a>, <a href="/es/articulos/portugal-y-canarias/">Portugal y Canarias</a>, <a href="/es/articulos/cambio-de-hora-octubre-2026/">El 25 de octubre atrasamos el reloj</a>, <a href="/es/articulos/preguntas-frecuentes/">Preguntas frecuentes</a>.</li>
+  </ul>
+
+  <h2>Qué no afirmamos</h2>
+  <ul>
+    <li>No atribuimos postura a ningún partido, gobierno o persona, ni citamos apoyos. En las fuentes que citamos no hay ninguna lista de instituciones que apoyen ninguna opción.</li>
+    <li>No decimos que la hora de Greenwich sea la preferida por la mayoría: las cifras del CIS apuntan a lo contrario.</li>
+    <li>No decimos que haya un estudio concluyente sobre el impacto en salud, economía o turismo en Galicia.</li>
+    <li>No indicamos el instrumento parlamentario ni el trámite exacto ante las Cortes, porque no los tenemos con fuente.</li>
+    <li>Los cálculos de amanecer y puesta de sol son propios (método NOAA, ±1-2 minutos) y están explicados en los artículos enlazados.</li>
+  </ul>
+</Prose>

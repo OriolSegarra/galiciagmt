@@ -2,6 +2,7 @@
 titulo: "Los contraargumentos, respondidos con honestidad"
 entradilla: "Antes de proponer nada, hay que escuchar las objeciones más serias. Aquí están, en su versión más fuerte, con respuesta honesta y sin ocultar lo que no sabemos."
 data: 2026-09-27
+actualizado: 2026-10-23
 par: debate
 orde: 5
 seccion: debate
@@ -44,7 +45,7 @@ Defender que Galicia adopte la hora de Greenwich obliga a escuchar, sin atajos, 
 
 **Objeción.** Si Galicia mantuviera el horario de invierno mientras el resto de España sigue cambiando, habría hasta una hora de diferencia con Madrid o Barcelona durante medio año: horarios de trabajo, televisión, transporte y mercados que hoy funcionan en bloque se complicarían. La UE lo reconoce como riesgo general: según [El País](https://elpais.com/sociedad/2025-10-24/geopolitica-del-cambio-de-hora-una-economia-desincronizada-y-otros-temores-para-no-abolirlo-en-la-ue.html), el bloqueo en el Consejo persiste porque "los países saben que desincronizar sus horarios puede acarrear pérdidas económicas importantes", y elegir hora propia "conlleva un riesgo: romper la sincronización del mercado interior". La Comisión Europea, en [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), habla directamente de "riesgo de fragmentación".
 
-**Qué respondemos.** Es la objeción más seria y no la minimizamos. Galicia con una hora propia tendría una frontera horaria con el resto de la Península, y eso tiene costes que hay que estudiar. Por eso pedimos que se estudie en serio y de forma coordinada con el Estado, no un cambio improvisado. La opción más amplia, que toda España vuelva a la hora de Greenwich, ya la planteó el Congreso en 2013 al proponer volver a la hora de Londres, y la opción más modesta, dejar de adelantar el reloj en verano, no crea ninguna frontera interna.
+**Qué respondemos.** Es la objeción más seria y no la minimizamos. Galicia con una hora propia tendría una frontera horaria con el resto de la Península, y eso tiene costes que hay que estudiar. Por eso pedimos que se estudie en serio y de forma coordinada con el Estado, no un cambio improvisado. La opción más amplia, que toda España vuelva a la hora de Greenwich, ya la planteó el Congreso en 2013 al proponer volver a la hora de Londres, y la opción más modesta, dejar de adelantar el reloj en verano, no crea ninguna frontera interna si la aplica todo el Estado.
 
 **Qué no sabemos.** Si ese consenso estatal llegará a producirse: el informe de 2019 admite que "la opinión de los expertos [...] no es unánime ni concluyente", y sin voluntad política clara, el riesgo de una Galicia descolgada sigue sobre la mesa.
 

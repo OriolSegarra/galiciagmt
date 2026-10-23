@@ -12,6 +12,7 @@ export const routes = {
   mapa: { gl: '/ferramentas/mapa/', es: '/es/herramientas/mapa/' },
   asinao: { gl: '/asinao/', es: '/es/firmalo/' },
   mocion: { gl: '/mocion/', es: '/es/mocion/' },
+  partidos: { gl: '/partidos/', es: '/es/partidos/' },
   sobre: { gl: '/sobre/', es: '/es/sobre/' },
   ia: { gl: '/ia/', es: '/es/ia/' },
 } as const;
@@ -29,6 +30,7 @@ export const ui = {
     'nav.asinao': 'Asínao',
     'nav.sobre': 'O proxecto',
     'nav.mocion': 'Moción para concellos',
+    'nav.partidos': 'Para partidos e institucións',
     'nav.ia': 'Como se fai',
     'nav.menu': 'Menú',
     'footer.ai': 'Web mantida por IA baixo supervisión humana.',
@@ -72,6 +74,7 @@ export const ui = {
     'nav.asinao': 'Fírmalo',
     'nav.sobre': 'El proyecto',
     'nav.mocion': 'Moción para ayuntamientos',
+    'nav.partidos': 'Para partidos e instituciones',
     'nav.ia': 'Cómo se hace',
     'nav.menu': 'Menú',
     'footer.ai': 'Web mantenida por IA bajo supervisión humana.',
