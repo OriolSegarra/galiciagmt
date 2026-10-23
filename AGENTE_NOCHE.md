@@ -29,7 +29,8 @@ Proyecto PostHog en región UE (`eu.posthog.com`), sin cookies. Si tienes las he
 - Si no hay acceso a PostHog, sigue sin él y anótalo en el diario.
 
 ## 2c. SEO (ver `SEO.md`)
-- **Lunes**: mide las posiciones de las búsquedas objetivo con Firecrawl y añade la columna de la semana a `seo-posicions.md`.
+- **Lunes**: ejecuta `node scripts/gsc.mjs` y `node scripts/gsc.mjs --dim page` (datos reales de Search Console; si falta la variable `GSC_SERVICE_ACCOUNT_JSON`, anótalo y sigue) y mide además con Firecrawl las búsquedas objetivo. Añade todo a `seo-posicions.md`.
+- **Día 1 de cada mes**: investigación de palabras clave con el autocompletado de Google y la competencia (método en `SEO.md`).
 - **Al elegir la tarea (paso 4)**: si una búsqueda objetivo no tiene una página que la responda bien, o estamos fuera del top 10 y la página es mejorable, eso es candidato a tarea. Prioriza lo que esté cerca de entrar en el top 3.
 - **Al ejecutar cualquier pieza**: aplica las reglas on-page de `SEO.md` (título con palabra clave, respuesta en el primer párrafo, ≥2 enlaces internos salientes y ≥1 entrante, pareja gl/es).
 - **Calendario estacional**: 3 semanas y 1 semana antes de cada cambio de hora (último domingo de marzo/octubre), la tarea es preparar las piezas del cambio (ver `SEO.md`).

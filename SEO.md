@@ -27,6 +27,21 @@ Sin Search Console vía MCP, medimos con Firecrawl:
 - Anota la fila en `seo-posicions.md` (una columna por semana) y quién está en el nº 1.
 - Firecrawl no es Google exacto: úsalo como tendencia, no como verdad absoluta. Si Oriol pega datos de Search Console en Slack, esos mandan.
 
+## Datos reais de Google (Search Console API)
+Fonte principal cando estea configurada; Firecrawl queda como complemento.
+- Script: `node scripts/gsc.mjs` (consultas, 28 días), `--dim page`, `--dim query,page`, `--days 7`, `--sitemaps`.
+- Necesita a variable de contorno `GSC_SERVICE_ACCOUNT_JSON` (conta de servizo de Google Cloud con permiso de lectura na propiedade `sc-domain:galiciagmt.es`). Se falta, o script dío e segues con Firecrawl.
+- Cada luns: garda a táboa de consultas en `seo-posicions.md` (sección "Search Console") e compara coa semana anterior.
+- **Oportunidades** = consultas con moitas impresións e posición 5-20: mellorar título, primeiro parágrafo e ligazóns internas desa páxina. Consultas con impresións e sen páxina boa = artigo ou páxina nova.
+
+## Investigación de palabras clave (gratis)
+- **Autocompletado de Google** vía Firecrawl (`firecrawl_scrape` con `formats: ["rawHtml"]`):
+  `https://suggestqueries.google.com/complete/search?client=firefox&hl=es&gl=es&q=<termo>` (e `hl=gl` para galego).
+  Proba o termo só e con prefixos ("por que", "cando", "a que hora", "<cidade>") e sufixos (a, b, c…). O que aparece é o que a xente busca de verdade.
+- **Competencia**: `firecrawl_search` da búsqueda (ubicación España, top 10). Mira títulos, que preguntas responden e que formato gaña (ferramenta, noticia, explicación). Se gaña unha calculadora, a nosa resposta debe ser unha ferramenta mellor; se gaña prensa, unha peza máis completa e citable.
+- **"A xente tamén pregunta"**: busca a pregunta exacta e recolle as preguntas relacionadas que aparezan nos resultados para a FAQ.
+- Rexistra as palabras novas e o seu volume aproximado (alto/medio/baixo segundo autocompletado e competencia) en `SEO.md` → táboa de palabras clave, o día 1 de cada mes.
+
 ## Reglas on-page (el verificador las revisa en cada página nueva o tocada)
 - **Título** (`titulo`): contiene la palabra clave principal, ≤ 60 caracteres si es posible, sin clickbait.
 - **Entradilla** (se usa como meta description): responde la pregunta en la primera frase, 120-160 caracteres ideal.
