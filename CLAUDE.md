@@ -46,6 +46,8 @@ ideas.md             ← backlog priorizado (impacto/esfuerzo)
 diario.md            ← registro de cada sesión (la más reciente arriba)
 RESUMEN.md           ← resumen de la última ejecución (3-5 líneas)
 metricas.md          ← registro semanal de visitas y firmas (PostHog); úsalo para decidir qué crear
+SEO.md               ← palabras clave objetivo, reglas on-page, calendario estacional y enlaces
+seo-posicions.md     ← posición semanal en búsquedas (Firecrawl) de las palabras clave
 fontes/              ← dossiers de fuentes verificadas (reutilízalos antes de volver a buscar)
 .claude/agents/      ← subagentes: investigador, redactor, desarrollador, verificador
 src/

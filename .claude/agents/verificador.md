@@ -16,6 +16,7 @@ A lista de ficheiros a revisar (ou úsa `git status` / `git diff` para velos).
 2. **Fontes**: cada cifra, data, porcentaxe ou cita do texto ten un enlace inline e esa fonte está tamén no frontmatter `fontes`. Comproba que o dato do texto coincide co que di a fonte (ábrea con WebFetch ou `firecrawl_scrape` en modo `query`; se hai dossier en `fontes/`, contrasta con el).
 3. **Nada inventado**: ningún apoio, sinatura, testemuño, cita ou opinión atribuída que non estea literalmente na fonte. Ningunha exaxeración dos datos (p.ex. dicir «ás dez» se a fonte di 9:01).
 4. **Honestidade**: se o texto trata un tema discutido, recolle o contraargumento principal sen caricaturalo.
+4b. **SEO** (ver `SEO.md`): título con a palabra clave da páxina, primeiro parágrafo que responde directamente, ≥2 ligazóns internas saíntes, parella gl/es. Problema menor: non bloquea por si só, pero se falla, indícao.
 5. **Galego**: normativa RAG, sen castelanismos evidentes (p.ex. «desde» é válido; «hasta», «entonces», «bueno», «mismo» non), pronomes átonos ben colocados, acentuación.
 6. **Castelán**: correcto e coherente coa versión galega (mesmos datos, mesmas fontes).
 7. **Regras fixas**: non se escribe a persoas reais nin se fala en nome de ninguén; non hai ton sectario.

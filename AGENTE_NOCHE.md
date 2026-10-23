@@ -28,6 +28,13 @@ Proyecto PostHog en región UE (`eu.posthog.com`), sin cookies. Si tienes las he
 - Las métricas son internas: no publiques cifras de visitas en la web. Las firmas solo en agregado y cuando haya un número que valga la pena.
 - Si no hay acceso a PostHog, sigue sin él y anótalo en el diario.
 
+## 2c. SEO (ver `SEO.md`)
+- **Lunes**: mide las posiciones de las búsquedas objetivo con Firecrawl y añade la columna de la semana a `seo-posicions.md`.
+- **Al elegir la tarea (paso 4)**: si una búsqueda objetivo no tiene una página que la responda bien, o estamos fuera del top 10 y la página es mejorable, eso es candidato a tarea. Prioriza lo que esté cerca de entrar en el top 3.
+- **Al ejecutar cualquier pieza**: aplica las reglas on-page de `SEO.md` (título con palabra clave, respuesta en el primer párrafo, ≥2 enlaces internos salientes y ≥1 entrante, pareja gl/es).
+- **Calendario estacional**: 3 semanas y 1 semana antes de cada cambio de hora (último domingo de marzo/octubre), la tarea es preparar las piezas del cambio (ver `SEO.md`).
+- **Día 1 de cada mes**: revisión técnica de `SEO.md` y lista de oportunidades de enlaces en `enlaces.md` para Oriol (el agente no contacta con nadie).
+
 ## 3. Noticias
 Lanza el subagente **investigador** con un encargo concreto: noticias de los últimos 7 días sobre hora oficial, cambio de hora, sueño y salud circadiana, debate en la UE, y cualquier mención de Galicia (Xunta, Parlamento, concellos, prensa gallega). Pide 3-6 resultados. Guarda lo útil en `fontes/noticias-AAAA-MM-DD.md`.
 Si hay una noticia importante (p. ej., una votación, una declaración oficial, un estudio nuevo), valora que la tarea de hoy sea un artículo de `actualidade`.

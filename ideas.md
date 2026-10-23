@@ -7,6 +7,10 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 
 | # | Idea | Tipo | Imp. | Fac. | Prio. | Estado | Notas |
 |---|---|---|---|---|---|---|---|
+| SEO-1 | **Datos estructurados JSON-LD**: `Article` en artículos (fecha, autor = Galicia GMT, actualizado), `FAQPage` en la FAQ, `WebApplication` en herramientas, `Organization` en la home | Web/SEO | 5 | 4 | 20 | pendiente | Añadido por Oriol 23/10 (SEO). Validar con el Rich Results Test de Google si es accesible; sin dependencias |
+| SEO-2 | **Revisar títulos y entradillas** de todas las páginas existentes contra las palabras clave de `SEO.md` (título con la keyword, respuesta en el primer párrafo) | Web/SEO | 5 | 4 | 20 | pendiente | Hacer en tandas de 3-4 páginas por noche, marcando `actualizado:` |
+| SEO-3 | **Páginas por ciudad**: "A que hora amence en Vigo / Santiago / A Coruña / Lugo / Ourense / Pontevedra / Ferrol" (gl/es), con datos de `sol.ts` y enlace a la herramienta con la ciudad preseleccionada | Herramienta/SEO | 5 | 3 | 15 | pendiente | Generar en build desde `cidades.ts`; texto único por ciudad, nada de plantilla vacía |
+| SEO-4 | **Enlaces internos**: auditar que cada página reciba ≥1 enlace y enlace ≥2; añadir bloque "Ler tamén" al final de los artículos | Web/SEO | 4 | 4 | 16 | pendiente | |
 | 21 | **Mapa de España** coloreado por días al año con amanecer después de las 8:30 (actual vs Portugal vs sin verano) | Herramienta | 5 | 3 | 15 | hecha 2026-10-05 (`/ferramentas/mapa/`) | Reutilizar `sol.ts` + `cidades.ts`; SVG propio, sin librerías pesadas. Muy compartible |
 | 22 | **Tu año de amaneceres**: gráfico anual por ciudad con bandas horarias (5-6, 6-7… 9-10) por escenario, como el prototipo de Oriol | Herramienta | 4 | 4 | 16 | hecha 2026-10-12 (`/ferramentas/ano/`) | Integrar en la herramienta de amaneceres como segunda vista |
 | 23 | Imágenes para compartir (PNG) de la herramienta de amaneceres: "Vigo vs Girona el 21/12" | Campaña | 4 | 3 | 12 | hecha 2026-10-21 (botón en `/ferramentas/amencer/`) | Canvas en cliente, PNG 1200x630 |
