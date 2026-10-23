@@ -1,0 +1,51 @@
+---
+import Prose from '../../views/Prose.astro';
+import { CONTACT_EMAIL } from '../../config';
+---
+
+<Prose
+  lang="es"
+  kicker="Privacidad"
+  title="Política de privacidad"
+  lede="Qué datos recogemos al firmar, para qué, cuánto tiempo los guardamos y cómo puedes pedir que se borren."
+  alt="/privacidade/"
+>
+  <h2>Responsable</h2>
+  <p>
+    Oriol Segarra, promotor de Galicia GMT. Contacto: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+  </p>
+
+  <h2>Qué datos recogemos</h2>
+  <ul>
+    <li>En el formulario <a href="/es/firmalo/">Fírmalo</a>: nombre y apellidos, municipio y correo electrónico.</li>
+    <li>Si lo marcas, tu preferencia de recibir novedades por correo.</li>
+    <li>Esta web no usa cookies de seguimiento ni publicidad.</li>
+  </ul>
+
+  <h2>Para qué</h2>
+  <ul>
+    <li>Contar los apoyos a la propuesta y comunicarlos <strong>de forma agregada</strong> (por ejemplo, "X firmas en Y municipios"). Nunca publicamos nombres ni correos.</li>
+    <li>Evitar firmas duplicadas: el correo solo se puede usar una vez.</li>
+    <li>Solo si lo marcas, enviarte novedades del proyecto, como máximo una vez al mes.</li>
+  </ul>
+
+  <h2>Base legal</h2>
+  <p>Tu consentimiento, que das al marcar la casilla del formulario. Puedes retirarlo cuando quieras.</p>
+
+  <h2>Quién tiene acceso</h2>
+  <p>
+    No cedemos ni vendemos datos a terceros. El formulario está alojado en
+    <a href="https://tally.so/help/privacy-policy">Tally</a> (Tally BV, Bélgica, Unión Europea), que actúa como encargado
+    del tratamiento.
+  </p>
+
+  <h2>Cuánto tiempo</h2>
+  <p>Hasta que retires el consentimiento o termine la campaña. Al terminar, borraremos los datos personales y conservaremos solo las cifras agregadas.</p>
+
+  <h2>Tus derechos</h2>
+  <p>
+    Puedes pedir acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a
+    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Si crees que no hemos atendido bien tu petición, puedes reclamar
+    ante la <a href="https://www.aepd.es/">Agencia Española de Protección de Datos</a>.
+  </p>
+</Prose>

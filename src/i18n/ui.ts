@@ -15,6 +15,7 @@ export const routes = {
   partidos: { gl: '/partidos/', es: '/es/partidos/' },
   sobre: { gl: '/sobre/', es: '/es/sobre/' },
   ia: { gl: '/ia/', es: '/es/ia/' },
+  privacidade: { gl: '/privacidade/', es: '/es/privacidad/' },
 } as const;
 
 export type RouteKey = keyof typeof routes;
@@ -32,6 +33,7 @@ export const ui = {
     'nav.mocion': 'Moción para concellos',
     'nav.partidos': 'Para partidos e institucións',
     'nav.ia': 'Como se fai',
+    'nav.privacidade': 'Privacidade',
     'nav.menu': 'Menú',
     'footer.ai': 'Web mantida por IA baixo supervisión humana.',
     'footer.ai.more': 'Como funciona',
@@ -76,6 +78,7 @@ export const ui = {
     'nav.mocion': 'Moción para ayuntamientos',
     'nav.partidos': 'Para partidos e instituciones',
     'nav.ia': 'Cómo se hace',
+    'nav.privacidade': 'Privacidad',
     'nav.menu': 'Menú',
     'footer.ai': 'Web mantenida por IA bajo supervisión humana.',
     'footer.ai.more': 'Cómo funciona',

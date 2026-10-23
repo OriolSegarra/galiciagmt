@@ -1,0 +1,51 @@
+---
+import Prose from '../views/Prose.astro';
+import { CONTACT_EMAIL } from '../config';
+---
+
+<Prose
+  lang="gl"
+  kicker="Privacidade"
+  title="Política de privacidade"
+  lede="Que datos recollemos ao asinar, para que, canto tempo os gardamos e como podes pedir que se borren."
+  alt="/es/privacidad/"
+>
+  <h2>Responsable</h2>
+  <p>
+    Oriol Segarra, promotor de Galicia GMT. Contacto: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+  </p>
+
+  <h2>Que datos recollemos</h2>
+  <ul>
+    <li>No formulario <a href="/asinao/">Asínao</a>: nome e apelidos, concello e correo electrónico.</li>
+    <li>Se o marcas, a túa preferencia de recibir novidades por correo.</li>
+    <li>Esta web non usa cookies de seguimento nin publicidade.</li>
+  </ul>
+
+  <h2>Para que</h2>
+  <ul>
+    <li>Contar os apoios á proposta e comunicalos <strong>de forma agregada</strong> (por exemplo, "X sinaturas en Y concellos"). Nunca publicamos nomes nin correos.</li>
+    <li>Evitar sinaturas duplicadas: o correo só se pode usar unha vez.</li>
+    <li>Só se o marcas, enviarche novidades do proxecto, como máximo unha vez ao mes.</li>
+  </ul>
+
+  <h2>Base legal</h2>
+  <p>O teu consentimento, que dás ao marcar a casilla do formulario. Podes retiralo cando queiras.</p>
+
+  <h2>Quen ten acceso</h2>
+  <p>
+    Non cedemos nin vendemos datos a terceiros. O formulario está aloxado en
+    <a href="https://tally.so/help/privacy-policy">Tally</a> (Tally BV, Bélxica, Unión Europea), que actúa como encargado
+    do tratamento.
+  </p>
+
+  <h2>Canto tempo</h2>
+  <p>Ata que retires o consentimento ou remate a campaña. Ao rematar, borraremos os datos persoais e conservaremos só as cifras agregadas.</p>
+
+  <h2>Os teus dereitos</h2>
+  <p>
+    Podes pedir acceso, rectificación, supresión, oposición, limitación e portabilidade escribindo a
+    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Se cres que non atendemos ben a túa petición, podes reclamar
+    ante a <a href="https://www.aepd.es/">Axencia Española de Protección de Datos</a>.
+  </p>
+</Prose>
