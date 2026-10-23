@@ -1,7 +1,7 @@
 // Configuración global. Cambia aquí o dominio e o formulario de sinaturas.
 
 /** URL pública da web (sen barra final). Cámbiaa cando teñas dominio propio. */
-export const SITE_URL = 'https://galiciagmt.vercel.app';
+export const SITE_URL = 'https://galiciagmt.es';
 
 /**
  * ID do formulario de Tally para "Asínao" (a parte final de https://tally.so/r/XXXXXX).

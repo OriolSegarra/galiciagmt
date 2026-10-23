@@ -86,6 +86,9 @@ Uso moderado (plan Pro): normalmente 1 investigador + 1 redactor o desarrollador
 ### Red y fuentes
 La red del contenedor puede bloquear BOE, PubMed, Wikipedia, etc. Si WebFetch falla, usa las herramientas de **Firecrawl** (`firecrawl_search`, `firecrawl_scrape` con `formats: ["query"]`). Guarda las fuentes verificadas nuevas en `fontes/` (un archivo por tema o por noche) para no repetir búsquedas.
 
+## Dominio
+- Dominio público: **https://galiciagmt.es** (comprado en IONOS el 23/10/2026; desplegado en Vercel). Usa siempre este dominio en enlaces de Slack, diario y prensa. `galiciagmt.vercel.app` queda solo como respaldo técnico.
+
 ## Comandos
 - `npm install` — dependencias
 - `npm run dev` — servidor local (http://localhost:4321)
