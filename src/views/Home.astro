@@ -4,7 +4,8 @@ import SolarClock from '../components/SolarClock.astro';
 import DayBars from '../components/DayBars.astro';
 import ArticleList from '../components/ArticleList.astro';
 import Cta from '../components/Cta.astro';
-import { articleUrl, r, type Lang } from '../i18n/ui';
+import { articleUrl, r, t, type Lang } from '../i18n/ui';
+import { homeSchema } from '../lib/schema';
 import { artigosDe, slugOf } from '../lib/artigos';
 
 interface Props {
@@ -53,9 +54,10 @@ const c = {
 }[lang];
 
 const first = items[0];
+const schema = homeSchema(lang, t(lang, 'site.description'));
 ---
 
-<Base lang={lang} alt={lang === 'gl' ? '/es/' : '/'}>
+<Base lang={lang} alt={lang === 'gl' ? '/es/' : '/'} schema={schema}>
   <section class="hero wrap">
     <div class="copy">
       <p class="kicker">{c.kicker}</p>

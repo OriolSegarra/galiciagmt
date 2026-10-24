@@ -4,6 +4,7 @@
   Todo calculado no build (src/lib/sol.ts, método NOAA) e debuxado como SVG estático.
 */
 import Base from '../layouts/Base.astro';
+import { webAppSchema } from '../lib/schema';
 import Fontes from '../components/Fontes.astro';
 import Cta from '../components/Cta.astro';
 import { articleUrl, r, type Lang } from '../i18n/ui';
@@ -234,7 +235,7 @@ const pos: Record<string, ['start' | 'end', number, number]> = {
 };
 ---
 
-<Base lang={lang} title={c.h1} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'mapa')}>
+<Base schema={webAppSchema({ lang, path: r(lang, 'mapa'), name: c.h1, description: c.lede })} lang={lang} title={c.h1} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'mapa')}>
   <div class="wrap page">
     <header class="head">
       <p class="kicker"><a href={r(lang, 'ferramentas')}>{c.kicker}</a></p>

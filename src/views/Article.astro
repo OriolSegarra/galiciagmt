@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import Fontes from '../components/Fontes.astro';
 import Cta from '../components/Cta.astro';
 import { articleUrl, formatDate, r, t, type Lang } from '../i18n/ui';
+import { articleSchema, faqSchema } from '../lib/schema';
 import { artigosDe, langOf, parDe, slugOf, type Artigo } from '../lib/artigos';
 
 interface Props {
@@ -17,12 +18,18 @@ const alt = other ? articleUrl(otherLang, slugOf(other)) : r(otherLang, 'artigos
 const { Content } = await render(entry);
 const d = entry.data;
 
+const path = articleUrl(lang, slugOf(entry));
+const schema = [
+  articleSchema({ lang, path, titulo: d.titulo, entradilla: d.entradilla, data: d.data, actualizado: d.actualizado }),
+  ...(d.par === 'faq' ? [faqSchema(lang, entry.body ?? '')] : []),
+];
+
 const all = await artigosDe(lang);
 const idx = all.findIndex((a) => a.id === entry.id);
 const next = all[(idx + 1) % all.length];
 ---
 
-<Base lang={lang} title={d.titulo} description={d.entradilla} alt={alt} type="article">
+<Base lang={lang} title={d.titulo} description={d.entradilla} alt={alt} type="article" schema={schema}>
   <article class="wrap art">
     <header class="head">
       <p class="kicker">

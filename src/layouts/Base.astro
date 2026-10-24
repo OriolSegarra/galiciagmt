@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
+import JsonLd from '../components/JsonLd.astro';
 import { t, type Lang } from '../i18n/ui';
 
 interface Props {
@@ -12,9 +13,11 @@ interface Props {
   /** Ruta equivalente no outro idioma, para o selector e hreflang. */
   alt?: string;
   type?: 'website' | 'article';
+  /** Datos estruturados JSON-LD (un obxecto ou unha lista). */
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { lang, title, description, alt, type = 'website' } = Astro.props;
+const { lang, title, description, alt, type = 'website', schema } = Astro.props;
 const siteName = t(lang, 'site.name');
 const fullTitle = title ? `${title} — ${siteName}` : `${siteName} · ${t(lang, 'site.tagline')}`;
 const desc = description ?? t(lang, 'site.description');
@@ -45,6 +48,7 @@ const og = new URL('/og.png', Astro.site);
     <meta property="og:image" content={og} />
     <meta property="og:locale" content={lang === 'gl' ? 'gl_ES' : 'es_ES'} />
     <meta name="twitter:card" content="summary_large_image" />
+    <JsonLd data={schema} />
   </head>
   <body>
     <a class="skip visually-hidden" href="#main">{lang === 'gl' ? 'Ir ao contido' : 'Ir al contenido'}</a>

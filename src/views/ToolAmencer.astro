@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { webAppSchema } from '../lib/schema';
 import AmencerEspana from '../components/AmencerEspana.astro';
 import Fontes from '../components/Fontes.astro';
 import Cta from '../components/Cta.astro';
@@ -97,7 +98,7 @@ const fontes = [
 ];
 ---
 
-<Base lang={lang} title={c.h1} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'amencer')}>
+<Base schema={webAppSchema({ lang, path: r(lang, 'amencer'), name: c.h1, description: c.lede })} lang={lang} title={c.h1} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'amencer')}>
   <div class="wrap page">
     <header class="head">
       <p class="kicker"><a href={r(lang, 'ferramentas')}>{c.kicker}</a></p>
