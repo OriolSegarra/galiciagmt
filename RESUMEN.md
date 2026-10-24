@@ -1,4 +1,4 @@
-# RESUMEN — última ejecución (2026-10-23)
+# RESUMEN — última ejecución (2026-10-24)
 
-Publicada la página "Para partidos e institucións": `/partidos/` y `/es/partidos/`, con tabla de opciones A/B/C neutral. Aclarado en los contraargumentos que la opción B no crea frontera solo si la aplica todo el Estado. Verificador APTO a la 2ª vuelta, build OK.
-Siguiente: revisar la tabla a 390 px y la idea #15. Tally sigue sin ID.
+Publicados los datos estructurados JSON-LD: Article en todos los artículos, FAQPage en la FAQ, WebApplication en las herramientas y Organization/WebSite en la home (gl/es). Verificador APTO a la 1ª, build OK.
+Siguiente: cambio de hora del 25/10; SEO-2 (títulos y entradillas). Tally sigue sin ID.

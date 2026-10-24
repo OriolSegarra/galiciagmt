@@ -7,7 +7,7 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 
 | # | Idea | Tipo | Imp. | Fac. | Prio. | Estado | Notas |
 |---|---|---|---|---|---|---|---|
-| SEO-1 | **Datos estructurados JSON-LD**: `Article` en artículos (fecha, autor = Galicia GMT, actualizado), `FAQPage` en la FAQ, `WebApplication` en herramientas, `Organization` en la home | Web/SEO | 5 | 4 | 20 | pendiente | Añadido por Oriol 23/10 (SEO). Validar con el Rich Results Test de Google si es accesible; sin dependencias |
+| SEO-1 | **Datos estructurados JSON-LD**: `Article` en artículos (fecha, autor = Galicia GMT, actualizado), `FAQPage` en la FAQ, `WebApplication` en herramientas, `Organization` en la home | Web/SEO | 5 | 4 | 20 | hecha 2026-10-24 | Añadido por Oriol 23/10 (SEO). Validar con el Rich Results Test de Google si es accesible; sin dependencias |
 | SEO-2 | **Revisar títulos y entradillas** de todas las páginas existentes contra las palabras clave de `SEO.md` (título con la keyword, respuesta en el primer párrafo) | Web/SEO | 5 | 4 | 20 | pendiente | Hacer en tandas de 3-4 páginas por noche, marcando `actualizado:` |
 | SEO-3 | **Páginas por ciudad**: "A que hora amence en Vigo / Santiago / A Coruña / Lugo / Ourense / Pontevedra / Ferrol" (gl/es), con datos de `sol.ts` y enlace a la herramienta con la ciudad preseleccionada | Herramienta/SEO | 5 | 3 | 15 | pendiente | Generar en build desde `cidades.ts`; texto único por ciudad, nada de plantilla vacía |
 | SEO-4 | **Enlaces internos**: auditar que cada página reciba ≥1 enlace y enlace ≥2; añadir bloque "Ler tamén" al final de los artículos | Web/SEO | 4 | 4 | 16 | pendiente | |

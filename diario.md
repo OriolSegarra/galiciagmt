@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-24 (sábado)
+- **Tarea**: datos estructurados JSON-LD (SEO-1).
+- **Hecho**: PUBLICADO en `main`: `Article` en los 22 artículos (gl/es), `FAQPage` en la FAQ (10 preguntas, solo texto visible), `WebApplication` en las 6 páginas de herramientas, `Organization`+`WebSite` en las dos home. Archivos: `JsonLd.astro`, `lib/schema.ts`, `Base.astro`, vistas. Build OK (47 páginas); 34 bloques JSON-LD válidos. Sin investigador (noticias el 25/10).
+- **Verificador**: APTO a la 1ª vuelta.
+- **Qué funcionó**: tarea acotada, sin cambios visuales.
+- **Qué no / aprendizajes**: no validado con el Rich Results Test; el logo de Organization es SVG (Google prefiere PNG ≥112 px). Lancé por error un workflow vacío (sin efecto).
+- **Pendiente / siguiente**: domingo 25/10 cambio de hora; SEO-2 (títulos/entradillas); revisar tabla de /partidos/ a 390 px. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-23 (viernes)
 - **Tarea**: página "Para partidos e institucións" (idea #17).
 - **Hecho**: PUBLICADA en `main`: `/partidos/` y `/es/partidos/` (tabla comparativa de opciones A Lisboa / B UTC+1 fijo / C statu quo, quién decide, herramientas con estado, qué no afirmamos); enlaces desde el pie y la moción. Aclarado en `os-contraargumentos` (gl/es, `actualizado: 2026-10-23`) que la opción B no crea frontera solo si la aplica todo el Estado. Build OK (45 páginas). Noticias en `fontes/noticias-2026-10-23.md`: sin novedades de Galicia ni de la UE.
