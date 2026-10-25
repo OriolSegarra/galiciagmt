@@ -1,8 +1,8 @@
 ---
-titulo: "El 25 de octubre atrasamos el reloj: por qué eso no arregla el problema de Galicia"
-entradilla: "El domingo 25 de octubre termina el horario de verano. España propuso a la UE eliminar ese cambio, pero no hay decisión ni plazo — y el verano permanente sería el peor escenario para Galicia."
+titulo: "Cambio de hora en Galicia: por qué el 25 de octubre no basta"
+entradilla: "El domingo 25 de octubre termina el horario de verano. España propuso a la UE eliminar ese cambio, pero no hay decisión ni plazo — y el verano permanente sería el peor escenario posible para Galicia."
 data: 2026-09-28
-actualizado: 2026-10-22
+actualizado: 2026-10-25
 par: cambio-hora-2026
 orde: 0
 seccion: actualidade

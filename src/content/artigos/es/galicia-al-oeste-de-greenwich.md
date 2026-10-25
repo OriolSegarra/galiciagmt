@@ -1,7 +1,8 @@
 ---
-titulo: "Galicia está al oeste de Greenwich: la geografía del desfase"
-entradilla: "La Tierra gira 15° por hora. Aplicado a las coordenadas de Galicia, eso explica por qué el sol va tan retrasado respecto al reloj."
+titulo: "Por qué Galicia no tiene la hora de Portugal"
+entradilla: "Santiago está a 8,54° oeste de Greenwich, unos 34 minutos de retraso solar, pero sigue el huso centroeuropeo (UTC+1). Con 15° por hora, esa es la geografía del desfase."
 data: 2026-09-27
+actualizado: 2026-10-25
 par: xeografia
 orde: 1
 seccion: xeografia
@@ -18,13 +19,16 @@ fontes:
   - titulo: "¿Es nuestro huso horario un problema? (Archivo Digital UPM, 2017)"
     url: "https://oa.upm.es/45296/1/CCG_2017_Es-nuestro-huso-horario-un-problema.pdf"
     dato: "A España, salvo Canarias y parte del oeste de Galicia, le corresponde el huso GMT+0; el oeste de Galicia está en el huso 23, como Canarias en 1922"
+  - titulo: "Santiago de Compostela — coordenadas (Wikipedia)"
+    url: "https://es.wikipedia.org/wiki/Santiago_de_Compostela"
+    dato: "Coordenadas 42°52′40″N 8°32′40″O (≈ 8,54° oeste)"
 ---
 
 ## 15 grados por hora
 
 La hora oficial de un territorio no depende solo de su longitud: depende de dónde se decidió trazar las líneas de los husos horarios, y esos trazos son una convención política, no una frontera física. Pero la convención parte de un cálculo sencillo. La Tierra da una vuelta completa, 360°, en 24 horas. Dividiendo, sale que en cada hora el planeta gira 15°, o lo que es lo mismo, cada grado de longitud equivale a cuatro minutos de diferencia horaria respecto al meridiano de Greenwich.
 
-Santiago de Compostela está a 8,54° oeste. Multiplicando por cuatro minutos por grado, el resultado son unos 34 minutos: ese es el retraso medio del mediodía solar de Santiago respecto al de Greenwich. Es un cálculo, no un dato tomado de ninguna parte, pero los propios registros de mediodía solar de Santiago lo confirman por otra vía: 13:32 en diciembre y 14:36 en junio, es decir, entre una hora y media y dos horas y media después de las 12:00 del reloj, según se esté en horario de invierno (UTC+1) o de verano (UTC+2). La diferencia entre ambos cálculos, unos minutos, se debe a la ecuación del tiempo, la pequeña irregularidad de la órbita terrestre que hace que el mediodía solar real oscile a lo largo del año.
+Santiago de Compostela está a 8,54° oeste ([Wikipedia](https://es.wikipedia.org/wiki/Santiago_de_Compostela)). Multiplicando por cuatro minutos por grado, el resultado son unos 34 minutos: ese es el retraso medio del mediodía solar de Santiago respecto al de Greenwich. Es un cálculo, no un dato tomado de ninguna parte, pero los propios registros de mediodía solar de Santiago lo confirman por otra vía: 13:32 en diciembre y 14:36 en junio, es decir, entre 1 h 32 min y 2 h 36 min después de las 12:00 del reloj, según se esté en horario de invierno (UTC+1) o de verano (UTC+2). La diferencia entre ambos cálculos, unos minutos, se debe a la ecuación del tiempo, la pequeña irregularidad de la órbita terrestre que hace que el mediodía solar real oscile a lo largo del año.
 
 ## Dónde cae Galicia en el mapa de los husos
 
@@ -36,14 +40,14 @@ El mismo documento recuerda que este desfase ya se detectó en 1922: en aquel mo
 
 La consecuencia no es abstracta: se nota todos los días en el reloj del sol. En Santiago, el 21 de diciembre el sol sale a las 9:01 de la mañana y se pone a las 18:02; el 21 de junio sale a las 6:55 y se pone a las 22:16. En diciembre, antes de las nueve de la mañana todavía es de noche; en junio, la luz aguanta hasta pasadas las diez de la noche. Son los horarios de un territorio que vive, por reloj oficial, con una hora o dos de adelanto sobre lo que marcaría el sol en su propia longitud.
 
-La comparación con Lisboa, que comparte prácticamente la misma latitud pero está en el huso de Greenwich, lo ilustra bien:
+La comparación con Lisboa, de latitud próxima que está en el huso de Greenwich, lo ilustra bien:
 
 | | Santiago (21/12) | Lisboa (21/12) |
 |---|---|---|
 | Salida del sol | 9:01 | 7:50 |
 | Mediodía solar | 13:32 | 12:34 |
 
-Más de una hora de diferencia en la salida del sol entre dos ciudades casi vecinas, con latitudes aproximadamente iguales, simplemente porque una vive en el huso de Greenwich y la otra en el centroeuropeo.
+Más de una hora de diferencia en la salida del sol entre dos ciudades casi vecinas, de latitudes próximas, simplemente porque una vive en el huso de Greenwich y la otra en el centroeuropeo.
 
 El gráfico muestra el amanecer en Santiago cada día de 2026, con la hora oficial actual (línea negra) y con la de Lisboa (línea naranja). La línea azul discontinua marca las 8:30. Es un cálculo propio con el método de nuestra [herramienta de amaneceres](/es/herramientas/amanecer/); los saltos de las líneas coinciden con los cambios de hora de marzo y octubre.
 
