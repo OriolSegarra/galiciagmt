@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-25 (domingo)
+- **Tarea**: SEO-2, 1ª tanda (títulos y entradillas de galicia-ao-oeste, cambio-de-hora-2026 y 1940, gl/es).
+- **Hecho**: NO publicada. Rama `borrador/2026-10-25` (títulos con palabra clave, entradillas con la respuesta, correcciones: "oitenta anos" -> "62 anos" en el artículo de 1940, latitud de Lisboa, 1 h 32 min-2 h 36 min, fuente Wikipedia para 8,54°, sin "huso de Varsovia"). Build OK (47 páginas). Noticias en `fontes/noticias-2026-10-25.md`: sin decisión nueva en la UE ni postura de Xunta/Parlamento; debate de expertos (ARHOE vs. físicos) en prensa.
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: 13 puntos, la mayoría en contenido antiguo. 2ª (solo diff): enlace timeanddate sin longitud, "Varsovia", "cuatro grados" sin fuente. Los 3 ya aplicados en la rama; falta 3ª verificación.
+- **Qué funcionó**: el verificador encontró un error factual publicado (80 vs 62 años).
+- **Qué no / aprendizajes**: tocar un artículo hace que el verificador audite todo su contenido; en SEO-2 limitar el diff y pedir revisión solo de líneas modificadas desde la 1ª vuelta.
+- **Pendiente / siguiente**: verificar y fusionar `borrador/2026-10-25`. Pendientes en contenido ya publicado (alta prioridad): cita 84 % atribuida a MEMO/18/5641 (usar COM(2018) 639), 2019/CIS sin enlace inline ni en `fontes` (cambio-de-hora), "32 días >10:00" sin comprobar con `sol.ts`, tabla de Lisboa sin enlace, elipsis en cita de Canarias 1922 (artículo 1940). Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-24 (sábado)
 - **Tarea**: datos estructurados JSON-LD (SEO-1).
 - **Hecho**: PUBLICADO en `main`: `Article` en los 22 artículos (gl/es), `FAQPage` en la FAQ (10 preguntas, solo texto visible), `WebApplication` en las 6 páginas de herramientas, `Organization`+`WebSite` en las dos home. Archivos: `JsonLd.astro`, `lib/schema.ts`, `Base.astro`, vistas. Build OK (47 páginas); 34 bloques JSON-LD válidos. Sin investigador (noticias el 25/10).
