@@ -8,7 +8,7 @@ La entrada más reciente va arriba.
 - **Verificador**: NO APTO a la 1ª (coordenadas, galego, enlaces) -> corregido -> APTO a la 2ª.
 - **Qué funcionó**: verificar solo el diff acotó la revisión.
 - **Qué no / aprendizajes**: sin investigador hoy (noticias el 25/10).
-- **Pendiente / siguiente**: en galicia-ao-oeste, "18:02", "6:55" y "12:34" (Lisboa) sin fuente: marcar como cálculo propio; 2019/CIS sin enlace en `fontes`; tabla de Lisboa; elipsis Canarias 1922; SEO-2 2ª tanda; SEO-3 páginas por ciudad. Tally sin ID.
+- **Pendiente / siguiente**: en galicia-ao-oeste, "18:02", "6:55" y "12:34" (Lisboa) sin fuente: marcar como cálculo propio; 2019/CIS sin enlace en `fontes`; tabla de Lisboa; elipsis Canarias 1922; SEO-2 2ª tanda; SEO-3 páginas por ciudad. ~~Tally sin ID~~ (error: el ID `pebMgB` está en `src/config.ts` desde el 23/10; corregido por Oriol el 26/10).
 - **Slack**: leído. Sin peticiones nuevas de Oriol.
 
 ## 2026-10-25 (domingo)
