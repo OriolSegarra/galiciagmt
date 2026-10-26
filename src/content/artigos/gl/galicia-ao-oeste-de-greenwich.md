@@ -1,6 +1,6 @@
 ---
 titulo: "Por que Galicia non ten a hora de Portugal"
-entradilla: "Santiago está a 8,54° oeste de Greenwich, uns 34 minutos de atraso solar, pero segue o fuso centroeuropeo (UTC+1). Con 15° por hora, esa é a xeografía do desfase."
+entradilla: "Santiago está a 8,53° oeste de Greenwich, uns 34 minutos de atraso solar, pero segue o fuso centroeuropeo (UTC+1). Con 15° por hora, esa é a xeografía do desfase."
 data: 2026-09-27
 actualizado: 2026-10-25
 par: xeografia
@@ -21,14 +21,14 @@ fontes:
     dato: "A España, agás Canarias e parte do oeste de Galicia, correspóndelle o fuso GMT+0; o oeste de Galicia está no fuso 23, coma Canarias en 1922"
   - titulo: "Santiago de Compostela — coordenadas (Wikipedia)"
     url: "https://es.wikipedia.org/wiki/Santiago_de_Compostela"
-    dato: "Coordenadas 42°52′40″N 8°32′40″O (≈ 8,54° oeste)"
+    dato: "Coordenadas 42°53′00″N 8°32′00″O (42,8833, -8,5333)"
 ---
 
 ## 15 graos por hora
 
 A hora oficial dun territorio non depende só da súa lonxitude: depende de onde se decidiu trazar as liñas dos fusos horarios, e eses trazos son unha convención política, non unha fronteira física. Pero a convención parte dun cálculo sinxelo. A Terra dá unha volta completa, 360°, en 24 horas. Dividindo, sae que en cada hora o planeta xira 15°, ou o que é o mesmo, cada grao de lonxitude equivale a catro minutos de diferenza horaria respecto ao meridiano de Greenwich.
 
-Santiago de Compostela está a 8,54° oeste ([Wikipedia](https://es.wikipedia.org/wiki/Santiago_de_Compostela)). Multiplicando por catro minutos por grao, o resultado é duns 34 minutos: ese é o atraso medio do mediodía solar de Santiago respecto ao de Greenwich. É un cálculo, non un dato tomado de ningures, pero os propios rexistros de mediodía solar de Santiago confírmano por outra vía: 13:32 en decembro e 14:36 en xuño, é dicir, entre 1 h 32 min e 2 h 36 min despois das 12:00 do reloxo, segundo se estea en horario de inverno (UTC+1) ou de verán (UTC+2). A diferenza entre os dous cálculos, uns minutos, débese á equación do tempo, a pequena irregularidade da órbita terrestre que fai que o mediodía solar real oscile ao longo do ano.
+Santiago de Compostela está a 8,53° oeste ([Wikipedia](https://es.wikipedia.org/wiki/Santiago_de_Compostela)). Multiplicando por catro minutos por grao, o resultado é duns 34 minutos: ese é o atraso medio do mediodía solar de Santiago respecto ao de Greenwich. É un cálculo, non un dato tomado de ningures, pero os propios rexistros de mediodía solar de Santiago confírmano por outra vía: 13:32 en decembro e 14:36 en xuño, é dicir, entre 1 h 32 min e 2 h 36 min despois das 12:00 do reloxo, segundo se estea en horario de inverno (UTC+1) ou de verán (UTC+2). A diferenza entre os dous cálculos, uns minutos, débese á equación do tempo, a pequena irregularidade da órbita terrestre que fai que o mediodía solar real oscile ao longo do ano.
 
 ## Onde cae Galicia no mapa dos fusos
 
@@ -40,7 +40,7 @@ O mesmo documento lembra que este desfase xa se detectara en 1922: naquel moment
 
 A consecuencia non é abstracta: nótase todos os días no reloxo do sol. En Santiago, o 21 de decembro o sol sae ás 9:01 da mañá e ponse ás 18:02; o 21 de xuño sae ás 6:55 e ponse ás 22:16. En decembro, antes das nove da mañá aínda é de noite; en xuño, a luz aguanta ata pasadas as dez da noite. Son os horarios dun territorio que vive, por reloxo oficial, cunha hora ou dúas de adianto sobre o que marcaría o sol na súa propia lonxitude.
 
-A comparación con Lisboa, de latitude próxima que está no fuso de Greenwich, ilústrao ben:
+A comparación con Lisboa, de latitude próxima e que está no fuso de Greenwich, ilústrao ben:
 
 | | Santiago (21/12) | Lisboa (21/12) |
 |---|---|---|

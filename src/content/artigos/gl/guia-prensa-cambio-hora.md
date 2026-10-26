@@ -27,7 +27,7 @@ fontes:
     dato: "O 21/12/2026 o sol sae en Lisboa ás 7:50"
   - titulo: "Wikipedia — Santiago de Compostela"
     url: "https://en.wikipedia.org/wiki/Santiago_de_Compostela"
-    dato: "Coordenadas 42°52′40″N 8°32′40″O (≈ 8,54° oeste)"
+    dato: "Coordenadas 42°53′00″N 8°32′00″O (42,8833, -8,5333)"
   - titulo: "Método NOAA de ecuacións solares (base dos cálculos propios)"
     url: "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
     dato: "Cálculos propios: 138, 81 e 22 días lectivos de 204 con amencer despois da entrada; 32 días despois das 10:00 con verán permanente; solpor en Vigo o 15/1/2027 (18:26 e 17:26 coa hora de Lisboa)"
@@ -68,7 +68,7 @@ Para Galicia non cambia o fuso: despois do 25 de outubro segue en CET (UTC+1), o
 2. A consulta da Comisión Europea de 2018 tivo, segundo a Comisión, un 84 % de participantes a favor de acabar co cambio de hora dúas veces ao ano ([Comisión Europea, COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639); [contexto](/artigos/cambio-de-hora-outubro-2026/)). A proposta resultante, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), segue sen aprobarse.
 3. O 21 de decembro de 2026 o sol sae en Santiago ás 9:01 ([timeanddate](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026); [método](/artigos/galicia-ao-oeste-de-greenwich/)).
 4. Ese mesmo día sae en Lisboa ás 7:50 ([timeanddate](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026); [método](/artigos/portugal-e-canarias/)).
-5. Cálculo propio: Santiago está a 8,54° oeste ([Wikipedia](https://en.wikipedia.org/wiki/Santiago_de_Compostela)); a 4 minutos por grao, o mediodía solar chega uns 34 minutos despois que en Greenwich ([método](/artigos/galicia-ao-oeste-de-greenwich/)).
+5. Cálculo propio: Santiago está a 8,53° oeste ([Wikipedia](https://en.wikipedia.org/wiki/Santiago_de_Compostela)); a 4 minutos por grao, o mediodía solar chega uns 34 minutos despois que en Greenwich ([método](/artigos/galicia-ao-oeste-de-greenwich/)).
 6. Cálculo propio: coa hora de Lisboa, Santiago amencería o 21 de decembro ás 8:01 ([método](/artigos/portugal-e-canarias/)).
 7. Cálculo propio: co curso 2026-27 (204 días lectivos de luns a venres, sen descontar festivos), e entrada ás 8:00, o sol sae despois da entrada 138 días en Santiago co horario actual e 22 coa hora de Lisboa; con entrada ás 8:30, 81 días e ningún; con entrada ás 9:00, 22 días co horario actual ([método](/artigos/o-colexio-a-escuras/)). Non atopamos ningunha norma da Xunta que [fixe unha hora de entrada común](https://www.xunta.gal/dog/Publicados/2026/20260623/AnuncioG0761-110626-0003_es.html).
 8. Cálculo propio: co verán permanente (UTC+2), o sol sairía despois das 10:00 en Santiago durante 32 días do ano e o máis tarde ás 10:05; co horario actual, ningún día ([método](/artigos/cambio-de-hora-outubro-2026/)).
