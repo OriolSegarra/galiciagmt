@@ -1,7 +1,8 @@
 ---
-titulo: "Por qué cambiamos de hora en 1940 y por qué no se deshizo"
-entradilla: "Una orden de 1940 adelantó el reloj español para 'marchar de acuerdo' con otros países europeos. Prometió restablecer la hora normal. Nunca lo hizo."
+titulo: "El cambio de hora de 1940: por qué no se deshizo"
+entradilla: "Una orden del 7 de marzo de 1940 adelantó el reloj español una hora para 'marchar de acuerdo' con otros países europeos y prometió restablecer la hora normal. Nunca lo hizo."
 data: 2026-09-27
+actualizado: 2026-10-25
 par: historia
 orde: 2
 seccion: historia
@@ -41,7 +42,7 @@ El caso de Galicia tiene un matiz previo. En 1922 ya se había aplicado un trata
 
 ## Del decreto de 2002 al debate actual
 
-El marco legal que hoy regula el cambio horario en España es el Real Decreto 236/2002, de 1 de marzo. Establece que el período de la hora de verano "comenzará el último domingo del mes de marzo de cada año a las dos horas de la madrugada (la una hora de la madrugada en Canarias), momento en que la hora oficial española se adelantará sesenta minutos", y que "terminará el último domingo del mes de octubre de cada año, a las tres horas de la madrugada (las dos horas de la madrugada en Canarias)" ([BOE, RD 236/2002](https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221)). Es el decreto que, ochenta años después de la orden de 1940, sigue fijando cuándo se mueve el reloj.
+El marco legal que hoy regula el cambio horario en España es el Real Decreto 236/2002, de 1 de marzo. Establece que el período de la hora de verano "comenzará el último domingo del mes de marzo de cada año a las dos horas de la madrugada (la una hora de la madrugada en Canarias), momento en que la hora oficial española se adelantará sesenta minutos", y que "terminará el último domingo del mes de octubre de cada año, a las tres horas de la madrugada (las dos horas de la madrugada en Canarias)" ([BOE, RD 236/2002](https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221)). Es el decreto que, 62 años después de la orden de 1940, sigue fijando cuándo se mueve el reloj.
 
 En 2013, el Congreso de los Diputados abrió una vía distinta: aprobó un informe que pedía al Gobierno "un estudio socioeconómico para conocer la incidencia global de un posible cambio de huso horario en España, de modo que se vuelva a vincular al que marca el huso horario de Greenwich", al entender que ese cambio "tendría un efecto favorable en la conciliación de todas las personas" ([RTVE, 2013](https://www.rtve.es/noticias/20130926/huso-horario-espana-conciliacion-laboral/751584.shtml)).
 

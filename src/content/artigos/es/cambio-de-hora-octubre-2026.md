@@ -1,8 +1,8 @@
 ---
-titulo: "El 25 de octubre atrasamos el reloj: por qué eso no arregla el problema de Galicia"
-entradilla: "El domingo 25 de octubre termina el horario de verano. España propuso a la UE eliminar ese cambio, pero no hay decisión ni plazo — y el verano permanente sería el peor escenario para Galicia."
+titulo: "Cambio de hora en Galicia: por qué el 25 de octubre no basta"
+entradilla: "El domingo 25 de octubre termina el horario de verano. España propuso a la UE eliminar ese cambio, pero no hay decisión ni plazo — y el verano permanente sería el peor escenario posible para Galicia."
 data: 2026-09-28
-actualizado: 2026-10-22
+actualizado: 2026-10-26
 par: cambio-hora-2026
 orde: 0
 seccion: actualidade
@@ -19,9 +19,9 @@ fontes:
   - titulo: "Consejo de la UE — 'Cambio de hora estacional en la UE'"
     url: "https://www.consilium.europa.eu/es/policies/seasonal-time-changes/"
     dato: "'No se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo'"
-  - titulo: "Comisión Europea, consulta ciudadana 2018"
-    url: "https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641"
-    dato: "Según los resultados preliminares de la consulta, el 84% pedía abolir el cambio de hora estacional"
+  - titulo: "Comisión Europea, COM(2018) 639 — consulta ciudadana 2018"
+    url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639"
+    dato: "De la consulta pública (cerca de 4,6 millones de respuestas), el 84 % fue a favor de acabar con el cambio de hora dos veces al año"
   - titulo: "Comisión Europea, COM(2018) 639 (propuesta de directiva)"
     url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639"
     dato: "Propuesta de 2018 que sigue sin aprobarse en el Consejo de la UE"
@@ -40,7 +40,7 @@ Conviene no confundir ese trámite con los problemas que denunciamos en esta web
 
 El 20 de octubre de 2025, el Gobierno español propuso a la UE acabar con el cambio de hora estacional, según informó [El País](https://elpais.com/espana/2025-10-20/el-gobierno-propone-acabar-con-el-cambio-de-hora-estacional-desde-2026.html). La misma propuesta fue recogida por [Expansión](https://www.expansion.com/economia/2025/10/20/68f5df23468aeb79778b457e.html).
 
-La idea de acabar con los cambios estacionales no es nueva: la Comisión Europea ya la había puesto sobre el papel en 2018, tras una consulta ciudadana en la que, según los resultados preliminares, "el 84 % de los encuestados es partidario de abolir el cambio de hora estacional" ([Comisión Europea, MEMO/18/5641](https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641)). Esa consulta dio lugar a una propuesta formal de directiva, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), que sigue sin aprobarse casi ocho años después.
+La idea de acabar con los cambios estacionales no es nueva: la Comisión Europea ya la había puesto sobre el papel en 2018, tras una consulta ciudadana en la que, "el 84 % de los encuestados está a favor de erradicar el cambio de hora bianual" ([Comisión Europea, COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639)). Esa consulta dio lugar a una propuesta formal de directiva, la misma COM(2018) 639, que sigue sin aprobarse casi ocho años después.
 
 Ya en 2021 una fuente diplomática reconocía a EL PAÍS que "no hay novedades, el expediente sigue estancado más o menos en la misma posición que en 2018", tal y como recogió [El País](https://elpais.com/sociedad/2021-10-29/el-cambio-de-hora-se-mantiene-a-pesar-del-intento-de-la-comision-europea-de-abolirlo.html) en 2021. El propio Consejo de la UE confirma que no hay decisión definitiva ni plazo en su página oficial: "no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión" ([Consejo de la UE](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/)). Es decir: hay una propuesta sobre la mesa, pero ninguna fecha para que se convierta en ley.
 
@@ -55,11 +55,11 @@ Hemos hecho el cálculo nosotros mismos, con el mismo método (el algoritmo sola
 | Hora actual (CET, UTC+1) | 9:01 | 9:05 |
 | Con verano permanente (UTC+2) | 10:01 | 10:05 |
 
-El gráfico muestra el año completo con tres horarios: el actual, el invierno fijo todo el año y el verano permanente. Con el verano permanente, según nuestro cálculo, el sol saldría después de las 10:00 durante 32 días del año y como muy tarde a las 10:05; con el horario actual, ningún día.
+El gráfico muestra el año completo con tres horarios: el actual, el invierno fijo todo el año y el verano permanente. Con el verano permanente, según nuestro cálculo, en Santiago el sol saldría después de las 10:00 durante 32 días del año y como muy tarde a las 10:05; con el horario actual, ningún día.
 
 ![Gráfico: hora del amanecer en Santiago cada día de 2026 con el horario actual, con el invierno fijo (UTC+1) y con el verano permanente (UTC+2)](/img/amencer-santiago-tres-horarios-es.svg)
 
-Un niño saliendo de casa hacia el colegio a las ocho de la mañana, en pleno invierno, lo haría a oscuras casi hasta las diez. No es una hipótesis remota: en 2019, una comisión de expertos ya recogió voces favorables a fijar el horario de verano por razones turísticas, y barómetros posteriores muestran que buena parte de la población española prefiere esa opción, como recogemos en el artículo sobre [los contraargumentos](/es/articulos/los-contraargumentos/). Si alguna vez se impusiera, sería el escenario más desfavorable posible para la geografía gallega: más lejos aún de lo que marca el sol, no más cerca.
+Un niño saliendo de casa hacia el colegio a las ocho de la mañana, en pleno invierno, lo haría a oscuras casi hasta las diez. No es imposible: qué horario quedaría fijo aún no está decidido, y en el artículo sobre [los contraargumentos](/es/articulos/los-contraargumentos/) recogemos qué preferencia muestran las encuestas. Si alguna vez se impusiera, sería el escenario más desfavorable posible para la geografía gallega: más lejos aún de lo que marca el sol, no más cerca.
 
 ## Nuestra posición, sin bandera de ningún partido
 

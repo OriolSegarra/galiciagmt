@@ -2,6 +2,7 @@
 titulo: "Guía para contar el cambio de hora del 25 de octubre: datos citables y qué no decir"
 entradilla: "Diez datos con fuente, el estado real del expediente europeo, enlaces con la herramienta preparada y los errores que más se repiten al hablar de la hora de Galicia."
 data: 2026-10-19
+actualizado: 2026-10-26
 par: guia-prensa-cambio-hora
 orde: 10
 seccion: actualidade
@@ -13,8 +14,8 @@ fontes:
     url: "https://www.consilium.europa.eu/es/policies/seasonal-time-changes/"
     dato: "'No se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo'"
   - titulo: "Comisión Europea, consulta ciudadana 2018"
-    url: "https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641"
-    dato: "Según los resultados preliminares, el 84% de los encuestados era partidario de abolir el cambio de hora estacional"
+    url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639"
+    dato: "De la consulta pública (cerca de 4,6 millones de respuestas), el 84 % fue a favor de acabar con el cambio de hora dos veces al año"
   - titulo: "Comisión Europea, COM(2018) 639 (propuesta de directiva)"
     url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639"
     dato: "Propuesta de 2018 que sigue sin aprobarse en el Consejo de la UE"
@@ -64,7 +65,7 @@ Para Galicia no cambia el huso: después del 25 de octubre sigue en CET (UTC+1),
 ## Diez datos citables
 
 1. El cambio es el domingo 25 de octubre de 2026 ([BOE](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026); [método](/es/articulos/cambio-de-hora-octubre-2026/)).
-2. La consulta de la Comisión Europea de 2018 tuvo, según los resultados preliminares que recoge la Comisión, un 84% de encuestados a favor de abolir el cambio estacional ([Comisión Europea](https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641); [contexto](/es/articulos/cambio-de-hora-octubre-2026/)). La propuesta resultante, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), sigue sin aprobarse.
+2. La consulta de la Comisión Europea de 2018 tuvo, según la Comisión, un 84 % de participantes a favor de acabar con el cambio de hora dos veces al año ([Comisión Europea, COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639); [contexto](/es/articulos/cambio-de-hora-octubre-2026/)). La propuesta resultante, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), sigue sin aprobarse.
 3. El 21 de diciembre de 2026 el sol sale en Santiago a las 9:01 ([timeanddate](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026); [método](/es/articulos/galicia-al-oeste-de-greenwich/)).
 4. Ese mismo día sale en Lisboa a las 7:50 ([timeanddate](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026); [método](/es/articulos/portugal-y-canarias/)).
 5. Cálculo propio: Santiago está a 8,54° oeste ([Wikipedia](https://en.wikipedia.org/wiki/Santiago_de_Compostela)); a 4 minutos por grado, el mediodía solar llega unos 34 minutos después que en Greenwich ([método](/es/articulos/galicia-al-oeste-de-greenwich/)).

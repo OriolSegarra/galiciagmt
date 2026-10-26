@@ -1,8 +1,8 @@
 ---
-titulo: "O 25 de outubro atrasamos o reloxo: por que iso non arranxa o problema de Galicia"
+titulo: "Cambio de hora en Galicia: por que o 25 de outubro non basta"
 entradilla: "O domingo 25 de outubro remata o horario de verán. España propuxo á UE eliminar ese cambio, pero non hai decisión nin prazo — e o verán permanente sería o peor escenario posible para Galicia."
 data: 2026-09-28
-actualizado: 2026-10-22
+actualizado: 2026-10-26
 par: cambio-hora-2026
 orde: 0
 seccion: actualidade
@@ -19,9 +19,9 @@ fontes:
   - titulo: "Consello da UE — 'Cambio de hora estacional na UE'"
     url: "https://www.consilium.europa.eu/es/policies/seasonal-time-changes/"
     dato: "'No se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo'"
-  - titulo: "Comisión Europea, consulta cidadá 2018"
-    url: "https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641"
-    dato: "Segundo os resultados preliminares da consulta, o 84% pedía abolir o cambio de hora estacional"
+  - titulo: "Comisión Europea, COM(2018) 639 — consulta cidadá 2018"
+    url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639"
+    dato: "Da consulta pública (preto de 4,6 millóns de respostas), o 84 % foi a favor de acabar co cambio de hora dúas veces ao ano"
   - titulo: "Comisión Europea, COM(2018) 639 (proposta de directiva)"
     url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639"
     dato: "Proposta de 2018 que segue sen aprobarse no Consello da UE"
@@ -40,7 +40,7 @@ Convén non confundir ese trámite cos problemas que denunciamos nesta web. O qu
 
 O 20 de outubro de 2025, o Goberno español propuxo á UE acabar co cambio de hora estacional, segundo informou [El País](https://elpais.com/espana/2025-10-20/el-gobierno-propone-acabar-con-el-cambio-de-hora-estacional-desde-2026.html). A mesma proposta foi recollida por [Expansión](https://www.expansion.com/economia/2025/10/20/68f5df23468aeb79778b457e.html).
 
-A idea de acabar cos cambios estacionais non é nova: a Comisión Europea xa a levara ao papel en 2018, tras unha consulta cidadá na que, segundo os resultados preliminares, "el 84 % de los encuestados es partidario de abolir el cambio de hora estacional" ([Comisión Europea, MEMO/18/5641](https://ec.europa.eu/commission/presscorner/detail/es/memo_18_5641)). Esa consulta deu lugar a unha proposta formal de directiva, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), que segue sen aprobarse case oito anos despois.
+A idea de acabar cos cambios estacionais non é nova: a Comisión Europea xa a levara ao papel en 2018, tras unha consulta cidadá na que, "el 84 % de los encuestados está a favor de erradicar el cambio de hora bianual" ([Comisión Europea, COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639)). Esa consulta deu lugar a unha proposta formal de directiva, a mesma COM(2018) 639, que segue sen aprobarse case oito anos despois.
 
 Xa en 2021 unha fonte diplomática recoñecía a EL PAÍS que "no hay novedades, el expediente sigue estancado más o menos en la misma posición que en 2018", tal e como recolleu [El País](https://elpais.com/sociedad/2021-10-29/el-cambio-de-hora-se-mantiene-a-pesar-del-intento-de-la-comision-europea-de-abolirlo.html) en 2021. O propio Consello da UE confirma que non hai decisión definitiva nin prazo na súa páxina oficial: "no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión" ([Consello da UE](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/)). É dicir: hai unha proposta enriba da mesa, pero ningunha data para que se converta en lei.
 
@@ -55,11 +55,11 @@ Fixemos o cálculo nós mesmos, co mesmo método (o algoritmo solar da NOAA, pre
 | Hora actual (CET, UTC+1) | 9:01 | 9:05 |
 | Con verán permanente (UTC+2) | 10:01 | 10:05 |
 
-O gráfico mostra o ano completo en tres horarios: o actual, o inverno fixo todo o ano e o verán permanente. Co verán permanente, segundo o noso cálculo, o sol sairía despois das 10:00 durante 32 días do ano e o máis tarde o 10:05; co horario actual, ningún día.
+O gráfico mostra o ano completo en tres horarios: o actual, o inverno fixo todo o ano e o verán permanente. Co verán permanente, segundo o noso cálculo, en Santiago o sol sairía despois das 10:00 durante 32 días do ano e o máis tarde o 10:05; co horario actual, ningún día.
 
 ![Gráfico: hora do amencer en Santiago cada día de 2026 co horario actual, co inverno fixo (UTC+1) e co verán permanente (UTC+2)](/img/amencer-santiago-tres-horarios-gl.svg)
 
-Un neno saíndo da casa cara ao colexio ás oito da mañá, en pleno inverno, faríao ás escuras case ata as dez. Non é unha hipótese remota: en 2019, unha comisión de expertos xa recolleu voces favorables a fixar o horario de verán por razóns turísticas, e barómetros posteriores mostran que boa parte da poboación española prefire esa opción, como recollemos no artigo sobre [os contraargumentos](/artigos/os-contraargumentos/). Se algunha vez se impuxese, sería o escenario máis desfavorable posible para a xeografía galega: máis lonxe aínda do que marca o sol, non máis preto.
+Un neno saíndo da casa cara ao colexio ás oito da mañá, en pleno inverno, faríao ás escuras case ata as dez. Non é imposible: que horario quedaría fixo aínda non está decidido, e no artigo sobre [os contraargumentos](/artigos/os-contraargumentos/) recollemos que preferencia mostran as enquisas. Se algunha vez se impuxese, sería o escenario máis desfavorable posible para a xeografía galega: máis lonxe aínda do que marca o sol, non máis preto.
 
 ## A nosa posición, sen bandeira de ningún partido
 
