@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-26 (lunes)
+- **Tarea**: fusionar SEO-2 (1ª tanda) y FIX-1 (correcciones de contenido publicado). Lunes sin herramienta nueva: prioridad a cerrar errores factuales pendientes.
+- **Hecho**: PUBLICADO en `main`: títulos/entradillas de galicia-ao-oeste, cambio-de-hora-2026 y 1940 (gl/es); cita del 84 % y 4,6 M ahora con COM(2018) 639 (EUR-Lex, comprobada) en los artículos y la guía de prensa; "32 días >10:00" recalculado con `sol.ts` (Santiago, UTC+2 fijo: 32 días, máx. 10:05); quitada la frase sin fuente sobre 2019/turismo; coordenadas de Santiago 8,53° (Wikipedia es); galego corregido; 2 enlaces internos en el artículo de 1940. `actualizado: 2026-10-26`. Build OK (47 páginas). Métricas semanales añadidas a `metricas.md` (37 visitantes, 0 firmas; GSC sin filas aún).
+- **Verificador**: NO APTO a la 1ª (coordenadas, galego, enlaces) -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: verificar solo el diff acotó la revisión.
+- **Qué no / aprendizajes**: sin investigador hoy (noticias el 25/10).
+- **Pendiente / siguiente**: en galicia-ao-oeste, "18:02", "6:55" y "12:34" (Lisboa) sin fuente: marcar como cálculo propio; 2019/CIS sin enlace en `fontes`; tabla de Lisboa; elipsis Canarias 1922; SEO-2 2ª tanda; SEO-3 páginas por ciudad. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-25 (domingo)
 - **Tarea**: SEO-2, 1ª tanda (títulos y entradillas de galicia-ao-oeste, cambio-de-hora-2026 y 1940, gl/es).
 - **Hecho**: NO publicada. Rama `borrador/2026-10-25` (títulos con palabra clave, entradillas con la respuesta, correcciones: "oitenta anos" -> "62 anos" en el artículo de 1940, latitud de Lisboa, 1 h 32 min-2 h 36 min, fuente Wikipedia para 8,54°, sin "huso de Varsovia"). Build OK (47 páginas). Noticias en `fontes/noticias-2026-10-25.md`: sin decisión nueva en la UE ni postura de Xunta/Parlamento; debate de expertos (ARHOE vs. físicos) en prensa.

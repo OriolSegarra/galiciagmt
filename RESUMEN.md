@@ -1,5 +1,4 @@
-# RESUMEN — última ejecución (2026-10-25)
+# RESUMEN — última ejecución (2026-10-26)
 
-SEO-2 (títulos y entradillas de 3 parejas gl/es) NO publicada: el verificador no dio APTO tras 2 vueltas. Queda en la rama `borrador/2026-10-25` con todo corregido; falta una 3ª verificación.
-El verificador halló además errores en contenido ya publicado (cita 84 % del MEMO, 2019/CIS sin enlace, "32 días >10:00", tabla de Lisboa); anotados como prioridad alta en `ideas.md`.
-Siguiente: verificar y fusionar la rama, y corregir esos pendientes. Tally sigue sin ID.
+Publicado SEO-2 (1ª tanda: títulos y entradillas de 3 parejas gl/es) y parte de FIX-1: cita del 84 % con COM(2018) 639, "32 días >10:00" contrastado con `sol.ts`, coordenadas de Santiago y galego corregidos. Verificador APTO a la 2ª vuelta, build OK.
+Quedan en FIX-1: cifras de salida/puesta de sol y mediodía de Lisboa sin marcar como cálculo propio, 2019/CIS, elipsis de Canarias 1922. Siguiente: eso y SEO-3 (páginas por ciudad). Tally sigue sin ID.
