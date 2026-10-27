@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-27 (martes)
+- **Tarea**: FIX-1, resto (18:02/6:55/12:34 de Lisboa sin fuente clara, cita de Canarias 1922).
+- **Hecho**: NO publicada. Rama `borrador/2026-10-27`: fuentes de timeanddate ampliadas (puesta 18:02, salida 6:55, mediodía Lisboa 12:34 ya figuraban allí, no son cálculo propio), cita de 1922 textual ("se les aplicó a estas el huso 23…", "la parte occidental…" sin la "a" dentro de las comillas). Build OK (47 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: marqué como "cálculo propio" cifras que son de timeanddate. 2ª: 6:55 también está en timeanddate; faltaba "puesta 18:02" en `fontes`; cita 1922 no literal. Los tres ya aplicados en la rama; falta 3ª verificación.
+- **Qué funcionó**: verificar solo el diff.
+- **Qué no / aprendizajes**: comprobar en timeanddate/dossier antes de etiquetar algo como "cálculo propio"; textualidad de citas: no meter palabras sueltas dentro de las comillas.
+- **Pendiente / siguiente**: verificar y fusionar `borrador/2026-10-27`; corregir la cita "a la parte" en `fontes/dossier-lanzamento.md`; 2019/CIS; SEO-2 2ª tanda; SEO-3. Tally sin ID.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-26 (lunes)
 - **Tarea**: fusionar SEO-2 (1ª tanda) y FIX-1 (correcciones de contenido publicado). Lunes sin herramienta nueva: prioridad a cerrar errores factuales pendientes.
 - **Hecho**: PUBLICADO en `main`: títulos/entradillas de galicia-ao-oeste, cambio-de-hora-2026 y 1940 (gl/es); cita del 84 % y 4,6 M ahora con COM(2018) 639 (EUR-Lex, comprobada) en los artículos y la guía de prensa; "32 días >10:00" recalculado con `sol.ts` (Santiago, UTC+2 fijo: 32 días, máx. 10:05); quitada la frase sin fuente sobre 2019/turismo; coordenadas de Santiago 8,53° (Wikipedia es); galego corregido; 2 enlaces internos en el artículo de 1940. `actualizado: 2026-10-26`. Build OK (47 páginas). Métricas semanales añadidas a `metricas.md` (37 visitantes, 0 firmas; GSC sin filas aún).
