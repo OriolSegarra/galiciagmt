@@ -2,20 +2,20 @@
 titulo: "Por qué Galicia no tiene la hora de Portugal"
 entradilla: "Santiago está a 8,53° oeste de Greenwich, unos 34 minutos de retraso solar, pero sigue el huso centroeuropeo (UTC+1). Con 15° por hora, esa es la geografía del desfase."
 data: 2026-09-27
-actualizado: 2026-10-25
+actualizado: 2026-10-27
 par: xeografia
 orde: 1
 seccion: xeografia
 fontes:
   - titulo: "timeanddate.com — Santiago de Compostela, diciembre 2026"
     url: "https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026"
-    dato: "21/12: el sol sale a las 9:01, mediodía solar a las 13:32"
+    dato: "21/12: el sol sale a las 9:01, se pone a las 18:02, mediodía solar a las 13:32"
   - titulo: "timeanddate.com — Santiago de Compostela, junio 2026"
     url: "https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=6&year=2026"
-    dato: "21/06: puesta del sol a las 22:16, mediodía solar a las 14:36"
+    dato: "21/06: el sol sale a las 6:55, se pone a las 22:16, mediodía solar a las 14:36"
   - titulo: "timeanddate.com — Lisboa, diciembre 2026"
     url: "https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026"
-    dato: "21/12: el sol sale a las 7:50 en Lisboa"
+    dato: "21/12: el sol sale a las 7:50 y el mediodía solar es a las 12:34 en Lisboa"
   - titulo: "¿Es nuestro huso horario un problema? (Archivo Digital UPM, 2017)"
     url: "https://oa.upm.es/45296/1/CCG_2017_Es-nuestro-huso-horario-un-problema.pdf"
     dato: "A España, salvo Canarias y parte del oeste de Galicia, le corresponde el huso GMT+0; el oeste de Galicia está en el huso 23, como Canarias en 1922"

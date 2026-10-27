@@ -2,7 +2,7 @@
 titulo: "O cambio de hora de 1940: por que non se desfixo"
 entradilla: "Unha orde do 7 de marzo de 1940 adiantou o reloxo español unha hora para 'marchar de acordo' con outros países europeos e prometeu restablecer a hora normal. Nunca o fixo."
 data: 2026-09-27
-actualizado: 2026-10-25
+actualizado: 2026-10-27
 par: historia
 orde: 2
 seccion: historia
@@ -38,7 +38,7 @@ O cambio quedou rexistrado tamén na táboa histórica do Real Observatorio de l
 
 A propia orde de 1940 preveía a súa reversión. O artigo 5º dicía que "oportunamente se señalará la fecha en que haya de restablecerse la hora normal". Esa data nunca chegou. O mesmo documento da UPM que recolle a orde constata o feito con claridade: "Tal restablecimiento no ha tenido lugar desde entonces hasta la actualidad" ([documento UPM, 2017](https://oa.upm.es/45296/1/CCG_2017_Es-nuestro-huso-horario-un-problema.pdf)).
 
-O caso de Galicia ten un matiz previo. En 1922 xa se aplicara un tratamento distinto a unha parte do territorio: "a la parte occidental de Galicia, del meridiano de Mondoñedo hasta el mar, pues se encuentra en el huso 23, el mismo que el archipiélago canario", aínda que de feito "mantuvo la misma hora que el resto de la Península". Nese mesmo ano, a Canarias "se les aplicó el huso 23, uno menos que el resto de España" (mesma fonte). É dicir: xeograficamente, unha parte de Galicia comparte huso natural coas Canarias, pero nunca chegou a levar a hora que iso implicaría.
+O caso de Galicia ten un matiz previo. En 1922 xa se aplicara un tratamento distinto a unha parte do territorio: a "la parte occidental de Galicia, del meridiano de Mondoñedo hasta el mar, pues se encuentra en el huso 23, el mismo que el archipiélago canario", aínda que de feito "mantuvo la misma hora que el resto de la Península". Nese mesmo ano, a Canarias "se les aplicó a estas el huso 23, uno menos que el resto de España" (mesma fonte). É dicir: xeograficamente, unha parte de Galicia comparte huso natural coas Canarias, pero nunca chegou a levar a hora que iso implicaría.
 
 ## Do decreto de 2002 ao debate actual
 
