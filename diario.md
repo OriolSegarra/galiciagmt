@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-28 (miércoles)
+- **Tarea**: petición de Oriol en Slack (27/10): comprobar Tally, estadísticas diarias y plan de mejora, posiciones SEO.
+- **Hecho**: PUBLICADO en `main` (solo documentación interna, sin cambios en la web): Tally ya tiene ID (`pebMgB`, publicado, 1 envío); mis avisos de "sin ID" eran erróneos. Sección "Seguimiento diario" en `metricas.md` (23-27/10 + plan de mejora) con PostHog y Search Console; `AGENTE_NOCHE.md` pide las cifras cada noche en Slack. Build no necesario (sin código).
+- **Verificador**: no aplica (sin contenido publicable).
+- **Qué funcionó**: PostHog `execute-sql` y `scripts/gsc.mjs` dan las cifras en un paso.
+- **Qué no / aprendizajes**: la web recibe ~3-30 visitantes al día, todos ven 1 página; 1 clic en Google en 4 semanas. Mayor palanca: pasar de la home a la herramienta y SEO de `portugal-y-canarias`.
+- **Pendiente / siguiente**: verificar y fusionar `borrador/2026-10-27` (FIX-1); SEO-2 sobre `portugal-y-canarias`; bloque de entrada en la home; "Ler tamén".
+- **Slack**: leído. Petición de Oriol atendida.
+
 ## 2026-10-27 (martes)
 - **Tarea**: FIX-1, resto (18:02/6:55/12:34 de Lisboa sin fuente clara, cita de Canarias 1922).
 - **Hecho**: NO publicada. Rama `borrador/2026-10-27`: fuentes de timeanddate ampliadas (puesta 18:02, salida 6:55, mediodía Lisboa 12:34 ya figuraban allí, no son cálculo propio), cita de 1922 textual ("se les aplicó a estas el huso 23…", "la parte occidental…" sin la "a" dentro de las comillas). Build OK (47 páginas). Sin investigador (noticias el 25/10).

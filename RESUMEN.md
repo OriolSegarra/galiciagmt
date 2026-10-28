@@ -1,4 +1,5 @@
-# RESUMEN — última ejecución (2026-10-27)
+# RESUMEN — última ejecución (2026-10-28)
 
-No se publicó contenido: el resto de FIX-1 (cifras de sol con fuente, cita de Canarias 1922) quedó en la rama `borrador/2026-10-27`, con build OK y las correcciones de la 2ª vuelta ya aplicadas; el verificador no dio APTO tras 2 vueltas.
-Siguiente: 3ª verificación y fusión de la rama; luego 2019/CIS, SEO-2 y SEO-3. Tally sigue sin ID.
+Atendida la petición de Oriol: Tally ya tenía ID (`pebMgB`); añadido seguimiento diario de visitas y SEO en `metricas.md` con plan de mejora, y las cifras irán cada noche en Slack.
+Datos: 3-29 visitantes/día, todos ven 1 página; Search Console: 1 clic y 43 impresiones en `portugal-y-canarias` (pos. 7,4).
+Siguiente: fusionar `borrador/2026-10-27` (FIX-1) y SEO-2 sobre `portugal-y-canarias`.
