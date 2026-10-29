@@ -1,5 +1,5 @@
-# RESUMEN — última ejecución (2026-10-28)
+# RESUMEN — última ejecución (2026-10-29)
 
-Atendida la petición de Oriol: Tally ya tenía ID (`pebMgB`); añadido seguimiento diario de visitas y SEO en `metricas.md` con plan de mejora, y las cifras irán cada noche en Slack.
-Datos: 3-29 visitantes/día, todos ven 1 página; Search Console: 1 clic y 43 impresiones en `portugal-y-canarias` (pos. 7,4).
-Siguiente: fusionar `borrador/2026-10-27` (FIX-1) y SEO-2 sobre `portugal-y-canarias`.
+Cerrado FIX-1: fusionada `borrador/2026-10-27` (cifras de sol con fuente y cita de Canarias 1922 textual y enlazada, gl/es). Verificador APTO a la 2ª vuelta, build OK (47 páginas), publicado en `main`.
+Métricas: 5 visitantes el 28/10, 0 firmas; Search Console: 4 consultas, 0 clics.
+Siguiente: SEO-2 sobre `portugal-y-canarias`, bloque de entrada en la home y "Ler tamén".

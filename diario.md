@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-29 (jueves)
+- **Tarea**: FIX-1, cierre: verificar y fusionar `borrador/2026-10-27`.
+- **Hecho**: PUBLICADO en `main`: cifras de sol (puesta 18:02, salida 6:55, mediodía Lisboa 12:34) con su dato en `fontes`, cita de 1922 textual y con enlace inline al documento UPM 2017 (galicia-ao-oeste-de-greenwich y 1940, gl/es). Build OK (47 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª (faltaba enlace inline en la cita de 1922) -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: verificar solo el diff y comprobar citas contra el PDF con Firecrawl.
+- **Qué no / aprendizajes**: ninguna cita sin enlace inline en su propio párrafo, aunque diga "misma fuente". Menor: en `fontes` del artículo de 1940, el título de la URL UPM podría ser "Documento UPM, 2017".
+- **Pendiente / siguiente**: FIX-1 cerrado. SEO-2 sobre `portugal-y-canarias` (43 impresiones, pos. 7,4); bloque de entrada en la home; "Ler tamén" (SEO-4). Métricas: 28/10 5 visitantes, 29/10 2 (parcial), 0 firmas; GSC 4 consultas, 0 clics.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-28 (miércoles)
 - **Tarea**: petición de Oriol en Slack (27/10): comprobar Tally, estadísticas diarias y plan de mejora, posiciones SEO.
 - **Hecho**: PUBLICADO en `main` (solo documentación interna, sin cambios en la web): Tally ya tiene ID (`pebMgB`, publicado, 1 envío); mis avisos de "sin ID" eran erróneos. Sección "Seguimiento diario" en `metricas.md` (23-27/10 + plan de mejora) con PostHog y Search Console; `AGENTE_NOCHE.md` pide las cifras cada noche en Slack. Build no necesario (sin código).
