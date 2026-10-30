@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-30 (viernes)
+- **Tarea**: SEO-2 sobre `portugal-e-canarias` (título, entradilla y primer párrafo con la respuesta, enlaces internos).
+- **Hecho**: PUBLICADO en `main`: título "Por que Portugal ten unha hora menos ca Galicia" (es: "Por qué Portugal tiene una hora menos que Galicia"), entradilla con la respuesta, párrafo inicial con fuentes enlazadas (UPI 1996, timeanddate) y enlaces a 1940 y a la herramienta de amaneceres (Santiago, 21/12). `actualizado: 2026-10-30`. Build OK (47 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª (el enlace a la herramienta mostraba Vigo y escenario Portugal, no el 9:01 de Santiago) -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: verificar solo el diff.
+- **Qué no / aprendizajes**: comprobar que el estado preconfigurado de un enlace muestra la cifra citada.
+- **Pendiente / siguiente**: bloque de entrada en la home (Vigo vs Girona); "Ler tamén" (SEO-4); SEO-3. Métricas: 27/10 3, 28/10 4, 29/10 3 visitantes, 0 firmas. GSC sin cambios (4 consultas, 0 clics). Lunes 2/11: herramienta o pieza grande; día 1 (domingo 1/11) revisión estratégica.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-29 (jueves)
 - **Tarea**: FIX-1, cierre: verificar y fusionar `borrador/2026-10-27`.
 - **Hecho**: PUBLICADO en `main`: cifras de sol (puesta 18:02, salida 6:55, mediodía Lisboa 12:34) con su dato en `fontes`, cita de 1922 textual y con enlace inline al documento UPM 2017 (galicia-ao-oeste-de-greenwich y 1940, gl/es). Build OK (47 páginas). Sin investigador (noticias el 25/10).
