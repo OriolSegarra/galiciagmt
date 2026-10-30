@@ -1,8 +1,8 @@
 ---
-titulo: "Portugal y Canarias: cómo funciona tener otra hora en la península"
-entradilla: "Portugal ya probó el cambio contrario y dio marcha atrás. Canarias lleva una hora menos desde 1922. Qué dicen esas dos experiencias sobre el caso gallego."
+titulo: "Por qué Portugal tiene una hora menos que Galicia"
+entradilla: "Portugal tiene una hora menos porque usa la hora de Greenwich y Galicia la centroeuropea. Probó la CET en 1992 y la dejó en 1996."
 data: 2026-09-27
-actualizado: 2026-10-11
+actualizado: 2026-10-30
 par: comparativa
 orde: 4
 seccion: comparativa
@@ -32,6 +32,8 @@ fontes:
     url: "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
     dato: "(traducción) «El cénit se fija en 90,833° (corrección aproximada por la refracción atmosférica al amanecer y atardecer y por el tamaño del disco solar)»"
 ---
+
+Portugal tiene una hora menos que Galicia porque su hora oficial es la de Greenwich, mientras que España lleva la centroeuropea (CET) desde la orden de 1940, que [explicamos en otro artículo](/es/articulos/por-que-cambiamos-de-hora-en-1940/). Portugal probó la CET entre 1992 y 1996 y la abandonó ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)). El resultado se ve en el amanecer: el 21 de diciembre sale a las 7:50 en [Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026) y a las 9:01 en [Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), como muestra la [herramienta de amaneceres](/es/herramientas/amanecer/?esc=actual&data=12-21&lim=510&cidade=santiago).
 
 Cuando se plantea que Galicia use la hora de Greenwich, suele salir la misma objeción: "eso sería un lío". Pero ya tenemos dos ejemplos reales, muy cerca de nosotros, de territorios que viven con una hora distinta a la del resto del Estado al que pertenecen. Uno salió mal y se rectificó. El otro lleva un siglo funcionando sin que nadie lo cuestione. Merece la pena mirar los dos con calma antes de sacar conclusiones.
 

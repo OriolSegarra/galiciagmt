@@ -1,8 +1,8 @@
 ---
-titulo: "Portugal e Canarias: como funciona ter outra hora na península"
-entradilla: "Portugal xa probou o cambio contrario e volveu atrás. Canarias leva unha hora menos dende 1922. Que din esas dúas experiencias sobre o caso galego."
+titulo: "Por que Portugal ten unha hora menos ca Galicia"
+entradilla: "Portugal ten unha hora menos porque usa a hora de Greenwich e Galicia a centroeuropea. Probou a CET en 1992 e deixouna en 1996."
 data: 2026-09-27
-actualizado: 2026-10-11
+actualizado: 2026-10-30
 par: comparativa
 orde: 4
 seccion: comparativa
@@ -32,6 +32,8 @@ fontes:
     url: "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
     dato: "(tradución) «O cénit fíxase en 90,833° (corrección aproximada pola refracción atmosférica no amencer e no solpor e polo tamaño do disco solar)»"
 ---
+
+Portugal ten unha hora menos ca Galicia porque a súa hora oficial é a de Greenwich, mentres que España leva a centroeuropea (CET) dende a orde de 1940, que [explicamos noutro artigo](/artigos/por-que-cambiamos-de-hora-en-1940/). Portugal probou a CET entre 1992 e 1996 e abandonouna ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)). O resultado vese no amencer: o 21 de decembro sae ás 7:50 en [Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026) e ás 9:01 en [Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), como amosa a [ferramenta de amenceres](/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=santiago).
 
 Cando se fala de que Galicia use a hora de Greenwich, adoita saír a mesma obxección: "iso sería un lío". Pero xa temos dous exemplos reais, moi preto de nós, de territorios que viven cunha hora distinta á do resto do Estado ao que pertencen. Un saíu mal e rectificouse. O outro leva un século funcionando sen que ninguén o cuestione. Paga a pena mirar os dous con calma antes de sacar conclusións.
 
