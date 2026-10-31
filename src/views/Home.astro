@@ -32,6 +32,13 @@ const c = {
     councilT: 'Para concellos: moción modelo para pedir un estudo técnico',
     toolK: 'Ferramenta',
     toolT: 'A que hora amence en 52 cidades de España, de Xirona a Vigo',
+    cmpK: 'O mesmo día, a mesma hora oficial',
+    cmpH: 'O 21 de decembro o sol sae en Xirona ás 8:13 e en Vigo ás 9:00.',
+    cmpP: 'Case unha hora de diferenza entre dúas cidades con exactamente o mesmo reloxo. Coa hora de Portugal, Vigo tería o amencer ás 8:00.',
+    cmpA: 'Xirona', cmpB: 'Vigo', cmpU: 'amencer, hora actual',
+    cmpL: 'Ver Vigo coa hora de Portugal',
+    cmpS: 'Cálculo propio coas {noaa}, o mesmo método da {tool}; coordenadas de {wd}.',
+    cmpN: 'ecuacións solares da NOAA', cmpT: 'ferramenta', cmpW: 'Wikidata',
   },
   es: {
     kicker: 'Hora oficial y hora del sol',
@@ -50,6 +57,13 @@ const c = {
     councilT: 'Para ayuntamientos: moción modelo para pedir un estudio técnico',
     toolK: 'Herramienta',
     toolT: 'A qué hora amanece en 52 ciudades de España, de Girona a Vigo',
+    cmpK: 'El mismo día, la misma hora oficial',
+    cmpH: 'El 21 de diciembre el sol sale en Girona a las 8:13 y en Vigo a las 9:00.',
+    cmpP: 'Casi una hora de diferencia entre dos ciudades con exactamente el mismo reloj. Con la hora de Portugal, Vigo tendría el amanecer a las 8:00.',
+    cmpA: 'Girona', cmpB: 'Vigo', cmpU: 'amanecer, hora actual',
+    cmpL: 'Ver Vigo con la hora de Portugal',
+    cmpS: 'Cálculo propio con las {noaa}, el mismo método de la {tool}; coordenadas de {wd}.',
+    cmpN: 'ecuaciones solares de la NOAA', cmpT: 'herramienta', cmpW: 'Wikidata',
   },
 }[lang];
 
@@ -76,6 +90,24 @@ const schema = homeSchema(lang, t(lang, 'site.description'));
       <span class="kicker">{c.toolK}</span>
       <span class="tt">{c.toolT} →</span>
     </a>
+  </section>
+
+  <section class="wrap block cmp">
+    <p class="kicker">{c.cmpK}</p>
+    <h2>{c.cmpH}</h2>
+    <div class="pair">
+      <div><span class="city">{c.cmpA}</span><span class="t num">8:13</span><span class="u">{c.cmpU}</span></div>
+      <div><span class="city">{c.cmpB}</span><span class="t num">9:00</span><span class="u">{c.cmpU}</span></div>
+    </div>
+    <p class="cmpp">{c.cmpP}</p>
+    <p class="council"><a href={r(lang, 'amencer') + '?esc=portugal&data=12-21&lim=510&cidade=vigo'}>{c.cmpL} →</a></p>
+    <p class="src">
+      {c.cmpS.split(/(\{noaa\}|\{tool\}|\{wd\})/).map((x) =>
+        x === '{noaa}' ? <a href="https://gml.noaa.gov/grad/solcalc/solareqns.PDF">{c.cmpN}</a>
+        : x === '{tool}' ? <a href={r(lang, 'amencer')}>{c.cmpT}</a>
+        : x === '{wd}' ? <a href="https://www.wikidata.org/wiki/Property:P625">{c.cmpW}</a>
+        : x)}
+    </p>
   </section>
 
   <section class="wrap block ask">
@@ -111,6 +143,50 @@ const schema = homeSchema(lang, t(lang, 'site.description'));
 </Base>
 
 <style>
+  .cmp h2 {
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    margin: 0.6rem 0 1.6rem;
+    max-width: 24ch;
+  }
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--ink);
+  }
+  .pair > div {
+    display: grid;
+    padding: 1.2rem 1.5rem 1.2rem 0;
+  }
+  .pair > div + div {
+    border-left: 1px solid var(--ink);
+    padding-left: 1.5rem;
+  }
+  .pair .city {
+    font-weight: 600;
+  }
+  .pair .t {
+    font-size: clamp(2.6rem, 9vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1;
+    color: var(--blue);
+  }
+  .pair .u {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+  }
+  .cmpp {
+    max-width: 52ch;
+    color: var(--ink-2);
+    margin: 1rem 0 0;
+  }
+  .src {
+    font-size: 0.85rem;
+    margin: 0.8rem 0 0;
+  }
   .council {
     margin: 1.5rem 0 0;
     font-weight: 600;
