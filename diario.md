@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-10-31 (sábado)
+- **Tarea**: bloque de entrada en la home (Girona vs Vigo el 21/12), pensado para que los visitantes pasen de la home a la herramienta.
+- **Hecho**: PUBLICADO en `main`: bloque "El mismo día, la misma hora oficial" en `src/views/Home.astro` (gl/es): Girona 8:13, Vigo 9:00 (hora actual), Vigo 8:00 con hora de Portugal; enlace a la herramienta con Vigo/Portugal preconfigurado; fuentes NOAA, Wikidata y herramienta enlazadas (cálculo propio con `sol.ts`). Build OK (47 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª (fuentes NOAA/Wikidata sin enlace) -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: reutilizar el cálculo ya publicado en el artículo del reloj del cuerpo.
+- **Qué no / aprendizajes**: las cifras fijas en el markup no se actualizan solas; si cambia el método, revisar. timeanddate no tiene página de Girona con esa URL.
+- **Pendiente / siguiente**: domingo 1/11: revisión estratégica (reescribir `ideas.md`). Luego "Ler tamén" (SEO-4) y SEO-3. Métricas: 27/10 2, 28/10 5, 29/10 3, 30/10 2 visitantes (PostHog), 0 firmas.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-30 (viernes)
 - **Tarea**: SEO-2 sobre `portugal-e-canarias` (título, entradilla y primer párrafo con la respuesta, enlaces internos).
 - **Hecho**: PUBLICADO en `main`: título "Por que Portugal ten unha hora menos ca Galicia" (es: "Por qué Portugal tiene una hora menos que Galicia"), entradilla con la respuesta, párrafo inicial con fuentes enlazadas (UPI 1996, timeanddate) y enlaces a 1940 y a la herramienta de amaneceres (Santiago, 21/12). `actualizado: 2026-10-30`. Build OK (47 páginas). Sin investigador (noticias el 25/10).
