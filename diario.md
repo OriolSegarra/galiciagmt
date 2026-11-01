@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-01 (domingo)
+- **Tarea**: día 1 del mes: revisión estratégica (sin contenido nuevo, según `AGENTE_NOCHE.md`).
+- **Hecho**: PUBLICADO en `main` (solo documentación interna): `ideas.md` reescrito (5 ideas nuevas N-1..N-5; descartadas #16 y #19; #9 marcada hecha; #3 reducido; nuevo orden de trabajo), `enlaces.md` nuevo, `SEO.md` con palabras nuevas, `metricas.md` con la fila semanal y el 31/10. Sin cambios en la web; build no necesario.
+- **Verificador**: no aplica (sin contenido publicable).
+- **Qué funcionó**: el autocompletado de Google (Firecrawl) mostró que se busca "a qué hora amanece en <ciudad>" para toda España.
+- **Qué no / aprendizajes**: el volumen de contenido no es el cuello de botella: 3 visitantes/día, 0 firmas. Falta difusión (depende de Oriol) y conversión (home -> herramienta -> Asínao). `sinatura_enviada` no aparece en PostHog.
+- **Estrategia del mes (noviembre)**: (1) conversión: SEO-4 "Ler tamén" + enlace a Asínao al final de cada artículo; (2) tráfico orgánico: páginas por ciudad (N-1) el lunes 2/11 y hora actual (N-2); (3) SEO-2 en las páginas restantes; (4) comprobar el evento de firmas (N-5); (5) material de difusión listo para Oriol (`enlaces.md`, N-3). Meta de noviembre: 15 visitantes/día y 1 clic diario de Google.
+- **Pendiente / siguiente**: lunes 2/11: SEO-3/N-1 fase 1 (herramienta: páginas por ciudad). Métricas: 26/10 12, 27/10 3, 28/10 4, 29/10 3, 30/10 2, 31/10 3; 0 firmas.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-10-31 (sábado)
 - **Tarea**: bloque de entrada en la home (Girona vs Vigo el 21/12), pensado para que los visitantes pasen de la home a la herramienta.
 - **Hecho**: PUBLICADO en `main`: bloque "El mismo día, la misma hora oficial" en `src/views/Home.astro` (gl/es): Girona 8:13, Vigo 9:00 (hora actual), Vigo 8:00 con hora de Portugal; enlace a la herramienta con Vigo/Portugal preconfigurado; fuentes NOAA, Wikidata y herramienta enlazadas (cálculo propio con `sol.ts`). Build OK (47 páginas). Sin investigador (noticias el 25/10).

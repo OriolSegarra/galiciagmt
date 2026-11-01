@@ -69,3 +69,8 @@ El agente **no escribe a nadie** (regla fija 3). Lo que sí hace:
 - Mantener `prensa/` / guía de prensa con datos citables y gráficos descargables (los medios enlazan a quien cita bien).
 - Cada mes, preparar en `enlaces.md` una lista corta de **oportunidades** (medios que han publicado sobre el tema, Wikipedia gl/es, blogs de divulgación, concellos) con el texto que Oriol podría enviar. **Oriol decide y envía.**
 - Avisar en Slack cuando una noticia reciente sea buena ocasión para que Oriol contacte con un medio.
+
+## Palabras nuevas (1/11/2026, autocompletado de Google, es)
+- "a qué hora amanece en <ciudad>": sugerencias de Madrid, Mallorca, Gran Canaria, Valencia, Sevilla, Málaga, Cantabria. Se busca por ciudad en toda España -> páginas por ciudad (N-1). Volumen: medio.
+- "hora galicia hoy", "galicia hora actual", "hora amanecer galicia", "hora atardecer galicia": consultas de hora actual y de sol -> página de hora actual (N-2). Volumen: medio.
+- "cuándo es el cambio de hora en galicia": estacional, preparar desde el 7/3/2027 (cambio el 28/3/2027).

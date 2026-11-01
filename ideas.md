@@ -3,10 +3,15 @@
 Puntuación: **Impacto** (1-5) × **Facilidad** (1-5, 5 = muy fácil) = **Prioridad**. Se trabaja de mayor a menor salvo el ritmo de AGENTE_NOCHE.md (lunes = herramienta o pieza grande; día 1 = revisión estratégica).
 Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)`.
 
-Última revisión: 2026-10-01 (revisión estratégica mensual). Calendario: lunes 5/10 mapa (#21); semana del 19-25/10 piezas ligadas al cambio de hora del 25/10 (#8, #11, #26).
+Última revisión: 2026-11-01 (revisión estratégica mensual). Orden de trabajo noviembre: SEO-4 (Ler tamén + enlace a Asínao) -> lunes 2/11 SEO-3 fase 1 (páginas por ciudad) -> SEO-2 resto -> N-1 -> N-2 -> #3 kit de prensa. Calendario estacional: nada hasta marzo 2026-27 (cambio de hora 28/3/2027; preparar desde el 7/3).
 
 | # | Idea | Tipo | Imp. | Fac. | Prio. | Estado | Notas |
 |---|---|---|---|---|---|---|---|
+| N-1 | **Páginas "A qué hora amanece en <ciudad>"** para las 52 ciudades (no solo gallegas): autocompletado de Google muestra que se busca por ciudad (Madrid, Mallorca, Valencia, Sevilla, Málaga); cada una con hora CET/Portugal y comparativa con Galicia | Herramienta/SEO | 5 | 3 | 15 | pendiente | Fusiona SEO-3 y la ampliación a toda España; texto único por ciudad; es la mejor palanca de tráfico orgánico |
+| N-2 | **Página "Qué hora es en Galicia y en Portugal ahora"**: reloj en directo gl/es con diferencia y amanecer de hoy; responde "hora galicia", "hora amanecer galicia" | Herramienta/SEO | 4 | 4 | 16 | pendiente | Autocompletado: "hora galicia hoy", "hora amanecer galicia", "hora atardecer galicia" |
+| N-3 | **Textos de difusión para Oriol** (hilo, post, nota para prensa local, CC BY-SA) con las imágenes PNG ya generadas | Campaña | 4 | 5 | 20 | pendiente | El tráfico es ~3 visitantes/día y casi todo directo: sin difusión humana no crece. El agente NO contacta con nadie; solo deja el material listo en `enlaces.md` |
+| N-4 | Arreglo JSON-LD: logo `Organization` en PNG >=112 px y validar con Rich Results Test | Web/SEO | 2 | 5 | 10 | pendiente | Pendiente del aviso del 24/10 |
+| N-5 | Comprobar el evento de firmas: `sinatura_enviada` no existe en PostHog y Tally tiene 1 envío; verificar que el evento se dispara al enviar | Web | 4 | 4 | 16 | pendiente | Sin esto no sabremos si hay firmas |
 | SEO-1 | **Datos estructurados JSON-LD**: `Article` en artículos (fecha, autor = Galicia GMT, actualizado), `FAQPage` en la FAQ, `WebApplication` en herramientas, `Organization` en la home | Web/SEO | 5 | 4 | 20 | hecha 2026-10-24 | Añadido por Oriol 23/10 (SEO). Validar con el Rich Results Test de Google si es accesible; sin dependencias |
 | FIX-1 | **Corregir contenido publicado señalado por el verificador (25/10)**: cita 84 % (usar COM(2018) 639), 2019/CIS con enlace y en `fontes`, "32 días >10:00" contra `sol.ts`, tabla Lisboa con fuente, elipsis cita Canarias 1922 | Web | 5 | 4 | 20 | hecha 2026-10-29 | gl y es; `actualizado:` |
 | SEO-2 | **Revisar títulos y entradillas** de todas las páginas existentes contra las palabras clave de `SEO.md` (título con la keyword, respuesta en el primer párrafo) | Web/SEO | 5 | 4 | 20 | en curso (1ª tanda 2026-10-26; portugal-e-canarias 2026-10-30; faltan más páginas) | Hacer en tandas de 3-4 páginas por noche, marcando `actualizado:` |
@@ -15,7 +20,7 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 21 | **Mapa de España** coloreado por días al año con amanecer después de las 8:30 (actual vs Portugal vs sin verano) | Herramienta | 5 | 3 | 15 | hecha 2026-10-05 (`/ferramentas/mapa/`) | Reutilizar `sol.ts` + `cidades.ts`; SVG propio, sin librerías pesadas. Muy compartible |
 | 22 | **Tu año de amaneceres**: gráfico anual por ciudad con bandas horarias (5-6, 6-7… 9-10) por escenario, como el prototipo de Oriol | Herramienta | 4 | 4 | 16 | hecha 2026-10-12 (`/ferramentas/ano/`) | Integrar en la herramienta de amaneceres como segunda vista |
 | 23 | Imágenes para compartir (PNG) de la herramienta de amaneceres: "Vigo vs Girona el 21/12" | Campaña | 4 | 3 | 12 | hecha 2026-10-21 (botón en `/ferramentas/amencer/`) | Canvas en cliente, PNG 1200x630 |
-| 1 | **¿A qué hora amanecería en tu concello?** Buscador de los 313 concellos: amanecer/atardecer hoy con CET y con GMT, en invierno y verano | Herramienta | 5 | 3 | 15 | pendiente | Cálculo astronómico en el cliente (algoritmo NOAA, citar método). Coordenadas de concellos: IGN / Nomenclátor. Candidata al primer lunes |
+| 1 | **¿A qué hora amanecería en tu concello?** (tras N-1; 313 concellos solo si hay coordenadas fiables) Buscador de los 313 concellos: amanecer/atardecer hoy con CET y con GMT, en invierno y verano | Herramienta | 5 | 3 | 15 | pendiente | Cálculo astronómico en el cliente (algoritmo NOAA, citar método). Coordenadas de concellos: IGN / Nomenclátor. Candidata al primer lunes |
 | 2 | **Moción modelo para concellos** (gl/es, descargable .docx/.pdf) | Campaña | 5 | 4 | 20 | hecha 2026-09-30 (falta descarga .docx/.pdf) | Solo texto y argumentos con fuente; nunca enviarla a nadie. Página `/mocion` |
 | 24 | Enlazar `/mocion/` desde Asínao, home y pie; añadir versión descargable (.pdf/.docx) | Web | 4 | 5 | 20 | hecha 2026-10-06 (enlaces; falta descarga) | Cierra la idea #2. Una noche corta; combinar con otra mejora pequeña |
 | 25 | Revisar enlaces internos y de menú: que ninguna página nueva (moción, herramientas) quede huérfana | Web | 3 | 5 | 15 | hecha 2026-10-06 | Auditoría rápida de `ui.ts` |
@@ -24,23 +29,23 @@ Estados: `pendiente` · `en curso` · `hecha AAAA-MM-DD` · `descartada (motivo)
 | 28 | Dossier de contraargumentos para Xunta/Parlamento: opciones, costes y calendario de trámite (sin atribuir posturas a nadie) | Campaña | 4 | 3 | 12 | pendiente | Complementa #17 |
 | 29 | **Serie ritmo circadiano y mitad oeste** (petición de Oriol 1/10): cronotipo y adolescentes, luz de la mañana, enfoque en toda la mitad oeste peninsular en el resto de piezas | Artículo | 5 | 4 | 20 | en curso (1ª pieza hecha 2026-10-02) | Primera: reloj del cuerpo. Siguientes: horarios escolares (#8), economía/productividad con fuentes españolas |
 | 30 | **Ilustrar todos los artículos** (petición de Oriol 2/10): al menos una figura SVG propia por artículo (portugal-e-canarias, cambio de hora, contraargumentos, 1940, marco legal, amaneceres tardíos) con `scripts/figuras.ts` | Web | 4 | 4 | 16 | en curso (figuras: gradiente y anual 2026-10-03; tres horarios 2026-10-04; colegio 2026-10-08; Lisboa-Santiago 2026-10-11) | Cada figura con fuente en el pie; gl y es |
-| 3 | **Kit de prensa**: 10 datos clave con fuente, gráficos descargables, contacto | Campaña | 4 | 4 | 16 | pendiente | Reutilizar dossier `fontes/` |
+| 3 | **Kit de prensa**: 10 datos clave con fuente, gráficos descargables, contacto | Campaña | 4 | 4 | 16 | pendiente (reducido: la guía de prensa del 20/10 ya cubre los 10 datos; falta página con imágenes descargables) | Reutilizar dossier `fontes/` |
 | 4 | Activar el formulario de firmas (Tally) en Asínao | Campaña | 5 | 5 | 25 | hecha 2026-10-23 (ID `pebMgB` ya en `src/config.ts`; 1 envío en Tally) | Avisos anteriores de "sin ID" eran un error del agente |
 | 5 | **Test: ¿cuánto te afecta el desfase?** (5 preguntas: hora de despertar, cronotipo, trabajo) | Herramienta | 4 | 3 | 12 | pendiente | No es diagnóstico médico; explicarlo. Sin guardar datos |
 | 6 | **Mapa de apoyos**: concellos/entidades que se pronuncian públicamente | Herramienta | 5 | 2 | 10 | pendiente | SOLO con acuerdos plenarios o declaraciones públicas enlazadas. Vacío hasta que exista el primero |
 | 7 | Artículo: **¿Quién puede cambiar la hora de Galicia?** Marco legal (RD 236/2002, competencias, precedente Canarias) | Artículo | 5 | 3 | 15 | hecha 2026-09-29 | Buscar análisis jurídico serio; no afirmar sin fuente |
 | 8 | Artículo: **El colegio a oscuras**: horarios escolares y luz en enero en Galicia | Artículo | 4 | 4 | 16 | hecha 2026-10-08 (por umbrales; sin fuente oficial de hora de entrada) | Datos: calendario escolar Xunta + amaneceres. Falta fuente oficial de horas de entrada (DOG 15/6/2026 solo da calendario) |
-| 9 | Gráfico anual: hora de amanecer y atardecer en Santiago todo el año, con CET vs GMT | Herramienta | 4 | 4 | 16 | pendiente | Se integra en la home o en el artículo 1 |
+| 9 | Gráfico anual: hora de amanecer y atardecer en Santiago todo el año, con CET vs GMT | Herramienta | 4 | 4 | 16 | hecha 2026-10-12 (duplica #22 `/ferramentas/ano/`) | Se integra en la home o en el artículo 1 |
 | 10 | Artículo: **La frontera del Miño**: vivir con una hora de diferencia (Tui–Valença) | Artículo | 4 | 3 | 12 | pendiente | Buscar datos de trabajadores transfronterizos (EURES, Eixo Atlántico, AECT). No usar sin fuente |
 | 11 | Seguimiento UE: estado de COM(2018) 639 y Consejo; página "Onde estamos" actualizable | Artículo | 3 | 4 | 12 | pendiente | Ideal tras cada noticia UE |
 | 12 | Preguntas frecuentes (FAQ) gl/es | Web | 3 | 5 | 15 | hecha 2026-10-17 | Respuestas cortas con enlace a artículos |
 | 13 | Imagen OG por artículo (generada en build) | Web | 3 | 3 | 9 | pendiente | Mejora cómo se comparten en WhatsApp/redes |
-| 14 | Artículo: **Qué pasó en Portugal 1992-1996** en profundidad (prensa portuguesa de la época, OAL) | Artículo | 3 | 3 | 9 | pendiente | |
+| 14 | Artículo: **Qué pasó en Portugal 1992-1996** en profundidad (prensa portuguesa de la época, OAL) | Artículo | 3 | 3 | 9 | pendiente (baja; la consulta "Portugal hora menos" ya se cubre en portugal-e-canarias) | |
 | 15 | Artículo: **Luz de tarde vs luz de mañana**: qué preferimos y por qué (CIS 2026) | Artículo | 4 | 4 | 16 | pendiente | Honesto: la mayoría prefiere verano |
-| 16 | Newsletter mensual (solo si hay sistema de altas con consentimiento) | Campaña | 3 | 2 | 6 | pendiente | Requiere decisión de Oriol |
+| 16 | Newsletter mensual (solo si hay sistema de altas con consentimiento) | Campaña | 3 | 2 | 6 | descartada (1/11: sin audiencia ni decisión de Oriol; reabrir con >50 visitantes/semana) | Requiere decisión de Oriol |
 | 17 | Página "Para partidos e institucións": resumen de 1 página + opciones | Campaña | 4 | 4 | 16 | hecha 2026-10-23 (`/partidos/`) | Tono neutral |
 | 18 | Hoja de datos descargable (PDF 1 página) para imprimir | Campaña | 3 | 4 | 12 | pendiente | |
-| 19 | Artículo: **Irlanda, Reino Unido y otros husos vecinos** en Europa | Artículo | 3 | 3 | 9 | pendiente | |
+| 19 | Artículo: **Irlanda, Reino Unido y otros husos vecinos** en Europa | Artículo | 3 | 3 | 9 | descartada (1/11: poco tráfico potencial; Portugal/Canarias ya cubren el argumento) | |
 | 20 | Accesibilidad y rendimiento: auditoría Lighthouse y correcciones | Web | 2 | 4 | 8 | pendiente | |
 
 ## Hechas

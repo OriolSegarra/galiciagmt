@@ -5,6 +5,7 @@ Se actualiza los lunes y el día 1 de cada mes (ver `AGENTE_NOCHE.md`, paso 2b).
 
 | Semana (lun-dom) | Visitantes | Páginas vistas | Firmas (`sinatura_enviada`) | Top 3 páginas | Principales procedencias | Lectura |
 |---|---|---|---|---|---|---|
+| 2026-10-26 → 11-01 | 34 (aprox.: 12+3+4+3+2+3 + sin dato del 1/11) | 34 | 0 | por confirmar | por confirmar | Tras la semana de lanzamiento (29 visitantes el 23/10) el tráfico cae a 2-4 visitantes/día; sin difusión no crece. Search Console 3/10-30/10: 6 consultas, 1 clic; `portugal-y-canarias` 82 impresiones (pos. 7,4) y la herramienta (es) 38 (pos. 6,8): hay demanda, falta subir al top 3. El evento `sinatura_enviada` no existe en PostHog (revisar, N-5). |
 | 2026-10-19 → 25 | 37 | 37 | 0 | `/` (29), `/sobre/` (3), cambio de hora gl / Asínao (1 cada una) | directo 25, galiciagmt.es 7, Google 4 | Primera semana con analítica (desde el 23/10): casi todo entra por la home; sin firmas porque Tally sigue sin ID. Google ya envía algo de tráfico; Search Console aún sin filas. |
 
 ## Seguimiento diario (petición de Oriol, 27/10/2026)
@@ -21,6 +22,7 @@ PostHog, visitantes únicos por día. Firmas = evento `sinatura_enviada`. Tally 
 | 2026-10-28 | 4 | 4 | 0 |
 | 2026-10-29 | 3 | 3 | 0 |
 | 2026-10-30 | 2 | 2 | 0 |
+| 2026-10-31 | 3 | 3 | 0 |
 
 Últimos 7 días, por página: `/` 33, `/sobre/` 5, `/ferramentas/` 3, `/artigos/` 2; el resto, 1 cada una. Procedencia: directo 29, galiciagmt.es 18, Google 4. Casi nadie pasa de la home (1 página vista por visitante).
 

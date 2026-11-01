@@ -1,5 +1,5 @@
-# RESUMEN — última ejecución (2026-10-31)
+# RESUMEN — última ejecución (2026-11-01)
 
-Bloque de entrada en la home (gl/es): el 21/12 el sol sale en Girona a las 8:13 y en Vigo a las 9:00, con enlace a la herramienta con Vigo y hora de Portugal preconfigurados. Fuentes NOAA y Wikidata enlazadas. Verificador APTO a la 2ª vuelta, build OK, publicado en `main`.
-Métricas: 2 visitantes el 30/10, 0 firmas.
-Siguiente: domingo 1/11, revisión estratégica del backlog; luego "Ler tamén" (SEO-4).
+Revisión estratégica mensual (sin cambios en la web): `ideas.md` reescrito con 5 ideas nuevas (páginas "a qué hora amanece en <ciudad>" para toda España, hora actual Galicia/Portugal, textos de difusión, arreglos de JSON-LD y del evento de firmas), `enlaces.md` para Oriol y palabras clave nuevas en `SEO.md`.
+Diagnóstico: ~3 visitantes/día y 0 firmas; el cuello de botella es difusión y conversión, no volumen de contenido.
+Siguiente: lunes 2/11, páginas por ciudad (fase 1); luego "Ler tamén" (SEO-4).
