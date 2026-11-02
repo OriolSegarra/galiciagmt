@@ -23,6 +23,7 @@ PostHog, visitantes únicos por día. Firmas = evento `sinatura_enviada`. Tally 
 | 2026-10-29 | 3 | 3 | 0 |
 | 2026-10-30 | 2 | 2 | 0 |
 | 2026-10-31 | 3 | 3 | 0 |
+| 2026-11-01 | 2 | 2 | 0 |
 
 Últimos 7 días, por página: `/` 33, `/sobre/` 5, `/ferramentas/` 3, `/artigos/` 2; el resto, 1 cada una. Procedencia: directo 29, galiciagmt.es 18, Google 4. Casi nadie pasa de la home (1 página vista por visitante).
 

@@ -1,0 +1,281 @@
+---
+import Base from '../layouts/Base.astro';
+import Fontes from '../components/Fontes.astro';
+import Cta from '../components/Cta.astro';
+import { webAppSchema } from '../lib/schema';
+import { articleUrl, r, type Lang } from '../i18n/ui';
+import { cidades, slugCidade, WIKIDATA_SRC } from '../data/cidades';
+import { amencer, solpor, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
+
+interface Props {
+  lang: Lang;
+  idx: number;
+}
+const { lang, idx } = Astro.props;
+const gl = lang === 'gl';
+const cid = cidades[idx];
+const nome = (c: (typeof cidades)[number]) => (gl ? c.gl : c.es);
+const N = nome(cid);
+const slug = slugCidade(cid, lang);
+const altLang: Lang = gl ? 'es' : 'gl';
+const altPath = r(altLang, 'amencer') + slugCidade(cid, altLang) + '/';
+const path = r(lang, 'amencer') + slug + '/';
+
+const ANO = 2026;
+const dia = (m: number, d: number) => new Date(Date.UTC(ANO, m - 1, d, 12));
+const girona = cidades[0];
+const vigo = cidades.find((c) => c.gl === 'Vigo')!;
+const madrid = cidades.find((c) => c.gl === 'Madrid')!;
+const ESC: Escenario[] = ['actual', 'portugal', 'senVeran'];
+const escNome: Record<Escenario, string> = gl
+  ? { actual: 'Hora actual (CET / CEST)', portugal: 'Hora de Portugal (UTC / UTC+1)', senVeran: 'Sen horario de verán (UTC+1)' }
+  : { actual: 'Hora actual (CET / CEST)', portugal: 'Hora de Portugal (UTC / UTC+1)', senVeran: 'Sin horario de verano (UTC+1)' };
+
+const datas = [
+  { m: 12, d: 21, l: gl ? '21 de decembro' : '21 de diciembre' },
+  { m: 3, d: 20, l: gl ? '20 de marzo' : '20 de marzo' },
+  { m: 6, d: 21, l: gl ? '21 de xuño' : '21 de junio' },
+  { m: 9, d: 22, l: gl ? '22 de setembro' : '22 de septiembre' },
+];
+const sol = (c: typeof cid, m: number, d: number, e: Escenario) => amencer(dia(m, d), c.lat, c.lon, e);
+const pos = (c: typeof cid, m: number, d: number, e: Escenario) => solpor(dia(m, d), c.lat, c.lon, e);
+
+const nat = sol(cid, 12, 21, 'actual');
+const nPt = sol(cid, 12, 21, 'portugal');
+const nGi = sol(girona, 12, 21, 'actual');
+const nMa = sol(madrid, 12, 21, 'actual');
+const nVi = sol(vigo, 12, 21, 'actual');
+const solp = pos(cid, 6, 21, 'actual');
+const solpPt = pos(cid, 6, 21, 'portugal');
+const d830 = ESC.map((e) => diasDespoisDe(ANO, cid.lat, cid.lon, e, 510));
+const d900 = ESC.map((e) => diasDespoisDe(ANO, cid.lat, cid.lon, e, 540));
+const noonMin = 720 - 4 * cid.lon + 60; // mediodía solar medio en hora oficial de inverno (UTC+1)
+const lonTxt = Math.abs(cid.lon).toFixed(2).replace('.', ',');
+const esteOeste = cid.lon < 0;
+
+const lede = gl
+  ? `O 21 de decembro o sol sae en ${N} ás ${hhmm(nat)} coa hora oficial actual. Coa hora de Portugal sairía ás ${hhmm(nPt)}.`
+  : `El 21 de diciembre el sol sale en ${N} a las ${hhmm(nat)} con la hora oficial actual. Con la hora de Portugal saldría a las ${hhmm(nPt)}.`;
+const h1 = gl ? `A que hora amence en ${N}` : `¿A qué hora amanece en ${N}?`;
+const title = gl ? `A que hora amence en ${N}: horario oficial e hora de Portugal` : `A qué hora amanece en ${N}: horario oficial y hora de Portugal`;
+
+// comparación co resto: Xirona (extremo leste) e Madrid
+const comp = (a: number, b: number) => Math.round(a - b);
+const dGi = comp(nat, nGi);
+const dMa = comp(nat, nMa);
+let compara: string;
+if (cid === girona) {
+  compara = gl
+    ? `Xirona é o ponto máis oriental da lista: ese mesmo día o sol sae en Vigo ás ${hhmm(nVi)}, ${Math.round(nVi - nat)} minutos despois co mesmo reloxo.`
+    : `Girona es el punto más oriental de la lista: ese mismo día el sol sale en Vigo a las ${hhmm(nVi)}, ${Math.round(nVi - nat)} minutos después con el mismo reloj.`;
+} else {
+  const sinal = (m: number) => (m >= 0 ? (gl ? `${m} minutos máis tarde` : `${m} minutos más tarde`) : gl ? `${-m} minutos máis cedo` : `${-m} minutos más temprano`);
+  const esMadrid = cid === madrid;
+  compara = gl
+    ? `Ese mesmo día, co mesmo reloxo, amence en Xirona ás ${hhmm(nGi)}${esMadrid ? '' : ` e en Madrid ás ${hhmm(nMa)}`}. En ${N} sae ${sinal(dGi)} ca en Xirona${esMadrid ? '' : ` e ${sinal(dMa)} ca en Madrid`}.`
+    : `Ese mismo día, con el mismo reloj, amanece en Girona a las ${hhmm(nGi)}${esMadrid ? '' : ` y en Madrid a las ${hhmm(nMa)}`}. En ${N} sale ${sinal(dGi)} que en Girona${esMadrid ? '' : ` y ${sinal(dMa)} que en Madrid`}.`;
+}
+
+const noonTxt = gl
+  ? `${N} está a ${lonTxt}° ${esteOeste ? 'ao oeste' : 'ao leste'} do meridiano de Greenwich. A 4 minutos por grao (a Terra xira 360° en 24 h), o mediodía solar medio cae ás ${hhmm(noonMin)} en hora oficial de inverno (UTC+1), ${Math.round(noonMin - 720)} minutos despois das 12:00.`
+  : `${N} está a ${lonTxt}° ${esteOeste ? 'al oeste' : 'al este'} del meridiano de Greenwich. A 4 minutos por grado (la Tierra gira 360° en 24 h), el mediodía solar medio cae a las ${hhmm(noonMin)} en hora oficial de invierno (UTC+1), ${Math.round(noonMin - 720)} minutos después de las 12:00.`;
+
+const contra = gl
+  ? `Contrapartida: o 21 de xuño o sol pon en ${N} ás ${hhmm(solp)} co horario actual e ás ${hhmm(solpPt)} coa hora de Portugal. Coa hora de Portugal, a luz da tarde de verán remata unha hora antes. Quen defende manter a hora actual argumenta, ademais, que convén compartir reloxo co resto de España e da UE; ver as respostas:`
+  : `Contrapartida: el 21 de junio el sol se pone en ${N} a las ${hhmm(solp)} con el horario actual y a las ${hhmm(solpPt)} con la hora de Portugal. Con la hora de Portugal, la luz de la tarde de verano termina una hora antes. Quien defiende mantener la hora actual argumenta, además, que conviene compartir reloj con el resto de España y de la UE; ver las respuestas:`;
+
+// gráfico SVG: amencer ao longo do ano
+const W = 640, H = 300, L = 44, R = 12, T = 12, B = 30;
+const ymin = 300, ymax = 660; // 5:00 - 11:00
+const X = (i: number) => L + ((W - L - R) * i) / 364;
+const Y = (v: number) => T + ((H - T - B) * (v - ymin)) / (ymax - ymin);
+const serie = (e: Escenario) => {
+  const pts: string[] = [];
+  for (let i = 0; i < 365; i += 3) pts.push(`${X(i).toFixed(1)},${Y(amencer(new Date(Date.UTC(ANO, 0, 1 + i, 12)), cid.lat, cid.lon, e)).toFixed(1)}`);
+  return 'M' + pts.join('L');
+};
+const horas = [5, 6, 7, 8, 9, 10, 11];
+const meses = gl ? ['X', 'F', 'M', 'A', 'M', 'X', 'X', 'A', 'S', 'O', 'N', 'D'] : ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+const iniMes = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+
+const toolUrl = (esc: string) => `${r(lang, 'amencer')}?esc=${esc}&data=12-21&lim=510&cidade=${slug}`;
+
+const cap = gl
+  ? `Hora oficial do amencer en ${N} cada día de ${ANO}, co horario actual e coa hora de Portugal.`
+  : `Hora oficial del amanecer en ${N} cada día de ${ANO}, con el horario actual y con la hora de Portugal.`;
+
+const fontes = [
+  {
+    titulo: 'NOAA — General Solar Position Calculations',
+    url: 'https://gml.noaa.gov/grad/solcalc/solareqns.PDF',
+    dato: gl ? 'Ecuacións de amencer e solpor (cénit 90,833°) e tempo solar (coeficiente de 4 minutos por grao de lonxitude nas fórmulas). Cálculo propio con elas, precisión ±1-2 min.' : 'Ecuaciones de amanecer y puesta de sol (cénit 90,833°) y tiempo solar (coeficiente de 4 minutos por grado de longitud en las fórmulas). Cálculo propio con ellas, precisión ±1-2 min.',
+  },
+  {
+    titulo: 'Wikidata — coordenadas (P625)',
+    url: WIKIDATA_SRC,
+    dato: gl ? `Latitude e lonxitude de ${N} (CC0).` : `Latitud y longitud de ${N} (CC0).`,
+  },
+  {
+    titulo: 'BOE — Real Decreto 236/2002, hora de verán',
+    url: 'https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221',
+    dato: gl ? 'Verán: do último domingo de marzo ao último de outubro.' : 'Verano: del último domingo de marzo al último de octubre.',
+  },
+  {
+    titulo: `timeanddate.com — Lisboa, ${gl ? 'decembro' : 'diciembre'} 2026`,
+    url: 'https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026',
+    dato: gl ? 'Portugal usa UTC (UTC+1 en verán): 21/12 amence ás 7:50 en Lisboa (o cálculo dá 7:51).' : 'Portugal usa UTC (UTC+1 en verano): 21/12 amanece a las 7:50 en Lisboa (el cálculo da 7:51).',
+  },
+  {
+    titulo: `timeanddate.com — Santiago de Compostela, ${gl ? 'decembro' : 'diciembre'} 2026`,
+    url: 'https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026',
+    dato: gl ? 'Validación do método: 21/12 amence ás 9:01 en Santiago (o cálculo dá 9:01).' : 'Validación del método: 21/12 amanece a las 9:01 en Santiago (el cálculo da 9:01).',
+  },
+];
+
+const T_ = gl
+  ? { kicker: 'Ferramenta', data: 'Data', amencer: 'Amencer', solpor: 'Solpor', esc: 'Horario', d830: 'Días con amencer despois das 8:30', d900: 'Días con amencer despois das 9:00', tabH: 'Amencer segundo o horario', diasH: 'Días ao ano con amencer tardío', diasP: `Cantos días de ${ANO} sae o sol despois desa hora oficial en ${N}:`, graf: 'Un ano de amenceres', tool: 'Cambia a data, a cidade e o escenario na ferramenta', toolV: 'Ver', outras: 'Outras cidades', outrasP: 'A mesma páxina para as outras 51 cidades da lista, de leste a oeste:', metodo: 'Método', metodoP: 'Calculado con ecuacións da NOAA para a latitude e lonxitude de Wikidata, para o ano ' + ANO + '. O horario de verán aplícase como fixa o Real Decreto 236/2002. Cada cifra pode variar ±1-2 minutos segundo o método.', lerMais: 'Para entender por que pasa isto', lerLink: 'Galicia está ao oeste de Greenwich', pt: 'Por que Portugal ten unha hora menos', ptSlug: 'portugal-e-canarias', sw: 'A hora actual', sPt: 'A hora de Portugal', sSv: 'Sen verán' }
+  : { kicker: 'Herramienta', data: 'Fecha', amencer: 'Amanecer', solpor: 'Puesta', esc: 'Horario', d830: 'Días con amanecer después de las 8:30', d900: 'Días con amanecer después de las 9:00', tabH: 'Amanecer según el horario', diasH: 'Días al año con amanecer tardío', diasP: `Cuántos días de ${ANO} sale el sol después de esa hora oficial en ${N}:`, graf: 'Un año de amaneceres', tool: 'Cambia la fecha, la ciudad y el escenario en la herramienta', toolV: 'Ver', outras: 'Otras ciudades', outrasP: 'La misma página para las otras 51 ciudades de la lista, de este a oeste:', metodo: 'Método', metodoP: 'Calculado con ecuaciones de la NOAA para la latitud y longitud de Wikidata, para el año ' + ANO + '. El horario de verano se aplica como fija el Real Decreto 236/2002. Cada cifra puede variar ±1-2 minutos según el método.', lerMais: 'Para entender por qué pasa esto', lerLink: 'Galicia está al oeste de Greenwich', pt: 'Por qué Portugal tiene una hora menos', ptSlug: 'portugal-y-canarias', sw: 'La hora actual', sPt: 'La hora de Portugal', sSv: 'Sin verano' };
+const relSlug = gl ? 'galicia-ao-oeste-de-greenwich' : 'galicia-al-oeste-de-greenwich';
+---
+
+<Base
+  schema={webAppSchema({ lang, path, name: h1, description: lede })}
+  lang={lang}
+  title={title}
+  description={lede}
+  alt={altPath}
+>
+  <div class="wrap page">
+    <header class="head">
+      <p class="kicker"><a href={r(lang, 'amencer')}>{T_.kicker}</a></p>
+      <h1>{h1}</h1>
+      <p class="lede">{lede}</p>
+    </header>
+
+    <div class="cols">
+      <section>
+        <p>{compara}</p>
+        <p>{noonTxt}</p>
+        <p>{contra} <a href={articleUrl(lang, gl ? 'os-contraargumentos' : 'los-contraargumentos')}>{gl ? 'Os contraargumentos' : 'Los contraargumentos'} →</a></p>
+        <p class="tool">
+          <a href={toolUrl('actual')}>{T_.sw}</a> · <a href={toolUrl('portugal')}>{T_.sPt}</a> · <a href={toolUrl('senveran')}>{T_.sSv}</a>
+          <br /><span>{T_.tool} →</span>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="kicker">{T_.tabH}</h2>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">{T_.data}</th>
+              <th scope="col">{escNome.actual.split(' (')[0]}</th>
+              <th scope="col">{gl ? 'Portugal' : 'Portugal'}</th>
+              <th scope="col">{gl ? 'Sen verán' : 'Sin verano'}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {datas.map((d) => (
+              <tr>
+                <th scope="row">{d.l}</th>
+                {ESC.map((e) => <td>{hhmm(sol(cid, d.m, d.d, e))}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="nota">{gl ? 'Amencer en hora oficial. “Hora actual”: CET en inverno e CEST en verán; “Portugal”: UTC en inverno e UTC+1 en verán; “Sen verán”: UTC+1 todo o ano.' : 'Amanecer en hora oficial. “Hora actual”: CET en invierno y CEST en verano; “Portugal”: UTC en invierno y UTC+1 en verano; “Sin verano”: UTC+1 todo el año.'}</p>
+      </section>
+    </div>
+
+    <section class="graf">
+      <h2 class="kicker">{T_.graf}</h2>
+      <figure>
+        <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={cap}>
+          {horas.map((h) => (
+            <g>
+              <line x1={L} x2={W - R} y1={Y(h * 60)} y2={Y(h * 60)} class="grid" />
+              <text x={L - 6} y={Y(h * 60) + 4} text-anchor="end" class="eje">{h}:00</text>
+            </g>
+          ))}
+          {meses.map((m, i) => <text x={X(iniMes[i] + 15)} y={H - 10} text-anchor="middle" class="eje">{m}</text>)}
+          <line x1={L} x2={W - R} y1={Y(510)} y2={Y(510)} class="lim" />
+          <text x={W - R - 2} y={Y(510) - 4} text-anchor="end" class="eje">8:30</text>
+          <path d={serie('actual')} class="s-act" />
+          <path d={serie('portugal')} class="s-pt" />
+        </svg>
+        <figcaption>
+          <span class="k k-act"></span>{gl ? 'Hora actual' : 'Hora actual'}
+          <span class="k k-pt"></span>{gl ? 'Hora de Portugal' : 'Hora de Portugal'}
+          <br />{cap} {gl ? 'Fonte: cálculo propio con ' : 'Fuente: cálculo propio con '}<a href="https://gml.noaa.gov/grad/solcalc/solareqns.PDF">NOAA</a>.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="cols">
+      <div>
+        <h2 class="kicker">{T_.diasH}</h2>
+        <p>{T_.diasP}</p>
+        <table>
+          <thead>
+            <tr><th scope="col">{T_.esc}</th><th scope="col">&gt; 8:30</th><th scope="col">&gt; 9:00</th></tr>
+          </thead>
+          <tbody>
+            {ESC.map((e, i) => <tr><th scope="row">{escNome[e]}</th><td>{d830[i]}</td><td>{d900[i]}</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h2 class="kicker">{T_.metodo}</h2>
+        <p>{T_.metodoP}</p>
+        <p>{T_.lerMais}: <a href={articleUrl(lang, relSlug)}>{T_.lerLink} →</a></p>
+        <p><a href={articleUrl(lang, T_.ptSlug)}>{T_.pt} →</a></p>
+      </div>
+    </section>
+
+    <section class="outras">
+      <h2 class="kicker">{T_.outras}</h2>
+      <p>{T_.outrasP}</p>
+      <ul>
+        {cidades.map((c) => (
+          <li>{c === cid ? <strong>{nome(c)}</strong> : <a href={r(lang, 'amencer') + slugCidade(c, lang) + '/'}>{nome(c)}</a>}</li>
+        ))}
+      </ul>
+    </section>
+
+    <Fontes lang={lang} fontes={fontes} />
+  </div>
+  <Cta lang={lang} />
+</Base>
+
+<style>
+  .page { padding-top: 3rem; }
+  .head { max-width: 52rem; margin-bottom: 2.2rem; }
+  .kicker a { color: inherit; text-decoration: none; }
+  h1 { margin: 0.8rem 0 1rem; font-size: clamp(2.2rem, 6vw, 4.2rem); letter-spacing: -0.045em; line-height: 0.98; font-weight: 800; }
+  .lede { font-size: 1.3rem; color: var(--ink-2); max-width: 50ch; margin: 0; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; color: var(--ink-2); }
+  .cols p { margin: 0 0 0.9rem; }
+  .cols h2 { margin: 0 0 0.6rem; }
+  .tool span { font-size: 0.9rem; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 0.45rem 0.4rem 0.45rem 0; border-bottom: 1px solid var(--rule, #d8d3c6); }
+  thead th { font-weight: 600; font-size: 0.8rem; }
+  tbody th { font-weight: 500; }
+  .nota { font-size: 0.82rem; margin-top: 0.6rem; }
+  .graf { margin-top: 3rem; }
+  figure { margin: 0.6rem 0 0; }
+  svg { width: 100%; height: auto; max-width: 720px; display: block; }
+  .grid { stroke: #d8d3c6; stroke-width: 1; }
+  .lim { stroke: #e8a33d; stroke-width: 1; stroke-dasharray: 4 3; }
+  .eje { font-size: 11px; fill: #4a4f55; font-family: inherit; }
+  .s-act { fill: none; stroke: #111417; stroke-width: 2; }
+  .s-pt { fill: none; stroke: #0d3b66; stroke-width: 2; }
+  figcaption { font-size: 0.85rem; color: var(--ink-2); margin-top: 0.5rem; }
+  .k { display: inline-block; width: 1.4rem; height: 0; border-top: 2px solid; margin: 0 0.4rem 0.2rem 0.8rem; }
+  .k:first-child { margin-left: 0; }
+  .k-act { border-color: #111417; }
+  .k-pt { border-color: #0d3b66; }
+  .outras { margin-top: 3rem; }
+  .outras ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; font-size: 0.95rem; }
+  @media (max-width: 760px) { .cols { grid-template-columns: 1fr; gap: 1.5rem; } }
+</style>

@@ -5,7 +5,7 @@ import AmencerEspana from '../components/AmencerEspana.astro';
 import Fontes from '../components/Fontes.astro';
 import Cta from '../components/Cta.astro';
 import { articleUrl, r, type Lang } from '../i18n/ui';
-import { WIKIDATA_SRC } from '../data/cidades';
+import { WIKIDATA_SRC, cidades, slugCidade } from '../data/cidades';
 
 interface Props {
   lang: Lang;
@@ -127,6 +127,13 @@ const fontes = [
       </section>
     </div>
 
+    <section class="notes cidades">
+      <div>
+        <h2 class="kicker">{lang === 'gl' ? 'Unha páxina por cidade' : 'Una página por ciudad'}</h2>
+        <ul class="lista">{cidades.map((c) => <li><a href={r(lang, 'amencer') + slugCidade(c, lang) + '/'}>{lang === 'gl' ? c.gl : c.es}</a></li>)}</ul>
+      </div>
+    </section>
+
     <Fontes lang={lang} fontes={fontes} />
   </div>
   <Cta lang={lang} />
@@ -178,6 +185,8 @@ const fontes = [
   .notes p {
     margin: 0 0 0.8rem;
   }
+  .lista { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; }
+  .cidades { grid-template-columns: 1fr; }
   @media (max-width: 760px) {
     .notes {
       grid-template-columns: 1fr;
