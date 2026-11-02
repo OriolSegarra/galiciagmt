@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-02 (lunes)
+- **Tarea**: lunes, herramienta: SEO-3/N-1 fase 1, páginas «A que hora amence en <cidade>» (52 ciudades x gl/es).
+- **Hecho**: NO publicada. Rama `borrador/2026-11-02`: vista `CidadeAmencer.astro`, rutas `/ferramentas/amencer/<cidade>/` y `/es/herramientas/amanecer/<ciudad>/`, `slugCidade` en `cidades.ts`, lista de ciudades en la herramienta. Cada página: respuesta en el primer párrafo (21/12 con hora actual y Portugal), comparación con Girona y Madrid, mediodía solar, tabla de 4 fechas x 3 escenarios, gráfico SVG anual, días > 8:30/9:00, contrapartida del solpor de verano y contraargumento (sincronía con España/UE), fuentes. Build OK (151 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO tras 2 vueltas. 1ª: Madrid se comparaba consigo mismo, "punto" en gl, faltaban fuentes (4 min/grado, huso de Portugal) y contraargumento. 2ª: títulos de fuentes timeanddate en gallego en las páginas es (el "4 min/grado" debía decir "coeficiente de las fórmulas"). Ambos ya corregidos en la rama; falta 3ª verificación.
+- **Qué funcionó**: reutilizar `sol.ts` y `cidades.ts`; generar el texto desde las cifras evita plantillas vacías.
+- **Qué no / aprendizajes**: comprobar en el build las ciudades extremas (Madrid, Girona) y los textos fijos del lado es; generar dos idiomas multiplica los fallos de i18n.
+- **Pendiente / siguiente**: 3ª verificación del diff y fusión de `borrador/2026-11-02` en `main`; después "Ler tamén" (SEO-4). Métricas: 29/10 1, 30/10 2, 31/10 3, 1/11 2 visitantes; 0 firmas; GSC 6 consultas, 1 clic.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-01 (domingo)
 - **Tarea**: día 1 del mes: revisión estratégica (sin contenido nuevo, según `AGENTE_NOCHE.md`).
 - **Hecho**: PUBLICADO en `main` (solo documentación interna): `ideas.md` reescrito (5 ideas nuevas N-1..N-5; descartadas #16 y #19; #9 marcada hecha; #3 reducido; nuevo orden de trabajo), `enlaces.md` nuevo, `SEO.md` con palabras nuevas, `metricas.md` con la fila semanal y el 31/10. Sin cambios en la web; build no necesario.

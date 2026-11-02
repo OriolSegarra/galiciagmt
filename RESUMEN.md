@@ -1,5 +1,4 @@
-# RESUMEN — última ejecución (2026-11-01)
+# RESUMEN — última ejecución (2026-11-02)
 
-Revisión estratégica mensual (sin cambios en la web): `ideas.md` reescrito con 5 ideas nuevas (páginas "a qué hora amanece en <ciudad>" para toda España, hora actual Galicia/Portugal, textos de difusión, arreglos de JSON-LD y del evento de firmas), `enlaces.md` para Oriol y palabras clave nuevas en `SEO.md`.
-Diagnóstico: ~3 visitantes/día y 0 firmas; el cuello de botella es difusión y conversión, no volumen de contenido.
-Siguiente: lunes 2/11, páginas por ciudad (fase 1); luego "Ler tamén" (SEO-4).
+Páginas por ciudad «A que hora amence en <cidade>» (52 ciudades, gl/es, con tabla, gráfico anual y contraargumento): hechas y con build OK, pero el verificador no dio APTO tras 2 vueltas, así que NO están publicadas. Están en la rama `borrador/2026-11-02` con los fallos ya corregidos.
+Siguiente: 3ª verificación y fusión en `main`; después "Ler tamén" (SEO-4).
