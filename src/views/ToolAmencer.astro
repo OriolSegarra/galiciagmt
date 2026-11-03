@@ -5,7 +5,7 @@ import AmencerEspana from '../components/AmencerEspana.astro';
 import Fontes from '../components/Fontes.astro';
 import Cta from '../components/Cta.astro';
 import { articleUrl, r, type Lang } from '../i18n/ui';
-import { WIKIDATA_SRC } from '../data/cidades';
+import { WIKIDATA_SRC, cidades, slugCidade } from '../data/cidades';
 
 interface Props {
   lang: Lang;
@@ -81,7 +81,7 @@ const fontes = [
     dato: lang === 'gl' ? 'Lonxitude e latitude de cada cidade (CC0)' : 'Longitud y latitud de cada ciudad (CC0)',
   },
   {
-    titulo: 'BOE — Real Decreto 236/2002, hora de verán',
+    titulo: lang === 'gl' ? 'BOE — Real Decreto 236/2002, hora de verán' : 'BOE — Real Decreto 236/2002, hora de verano',
     url: 'https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221',
     dato: lang === 'gl' ? 'Verán: do último domingo de marzo ao último de outubro' : 'Verano: del último domingo de marzo al último de octubre',
   },
@@ -126,6 +126,13 @@ const fontes = [
         <p><a href={r(lang, 'mapa')}>{c.mapa} →</a></p>
       </section>
     </div>
+
+    <section class="notes cidades">
+      <div>
+        <h2 class="kicker">{lang === 'gl' ? 'Unha páxina por cidade' : 'Una página por ciudad'}</h2>
+        <ul class="lista">{cidades.map((c) => <li><a href={r(lang, 'amencer') + slugCidade(c, lang) + '/'}>{lang === 'gl' ? c.gl : c.es}</a></li>)}</ul>
+      </div>
+    </section>
 
     <Fontes lang={lang} fontes={fontes} />
   </div>
@@ -178,6 +185,8 @@ const fontes = [
   .notes p {
     margin: 0 0 0.8rem;
   }
+  .lista { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; }
+  .cidades { grid-template-columns: 1fr; }
   @media (max-width: 760px) {
     .notes {
       grid-template-columns: 1fr;

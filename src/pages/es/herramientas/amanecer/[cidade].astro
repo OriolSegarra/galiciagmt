@@ -1,0 +1,11 @@
+---
+import CidadeAmencer from '../../../../views/CidadeAmencer.astro';
+import { cidades, slugCidade } from '../../../../data/cidades';
+
+export function getStaticPaths() {
+  return cidades.map((c) => ({ params: { cidade: slugCidade(c, 'es') }, props: { idx: cidades.indexOf(c) } }));
+}
+const { idx } = Astro.props;
+---
+
+<CidadeAmencer lang="es" idx={idx} />

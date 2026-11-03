@@ -67,3 +67,13 @@ export const cidades: Cidade[] = [
   { gl: 'Pontevedra', es: 'Pontevedra', lat: 42.431, lon: -8.6443, galicia: true },
   { gl: 'Vigo', es: 'Vigo', lat: 42.2358, lon: -8.7267, galicia: true },
 ];
+
+/** Identificador de URL dunha cidade (sen acentos, en minúsculas, con guións). */
+export function slugCidade(c: Cidade, lang: 'gl' | 'es'): string {
+  return (lang === 'gl' ? c.gl : c.es)
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
