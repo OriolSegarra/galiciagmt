@@ -1,4 +1,4 @@
-# RESUMEN — última ejecución (2026-11-02)
+# RESUMEN — última ejecución (2026-11-03)
 
-Páginas por ciudad «A que hora amence en <cidade>» (52 ciudades, gl/es, con tabla, gráfico anual y contraargumento): hechas y con build OK, pero el verificador no dio APTO tras 2 vueltas, así que NO están publicadas. Están en la rama `borrador/2026-11-02` con los fallos ya corregidos.
-Siguiente: 3ª verificación y fusión en `main`; después "Ler tamén" (SEO-4).
+Publicadas las páginas «A qué hora amanece en <ciudad>» (52 ciudades, gl/es): https://galiciagmt.es/ferramentas/amencer/vigo/ (ejemplo). Build OK, 151 páginas; el fallo final del verificador (título BOE en gallego en /es) se corrigió y comprobó en `dist`.
+Siguiente: "Ler tamén" + enlace a Asínao (SEO-4) y enlazar las páginas por ciudad desde la herramienta.

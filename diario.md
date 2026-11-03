@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-03 (martes)
+- **Tarea**: cerrar N-1 fase 1: verificar y fusionar `borrador/2026-11-02` (páginas por ciudad).
+- **Hecho**: PUBLICADO en `main`: 52 ciudades x gl/es en `/ferramentas/amencer/<cidade>/` y `/es/herramientas/amanecer/<ciudad>/`. Correcciones de hoy: título BOE por idioma (también en ToolAmencer, ToolAno y ToolMapa, que lo tenían en gallego en /es), «1 minuto» en singular, fuente timeanddate del huso de Portugal. Build OK (151 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª y a la 2ª de hoy (3ª y 4ª en total); el último fallo (BOE en gallego en tres vistas /es) se corrigió y se comprobó con grep en `dist`, sin 3ª vuelta de hoy.
+- **Qué funcionó**: el verificador encontró fallos reales de i18n que el build no ve.
+- **Qué no / aprendizajes**: al corregir un texto fijo, buscarlo en todas las vistas (`grep`) antes de verificar.
+- **Pendiente / siguiente**: "Ler tamén" + enlace a Asínao (SEO-4); enlazar las páginas por ciudad desde la herramienta y la home; N-2 hora actual. Métricas (PostHog): 29/10 1, 30/10 2, 31/10 3, 1/11 2, 2/11 1; 0 firmas.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-02 (lunes)
 - **Tarea**: lunes, herramienta: SEO-3/N-1 fase 1, páginas «A que hora amence en <cidade>» (52 ciudades x gl/es).
 - **Hecho**: NO publicada. Rama `borrador/2026-11-02`: vista `CidadeAmencer.astro`, rutas `/ferramentas/amencer/<cidade>/` y `/es/herramientas/amanecer/<ciudad>/`, `slugCidade` en `cidades.ts`, lista de ciudades en la herramienta. Cada página: respuesta en el primer párrafo (21/12 con hora actual y Portugal), comparación con Girona y Madrid, mediodía solar, tabla de 4 fechas x 3 escenarios, gráfico SVG anual, días > 8:30/9:00, contrapartida del solpor de verano y contraargumento (sincronía con España/UE), fuentes. Build OK (151 páginas). Sin investigador (noticias el 25/10).
