@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-04 (miércoles)
+- **Tarea**: SEO-4: bloque «Ler tamén» al final de cada artículo (3 artículos, herramienta de amaneceres y Asínao), en sustitución del enlace «Seguinte».
+- **Hecho**: PUBLICADO en `main`: `src/views/Article.astro` y claves nuevas en `src/i18n/ui.ts` (gl/es); corregido además «Ler en galego» -> «Leer en gallego» en la interfaz es. Build OK (151 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: APTO a la 1ª vuelta.
+- **Qué funcionó**: diff pequeño y verificación sobre `dist`.
+- **Qué no / aprendizajes**: los enlaces a herramienta y Asínao se ven igual que los títulos de artículo; valorar distinguirlos.
+- **Pendiente / siguiente**: enlazar las páginas por ciudad desde la herramienta y la home; N-2 hora actual; N-5 evento de firmas. Métricas (PostHog): 31/10 3, 1/11 2, 2/11 1, 3/11 1; 0 firmas. GSC (6/10-2/11): 6 consultas, 0 clics, posiciones 4-11.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-03 (martes)
 - **Tarea**: cerrar N-1 fase 1: verificar y fusionar `borrador/2026-11-02` (páginas por ciudad).
 - **Hecho**: PUBLICADO en `main`: 52 ciudades x gl/es en `/ferramentas/amencer/<cidade>/` y `/es/herramientas/amanecer/<ciudad>/`. Correcciones de hoy: título BOE por idioma (también en ToolAmencer, ToolAno y ToolMapa, que lo tenían en gallego en /es), «1 minuto» en singular, fuente timeanddate del huso de Portugal. Build OK (151 páginas). Sin investigador (noticias el 25/10).

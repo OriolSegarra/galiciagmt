@@ -26,7 +26,7 @@ const schema = [
 
 const all = await artigosDe(lang);
 const idx = all.findIndex((a) => a.id === entry.id);
-const next = all[(idx + 1) % all.length];
+const more = [1, 2, 3].map((i) => all[(idx + i) % all.length]).filter((a) => a.id !== entry.id);
 ---
 
 <Base lang={lang} title={d.titulo} description={d.entradilla} alt={alt} type="article" schema={schema}>
@@ -80,11 +80,23 @@ const next = all[(idx + 1) % all.length];
     <Fontes lang={lang} fontes={d.fontes} />
 
     {
-      next && next.id !== entry.id && (
-        <a class="next" href={articleUrl(lang, slugOf(next))}>
-          <span class="kicker">{t(lang, 'article.next')}</span>
-          <span class="t">{next.data.titulo} →</span>
-        </a>
+      more.length > 0 && (
+        <nav class="more" aria-labelledby="more-h">
+          <h2 id="more-h" class="kicker">{t(lang, 'article.more')}</h2>
+          <ul>
+            {more.map((a) => (
+              <li>
+                <a href={articleUrl(lang, slugOf(a))}>{a.data.titulo}</a>
+              </li>
+            ))}
+            <li>
+              <a href={r(lang, 'amencer')}>{t(lang, 'article.tool')}</a>
+            </li>
+            <li>
+              <a href={r(lang, 'asinao')}>{t(lang, 'cta.button')}</a>
+            </li>
+          </ul>
+        </nav>
       )
     }
   </article>
@@ -140,20 +152,32 @@ const next = all[(idx + 1) % all.length];
     margin: 0.1rem 0 0;
     font-weight: 600;
   }
-  .next {
-    display: grid;
-    gap: 0.3rem;
+  .more {
     margin-top: 3rem;
-    padding: 1.4rem 0;
+    padding-top: 1rem;
     border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--ink);
-    text-decoration: none;
     max-width: var(--measure);
   }
-  .next .t {
-    font-size: 1.35rem;
-    font-weight: 800;
-    letter-spacing: -0.015em;
-    line-height: 1.15;
+  .more h2 {
+    margin: 0 0 0.6rem;
+  }
+  .more ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .more li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .more a {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+  .more a:hover {
+    text-decoration: underline;
   }
 </style>
