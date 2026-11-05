@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-05 (jueves)
+- **Tarea**: enlazar desde la home las páginas de amanecer por ciudad (SEO-4 / cierre de N-1).
+- **Hecho**: PUBLICADO en `main`: línea en el bloque Girona/Vigo de `src/views/Home.astro` (gl/es) con enlaces a Lugo, Ourense, A Coruña, Santiago, Pontevedra y Vigo (`/ferramentas/amencer/<cidade>/`). La herramienta ya listaba las 52 ciudades. Build OK (151 páginas). Sin investigador (noticias el 25/10). `metricas.md` con 2-4/11.
+- **Verificador**: NO APTO a la 1ª («cada cidade galega» prometía integridad) -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: diff mínimo y verificación sobre `dist`.
+- **Qué no / aprendizajes**: evitar cuantificadores absolutos en textos generados desde una lista filtrada.
+- **Pendiente / siguiente**: N-2 hora actual Galicia/Portugal; N-5 evento de firmas; N-3 textos de difusión. Métricas (PostHog): 2/11 1, 3/11 1, 4/11 2; 0 firmas.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-04 (miércoles)
 - **Tarea**: SEO-4: bloque «Ler tamén» al final de cada artículo (3 artículos, herramienta de amaneceres y Asínao), en sustitución del enlace «Seguinte».
 - **Hecho**: PUBLICADO en `main`: `src/views/Article.astro` y claves nuevas en `src/i18n/ui.ts` (gl/es); corregido además «Ler en galego» -> «Leer en gallego» en la interfaz es. Build OK (151 páginas). Sin investigador (noticias el 25/10).
