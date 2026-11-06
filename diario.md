@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-06 (viernes)
+- **Tarea**: N-2, página «Que hora é en Galicia e en Portugal agora».
+- **Hecho**: PUBLICADO en `main`: `/ferramentas/hora/` y `/es/herramientas/hora/` (`ToolHora.astro`, ruta `hora`, entrada en Tools). Reloj en directo Europe/Madrid y Europe/Lisbon, diferencia de 1 h todo el año, amanecer/atardecer de hoy en Santiago (actual vs Portugal) con `sol.ts`. Fuentes: timeanddate, BOE RD 236/2002, NOAA, Wikidata. Build OK (153 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª (etiqueta CET/CEST errónea con `enVeran` en la franja del cambio de hora) -> corregido con offset de Intl -> APTO a la 2ª.
+- **Qué funcionó**: el verificador detectó un fallo de lógica que el build no ve.
+- **Qué no / aprendizajes**: `enVeran` es para fechas de día, no instantes. Sin probar en navegador real. Safari <15.4 no soporta `shortOffset` (menor, sin try/catch). N-5: el código del evento `sinatura_enviada` es correcto (escucha `Tally.FormSubmitted`); no existe en PostHog porque no ha habido envíos tras instalarlo; probar con un envío real.
+- **Pendiente / siguiente**: N-3 textos de difusión; enlazar la página de hora desde la home/FAQ; try/catch de `shortOffset`. Métricas (PostHog): 1/11 2, 2/11 1, 3/11 1, 4/11 2, 5/11 1; 0 firmas.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-05 (jueves)
 - **Tarea**: enlazar desde la home las páginas de amanecer por ciudad (SEO-4 / cierre de N-1).
 - **Hecho**: PUBLICADO en `main`: línea en el bloque Girona/Vigo de `src/views/Home.astro` (gl/es) con enlaces a Lugo, Ourense, A Coruña, Santiago, Pontevedra y Vigo (`/ferramentas/amencer/<cidade>/`). La herramienta ya listaba las 52 ciudades. Build OK (151 páginas). Sin investigador (noticias el 25/10). `metricas.md` con 2-4/11.
