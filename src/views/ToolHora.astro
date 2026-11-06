@@ -1,0 +1,266 @@
+---
+import Base from '../layouts/Base.astro';
+import { webAppSchema } from '../lib/schema';
+import Fontes from '../components/Fontes.astro';
+import Cta from '../components/Cta.astro';
+import { articleUrl, r, type Lang } from '../i18n/ui';
+import { cidades, WIKIDATA_SRC } from '../data/cidades';
+import { amencer, solpor, hhmm } from '../lib/sol';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const gl = lang === 'gl';
+
+const santiago = cidades.find((x) => x.gl === 'Santiago')!;
+const hoxe = new Date();
+const dia = new Date(Date.UTC(hoxe.getFullYear(), hoxe.getMonth(), hoxe.getDate(), 12));
+const sol = {
+  aAct: hhmm(amencer(dia, santiago.lat, santiago.lon, 'actual')),
+  sAct: hhmm(solpor(dia, santiago.lat, santiago.lon, 'actual')),
+  aPt: hhmm(amencer(dia, santiago.lat, santiago.lon, 'portugal')),
+  sPt: hhmm(solpor(dia, santiago.lat, santiago.lon, 'portugal')),
+};
+
+const c = {
+  gl: {
+    kicker: 'Ferramenta',
+    h1: 'Que hora é en Galicia e en Portugal agora',
+    title: 'Que hora é en Galicia e en Portugal agora',
+    lede: 'Galicia vai unha hora por diante de Portugal todo o ano, tamén no verán: ambos cambian a hora o mesmo día.',
+    galicia: 'Galicia',
+    portugal: 'Portugal continental',
+    diff: 'Diferenza: Galicia vai 1 hora por diante de Portugal.',
+    winter: 'horario de inverno',
+    summer: 'horario de verán',
+    whyH: 'Por que hai unha hora de diferenza',
+    why: 'Portugal continental usa a hora de Europa Occidental (WET, UTC+0 no inverno; WEST, UTC+1 no verán). Galicia usa a de Europa Central (CET, UTC+1 no inverno; CEST, UTC+2 no verán). Como os dous países adiantan o reloxo unha hora o mesmo día, a diferenza mantense en 1 hora todo o ano. Galicia está na mesma franxa de lonxitude ca Portugal, pero segue o horario do centro de Europa.',
+    sunH: 'Amencer e solpor hoxe en Santiago',
+    sunDate: 'Cálculo para o día',
+    colNow: 'Hora actual (Galicia)',
+    colPt: 'Se tivese a hora de Portugal',
+    rowA: 'Amencer',
+    rowS: 'Solpor',
+    sunNote: 'Co reloxo de Portugal o sol sae e pónse unha hora antes ca co actual.',
+    method: 'Método: amencer e solpor calculados no teu navegador coas ecuacións de posición solar da NOAA (cénit de 90,833°), coas coordenadas de Santiago de Wikidata. Precisión de ±1 minuto. O reloxo usa a base de datos de fusos horarios do teu navegador (Europe/Madrid e Europe/Lisbon).',
+    moreH: 'Máis',
+    tool: 'Compara o amencer en Santiago coa hora actual e coa de Portugal',
+    art: 'Portugal e Canarias: por que eles teñen outra hora',
+    artSlug: 'portugal-e-canarias',
+    aria: 'Reloxos en directo de Galicia e de Portugal continental',
+  },
+  es: {
+    kicker: 'Herramienta',
+    h1: 'Qué hora es en Galicia y en Portugal ahora',
+    title: 'Qué hora es en Galicia y en Portugal ahora',
+    lede: 'Galicia va una hora por delante de Portugal todo el año, también en verano: ambos cambian la hora el mismo día.',
+    galicia: 'Galicia',
+    portugal: 'Portugal continental',
+    diff: 'Diferencia: Galicia va 1 hora por delante de Portugal.',
+    winter: 'horario de invierno',
+    summer: 'horario de verano',
+    whyH: 'Por qué hay una hora de diferencia',
+    why: 'Portugal continental usa la hora de Europa Occidental (WET, UTC+0 en invierno; WEST, UTC+1 en verano). Galicia usa la de Europa Central (CET, UTC+1 en invierno; CEST, UTC+2 en verano). Como los dos países adelantan el reloj una hora el mismo día, la diferencia se mantiene en 1 hora todo el año. Galicia está en la misma franja de longitud que Portugal, pero sigue el horario del centro de Europa.',
+    sunH: 'Amanecer y puesta de sol hoy en Santiago',
+    sunDate: 'Cálculo para el día',
+    colNow: 'Hora actual (Galicia)',
+    colPt: 'Con la hora de Portugal',
+    rowA: 'Amanecer',
+    rowS: 'Puesta de sol',
+    sunNote: 'Con el reloj de Portugal el sol sale y se pone una hora antes que con el actual.',
+    method: 'Método: amanecer y puesta de sol calculados en tu navegador con las ecuaciones de posición solar de la NOAA (cénit de 90,833°), con las coordenadas de Santiago de Wikidata. Precisión de ±1 minuto. El reloj usa la base de datos de husos horarios de tu navegador (Europe/Madrid y Europe/Lisbon).',
+    moreH: 'Más',
+    tool: 'Compara el amanecer en Santiago con la hora actual y con la de Portugal',
+    art: 'Portugal y Canarias: por qué ellos tienen otra hora',
+    artSlug: 'portugal-y-canarias',
+    aria: 'Relojes en directo de Galicia y de Portugal continental',
+  },
+}[lang];
+
+const fechaTxt = dia.toLocaleDateString(gl ? 'gl-ES' : 'es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+const fontes = [
+  {
+    titulo: 'timeanddate.com — Portugal',
+    url: 'https://www.timeanddate.com/time/zone/portugal',
+    dato: gl ? 'Portugal continental: WET (UTC+0) no inverno e WEST (UTC+1) no verán.' : 'Portugal continental: WET (UTC+0) en invierno y WEST (UTC+1) en verano.',
+  },
+  {
+    titulo: gl ? 'BOE — Real Decreto 236/2002, hora de verán' : 'BOE — Real Decreto 236/2002, hora de verano',
+    url: 'https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221',
+    dato: gl ? 'Verán: do último domingo de marzo ao último de outubro' : 'Verano: del último domingo de marzo al último de octubre',
+  },
+  {
+    titulo: 'NOAA — General Solar Position Calculations',
+    url: 'https://gml.noaa.gov/grad/solcalc/solareqns.PDF',
+    dato: gl ? 'Ecuacións de amencer e solpor (cénit 90,833°)' : 'Ecuaciones de amanecer y puesta de sol (cénit 90,833°)',
+  },
+  {
+    titulo: 'Wikidata — coordenadas (P625)',
+    url: WIKIDATA_SRC,
+    dato: gl ? 'Lonxitude e latitude de Santiago (CC0)' : 'Longitud y latitud de Santiago (CC0)',
+  },
+];
+const amencerUrl = r(lang, 'amencer') + '?esc=portugal&cidade=santiago';
+---
+
+<Base schema={webAppSchema({ lang, path: r(lang, 'hora'), name: c.h1, description: c.lede })} lang={lang} title={c.title} description={c.lede} alt={r(gl ? 'es' : 'gl', 'hora')}>
+  <div class="wrap page">
+    <header class="head">
+      <p class="kicker"><a href={r(lang, 'ferramentas')}>{c.kicker}</a></p>
+      <h1>{c.h1}</h1>
+      <p class="lede">{c.lede}</p>
+    </header>
+
+    <section class="clocks" aria-label={c.aria} data-lang={lang} data-winter={c.winter} data-summer={c.summer}>
+      <div class="clock">
+        <h2 class="kicker">{c.galicia}</h2>
+        <p class="time num" id="t-es" role="timer" aria-live="off">--:--:--</p>
+        <p class="meta"><span id="d-es"></span> · <span id="z-es"></span></p>
+      </div>
+      <div class="clock">
+        <h2 class="kicker">{c.portugal}</h2>
+        <p class="time num" id="t-pt" role="timer" aria-live="off">--:--:--</p>
+        <p class="meta"><span id="d-pt"></span> · <span id="z-pt"></span></p>
+      </div>
+    </section>
+    <p class="diff">{c.diff}</p>
+
+    <div class="notes">
+      <section>
+        <h2 class="kicker">{c.whyH}</h2>
+        <p>{c.why}</p>
+        <p class="small">{c.method}</p>
+      </section>
+      <section
+        id="sol"
+        data-lat={santiago.lat}
+        data-lon={santiago.lon}
+      >
+        <h2 class="kicker">{c.sunH}</h2>
+        <p class="small">{c.sunDate}: <span id="sol-data">{fechaTxt}</span></p>
+        <table>
+          <thead>
+            <tr><th scope="col"></th><th scope="col">{c.colNow}</th><th scope="col">{c.colPt}</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">{c.rowA}</th><td class="num" id="a-act">{sol.aAct}</td><td class="num" id="a-pt">{sol.aPt}</td></tr>
+            <tr><th scope="row">{c.rowS}</th><td class="num" id="s-act">{sol.sAct}</td><td class="num" id="s-pt">{sol.sPt}</td></tr>
+          </tbody>
+        </table>
+        <p class="small">{c.sunNote}</p>
+        <h2 class="kicker">{c.moreH}</h2>
+        <ul>
+          <li><a href={amencerUrl}>{c.tool} →</a></li>
+          <li><a href={articleUrl(lang, c.artSlug)}>{c.art} →</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <Fontes lang={lang} fontes={fontes} />
+  </div>
+  <Cta lang={lang} />
+</Base>
+
+<script>
+  import { amencer, solpor, hhmm } from '../lib/sol';
+
+  const root = document.querySelector<HTMLElement>('.clocks')!;
+  const lang = root.dataset.lang === 'gl' ? 'gl-ES' : 'es-ES';
+  const $ = (id: string) => document.getElementById(id)!;
+
+  function fmt(tz: string, opts: Intl.DateTimeFormatOptions) {
+    return new Intl.DateTimeFormat(lang, { timeZone: tz, ...opts });
+  }
+  const zones = [
+    { id: 'es', tz: 'Europe/Madrid', cet: ['CET', 'CEST'], winterOff: 1 },
+    { id: 'pt', tz: 'Europe/Lisbon', cet: ['WET', 'WEST'], winterOff: 0 },
+  ].map((z) => ({
+    ...z,
+    time: fmt(z.tz, { hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' }),
+    date: fmt(z.tz, { weekday: 'long', day: 'numeric', month: 'long' }),
+    off: new Intl.DateTimeFormat('en', { timeZone: z.tz, timeZoneName: 'shortOffset' }),
+  }));
+
+  function tick() {
+    const now = new Date();
+    for (const z of zones) {
+      const m = /GMT([+-]\d+)?/.exec(z.off.formatToParts(now).find((p) => p.type === 'timeZoneName')?.value ?? '');
+      const verán = (m && m[1] ? Number(m[1]) : 0) > z.winterOff;
+      $('t-' + z.id).textContent = z.time.format(now);
+      $('d-' + z.id).textContent = z.date.format(now);
+      $('z-' + z.id).textContent =
+        z.cet[verán ? 1 : 0] + ', ' + (verán ? root.dataset.summer : root.dataset.winter);
+    }
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  const sec = $('sol');
+  const lat = Number(sec.dataset.lat);
+  const lon = Number(sec.dataset.lon);
+  const n = new Date();
+  const dia = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate(), 12));
+  $('a-act').textContent = hhmm(amencer(dia, lat, lon, 'actual'));
+  $('s-act').textContent = hhmm(solpor(dia, lat, lon, 'actual'));
+  $('a-pt').textContent = hhmm(amencer(dia, lat, lon, 'portugal'));
+  $('s-pt').textContent = hhmm(solpor(dia, lat, lon, 'portugal'));
+  $('sol-data').textContent = dia.toLocaleDateString(lang, { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+</script>
+
+<style>
+  .page { padding-top: 3rem; }
+  .head { max-width: 52rem; margin-bottom: 2.2rem; }
+  .kicker a { color: inherit; text-decoration: none; }
+  h1 {
+    margin: 0.8rem 0 1rem;
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+    font-weight: 800;
+  }
+  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 50ch; margin: 0; }
+  .clocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+  .clock { padding: 1.5rem 1rem 1.5rem 0; }
+  .clock + .clock { padding-left: 1.5rem; border-left: 1px solid var(--ink); }
+  .clock h2 { margin: 0 0 0.4rem; }
+  .time {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .meta { margin: 0.6rem 0 0; color: var(--ink-2); font-size: 0.95rem; }
+  .meta span:first-child::first-letter { text-transform: uppercase; }
+  .diff { margin: 1rem 0 0; font-weight: 700; color: var(--blue); }
+  .notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+  }
+  .notes h2 { margin: 0 0 0.6rem; }
+  .notes p { margin: 0 0 0.8rem; }
+  .notes ul { padding-left: 1.1rem; margin: 0; }
+  .notes li + li { margin-top: 0.4rem; }
+  .small { font-size: 0.85rem; }
+  table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; }
+  th, td { text-align: left; padding: 0.5rem 0.6rem 0.5rem 0; border-bottom: 1px solid var(--ink); font-weight: 400; }
+  thead th { font-size: 0.8rem; color: var(--ink-2); }
+  tbody th { font-weight: 700; color: var(--ink); }
+  td { font-size: 1.3rem; font-weight: 800; color: var(--ink); }
+  @media (max-width: 760px) {
+    .notes { grid-template-columns: 1fr; gap: 1.5rem; }
+    .clock { padding-right: 0.6rem; }
+    .clock + .clock { padding-left: 0.8rem; }
+  }
+</style>

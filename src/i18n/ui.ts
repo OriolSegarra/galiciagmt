@@ -10,6 +10,7 @@ export const routes = {
   amencer: { gl: '/ferramentas/amencer/', es: '/es/herramientas/amanecer/' },
   ano: { gl: '/ferramentas/ano/', es: '/es/herramientas/ano/' },
   mapa: { gl: '/ferramentas/mapa/', es: '/es/herramientas/mapa/' },
+  hora: { gl: '/ferramentas/hora/', es: '/es/herramientas/hora/' },
   asinao: { gl: '/asinao/', es: '/es/firmalo/' },
   mocion: { gl: '/mocion/', es: '/es/mocion/' },
   partidos: { gl: '/partidos/', es: '/es/partidos/' },
