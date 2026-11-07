@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-07 (sábado)
+- **Tarea**: N-3, textos de difusión para Oriol (hilo gl/es, nota de prensa, mensaje para ANPAS/sindicatos, pie de moción) en `enlaces.md`.
+- **Hecho**: NO publicada. Rama `borrador/2026-11-07` con la sección nueva de `enlaces.md`. Sin cambios en la web (build no necesario; `node_modules` no instalado). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª (decía «hora de Berlín», «En Galicia» para cifras de Santiago, 66,4 % ambiguo) y NO APTO a la 2ª (faltaban enlaces inline en cifras y fuentes; el 66,4 % del CIS no dice «todo el año»). Ya corregido en la rama (enlaces añadidos, «47 minutos» en lugar de «casi una hora»); falta 3ª verificación.
+- **Qué funcionó**: el verificador comparó cada cifra con los artículos publicados.
+- **Qué no / aprendizajes**: en textos cortos de difusión hay que enlazar cada cifra en el propio texto y no atribuir a una encuesta formulaciones que no cita.
+- **Pendiente / siguiente**: 3ª verificación y fusión de `borrador/2026-11-07`; lunes 9/11: herramienta o pieza grande (+ SEO lunes: gsc.mjs); enlazar `/ferramentas/hora/` desde la home; N-5.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-06 (viernes)
 - **Tarea**: N-2, página «Que hora é en Galicia e en Portugal agora».
 - **Hecho**: PUBLICADO en `main`: `/ferramentas/hora/` y `/es/herramientas/hora/` (`ToolHora.astro`, ruta `hora`, entrada en Tools). Reloj en directo Europe/Madrid y Europe/Lisbon, diferencia de 1 h todo el año, amanecer/atardecer de hoy en Santiago (actual vs Portugal) con `sol.ts`. Fuentes: timeanddate, BOE RD 236/2002, NOAA, Wikidata. Build OK (153 páginas). Sin investigador (noticias el 25/10).
