@@ -2,7 +2,7 @@
 titulo: "Los contraargumentos, respondidos con honestidad"
 entradilla: "Antes de proponer nada, hay que escuchar las objeciones más serias. Aquí están, en su versión más fuerte, con respuesta honesta y sin ocultar lo que no sabemos."
 data: 2026-09-27
-actualizado: 2026-10-23
+actualizado: 2026-11-08
 par: debate
 orde: 5
 seccion: debate
@@ -18,7 +18,7 @@ fontes:
     dato: "El turismo representa en torno a un 12% del PIB; expertos favorables a mantener fijo el horario de verano"
   - titulo: "El Debate — Barómetro del CIS abril 2026"
     url: "https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html"
-    dato: "66,4% preferiría el horario de verano fijo, frente a un 22% que prefiere el de invierno"
+    dato: "66,4% preferiría el horario de verano, frente a un 22% que prefiere el de invierno"
   - titulo: "El Español — Sánchez propone acabar con el cambio de hora"
     url: "https://www.elespanol.com/espana/politica/20251021/sanchez-creo-comision-reforma-hora-recomendo-no-plantear-cambio-horario/1003743978702_0.html"
     dato: "López Lluch: 'no hay ningún estudio serio sobre esto'; Martín Olalla: el impacto 'se puede mitigar'"
@@ -59,7 +59,7 @@ Defender que Galicia adopte la hora de Greenwich obliga a escuchar, sin atajos, 
 
 ## "La gente prefiere el horario de verano"
 
-**Objeción.** Es el dato más incómodo: según el CIS de abril 2026, citado por [El Debate](https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html), un 66,4% de los españoles prefiere el verano fijo, frente a un 22% que prefiere el invierno. Defender la hora de Greenwich va, hoy, a contracorriente de la opinión mayoritaria.
+**Objeción.** Es el dato más incómodo: según el CIS de abril 2026, citado por [El Debate](https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html), un 66,4% de los españoles prefiere el horario de verano, frente a un 22% que prefiere el invierno. Defender la hora de Greenwich va, hoy, a contracorriente de la opinión mayoritaria.
 
 **Qué respondemos.** Lo admitimos sin paliativos: la opinión pública actual está en contra. Pero preferir tardes largas no es lo mismo que decir que ese horario es el más saludable. La Sociedad Española de Sueño, [recogida por Salud a Diario](https://www.saludadiario.es/profesionales/la-sociedad-espanola-de-sueno-aconseja-suprimir-los-cambios-horarios/), pide mantener "de forma permanente el horario de invierno (GMT+1)", advirtiendo que con verano fijo "el amanecer no se produciría antes de las 9:30 horas durante el invierno" en algunas ciudades. La AASM va más allá: pide "abolir" los cambios estacionales "a favor de un horario estándar fijo, nacional, de todo el año" (es decir, sin adelanto de verano), porque el horario de verano "está menos alineado con la biología circadiana humana". Se puede preferir la sensación de la tarde larga y, sin saberlo, elegir el horario peor alineado con el propio reloj biológico.
 
