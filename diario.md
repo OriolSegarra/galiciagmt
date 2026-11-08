@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-08 (domingo)
+- **Tarea**: cerrar N-3 (textos de difusión en `enlaces.md`): 3ª verificación y fusión.
+- **Hecho**: PUBLICADA solo una corrección en `main`: en `os-contraargumentos` / `los-contraargumentos` (gl/es) el CIS 66,4 % decía «verán/verano fijo»; la fuente (El Debate) solo dice «horario de verano». `actualizado: 2026-11-08`. Build OK (153 páginas). Los textos de difusión NO se publican: quedan en la rama `borrador/2026-11-08` (corregidos: enlaces inline de Lisboa, Vigo, 138/22 días y 1940; 22 % de invierno; calco).
+- **Verificador**: NO APTO a la 1ª (5 enlaces/cifras sin enlace inline) y NO APTO a la 2ª (falta enlace a «desde 1940»; ya añadido en la rama, sin 3ª vuelta de hoy). Pendiente menor: confirmar Santiago 9:01 del 21/12 en timeanddate y «sigue sin aprobarse en el Consejo» en consilium.europa.eu.
+- **Qué funcionó**: el verificador encontró también un error ya publicado (preferencia «fija» no respaldada por la fuente).
+- **Qué no / aprendizajes**: en textos de difusión cada cifra y cada fecha necesitan enlace inline; revisar antes de la 1ª vuelta con grep.
+- **Pendiente / siguiente**: verificar `borrador/2026-11-08` y fusionar; lunes 9/11: herramienta o pieza grande + SEO (gsc.mjs); enlazar `/ferramentas/hora/` desde la home.
+- **Slack**: leído. Sin peticiones nuevas de Oriol. PostHog no consultado.
+
 ## 2026-11-07 (sábado)
 - **Tarea**: N-3, textos de difusión para Oriol (hilo gl/es, nota de prensa, mensaje para ANPAS/sindicatos, pie de moción) en `enlaces.md`.
 - **Hecho**: NO publicada. Rama `borrador/2026-11-07` con la sección nueva de `enlaces.md`. Sin cambios en la web (build no necesario; `node_modules` no instalado). Sin investigador (noticias el 25/10).

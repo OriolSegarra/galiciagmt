@@ -1,4 +1,4 @@
-# RESUMEN — última ejecución (2026-11-07)
+# RESUMEN — última ejecución (2026-11-08)
 
-Preparados los textos de difusión para Oriol (N-3: hilo gl/es, nota de prensa, mensaje para ANPAS, pie de moción). No publicados: el verificador dio NO APTO en 2 vueltas; correcciones ya aplicadas en la rama `borrador/2026-11-07`.
+Corregido en los artículos de contraargumentos (gl/es) que el 66,4 % del CIS prefiere el «horario de verano», no el «verano fijo». Los textos de difusión (N-3) siguen sin publicar: NO APTO en 2 vueltas; correcciones en la rama `borrador/2026-11-08`.
 Siguiente: 3ª verificación y fusión; lunes 9/11 herramienta o pieza grande.
