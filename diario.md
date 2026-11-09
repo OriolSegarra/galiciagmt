@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-09 (lunes)
+- **Tarea**: cerrar N-3 (textos de difusión): verificar y fusionar el borrador. (Lunes: no hubo tiempo de herramienta nueva; se prioriza cerrar lo pendiente.)
+- **Hecho**: NO publicada. Rama `borrador/2026-11-09` con `enlaces.md`; `main` solo lleva diario y resumen. Build OK (153 páginas).
+- **Verificador**: NO APTO a la 1ª (faltaban enlaces inline en 17:26/18:26 y «Vigo a las 8:00», /mocion/ en gallego dentro del texto es, «mismo reloj» ambiguo; todo corregido) y NO APTO a la 2ª: las cifras del 21/12 (Girona 8:13, Vigo 9:00 / 8:00) estaban enlazadas al artículo del colegio, que solo da valores del 15/1; deben enlazar a la herramienta (`?esc=actual&data=12-21&lim=510&cidade=vigo`). Confirmados: Santiago 9:01 y Lisboa 7:50 (timeanddate), COM(2018) 639 pendiente en el Consejo, CIS 66,4 %/22 %, 138/22 de 204 días. Menores: enlazar «52 ciudades, tres escenarios»; fechar «sigue sin aprobarse»; añadir ±1-2 min.
+- **Qué funcionó**: el verificador comprobó cada cifra con `sol.ts` y las fuentes externas.
+- **Qué no / aprendizajes**: ya van 3 noches con este borrador. En la rama hay un arreglo parcial y sin verificar (la edición del enlace GL «52 cidades» quedó con paréntesis abierto: revisar a mano). Enlazar cada cifra a la fuente que SÍ la contiene.
+- **Pendiente / siguiente**: terminar enlaces en `borrador/2026-11-09` y verificar; enlazar `/ferramentas/hora/` desde la home.
+- **Slack**: leído. Sin peticiones nuevas de Oriol. PostHog y Search Console no consultados.
+
 ## 2026-11-08 (domingo)
 - **Tarea**: cerrar N-3 (textos de difusión en `enlaces.md`): 3ª verificación y fusión.
 - **Hecho**: PUBLICADA solo una corrección en `main`: en `os-contraargumentos` / `los-contraargumentos` (gl/es) el CIS 66,4 % decía «verán/verano fijo»; la fuente (El Debate) solo dice «horario de verano». `actualizado: 2026-11-08`. Build OK (153 páginas). Los textos de difusión NO se publican: quedan en la rama `borrador/2026-11-08` (corregidos: enlaces inline de Lisboa, Vigo, 138/22 días y 1940; 22 % de invierno; calco).
