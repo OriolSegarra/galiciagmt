@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-10 (martes)
+- **Tarea**: cerrar N-3 (textos de difusión en `enlaces.md`).
+- **Hecho**: NO publicada. Rama `borrador/2026-11-10` con `enlaces.md` (cifras del 21/12 enlazadas a la herramienta, hilo GL arreglado, «cada una con su hora local», «204 días laborables», quitada la fecha sin fuente). Build OK (153 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: NO APTO a la 1ª (204 «lectivos», fecha sin fuente, Lisboa/Santiago con relojes distintos: corregido) y NO APTO a la 2ª: el enlace del 8:00 de Vigo con hora de Portugal apuntaba a `esc=actual`; frase de los 138/22 confusa; falta enlace al Consejo para «sin aprobarse»; nota final inexacta. Los 4 puntos ya corregidos en la rama, sin 3ª vuelta (tope de 2).
+- **Qué funcionó**: el verificador recalculó cada cifra con `sol.ts` y las fuentes.
+- **Qué no / aprendizajes**: 5 noches con un texto corto. Comprobar con grep cada enlace `esc=` contra la cifra que acompaña antes de la 1ª vuelta. Ya publicado: «204 días lectivos» en `o-colexio-a-escuras`, `el-colegio-a-oscuras` (entradilla) y `guia-prensa-cambio-hora` punto 7 (gl/es): son laborables sin descontar festivos; corregir con `actualizado:`.
+- **Pendiente / siguiente**: 3ª verificación y fusión de `borrador/2026-11-10`; corregir «lectivos»; enlazar `/ferramentas/hora/` desde la home.
+- **Slack**: leído. Sin peticiones nuevas de Oriol. PostHog y Search Console no consultados.
+
 ## 2026-11-09 (lunes)
 - **Tarea**: cerrar N-3 (textos de difusión): verificar y fusionar el borrador. (Lunes: no hubo tiempo de herramienta nueva; se prioriza cerrar lo pendiente.)
 - **Hecho**: NO publicada. Rama `borrador/2026-11-09` con `enlaces.md`; `main` solo lleva diario y resumen. Build OK (153 páginas).
