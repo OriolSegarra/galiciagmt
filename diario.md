@@ -2,6 +2,15 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-11 (miércoles)
+- **Tarea**: corrección de error publicado: «204 días lectivos» eran días de lunes a viernes sin descontar festivos ni vacaciones.
+- **Hecho**: PUBLICADO en `main`: entradilla y texto alternativo de `o-colexio-a-escuras` / `el-colegio-a-oscuras`, dato de `fontes` y punto 7 de `guia-prensa-cambio-hora` (gl/es), con `actualizado: 2026-11-11`; título y aria-label de la figura (`scripts/figuras.ts`, SVG regenerados; cifras sin cambios, título acortado porque se salía del lienzo). Build OK (153 páginas). Sin investigador (noticias el 25/10).
+- **Verificador**: APTO a la 1ª vuelta (confirmó 204 días L-V con cálculo propio).
+- **Qué funcionó**: diff pequeño; captura del SVG con Playwright antes de verificar detectó el título desbordado.
+- **Qué no / aprendizajes**: al cambiar textos de figuras SVG, mirar la imagen: el build no avisa del desbordamiento. N-3 sigue en `borrador/2026-11-10` sin 3ª vuelta.
+- **Pendiente / siguiente**: 3ª verificación y fusión de `borrador/2026-11-10` (N-3); enlazar `/ferramentas/hora/` desde la home.
+- **Slack**: leído. Sin peticiones nuevas de Oriol. PostHog y Search Console no consultados.
+
 ## 2026-11-10 (martes)
 - **Tarea**: cerrar N-3 (textos de difusión en `enlaces.md`).
 - **Hecho**: NO publicada. Rama `borrador/2026-11-10` con `enlaces.md` (cifras del 21/12 enlazadas a la herramienta, hilo GL arreglado, «cada una con su hora local», «204 días laborables», quitada la fecha sin fuente). Build OK (153 páginas). Sin investigador (noticias el 25/10).
