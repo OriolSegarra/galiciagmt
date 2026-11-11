@@ -132,11 +132,11 @@ function escenarios(lang: L): string {
   return s;
 }
 
-// ---------- Figura 4: días lectivos con amencer despois da hora de entrada ----------
+// ---------- Figura 4: días de luns a venres con amencer despois da hora de entrada ----------
 function colexio(lang: L): string {
   const T = {
-    gl: { t: 'Días lectivos de 2026-27 con amencer despois da hora de entrada', a: 'Horario actual', b: 'Hora de Lisboa (UTC+0; UTC+1 no verán)', ent: 'Entrada ás', dias: 'días', fonte: 'Cálculo propio (método NOAA, ±1-2 min): días de luns a venres entre o 9/9/2026 e o 21/6/2027 (204), sen descontar festivos.', desc: 'Gráfico de barras: días lectivos con amencer despois das 8:00, 8:30 e 9:00 en Xirona, Madrid e Santiago co horario actual e coa hora de Lisboa' },
-    es: { t: 'Días lectivos de 2026-27 con amanecer después de la hora de entrada', a: 'Horario actual', b: 'Hora de Lisboa (UTC+0; UTC+1 en verano)', ent: 'Entrada a las', dias: 'días', fonte: 'Cálculo propio (método NOAA, ±1-2 min): días de lunes a viernes entre el 9/9/2026 y el 21/6/2027 (204), sin descontar festivos.', desc: 'Gráfico de barras: días lectivos con amanecer después de las 8:00, 8:30 y 9:00 en Girona, Madrid y Santiago con el horario actual y con la hora de Lisboa' },
+    gl: { t: 'Curso 2026-27: días con amencer despois da entrada', a: 'Horario actual', b: 'Hora de Lisboa (UTC+0; UTC+1 no verán)', ent: 'Entrada ás', dias: 'días', fonte: 'Cálculo propio (método NOAA, ±1-2 min): días de luns a venres entre o 9/9/2026 e o 21/6/2027 (204), sen descontar festivos.', desc: 'Gráfico de barras: días de luns a venres do curso con amencer despois das 8:00, 8:30 e 9:00 en Xirona, Madrid e Santiago co horario actual e coa hora de Lisboa' },
+    es: { t: 'Curso 2026-27: días con amanecer después de la entrada', a: 'Horario actual', b: 'Hora de Lisboa (UTC+0; UTC+1 en verano)', ent: 'Entrada a las', dias: 'días', fonte: 'Cálculo propio (método NOAA, ±1-2 min): días de lunes a viernes entre el 9/9/2026 y el 21/6/2027 (204), sin descontar festivos.', desc: 'Gráfico de barras: días de lunes a viernes del curso con amanecer después de las 8:00, 8:30 y 9:00 en Girona, Madrid y Santiago con el horario actual y con la hora de Lisboa' },
   }[lang];
   const nm = lang === 'gl' ? ['Xirona', 'Madrid', 'Santiago'] : ['Girona', 'Madrid', 'Santiago'];
   const ids = ['Xirona', 'Madrid', 'Santiago'];

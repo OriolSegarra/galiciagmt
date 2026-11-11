@@ -1,7 +1,8 @@
 ---
 titulo: "El colegio a oscuras: el sol y la hora de entrada en Galicia"
-entradilla: "En Vigo y Santiago, a finales de diciembre y en enero el sol sale a las 9:00 o más tarde. Contamos cuántos días lectivos del curso 2026-27 se llega al colegio antes del amanecer, según la hora de entrada."
+entradilla: "En Vigo y Santiago, a finales de diciembre y en enero el sol sale a las 9:00 o más tarde. Contamos en cuántos días de lunes a viernes del curso 2026-27 se llega al colegio antes del amanecer, según la hora de entrada."
 data: 2026-10-08
+actualizado: 2026-11-11
 par: colexio-a-escuras
 orde: 8
 seccion: saude
@@ -29,7 +30,7 @@ Cuando en enero un niño entra al colegio, el sol aún no ha salido. Es una esce
 
 El curso va del [9 de septiembre de 2026 al 21 de junio de 2027](https://www.xunta.gal/dog/Publicados/2026/20260615/AnuncioG0761-050626-0001_es.html). Contamos los días de lunes a viernes de ese periodo (204, sin descontar festivos ni vacaciones) en los que el sol sale después de la hora de entrada. Comparamos Girona, Madrid y Santiago, con el horario actual y con el de Lisboa.
 
-![Gráfico de barras: días lectivos con amanecer después de las 8:00, 8:30 y 9:00 en Girona, Madrid y Santiago con el horario actual y con la hora de Lisboa](/img/colexio-amencer-es.svg)
+![Gráfico de barras: días de lunes a viernes del curso con amanecer después de las 8:00, 8:30 y 9:00 en Girona, Madrid y Santiago con el horario actual y con la hora de Lisboa](/img/colexio-amencer-es.svg)
 
 | Entrada | Girona (actual) | Madrid (actual) | Santiago (actual) | Santiago (hora de Lisboa) |
 |---|---|---|---|---|

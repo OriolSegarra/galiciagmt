@@ -2,7 +2,7 @@
 titulo: "Guía para contar o cambio de hora do 25 de outubro: datos citables e que non dicir"
 entradilla: "Dez datos con fonte, o estado real do expediente europeo, ligazóns coa ferramenta preparada e os erros que máis se repiten ao falar da hora de Galicia."
 data: 2026-10-19
-actualizado: 2026-10-26
+actualizado: 2026-11-11
 par: guia-prensa-cambio-hora
 orde: 10
 seccion: actualidade
@@ -30,7 +30,7 @@ fontes:
     dato: "Coordenadas 42°53′00″N 8°32′00″O (42,8833, -8,5333)"
   - titulo: "Método NOAA de ecuacións solares (base dos cálculos propios)"
     url: "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
-    dato: "Cálculos propios: 138, 81 e 22 días lectivos de 204 con amencer despois da entrada; 32 días despois das 10:00 con verán permanente; solpor en Vigo o 15/1/2027 (18:26 e 17:26 coa hora de Lisboa)"
+    dato: "Cálculos propios: 138, 81 e 22 días de luns a venres (de 204) con amencer despois da entrada; 32 días despois das 10:00 con verán permanente; solpor en Vigo o 15/1/2027 (18:26 e 17:26 coa hora de Lisboa)"
   - titulo: "El Debate — Barómetro CIS abril 2026"
     url: "https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html"
     dato: "65,7% quere acabar co cambio horario; 66,4% preferiría o horario de verán, fronte a un 22% que prefire o de inverno"
@@ -70,7 +70,7 @@ Para Galicia non cambia o fuso: despois do 25 de outubro segue en CET (UTC+1), o
 4. Ese mesmo día sae en Lisboa ás 7:50 ([timeanddate](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026); [método](/artigos/portugal-e-canarias/)).
 5. Cálculo propio: Santiago está a 8,53° oeste ([Wikipedia](https://en.wikipedia.org/wiki/Santiago_de_Compostela)); a 4 minutos por grao, o mediodía solar chega uns 34 minutos despois que en Greenwich ([método](/artigos/galicia-ao-oeste-de-greenwich/)).
 6. Cálculo propio: coa hora de Lisboa, Santiago amencería o 21 de decembro ás 8:01 ([método](/artigos/portugal-e-canarias/)).
-7. Cálculo propio: co curso 2026-27 (204 días lectivos de luns a venres, sen descontar festivos), e entrada ás 8:00, o sol sae despois da entrada 138 días en Santiago co horario actual e 22 coa hora de Lisboa; con entrada ás 8:30, 81 días e ningún; con entrada ás 9:00, 22 días co horario actual ([método](/artigos/o-colexio-a-escuras/)). Non atopamos ningunha norma da Xunta que [fixe unha hora de entrada común](https://www.xunta.gal/dog/Publicados/2026/20260623/AnuncioG0761-110626-0003_es.html).
+7. Cálculo propio: co curso 2026-27 (204 días de luns a venres, sen descontar festivos nin vacacións), e entrada ás 8:00, o sol sae despois da entrada 138 días en Santiago co horario actual e 22 coa hora de Lisboa; con entrada ás 8:30, 81 días e ningún; con entrada ás 9:00, 22 días co horario actual ([método](/artigos/o-colexio-a-escuras/)). Non atopamos ningunha norma da Xunta que [fixe unha hora de entrada común](https://www.xunta.gal/dog/Publicados/2026/20260623/AnuncioG0761-110626-0003_es.html).
 8. Cálculo propio: co verán permanente (UTC+2), o sol sairía despois das 10:00 en Santiago durante 32 días do ano e o máis tarde ás 10:05; co horario actual, ningún día ([método](/artigos/cambio-de-hora-outubro-2026/)).
 9. Cálculo propio: en Vigo, o 15 de xaneiro de 2027, o solpor pasaría das 18:26 ás 17:26 coa hora de Lisboa ([método](/artigos/o-colexio-a-escuras/)). É o custo principal da proposta e convén dicilo.
 10. Segundo o CIS de abril de 2026, un 65,7% quere acabar co cambio de hora, un 66,4% preferiría o horario de verán e un 22% o de inverno ([El Debate](https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html); [método](/artigos/os-contraargumentos/)).

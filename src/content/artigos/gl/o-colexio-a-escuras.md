@@ -1,7 +1,8 @@
 ---
 titulo: "O colexio a escuras: o sol e a hora de entrada en Galicia"
-entradilla: "En Vigo e Santiago, a finais de decembro e en xaneiro o sol sae ás 9:00 ou despois. Contamos cantos días lectivos do curso 2026-27 chegan ao colexio antes do amencer, e por que depende da hora de entrada."
+entradilla: "En Vigo e Santiago, a finais de decembro e en xaneiro o sol sae ás 9:00 ou despois. Contamos en cantos días de luns a venres do curso 2026-27 se chega ao colexio antes do amencer, e por que depende da hora de entrada."
 data: 2026-10-08
+actualizado: 2026-11-11
 par: colexio-a-escuras
 orde: 8
 seccion: saude
@@ -29,7 +30,7 @@ Cando en xaneiro un neno entra no colexio, o sol aínda non saíu. É unha escen
 
 O curso vai do [9 de setembro de 2026 ao 21 de xuño de 2027](https://www.xunta.gal/dog/Publicados/2026/20260615/AnuncioG0761-050626-0001_es.html). Contamos os días de luns a venres dese período (204, sen descontar festivos nin vacacións) nos que o sol sae despois da hora de entrada. Comparamos Xirona, Madrid e Santiago, co horario actual e co de Lisboa.
 
-![Gráfico de barras: días lectivos con amencer despois das 8:00, 8:30 e 9:00 en Xirona, Madrid e Santiago co horario actual e coa hora de Lisboa](/img/colexio-amencer-gl.svg)
+![Gráfico de barras: días de luns a venres do curso con amencer despois das 8:00, 8:30 e 9:00 en Xirona, Madrid e Santiago co horario actual e coa hora de Lisboa](/img/colexio-amencer-gl.svg)
 
 | Entrada | Xirona (actual) | Madrid (actual) | Santiago (actual) | Santiago (hora de Lisboa) |
 |---|---|---|---|---|
