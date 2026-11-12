@@ -20,3 +20,61 @@ Tráfico actual: ~3 visitantes/día, casi todo directo; 0 firmas. Sin enlaces ex
 
 ## Pendiente
 - Decidir si Oriol quiere abrir una cuenta pública de difusión (redes). El agente no crea cuentas ni publica en ellas.
+
+## Textos de difusión (borradores para Oriol, creados el 2026-11-07)
+
+Todos usan solo datos ya publicados en la web con su fuente (ver la guía de prensa y la home). El agente no los envía ni los publica; Oriol decide dónde y si los firma. Texto libre bajo CC BY-SA 4.0: se puede copiar citando galiciagmt.es. Los enlaces llevan el estado preconfigurado de la herramienta.
+
+### Datos que se pueden citar (con fuente)
+- 21/12/2026: el sol sale en Santiago a las 9:01 y en Lisboa a las 7:50, cada una con su hora local ([timeanddate Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), [timeanddate Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026)).
+- Cálculo propio (método NOAA, [PDF](https://gml.noaa.gov/grad/solcalc/solareqns.PDF); coordenadas de Wikidata): el 21/12 el sol sale en Girona a las 8:13 y en Vigo a las 9:00 con el mismo reloj; con la hora de Portugal, Vigo a las 8:00 ([cálculo propio](https://galiciagmt.es/es/herramientas/amanecer/?esc=portugal&data=12-21&lim=510&cidade=vigo)).
+- Contrapartida honesta (cálculo propio, mismo método, [artículo](https://galiciagmt.es/es/articulos/el-colegio-a-oscuras/)): en Vigo, el 15/1/2027, la puesta de sol pasaría de las 18:26 a las 17:26 con la hora de Lisboa.
+- La hora oficial es competencia exclusiva del Estado ([CE, art. 149.1.12.ª](https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229)): un concello o el Parlamento pueden pedirla, no decidirla.
+
+### 1. Hilo / post para redes (ES)
+1/ El 21 de diciembre, con el mismo reloj, el sol sale en Girona a las [8:13](https://galiciagmt.es/es/herramientas/amanecer/?esc=actual&data=12-21&lim=510&cidade=girona) y en Vigo a las [9:00](https://galiciagmt.es/es/herramientas/amanecer/?esc=actual&data=12-21&lim=510&cidade=vigo). Unos 47 minutos de diferencia entre dos ciudades de la misma zona horaria (cálculo propio, [método NOAA](https://gml.noaa.gov/grad/solcalc/solareqns.PDF)).
+2/ Galicia está al oeste de Greenwich, como Portugal. Pero adoptó en [1940 la hora de Europa central](https://galiciagmt.es/es/articulos/por-que-cambiamos-de-hora-en-1940/). Ese día, en Lisboa, el sol sale a las 7:50 y en Santiago a las 9:01, cada una con su hora local ([Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026), [Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026)).
+3/ Con la hora de Portugal, Vigo amanecería a las [8:00](https://galiciagmt.es/es/herramientas/amanecer/?esc=portugal&data=12-21&lim=510&cidade=vigo). El coste: en invierno anochece una hora antes. En Vigo, el 15 de enero, la puesta de sol pasaría de las 18:26 a las 17:26 ([cálculo propio, método NOAA](https://galiciagmt.es/es/articulos/el-colegio-a-oscuras/)).
+4/ Compruébalo con tu ciudad (52 ciudades, tres escenarios): https://galiciagmt.es/es/herramientas/amanecer/?esc=portugal&data=12-21&lim=510&cidade=vigo
+5/ Es un debate abierto, no una consigna. Los argumentos a favor y en contra, con fuentes: https://galiciagmt.es/es/articulos/los-contraargumentos/
+
+### 1b. Fío / publicación para redes (GL)
+1/ O 21 de decembro, co mesmo reloxo, o sol sae en Xirona ás [8:13](https://galiciagmt.es/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=girona) e en Vigo ás [9:00](https://galiciagmt.es/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=vigo). Uns 47 minutos de diferenza entre dúas cidades da mesma zona horaria (cálculo propio, [método NOAA](https://gml.noaa.gov/grad/solcalc/solareqns.PDF)).
+2/ Galicia está ao oeste de Greenwich, coma Portugal, pero adoptou en [1940 a hora de Europa central](https://galiciagmt.es/artigos/por-que-cambiamos-de-hora-en-1940/). Ese día, en Lisboa o sol sae ás 7:50 e en Santiago ás 9:01, cada unha coa súa hora local ([Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026), [Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026)).
+3/ Coa hora de Portugal, Vigo amencería ás [8:00](https://galiciagmt.es/ferramentas/amencer/?esc=portugal&data=12-21&lim=510&cidade=vigo). O custo: no inverno anoitece unha hora antes. En Vigo, o 15 de xaneiro, o solpor pasaría das 18:26 ás 17:26 ([cálculo propio, método NOAA](https://galiciagmt.es/artigos/o-colexio-a-escuras/)).
+4/ Comproba a túa cidade (52 cidades, tres escenarios): https://galiciagmt.es/ferramentas/amencer/?esc=portugal&data=12-21&lim=510&cidade=vigo
+5/ É un debate aberto, non unha consigna. Argumentos a favor e en contra, con fontes: https://galiciagmt.es/artigos/os-contraargumentos/
+
+### 2. Nota breve para prensa local (ES)
+**Asunto**: Datos sobre la hora oficial de Galicia, con fuentes enlazadas
+
+Galicia adoptó en [1940 la hora de Europa central](https://galiciagmt.es/es/articulos/por-que-cambiamos-de-hora-en-1940/) pese a estar al oeste de Greenwich. El 21 de diciembre el sol sale en Santiago a las 9:01 y en Lisboa a las 7:50, cada una con su hora local ([Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), [Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026)); con la hora oficial de Galicia (CET), en Girona a las [8:13](https://galiciagmt.es/es/herramientas/amanecer/?esc=actual&data=12-21&lim=510&cidade=girona) y en Vigo a las [9:00](https://galiciagmt.es/es/herramientas/amanecer/?esc=actual&data=12-21&lim=510&cidade=vigo) (cálculo propio con el método NOAA, reproducible en la [herramienta](https://galiciagmt.es/es/herramientas/amanecer/)). Con la hora de Portugal, Vigo amanecería a las [8:00](https://galiciagmt.es/es/herramientas/amanecer/?esc=portugal&data=12-21&lim=510&cidade=vigo), pero el 15 de enero anochecería a las 17:26 en lugar de a las 18:26 ([cálculo propio](https://galiciagmt.es/es/articulos/el-colegio-a-oscuras/)).
+
+La hora oficial es competencia del Estado ([art. 149.1.12.ª de la Constitución](https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229)) y la propuesta europea de acabar con el cambio estacional, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), sigue sin aprobarse en el Consejo ([Consejo de la UE](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/)). Hay opiniones en los dos sentidos y la web las recoge, incluido el dato de que un 66,4% prefiere el horario de verano y un 22% el de invierno en el [barómetro del CIS de abril de 2026](https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html) (la fuente no detalla si es todo el año).
+
+Guía con diez datos citables: https://galiciagmt.es/es/articulos/guia-prensa-cambio-hora/ · Herramienta: https://galiciagmt.es/es/herramientas/amanecer/
+
+### 3. Mensaje para asociaciones, ANPAS o sindicatos de educación (ES)
+En Santiago, con entrada a las 8:00, en el curso 2026-27, de los 204 días de lunes a viernes (sin descontar festivos ni vacaciones), el sol sale después de la entrada en 138 con el horario actual y en 22 con la hora de Lisboa ([cálculo propio](https://galiciagmt.es/es/articulos/el-colegio-a-oscuras/), método NOAA, margen de ±1-2 min; no hemos encontrado una hora de entrada común fijada por la Xunta). La misma pieza explica el coste: tardes más cortas en invierno.
+
+### 4. Pie sugerido para una moción en un concello (para quien la presente)
+Modelo de moción con argumentario y fuentes, libre y editable: https://galiciagmt.es/es/mocion/. Recuerda que el pleno solo puede pedir al Estado que estudie la hora oficial; decidirla no le corresponde. No hay concellos adheridos que podamos citar: no se cuenta ninguno hasta que exista un acuerdo plenario público.
+
+### 2b. Nota breve para a prensa local (GL)
+**Asunto**: Datos sobre a hora oficial de Galicia, con fontes enlazadas
+
+Galicia adoptou en [1940 a hora de Europa central](https://galiciagmt.es/artigos/por-que-cambiamos-de-hora-en-1940/) aínda que está ao oeste de Greenwich. O 21 de decembro o sol sae en Santiago ás 9:01 e en Lisboa ás 7:50, cada unha coa súa hora local ([Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), [Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026)); coa hora oficial de Galicia (CET), en Xirona ás [8:13](https://galiciagmt.es/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=girona) e en Vigo ás [9:00](https://galiciagmt.es/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=vigo) (cálculo propio co método NOAA, reproducible na [ferramenta](https://galiciagmt.es/ferramentas/amencer/)). Coa hora de Portugal, Vigo amencería ás [8:00](https://galiciagmt.es/ferramentas/amencer/?esc=portugal&data=12-21&lim=510&cidade=vigo), pero o 15 de xaneiro anoitecería ás 17:26 en lugar de ás 18:26 ([cálculo propio](https://galiciagmt.es/artigos/o-colexio-a-escuras/)).
+
+A hora oficial é competencia do Estado ([art. 149.1.12.ª da Constitución](https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229)) e a proposta europea de acabar co cambio estacional, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), segue sen aprobarse no Consello ([Consello da UE](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/)). Hai opinións nos dous sentidos e a web recólleas, incluído o dato de que un 66,4 % prefire o horario de verán e un 22 % o de inverno no [barómetro do CIS de abril de 2026](https://www.eldebate.com/sociedad/20260420/657-espanoles-quiere-espana-acabe-cambio-horario-664-quedaria-verano_408848.html) (a fonte non detalla se é todo o ano).
+
+Guía con dez datos citables: https://galiciagmt.es/artigos/guia-prensa-cambio-hora/ · Ferramenta: https://galiciagmt.es/ferramentas/amencer/
+
+### 3b. Mensaxe para asociacións, ANPAS ou sindicatos do ensino (GL)
+En Santiago, con entrada ás 8:00, no curso 2026-27, dos 204 días de luns a venres (sen descontar festivos nin vacacións), o sol sae despois da entrada en 138 co horario actual e en 22 coa hora de Lisboa ([cálculo propio](https://galiciagmt.es/artigos/o-colexio-a-escuras/), método NOAA, marxe de ±1-2 min; non atopamos unha hora de entrada común fixada pola Xunta). A mesma peza explica o custo: tardes máis curtas no inverno.
+
+### 4b. Pé suxerido para unha moción nun concello (GL)
+Modelo de moción con argumentario e fontes, libre e editable: https://galiciagmt.es/mocion/. Lembra que o pleno só pode pedir ao Estado que estude a hora oficial; decidila non lle corresponde. Non hai concellos adheridos que poidamos citar: non se conta ningún ata que exista un acordo plenario público.
+
+### Notas para Oriol
+- Comprobar antes de enviar que las cifras siguen coincidiendo con la herramienta (los enlaces abren el escenario indicado en cada texto, para el 21/12).
+- Si algún texto se firma con nombre propio, que lo decida Oriol; ninguno inventa apoyos ni citas.
