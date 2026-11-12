@@ -2,6 +2,17 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-12 (jueves)
+- **Tarea**: cerrar N-3 (textos de difusión para Oriol): 3ª verificación y fusión de `borrador/2026-11-10`.
+- **Hecho**: PUBLICADO en `main` (`enlaces.md`, documento interno, no es una página de la web): hilo gl/es, nota de prensa, mensaje para ANPAS/sindicatos y pie de moción, ahora todos en gl y es (añadidos 2b, 3b, 4b). Correcciones de hoy: «204 días de lunes a viernes» (no «laborables»); el pleno «pide al Estado que estudie» la hora (como la moción); «adoptó en 1940 la hora de Europa central» en lugar de «usa desde 1940» (evita la excepción 1942-1946). Build OK (153 páginas). Investigador: noticias en `fontes/noticias-2026-11-12.md`. `metricas.md` con 5-11/11.
+- **Verificador**: NO APTO a la 1ª de hoy (3 graves: «laborables», moción «solicitar el cambio», faltaban versiones gl) -> corregido -> APTO a la 2ª.
+- **Qué funcionó**: el verificador recalculó todas las cifras con `sol.ts`; pasar las versiones gl de una vez cerró el último hueco.
+- **Qué no / aprendizajes**: N-3 costó 6 noches para un texto corto. En textos de difusión, escribir gl y es a la vez desde el principio y copiar la formulación literal de la pieza fuente (no parafrasear «días lectivos/laborables», «cambiar/estudiar»).
+- **Noticias**: el calendario de cambios de hora del BOE (orden de marzo de 2022, 5 años) termina el 25/10/2026 según RTVE; falta localizar en el BOE la orden para 2027 en adelante (candidata a pieza de actualidad / idea #11). Nada sobre Galicia en el periodo. Revisión sistemática 2026 (Steponenaite et al., vía Infocop) para contraargumentos: abrir el estudio primario antes de citarlo.
+- **Pendiente / siguiente**: enlazar `/ferramentas/hora/` desde la home; comprobar en el BOE el calendario de cambios de hora 2027+; N-5 evento de firmas.
+- **Métricas** (PostHog): 5/11 1, 6/11 4, 7/11 3, 8/11 1, 9/11 2, 10/11 2, 11/11 1 visitantes; últimos 7 días 14 visitantes, 14 páginas vistas, rebote 93 %; 0 firmas. Search Console no consultada.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-11 (miércoles)
 - **Tarea**: corrección de error publicado: «204 días lectivos» eran días de lunes a viernes sin descontar festivos ni vacaciones.
 - **Hecho**: PUBLICADO en `main`: entradilla y texto alternativo de `o-colexio-a-escuras` / `el-colegio-a-oscuras`, dato de `fontes` y punto 7 de `guia-prensa-cambio-hora` (gl/es), con `actualizado: 2026-11-11`; título y aria-label de la figura (`scripts/figuras.ts`, SVG regenerados; cifras sin cambios, título acortado porque se salía del lienzo). Build OK (153 páginas). Sin investigador (noticias el 25/10).

@@ -1,5 +1,5 @@
-# RESUMEN — última ejecución (2026-11-11)
+# RESUMEN — última ejecución (2026-11-12)
 
-Corregido y publicado «204 días lectivos» → días de lunes a viernes (sin descontar festivos) en el colegio, la guía de prensa (gl/es) y la figura: https://galiciagmt.es/artigos/o-colexio-a-escuras/
-Verificador APTO a la 1ª; build OK (153 páginas).
-Siguiente: 3ª verificación y fusión de `borrador/2026-11-10` (textos de difusión N-3); enlazar `/ferramentas/hora/` desde la home.
+Cerrado N-3: textos de difusión gl/es para Oriol (hilo, nota de prensa, mensaje para ANPAS/sindicatos, pie de moción) en `enlaces.md` de `main` (documento interno: https://github.com/OriolSegarra/galiciagmt/blob/main/enlaces.md).
+Verificador APTO a la 2ª vuelta; build OK (153 páginas). Noticias en `fontes/noticias-2026-11-12.md`: el calendario BOE de cambios de hora acababa el 25/10/2026.
+Siguiente: enlazar `/ferramentas/hora/` desde la home; comprobar en el BOE el calendario 2027+.
