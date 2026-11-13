@@ -4,6 +4,7 @@ entradilla: "Dez respostas curtas sobre o que pide a campaña, por que Galicia n
 data: 2026-10-13
 par: faq
 orde: 9
+actualizado: 2026-11-13
 seccion: debate
 fontes:
   - titulo: "Wikipedia — Santiago de Compostela"
@@ -24,6 +25,9 @@ fontes:
   - titulo: "Orde PCM/186/2022 (BOE)"
     url: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026"
     dato: "Fixa o calendario oficial do cambio de hora: o domingo 25 de outubro de 2026 remata o horario de verán"
+  - titulo: "Comunicación da Comisión: calendario da hora de verán 2027-2031 (DOUE, no BOE)"
+    url: "https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018"
+    dato: "En 2027 a hora de verán empeza o domingo 28 de marzo e remata o domingo 31 de outubro, á 1:00 UTC"
   - titulo: "Consello da UE — 'Cambio de hora estacional na UE'"
     url: "https://www.consilium.europa.eu/es/policies/seasonal-time-changes/"
     dato: "'No se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión'"
@@ -64,9 +68,9 @@ Que Galicia pase á hora de Lisboa e Canarias (UTC+0, co horario de verán de se
 
 Porque está máis ao oeste. O documento da [UPM](https://oa.upm.es/45296/1/CCG_2017_Es-nuestro-huso-horario-un-problema.pdf) di que a España, agás Canarias e parte do oeste de Galicia, lle corresponde o fuso GMT+0, e que o oeste galego está no fuso 23, o mesmo que Canarias. Santiago está a [8,54° oeste](https://en.wikipedia.org/wiki/Santiago_de_Compostela): a 4 minutos por grao, o mediodía solar chega uns 34 minutos despois que en Greenwich (conta propia, 8,54 × 4 minutos; o mediodía solar real depende do día, véxase [timeanddate](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026)). Detalles en [Galicia está ao oeste de Greenwich](/artigos/galicia-ao-oeste-de-greenwich/).
 
-## Que pasa o 25 de outubro?
+## Cando é o próximo cambio de hora?
 
-O domingo 25 de outubro de 2026 remata o horario de verán, segundo a [Orde PCM/186/2022](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026). Os reloxos atrasan unha hora, pero iso non move Galicia de fuso: queda no horario de inverno (UTC+1). O Consello da UE, na súa [páxina oficial](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/), di, en castelán no orixinal, que «no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión». Máis en [O 25 de outubro atrasamos o reloxo](/artigos/cambio-de-hora-outubro-2026/).
+O domingo 28 de marzo de 2027 os reloxos da Península adiántanse unha hora: ás 2:00 pasan a marcar as 3:00 (conta propia: a 1:00 UTC do calendario son as 2:00 en España peninsular). O domingo 31 de outubro de 2027 atrásanse de novo. Esas datas están no calendario de 2027 a 2031 que a Comisión Europea publicou no [DOUE do 18 de marzo de 2026](https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018), co cambio fixado á 1:00 UTC. O último cambio foi o 25 de outubro de 2026, segundo a [Orde PCM/186/2022](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026), e non moveu Galicia de fuso: quedou no horario de inverno (UTC+1), unha hora por diante de Portugal, como se ve no [reloxo de Galicia e Portugal](/ferramentas/hora/). O Consello da UE, na súa [páxina oficial](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/), di, en castelán no orixinal, que «no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión». Máis en [O 25 de outubro atrasamos o reloxo](/artigos/cambio-de-hora-outubro-2026/).
 
 ## Quen pode cambiar a hora?
 
