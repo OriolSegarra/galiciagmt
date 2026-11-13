@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-13 (viernes)
+- **Tarea**: corrección de contenido caducado: la FAQ (gl/es) seguía respondiendo «Que pasa o 25 de outubro?» como si fuera futuro; ahora responde «Cando é o próximo cambio de hora?» con las fechas de 2027.
+- **Hecho**: PUBLICADO en `main` (b65dc32): `preguntas-frecuentes` gl/es con el 28/3/2027 y el 31/10/2027 (Comunicación de la Comisión, DOUE 18/3/2026, `DOUE-Z-2026-70018`, comprobada con Firecrawl), nueva entrada en `fontes`, enlace a `/ferramentas/hora/` (cubre en parte el «enlazar la página de hora») y `actualizado: 2026-11-13`. Build OK (153 páginas). Noticias en `fontes/noticias-2026-11-13.md`. `metricas.md` con 12/11.
+- **Verificador**: APTO a la 1ª vuelta; se aplicó su sugerencia de marcar 1:00 UTC = 2:00 peninsular como cuenta propia.
+- **Qué funcionó**: pedir al investigador la fuente primaria; el calendario UE 2027-2031 estaba en el BOE (sección DOUE) aunque no hay orden española nueva localizada.
+- **Qué no / aprendizajes**: no se pudo confirmar si existe orden española 2027-2031 (boe.es bloqueado para WebFetch y sin buscador vía Firecrawl); no afirmarlo en ninguna pieza. Varios medios dicen «confirmación del BOE» sin base clara.
+- **Pendiente / siguiente**: el verificador avisa de que la guía de prensa («Qué pasa el 25 de octubre») y el artículo «O 25 de outubro atrasamos o reloxo» han quedado en pasado: actualizarlos con 2027 (o reorientar a «cambio de hora 2027»); enlazar `/ferramentas/hora/` desde la home; N-5.
+- **Métricas** (PostHog): 10/11 2, 11/11 1, 12/11 2 visitantes; 0 firmas. Search Console no consultada.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-12 (jueves)
 - **Tarea**: cerrar N-3 (textos de difusión para Oriol): 3ª verificación y fusión de `borrador/2026-11-10`.
 - **Hecho**: PUBLICADO en `main` (`enlaces.md`, documento interno, no es una página de la web): hilo gl/es, nota de prensa, mensaje para ANPAS/sindicatos y pie de moción, ahora todos en gl y es (añadidos 2b, 3b, 4b). Correcciones de hoy: «204 días de lunes a viernes» (no «laborables»); el pleno «pide al Estado que estudie» la hora (como la moción); «adoptó en 1940 la hora de Europa central» en lugar de «usa desde 1940» (evita la excepción 1942-1946). Build OK (153 páginas). Investigador: noticias en `fontes/noticias-2026-11-12.md`. `metricas.md` con 5-11/11.
