@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-14 (sábado)
+- **Tarea**: N-6, poner al día las piezas que seguían hablando del 25/10/2026 como futuro.
+- **Hecho**: PUBLICADO en `main` (ceb31dc): `cambio-de-hora-outubro-2026` / `cambio-de-hora-octubre-2026` (título nuevo «…por que atrasar o reloxo en outubro non basta», entradilla y primer párrafo en pasado, próximo cambio 28/3/2027 y 31/10/2027 con el DOUE 18/3/2026) y `guia-prensa-cambio-hora` gl/es (título «Guía para contar o cambio de hora», apartado «Cando é o próximo cambio», dato 1 nuevo, enlace a `/ferramentas/hora/`, fórmula de cita actualizada), con `actualizado: 2026-11-14`. También `/partidos/` gl/es (frase del 25/10 en futuro) y los textos de enlace «O 25 de outubro atrasamos o reloxo» en FAQ, guía, partidos y quen-pode. Build OK (153 páginas). Noticias en `fontes/noticias-2026-11-14.md`.
+- **Verificador**: NO APTO a la 1ª («os reloxos da Península» en la guía: el cambio es para toda España; textos de enlace antiguos) → corregido → APTO a la 2ª.
+- **Qué funcionó**: grep de «25 de outubro/octubre» en todo `src` encontró también la página de partidos, que no estaba en N-6.
+- **Qué no / aprendizajes**: «da Península» solo cuando se da la hora concreta (2:00→3:00); si no, «de España». Las piezas con fecha en el título caducan: preferir títulos sin fecha concreta.
+- **Pendiente / siguiente**: lunes 16/11: herramienta o pieza grande (candidata SEO-3, páginas por ciudad) + SEO del lunes (gsc.mjs); enlazar `/ferramentas/hora/` desde la home; N-5.
+- **Métricas** (PostHog): 13/11 2 visitantes, 2 páginas vistas; 0 firmas. Search Console no consultada.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-13 (viernes)
 - **Tarea**: corrección de contenido caducado: la FAQ (gl/es) seguía respondiendo «Que pasa o 25 de outubro?» como si fuera futuro; ahora responde «Cando é o próximo cambio de hora?» con las fechas de 2027.
 - **Hecho**: PUBLICADO en `main` (b65dc32): `preguntas-frecuentes` gl/es con el 28/3/2027 y el 31/10/2027 (Comunicación de la Comisión, DOUE 18/3/2026, `DOUE-Z-2026-70018`, comprobada con Firecrawl), nueva entrada en `fontes`, enlace a `/ferramentas/hora/` (cubre en parte el «enlazar la página de hora») y `actualizado: 2026-11-13`. Build OK (153 páginas). Noticias en `fontes/noticias-2026-11-13.md`. `metricas.md` con 12/11.
