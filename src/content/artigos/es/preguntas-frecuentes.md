@@ -62,7 +62,7 @@ fontes:
 
 ## ¿Qué pide la campaña?
 
-Que Galicia pase a la hora de Lisboa y Canarias (UTC+0, con el horario de verano de siempre) o, como mínimo, que se quede fija en el horario de invierno actual sin adelantar el reloj cada marzo. No pedimos el verano permanente, que sería la peor salida para la geografía gallega. La posición completa está en [El 25 de octubre atrasamos el reloj](/es/articulos/cambio-de-hora-octubre-2026/).
+Que Galicia pase a la hora de Lisboa y Canarias (UTC+0, con el horario de verano de siempre) o, como mínimo, que se quede fija en el horario de invierno actual sin adelantar el reloj cada marzo. No pedimos el verano permanente, que sería la peor salida para la geografía gallega. La posición completa está en [Por qué atrasar el reloj en octubre no basta](/es/articulos/cambio-de-hora-octubre-2026/).
 
 ## ¿Por qué Galicia nota más el desfase?
 
@@ -70,7 +70,7 @@ Porque está más al oeste. El documento de la [UPM](https://oa.upm.es/45296/1/C
 
 ## ¿Cuándo es el próximo cambio de hora?
 
-El domingo 28 de marzo de 2027 los relojes de la Península se adelantan una hora: a las 2:00 pasan a marcar las 3:00 (cuenta propia: la 1:00 UTC del calendario son las 2:00 en la España peninsular). El domingo 31 de octubre de 2027 se atrasan de nuevo. Esas fechas están en el calendario de 2027 a 2031 que la Comisión Europea publicó en el [DOUE del 18 de marzo de 2026](https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018), con el cambio fijado a la 1:00 UTC. El último cambio fue el 25 de octubre de 2026, según la [Orden PCM/186/2022](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026), y no movió a Galicia de huso: se quedó en el horario de invierno (UTC+1), una hora por delante de Portugal, como se ve en el [reloj de Galicia y Portugal](/es/herramientas/hora/). El Consejo de la UE, en su [página oficial](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/), dice que «no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión». Más en [El 25 de octubre atrasamos el reloj](/es/articulos/cambio-de-hora-octubre-2026/).
+El domingo 28 de marzo de 2027 los relojes de la Península se adelantan una hora: a las 2:00 pasan a marcar las 3:00 (cuenta propia: la 1:00 UTC del calendario son las 2:00 en la España peninsular). El domingo 31 de octubre de 2027 se atrasan de nuevo. Esas fechas están en el calendario de 2027 a 2031 que la Comisión Europea publicó en el [DOUE del 18 de marzo de 2026](https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018), con el cambio fijado a la 1:00 UTC. El último cambio fue el 25 de octubre de 2026, según la [Orden PCM/186/2022](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026), y no movió a Galicia de huso: se quedó en el horario de invierno (UTC+1), una hora por delante de Portugal, como se ve en el [reloj de Galicia y Portugal](/es/herramientas/hora/). El Consejo de la UE, en su [página oficial](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/), dice que «no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo para tomar dicha decisión». Más en [Por qué atrasar el reloj en octubre no basta](/es/articulos/cambio-de-hora-octubre-2026/).
 
 ## ¿Quién puede cambiar la hora?
 

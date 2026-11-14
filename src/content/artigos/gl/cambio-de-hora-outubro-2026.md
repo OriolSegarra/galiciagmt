@@ -1,8 +1,8 @@
 ---
-titulo: "Cambio de hora en Galicia: por que o 25 de outubro non basta"
-entradilla: "O domingo 25 de outubro remata o horario de verán. España propuxo á UE eliminar ese cambio, pero non hai decisión nin prazo — e o verán permanente sería o peor escenario posible para Galicia."
+titulo: "Cambio de hora en Galicia: por que atrasar o reloxo en outubro non basta"
+entradilla: "O 25 de outubro de 2026 rematou o horario de verán e o próximo cambio é o 28 de marzo de 2027. España propuxo á UE eliminar o cambio, pero non hai decisión nin prazo, e o verán permanente sería o peor escenario para Galicia."
 data: 2026-09-28
-actualizado: 2026-10-26
+actualizado: 2026-11-14
 par: cambio-hora-2026
 orde: 0
 seccion: actualidade
@@ -10,6 +10,9 @@ fontes:
   - titulo: "Orde PCM/186/2022 (BOE)"
     url: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026"
     dato: "Fixa o calendario oficial do cambio de hora: o domingo 25 de outubro de 2026 remata o horario de verán"
+  - titulo: "Comunicación da Comisión: calendario da hora de verán 2027-2031 (DOUE, no BOE)"
+    url: "https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018"
+    dato: "En 2027 a hora de verán empeza o domingo 28 de marzo e remata o domingo 31 de outubro, á 1:00 UTC"
   - titulo: "El País — 'El Gobierno propone acabar con el cambio de hora estacional en la UE desde 2026' (20/10/2025)"
     url: "https://elpais.com/espana/2025-10-20/el-gobierno-propone-acabar-con-el-cambio-de-hora-estacional-desde-2026.html"
     dato: "O Goberno español propuxo á UE acabar co cambio de hora estacional"
@@ -32,7 +35,7 @@ fontes:
 
 ## O reloxo atrasa, o problema non se move
 
-O domingo 25 de outubro de 2026, ás 3:00 da madrugada, os reloxos en España atrasan unha hora e marcan as 2:00. É o fin do horario de verán, na data que fixa a Orde PCM/186/2022 como calendario oficial do cambio horario ([BOE](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026)). Durante unhas horas, todo o mundo fala do cambio de hora. E logo, coma cada ano, esquéceo.
+O domingo 25 de outubro de 2026, ás 3:00 da madrugada, os reloxos en España atrasaron unha hora e marcaron as 2:00. Foi o fin do horario de verán, na data que fixaba a Orde PCM/186/2022 como calendario oficial do cambio horario ([BOE](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026)). O próximo cambio será o domingo 28 de marzo de 2027, cando o reloxo se adiante unha hora, e o seguinte o 31 de outubro de 2027, segundo o calendario 2027-2031 que a Comisión Europea publicou no [DOUE do 18 de marzo de 2026](https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018). Durante unhas horas, cada vez, todo o mundo fala do cambio de hora. E logo esquéceo.
 
 Convén non confundir ese trámite cos problemas que denunciamos nesta web. O que queda despois do 25 de outubro, de novembro a marzo, é o horario de inverno oficial, CET (UTC+1): o mesmo fuso horario que Varsovia ou Belgrado, cidades moito máis ao leste que Galicia. Xa o explicabamos no artigo sobre a xeografía do desfase: o 21 de decembro, en Santiago de Compostela, o sol nace ás 9:01 da mañá. Atrasar o reloxo en outubro devolve unha hora ao día, si, pero non move nin un grao de lonxitude a Galicia: seguimos no fuso que non nos corresponde por posición xeográfica, inverno tras inverno.
 

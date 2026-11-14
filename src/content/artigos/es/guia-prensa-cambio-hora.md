@@ -1,8 +1,8 @@
 ---
-titulo: "Guía para contar el cambio de hora del 25 de octubre: datos citables y qué no decir"
+titulo: "Guía para contar el cambio de hora: datos citables y qué no decir"
 entradilla: "Diez datos con fuente, el estado real del expediente europeo, enlaces con la herramienta preparada y los errores que más se repiten al hablar de la hora de Galicia."
 data: 2026-10-19
-actualizado: 2026-11-11
+actualizado: 2026-11-14
 par: guia-prensa-cambio-hora
 orde: 10
 seccion: actualidade
@@ -10,6 +10,9 @@ fontes:
   - titulo: "Orden PCM/186/2022 (BOE)"
     url: "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026"
     dato: "Fija el calendario oficial: el domingo 25 de octubre de 2026 termina el horario de verano"
+  - titulo: "Comunicación de la Comisión: calendario de la hora de verano 2027-2031 (DOUE, en el BOE)"
+    url: "https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018"
+    dato: "En 2027 la hora de verano empieza el domingo 28 de marzo y termina el domingo 31 de octubre, a la 1:00 UTC"
   - titulo: "Consejo de la UE — 'Cambio de hora estacional en la UE'"
     url: "https://www.consilium.europa.eu/es/policies/seasonal-time-changes/"
     dato: "'No se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo'"
@@ -54,17 +57,17 @@ fontes:
     dato: "Estudio con 429 participantes (91 en Lugo)"
 ---
 
-Esta guía recoge lo que se puede citar, con fuente, al hablar del cambio de hora del 25 de octubre de 2026, y lo que conviene evitar. Las cifras de método proceden de artículos ya publicados en esta web; las demás llevan la fuente enlazada en cada punto. Los datos marcados como «cálculo propio» son nuestros y no los publica ninguna institución.
+Esta guía recoge lo que se puede citar, con fuente, al hablar del cambio de hora (el próximo es el 28 de marzo de 2027), y lo que conviene evitar. Las cifras de método proceden de artículos ya publicados en esta web; las demás llevan la fuente enlazada en cada punto. Los datos marcados como «cálculo propio» son nuestros y no los publica ninguna institución.
 
-## Qué pasa el 25 de octubre, y qué no cambia
+## Cuándo es el próximo cambio, y qué no cambia
 
-El domingo 25 de octubre de 2026 termina el horario de verano, según la [Orden PCM/186/2022](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026). A las 3:00 los relojes marcan las 2:00. La propuesta de eliminar el cambio estacional sigue sin decisión: el [Consejo de la UE](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/) dice que «no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo». Contexto en [El 25 de octubre atrasamos el reloj](/es/articulos/cambio-de-hora-octubre-2026/).
+El domingo 28 de marzo de 2027 los relojes de España se adelantan una hora y el domingo 31 de octubre de 2027 se atrasan de nuevo, según el calendario 2027-2031 de la Comisión Europea publicado en el [DOUE del 18 de marzo de 2026](https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018). El último cambio fue el 25 de octubre de 2026, cuando terminó el horario de verano ([Orden PCM/186/2022](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026)). La propuesta de eliminar el cambio estacional sigue sin decisión: el [Consejo de la UE](https://www.consilium.europa.eu/es/policies/seasonal-time-changes/) dice que «no se ha adoptado ninguna decisión definitiva sobre este asunto y no se ha establecido ningún plazo». Contexto en [Por qué atrasar el reloj en octubre no basta](/es/articulos/cambio-de-hora-octubre-2026/).
 
-Para Galicia no cambia el huso: después del 25 de octubre sigue en CET (UTC+1), igual que antes de marzo. La hora oficial es, además, [competencia exclusiva del Estado](https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229) (artículo 149.1.12.ª); un ayuntamiento o el Parlamento pueden pedir el cambio, pero no decidirlo ([¿Quién puede cambiar la hora de Galicia?](/es/articulos/quien-puede-cambiar-la-hora-de-galicia/)).
+Para Galicia el cambio de hora no mueve el huso: de finales de octubre a finales de marzo está en CET (UTC+1), una hora por delante de Portugal, como se ve en el [reloj de Galicia y Portugal](/es/herramientas/hora/). La hora oficial es, además, [competencia exclusiva del Estado](https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229) (artículo 149.1.12.ª); un ayuntamiento o el Parlamento pueden pedir el cambio, pero no decidirlo ([¿Quién puede cambiar la hora de Galicia?](/es/articulos/quien-puede-cambiar-la-hora-de-galicia/)).
 
 ## Diez datos citables
 
-1. El cambio es el domingo 25 de octubre de 2026 ([BOE](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026); [método](/es/articulos/cambio-de-hora-octubre-2026/)).
+1. El próximo cambio es el domingo 28 de marzo de 2027, y el siguiente el 31 de octubre de 2027 ([DOUE](https://www.boe.es/buscar/doc.php?id=DOUE-Z-2026-70018)); el último fue el 25 de octubre de 2026 ([BOE](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2022-4026); [contexto](/es/articulos/cambio-de-hora-octubre-2026/)).
 2. La consulta de la Comisión Europea de 2018 tuvo, según la Comisión, un 84 % de participantes a favor de acabar con el cambio de hora dos veces al año ([Comisión Europea, COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639); [contexto](/es/articulos/cambio-de-hora-octubre-2026/)). La propuesta resultante, [COM(2018) 639](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:52018PC0639), sigue sin aprobarse.
 3. El 21 de diciembre de 2026 el sol sale en Santiago a las 9:01 ([timeanddate](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026); [método](/es/articulos/galicia-al-oeste-de-greenwich/)).
 4. Ese mismo día sale en Lisboa a las 7:50 ([timeanddate](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026); [método](/es/articulos/portugal-y-canarias/)).
@@ -83,7 +86,7 @@ Para Galicia no cambia el huso: después del 25 de octubre sigue en CET (UTC+1),
 
 ## Lo que conviene no decir
 
-**Que el cambio de hora es un cambio de huso.** El 25 de octubre no mueve a Galicia de huso. La campaña pide otra cosa: una hora oficial distinta o, como mínimo, no adelantar el reloj en marzo.
+**Que el cambio de hora es un cambio de huso.** Atrasar o adelantar el reloj no mueve a Galicia de huso. La campaña pide otra cosa: una hora oficial distinta o, como mínimo, no adelantar el reloj en marzo.
 
 **Que Bruselas impone el cambio.** No lo afirmamos: nuestras fuentes dicen que la eliminación del cambio estacional sigue sin decisión en el Consejo y que la hora oficial es competencia del Estado.
 
@@ -97,4 +100,4 @@ Para Galicia no cambia el huso: después del 25 de octubre sigue en CET (UTC+1),
 
 ## Licencia y cómo citar
 
-Los textos de esta web están bajo licencia CC BY-SA 4.0: se pueden copiar y adaptar citando la autoría y manteniendo la misma licencia. Fórmula sugerida: «Galicia GMT, "Guía para contar el cambio de hora del 25 de octubre" (19/10/2026), CC BY-SA 4.0», con el enlace a esta página. Para las cifras de cálculo propio, indicar «cálculo de Galicia GMT con ecuaciones solares de la NOAA».
+Los textos de esta web están bajo licencia CC BY-SA 4.0: se pueden copiar y adaptar citando la autoría y manteniendo la misma licencia. Fórmula sugerida: «Galicia GMT, "Guía para contar el cambio de hora" (19/10/2026, actualizada el 14/11/2026), CC BY-SA 4.0», con el enlace a esta página. Para las cifras de cálculo propio, indicar «cálculo de Galicia GMT con ecuaciones solares de la NOAA».

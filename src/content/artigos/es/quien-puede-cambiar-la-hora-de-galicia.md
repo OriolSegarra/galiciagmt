@@ -33,7 +33,7 @@ El [Real Decreto 236/2002](https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221)
 
 - **El destinatario es el Estado.** Una moción municipal o una declaración parlamentaria no cambia la hora, pero deja constancia de que el tema está sobre la mesa y de quién lo pide.
 - **Canarias muestra que la norma ya admite una hora distinta** de la de la Península. En las fuentes citadas no consta ningún caso de una comunidad peninsular con hora propia; eso sería una decisión política nueva, no un trámite.
-- **Dejar el horario de verano es otro camino.** El cambio estacional viene de una directiva europea que España aplicó por real decreto, y el debate sobre su futuro lo explicamos en [El 25 de octubre atrasamos el reloj](/es/articulos/cambio-de-hora-octubre-2026/).
+- **Dejar el horario de verano es otro camino.** El cambio estacional viene de una directiva europea que España aplicó por real decreto, y el debate sobre su futuro lo explicamos en [Por qué atrasar el reloj en octubre no basta](/es/articulos/cambio-de-hora-octubre-2026/).
 
 ## Lo que no sabemos
 
