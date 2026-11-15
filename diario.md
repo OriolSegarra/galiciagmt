@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-15 (domingo)
+- **Tarea**: mejora de la web: enlazar `/ferramentas/hora/` desde la home (pendiente desde el 6/11).
+- **Hecho**: PUBLICADO en `main` (59b8b0c): línea «Que hora é agora en Galicia e en Portugal →» / «Qué hora es ahora en Galicia y en Portugal →» bajo el bloque de la herramienta de amaneceres en la home gl/es (`src/views/Home.astro`). Revisado a 390 px. Build OK (153 páginas). Noticias en `fontes/noticias-2026-11-15.md`.
+- **Verificador**: APTO a la 1ª vuelta (sugerencia opcional de «?» final; no aplicada por coherencia con los otros enlaces).
+- **Qué funcionó**: tarea pequeña y cerrada en una noche.
+- **Qué no / aprendizajes**: el investigador no encontró nada en la semana; infocop.es y euronews bloqueados en la red.
+- **Pendiente / siguiente**: lunes 16/11: herramienta o pieza grande (SEO-3 está cubierta por N-1; candidata #1 buscador de concellos o #5 test) + SEO del lunes (gsc.mjs); N-5.
+- **Métricas** (PostHog): 14/11 3 visitantes, 3 páginas vistas, rebote 100 %; 0 firmas. Search Console no consultada.
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-14 (sábado)
 - **Tarea**: N-6, poner al día las piezas que seguían hablando del 25/10/2026 como futuro.
 - **Hecho**: PUBLICADO en `main` (ceb31dc): `cambio-de-hora-outubro-2026` / `cambio-de-hora-octubre-2026` (título nuevo «…por que atrasar o reloxo en outubro non basta», entradilla y primer párrafo en pasado, próximo cambio 28/3/2027 y 31/10/2027 con el DOUE 18/3/2026) y `guia-prensa-cambio-hora` gl/es (título «Guía para contar o cambio de hora», apartado «Cando é o próximo cambio», dato 1 nuevo, enlace a `/ferramentas/hora/`, fórmula de cita actualizada), con `actualizado: 2026-11-14`. También `/partidos/` gl/es (frase del 25/10 en futuro) y los textos de enlace «O 25 de outubro atrasamos o reloxo» en FAQ, guía, partidos y quen-pode. Build OK (153 páginas). Noticias en `fontes/noticias-2026-11-14.md`.

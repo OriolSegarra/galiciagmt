@@ -1,5 +1,5 @@
-# RESUMEN — última ejecución (2026-11-14)
+# RESUMEN — última ejecución (2026-11-15)
 
-Puestas al día las piezas del cambio de hora del 25/10/2026, que seguían en futuro: artículo «Cambio de hora en Galicia: por que atrasar o reloxo en outubro non basta» y guía de prensa (gl/es), ahora con el próximo cambio (28/3/2027 y 31/10/2027, DOUE 18/3/2026); también /partidos/. https://galiciagmt.es/artigos/guia-prensa-cambio-hora/
-Verificador APTO a la 2ª; build OK (153 páginas). Sin noticias relevantes en la semana.
-Siguiente: lunes 16/11, herramienta o pieza grande (páginas por ciudad, SEO-3) y enlazar /ferramentas/hora/ desde la home.
+La home (gl/es) enlaza ya al reloj «Que hora é agora en Galicia e en Portugal», que llevaba desde el 6/11 sin enlace desde la portada. https://galiciagmt.es/
+Verificador APTO a la 1ª; build OK (153 páginas). Sin noticias relevantes en la semana. PostHog 14/11: 3 visitantes, 0 firmas.
+Siguiente: lunes 16/11, herramienta o pieza grande + SEO semanal (gsc.mjs); comprobar el evento de firmas (N-5).
