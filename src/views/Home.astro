@@ -33,6 +33,7 @@ const c = {
     councilT: 'Para concellos: moción modelo para pedir un estudo técnico',
     toolK: 'Ferramenta',
     toolT: 'A que hora amence en 52 cidades de España, de Xirona a Vigo',
+    horaL: 'Que hora é agora en Galicia e en Portugal',
     cmpK: 'O mesmo día, a mesma hora oficial',
     cmpH: 'O 21 de decembro o sol sae en Xirona ás 8:13 e en Vigo ás 9:00.',
     cmpP: 'Case unha hora de diferenza entre dúas cidades con exactamente o mesmo reloxo. Coa hora de Portugal, Vigo tería o amencer ás 8:00.',
@@ -59,6 +60,7 @@ const c = {
     councilT: 'Para ayuntamientos: moción modelo para pedir un estudio técnico',
     toolK: 'Herramienta',
     toolT: 'A qué hora amanece en 52 ciudades de España, de Girona a Vigo',
+    horaL: 'Qué hora es ahora en Galicia y en Portugal',
     cmpK: 'El mismo día, la misma hora oficial',
     cmpH: 'El 21 de diciembre el sol sale en Girona a las 8:13 y en Vigo a las 9:00.',
     cmpP: 'Casi una hora de diferencia entre dos ciudades con exactamente el mismo reloj. Con la hora de Portugal, Vigo tendría el amanecer a las 8:00.',
@@ -93,6 +95,7 @@ const schema = homeSchema(lang, t(lang, 'site.description'));
       <span class="kicker">{c.toolK}</span>
       <span class="tt">{c.toolT} →</span>
     </a>
+    <p class="council"><a href={r(lang, 'hora')}>{c.horaL} →</a></p>
   </section>
 
   <section class="wrap block cmp">
