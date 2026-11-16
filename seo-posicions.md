@@ -18,3 +18,7 @@ Método en `SEO.md`. Una columna por lunes. `—` = no aparece en el top 20.
 | 12 | moción cambio de hora concello | — | (sin medir) |
 
 Nota base (23/10/2026): la web aún no está indexada (Search Console verificado y sitemap enviado ese día). Competencia principal: prensa (La Voz, Faro de Vigo, El Debate, 20minutos, Público) con piezas en torno a cada cambio de hora, y calculadoras genéricas de amanecer.
+
+
+## 2026-11-16 (lunes) — Search Console 18/10-14/11
+10 consultas con impresiones, 0 clics. Mejores posiciones: «amencer hoxe» 1,0 (1 impr.), «en portugal cambian la hora como en españa» 7,0, «a qué hora amanece en galicia» y «… en verano» 9,5 (2 impr. cada una), «portugal tiene la misma hora que canarias» 10,0 (3), «porque en portugal es una hora menos y en galicia no» 11,0 (2), «a que hora amanece en málaga» 48,0. Lectura: las consultas de Portugal siguen siendo el núcleo; «a qué hora amanece en galicia» entra en el top 10. Sin medición Firecrawl esta noche.

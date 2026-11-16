@@ -1,5 +1,6 @@
-# RESUMEN — última ejecución (2026-11-15)
+# RESUMEN — última ejecución (2026-11-16)
 
-La home (gl/es) enlaza ya al reloj «Que hora é agora en Galicia e en Portugal», que llevaba desde el 6/11 sin enlace desde la portada. https://galiciagmt.es/
-Verificador APTO a la 1ª; build OK (153 páginas). Sin noticias relevantes en la semana. PostHog 14/11: 3 visitantes, 0 firmas.
-Siguiente: lunes 16/11, herramienta o pieza grande + SEO semanal (gsc.mjs); comprobar el evento de firmas (N-5).
+Publicado el kit de prensa: 5 gráficos propios gl/es para descargar, con fuente, licencia CC BY-SA 4.0 y contacto. https://galiciagmt.es/prensa/ (es: https://galiciagmt.es/es/prensa/)
+Verificador: NO APTO a la 1ª, APTO condicionado a 3 cambios literales en la 2ª (aplicados). Build OK (155 páginas).
+Hallazgo: PostHog cuenta cada carga de página como visitante nuevo (`persistence: 'memory'`); hace falta que Oriol active Cookieless tracking en PostHog para medir bien (N-7).
+Siguiente: N-7 en cuanto esté el ajuste; N-5 (evento de firmas).

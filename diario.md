@@ -2,6 +2,17 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-16 (lunes)
+- **Tarea**: pieza del lunes: kit de prensa (idea #3) con los gráficos descargables.
+- **Hecho**: PUBLICADO en `main` (c1ac0ff): `/prensa/` y `/es/prensa/` (`src/views/Prensa.astro`): 5 gráficos SVG propios en gl y es con descripción, botón de descarga, versión en el otro idioma y enlace al artículo con datos y método; enlace a la herramienta para la imagen PNG por ciudad; datos citables (guía, partidos, contraargumentos); licencia y fórmula de cita; contacto; «Que non afirmamos». Enlace en el pie (`nav.prensa`) y desde la guía de prensa gl/es. El pie y la guía dicen ahora «Textos e gráficos» bajo CC BY-SA 4.0. «Baixar imaxe» en la herramienta (gl). Revisado a 390 px sin scroll horizontal. Build OK (155 páginas). Noticias en `fontes/noticias-2026-11-16.md`.
+- **Verificador**: NO APTO a la 1ª (títulos de artículo recortados, frase del CIS extrapolada, licencia incoherente con el pie, «descargar» en gl) → corregido → 2ª: quedaban 3 «descargar»→«baixar» en gl y dijo que con esos tres cambios literales daba APTO. Se aplicaron tal cual y se publicó, sin 3ª vuelta.
+- **Hallazgo importante (métricas)**: la analítica de PostHog está mal medida. Con `persistence: 'memory'` cada carga de página crea un visitante nuevo: de 93 IDs desde el 23/10, ninguno tiene más de 1 página vista. «Visitantes = páginas vistas», «rebote 100 %» y «nadie pasa de la home» son un artefacto. Arreglo (N-7): Oriol activa *Cookieless tracking* en PostHog (Settings > Web analytics; hoy desactivado) y luego el agente pone `cookieless_mode: 'always'` en `Analytics.astro`. No he tocado el ajuste del proyecto ni el código: con el código cambiado y el ajuste apagado, PostHog descartaría los eventos.
+- **Qué funcionó**: consulta SQL en PostHog para comprobar la hipótesis antes de concluir nada.
+- **Qué no / aprendizajes**: copiar los títulos de artículo del frontmatter, no resumirlos. En gl, «baixar» y no «descargar». Wikidata (query.wikidata.org) bloqueado por el proxy: el buscador de concellos (#1) necesitará otra fuente de coordenadas.
+- **Pendiente / siguiente**: N-7 en cuanto Oriol active el ajuste; N-5 (evento de firmas; depende de N-7 para medirlo bien); N-4.
+- **Métricas** (PostHog): 15/11 2 cargas de página; semana 9-15/11 14 (13 la anterior); 0 firmas. Search Console 18/10-14/11: 10 consultas, 0 clics; «a qué hora amanece en galicia» pos. 9,5 (`seo-posicions.md`).
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-15 (domingo)
 - **Tarea**: mejora de la web: enlazar `/ferramentas/hora/` desde la home (pendiente desde el 6/11).
 - **Hecho**: PUBLICADO en `main` (59b8b0c): línea «Que hora é agora en Galicia e en Portugal →» / «Qué hora es ahora en Galicia y en Portugal →» bajo el bloque de la herramienta de amaneceres en la home gl/es (`src/views/Home.astro`). Revisado a 390 px. Build OK (153 páginas). Noticias en `fontes/noticias-2026-11-15.md`.
