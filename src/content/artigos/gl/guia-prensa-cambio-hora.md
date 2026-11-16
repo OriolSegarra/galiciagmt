@@ -100,4 +100,4 @@ Para Galicia o cambio de hora non move o fuso: de finais de outubro a finais de 
 
 ## Licenza e como citar
 
-Os textos desta web están baixo licenza CC BY-SA 4.0: pódense copiar e adaptar citando a autoría e mantendo a mesma licenza. Fórmula suxerida: «Galicia GMT, "Guía para contar o cambio de hora" (19/10/2026, actualizada o 14/11/2026), CC BY-SA 4.0», coa ligazón a esta páxina. Para cifras de cálculo propio, indicar «cálculo de Galicia GMT con ecuacións solares da NOAA».
+Os textos e gráficos desta web están baixo licenza CC BY-SA 4.0: pódense copiar e adaptar citando a autoría e mantendo a mesma licenza. Fórmula suxerida: «Galicia GMT, "Guía para contar o cambio de hora" (19/10/2026, actualizada o 14/11/2026), CC BY-SA 4.0», coa ligazón a esta páxina. Para cifras de cálculo propio, indicar «cálculo de Galicia GMT con ecuacións solares da NOAA». Os gráficos para baixar están no [kit de prensa](/prensa/).

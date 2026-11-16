@@ -1,0 +1,273 @@
+---
+/* Kit de prensa: gráficos descargables (SVG propios) con fonte, licenza e contacto. */
+import Prose from './Prose.astro';
+import { CONTACT_EMAIL } from '../config';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const gl = lang === 'gl';
+
+type Fig = { file: string; w: number; h: number; title: string; desc: string; art: string; artTitle: string };
+
+const figs: Record<Lang, Fig[]> = {
+  gl: [
+    {
+      file: 'gradiente-amencer',
+      w: 760,
+      h: 508,
+      title: 'O desfase non é igual en toda España',
+      desc: 'Hora do amencer o 21 de decembro de 2026 en 14 cidades, de Xirona a Santiago, coa hora actual e coa hora de Lisboa.',
+      art: '/artigos/como-funciona-o-reloxo-do-corpo/',
+      artTitle: 'Como funciona o reloxo do corpo: luz, sono e hora oficial',
+    },
+    {
+      file: 'amencer-lisboa-santiago',
+      w: 760,
+      h: 258,
+      title: 'Lisboa e Santiago, o mesmo día',
+      desc: 'Hora do amencer en Lisboa e en Santiago o 21 de decembro de 2026.',
+      art: '/artigos/portugal-e-canarias/',
+      artTitle: 'Por que Portugal ten unha hora menos ca Galicia',
+    },
+    {
+      file: 'amencer-santiago-ano',
+      w: 760,
+      h: 430,
+      title: 'Un ano de amenceres en Santiago',
+      desc: 'Hora do amencer en Santiago cada día de 2026 coa hora actual e coa hora de Lisboa.',
+      art: '/artigos/galicia-ao-oeste-de-greenwich/',
+      artTitle: 'Por que Galicia non ten a hora de Portugal',
+    },
+    {
+      file: 'amencer-santiago-tres-horarios',
+      w: 760,
+      h: 450,
+      title: 'Tres horarios posibles',
+      desc: 'Hora do amencer en Santiago cada día de 2026 co horario actual, co inverno fixo (UTC+1) e co verán permanente (UTC+2).',
+      art: '/artigos/cambio-de-hora-outubro-2026/',
+      artTitle: 'Cambio de hora en Galicia: por que atrasar o reloxo en outubro non basta',
+    },
+    {
+      file: 'colexio-amencer',
+      w: 760,
+      h: 500,
+      title: 'O colexio a escuras',
+      desc: 'Días de luns a venres do curso con amencer despois das 8:00, 8:30 e 9:00 en Xirona, Madrid e Santiago, co horario actual e coa hora de Lisboa.',
+      art: '/artigos/o-colexio-a-escuras/',
+      artTitle: 'O colexio a escuras: o sol e a hora de entrada en Galicia',
+    },
+  ],
+  es: [
+    {
+      file: 'gradiente-amencer',
+      w: 760,
+      h: 508,
+      title: 'El desfase no es igual en toda España',
+      desc: 'Hora del amanecer el 21 de diciembre de 2026 en 14 ciudades, de Girona a Santiago, con la hora actual y con la hora de Lisboa.',
+      art: '/es/articulos/como-funciona-el-reloj-del-cuerpo/',
+      artTitle: 'Cómo funciona el reloj del cuerpo: luz, sueño y hora oficial',
+    },
+    {
+      file: 'amencer-lisboa-santiago',
+      w: 760,
+      h: 258,
+      title: 'Lisboa y Santiago, el mismo día',
+      desc: 'Hora del amanecer en Lisboa y en Santiago el 21 de diciembre de 2026.',
+      art: '/es/articulos/portugal-y-canarias/',
+      artTitle: 'Por qué Portugal tiene una hora menos que Galicia',
+    },
+    {
+      file: 'amencer-santiago-ano',
+      w: 760,
+      h: 430,
+      title: 'Un año de amaneceres en Santiago',
+      desc: 'Hora del amanecer en Santiago cada día de 2026 con la hora actual y con la hora de Lisboa.',
+      art: '/es/articulos/galicia-al-oeste-de-greenwich/',
+      artTitle: 'Por qué Galicia no tiene la hora de Portugal',
+    },
+    {
+      file: 'amencer-santiago-tres-horarios',
+      w: 760,
+      h: 450,
+      title: 'Tres horarios posibles',
+      desc: 'Hora del amanecer en Santiago cada día de 2026 con el horario actual, con el invierno fijo (UTC+1) y con el verano permanente (UTC+2).',
+      art: '/es/articulos/cambio-de-hora-octubre-2026/',
+      artTitle: 'Cambio de hora en Galicia: por qué atrasar el reloj en octubre no basta',
+    },
+    {
+      file: 'colexio-amencer',
+      w: 760,
+      h: 500,
+      title: 'El colegio a oscuras',
+      desc: 'Días de lunes a viernes del curso con amanecer después de las 8:00, 8:30 y 9:00 en Girona, Madrid y Santiago, con el horario actual y con la hora de Lisboa.',
+      art: '/es/articulos/el-colegio-a-oscuras/',
+      artTitle: 'El colegio a oscuras: el sol y la hora de entrada en Galicia',
+    },
+  ],
+};
+
+const tx = gl
+  ? {
+      kicker: 'Prensa',
+      title: 'Kit de prensa: gráficos sobre a hora de Galicia para baixar',
+      lede: 'Cinco gráficos propios sobre o amencer en Galicia e no resto de España, en galego e en castelán, listos para baixar e reproducir citando a fonte. Cada un leva ao artigo onde están os datos e o método.',
+      alt: '/es/prensa/',
+      figsH: 'Gráficos',
+      figsP: 'Formato SVG (vectorial: amplíase sen perder calidade e ábrese en calquera navegador ou programa de deseño). Cálculo propio coas ecuacións solares da NOAA, con marxe de ±1-2 minutos.',
+      dl: 'Baixar SVG',
+      other: 'versión en castelán',
+      source: 'Datos e fontes',
+      pngH: 'Unha imaxe para a túa cidade',
+      pngP: 'A ferramenta de amenceres xera unha imaxe PNG de 1200×630 coa cidade e o día que escollas, para redes ou para ilustrar unha nova. Por exemplo,',
+      pngLink: 'Vigo o 21 de decembro',
+      pngEnd: '; o botón «Baixar imaxe» está debaixo do gráfico.',
+      dataH: 'Datos citables',
+      dataP1: 'Os dez datos con fonte, o estado do expediente europeo e os erros que máis se repiten están na',
+      dataGuide: 'Guía para contar o cambio de hora',
+      dataP2: 'Para as opcións e os argumentos en contra, nunha páxina:',
+      dataParties: 'Para partidos e institucións',
+      dataP3: 'Os contraargumentos, sen suavizar:',
+      dataCounter: 'Os contraargumentos',
+      licH: 'Licenza e como citar',
+      licP: 'Os textos e gráficos desta web están baixo licenza CC BY-SA 4.0: pódense reproducir e adaptar citando a autoría e mantendo a mesma licenza. Fórmula suxerida para un gráfico: «Gráfico: Galicia GMT (galiciagmt.es), cálculo con ecuacións solares da NOAA, CC BY-SA 4.0».',
+      licLink: 'Texto da licenza',
+      contactH: 'Contacto',
+      contactP: 'Para erros, dúbidas sobre un dato ou formatos doutro tamaño, escribe a',
+      notH: 'Que non afirmamos',
+      not: [
+        'Non falamos en nome de ningunha institución, partido nin persoa, e non citamos apoios.',
+        'Os gráficos amosan horas de amencer calculadas, non efectos sobre a saúde: para iso, ver as fontes de cada artigo.',
+        'Non dicimos que a hora de Greenwich sexa a preferida pola maioría. O CIS de abril de 2026 non preguntou por ela: o 66,4 % prefire o horario de verán e o 22 % o de inverno (ver a guía).',
+      ],
+    }
+  : {
+      kicker: 'Prensa',
+      title: 'Kit de prensa: gráficos sobre la hora de Galicia para descargar',
+      lede: 'Cinco gráficos propios sobre el amanecer en Galicia y en el resto de España, en gallego y en castellano, listos para descargar y reproducir citando la fuente. Cada uno lleva al artículo donde están los datos y el método.',
+      alt: '/prensa/',
+      figsH: 'Gráficos',
+      figsP: 'Formato SVG (vectorial: se amplía sin perder calidad y se abre en cualquier navegador o programa de diseño). Cálculo propio con las ecuaciones solares de la NOAA, con un margen de ±1-2 minutos.',
+      dl: 'Descargar SVG',
+      other: 'versión en gallego',
+      source: 'Datos y fuentes',
+      pngH: 'Una imagen para tu ciudad',
+      pngP: 'La herramienta de amaneceres genera una imagen PNG de 1200×630 con la ciudad y el día que elijas, para redes o para ilustrar una noticia. Por ejemplo,',
+      pngLink: 'Vigo el 21 de diciembre',
+      pngEnd: '; el botón «Descargar imagen» está debajo del gráfico.',
+      dataH: 'Datos citables',
+      dataP1: 'Los diez datos con fuente, el estado del expediente europeo y los errores que más se repiten están en la',
+      dataGuide: 'Guía para contar el cambio de hora',
+      dataP2: 'Para las opciones y los argumentos en contra, en una página:',
+      dataParties: 'Para partidos e instituciones',
+      dataP3: 'Los contraargumentos, sin suavizar:',
+      dataCounter: 'Los contraargumentos',
+      licH: 'Licencia y cómo citar',
+      licP: 'Los textos y gráficos de esta web están bajo licencia CC BY-SA 4.0: se pueden reproducir y adaptar citando la autoría y manteniendo la misma licencia. Fórmula sugerida para un gráfico: «Gráfico: Galicia GMT (galiciagmt.es), cálculo con ecuaciones solares de la NOAA, CC BY-SA 4.0».',
+      licLink: 'Texto de la licencia',
+      contactH: 'Contacto',
+      contactP: 'Para errores, dudas sobre un dato o formatos de otro tamaño, escribe a',
+      notH: 'Qué no afirmamos',
+      not: [
+        'No hablamos en nombre de ninguna institución, partido ni persona, y no citamos apoyos.',
+        'Los gráficos muestran horas de amanecer calculadas, no efectos sobre la salud: para eso, ver las fuentes de cada artículo.',
+        'No decimos que la hora de Greenwich sea la preferida por la mayoría. El CIS de abril de 2026 no preguntó por ella: el 66,4 % prefiere el horario de verano y el 22 % el de invierno (ver la guía).',
+      ],
+    };
+
+const otherLang: Lang = gl ? 'es' : 'gl';
+const p = gl ? '' : '/es';
+const guide = gl ? '/artigos/guia-prensa-cambio-hora/' : '/es/articulos/guia-prensa-cambio-hora/';
+const counter = gl ? '/artigos/os-contraargumentos/' : '/es/articulos/los-contraargumentos/';
+const tool = gl ? '/ferramentas/amencer/' : '/es/herramientas/amanecer/';
+---
+
+<Prose lang={lang} kicker={tx.kicker} title={tx.title} lede={tx.lede} alt={tx.alt}>
+  <h2>{tx.figsH}</h2>
+  <p>{tx.figsP}</p>
+  <div class="figs">
+    {
+      figs[lang].map((f) => (
+        <figure>
+          <a href={`/img/${f.file}-${lang}.svg`}>
+            <img src={`/img/${f.file}-${lang}.svg`} width={f.w} height={f.h} alt={f.desc} loading="lazy" />
+          </a>
+          <figcaption>
+            <strong>{f.title}.</strong> {f.desc}
+            <span class="links">
+              <a href={`/img/${f.file}-${lang}.svg`} download>{tx.dl}</a>
+              <a href={`/img/${f.file}-${otherLang}.svg`} download>{tx.other}</a>
+              <a href={f.art}>
+                {tx.source}: {f.artTitle}
+              </a>
+            </span>
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+
+  <h2>{tx.pngH}</h2>
+  <p>
+    {tx.pngP} <a href={`${tool}?esc=actual&data=12-21&lim=510&cidade=vigo`}>{tx.pngLink}</a>{tx.pngEnd}
+  </p>
+
+  <h2>{tx.dataH}</h2>
+  <ul>
+    <li>{tx.dataP1} <a href={guide}>{tx.dataGuide}</a>.</li>
+    <li>{tx.dataP2} <a href={`${p}/partidos/`}>{tx.dataParties}</a>.</li>
+    <li>{tx.dataP3} <a href={counter}>{tx.dataCounter}</a>.</li>
+  </ul>
+
+  <h2>{tx.licH}</h2>
+  <p>
+    {tx.licP} <a href={gl ? 'https://creativecommons.org/licenses/by-sa/4.0/deed.gl' : 'https://creativecommons.org/licenses/by-sa/4.0/deed.es'}>{tx.licLink}</a>.
+  </p>
+
+  {
+    CONTACT_EMAIL && (
+      <>
+        <h2>{tx.contactH}</h2>
+        <p>
+          {tx.contactP} <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        </p>
+      </>
+    )
+  }
+
+  <h2>{tx.notH}</h2>
+  <ul>
+    {tx.not.map((n) => <li>{n}</li>)}
+  </ul>
+</Prose>
+
+<style>
+  .figs {
+    display: grid;
+    gap: 2.5rem;
+    margin-block: 1.5rem 2.5rem;
+  }
+  figure {
+    margin: 0;
+    border-top: 1px solid var(--ink);
+    padding-top: 1rem;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    margin-top: 0.5rem;
+    font-weight: 600;
+  }
+</style>
