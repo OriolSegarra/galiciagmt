@@ -1,12 +1,18 @@
 ---
 titulo: "Por que Portugal ten unha hora menos ca Galicia"
-entradilla: "Portugal ten unha hora menos porque usa a hora de Greenwich e Galicia a centroeuropea. Probou a CET en 1992 e deixouna en 1996."
+entradilla: "Portugal ten unha hora menos porque usa a hora de Greenwich e Galicia a centroeuropea. Cambia o reloxo o mesmo día ca España e ten a mesma hora ca Canarias. Probou a CET de 1992 a 1996."
 data: 2026-09-27
-actualizado: 2026-10-30
+actualizado: 2026-11-17
 par: comparativa
 orde: 4
 seccion: comparativa
 fontes:
+  - titulo: "EUR-Lex — Directiva 2000/84/CE, sobre a hora de verán"
+    url: "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32000L0084"
+    dato: "O período da hora de verán comeza e remata «en todos los Estados miembros a la 1 de la madrugada, hora universal» do último domingo de marzo e de outubro"
+  - titulo: "Diário da República — Decreto-Lei n.º 17/96, de 8 de março"
+    url: "https://diariodarepublica.pt/dr/detalhe/decreto-lei/17-1996-621299"
+    dato: "«A hora legal de Portugal continental coincide com o tempo universal coordenado (UTC)» no inverno e co UTC «aumentado de sessenta minutos» no verán"
   - titulo: "UPI Archives, 'Portugal turns back the clock' (1996)"
     url: "https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/"
     dato: "Portugal abandonou en 1996 catro anos de hora centroeuropea"
@@ -36,6 +42,18 @@ fontes:
 Portugal ten unha hora menos ca Galicia porque a súa hora oficial é a de Greenwich, mentres que España leva a centroeuropea (CET) dende a orde de 1940, que [explicamos noutro artigo](/artigos/por-que-cambiamos-de-hora-en-1940/). Portugal probou a CET entre 1992 e 1996 e abandonouna ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)). O resultado vese no amencer: o 21 de decembro sae ás 7:50 en [Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026) e ás 9:01 en [Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), como amosa a [ferramenta de amenceres](/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=santiago).
 
 Cando se fala de que Galicia use a hora de Greenwich, adoita saír a mesma obxección: "iso sería un lío". Pero xa temos dous exemplos reais, moi preto de nós, de territorios que viven cunha hora distinta á do resto do Estado ao que pertencen. Un saíu mal e rectificouse. O outro leva un século funcionando sen que ninguén o cuestione. Paga a pena mirar os dous con calma antes de sacar conclusións.
+
+## Portugal cambia a hora coma España?
+
+Si. Portugal e España adiantan e atrasan o reloxo o mesmo día e no mesmo instante, porque a [Directiva 2000/84/CE](https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32000L0084) fixa o cambio «en todos los Estados miembros a la 1 de la madrugada, hora universal» do último domingo de marzo e do último de outubro. O que cambia é a hora de partida. En Portugal continental, a hora legal «coincide com o tempo universal coordenado (UTC)» no inverno e vai sesenta minutos por diante no verán ([Decreto-Lei 17/96](https://diariodarepublica.pt/dr/detalhe/decreto-lei/17-1996-621299)). En España, o [Real Decreto 236/2002](https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221) sitúa ese mesmo cambio ás dúas da madrugada peninsulares, «la una hora de la madrugada en Canarias». Como ese instante é a 1:00 UTC, a Península vai en UTC+1 no inverno e Canarias, igual ca Portugal, en UTC+0 (conta propia a partir das dúas normas).
+
+| | Inverno | Verán |
+|---|---|---|
+| Galicia e resto da Península | UTC+1 | UTC+2 |
+| Portugal continental | UTC+0 | UTC+1 |
+| Canarias | UTC+0 | UTC+1 |
+
+Por iso Portugal e Canarias teñen sempre a mesma hora, e Galicia sempre unha máis. O próximo cambio é o 28 de marzo de 2027, como contamos nas [preguntas frecuentes](/artigos/preguntas-frecuentes/); a que hora sería agora en cada lado pódese ver no [reloxo de Galicia e Portugal](/ferramentas/hora/).
 
 ## Portugal probou o contrario e deu marcha atrás
 
