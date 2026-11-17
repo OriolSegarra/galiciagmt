@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-17 (martes)
+- **Tarea**: SEO-2 (tanda): `portugal-e-canarias` / `portugal-y-canarias`, la página con más impresiones en Search Console (145, pos. 7,6, 0 clics), ahora responde también a las búsquedas reales «en portugal se cambia la hora como en españa» y «portugal tiene la misma hora que canarias».
+- **Hecho**: PUBLICADO en `main` (0f7c184): sección nueva «Portugal cambia a hora coma España?» / «¿Portugal cambia la hora como España?» con tabla UTC invierno/verano (Península, Portugal continental, Canarias), fuentes nuevas Directiva 2000/84/CE (EUR-Lex) y Decreto-Lei 17/96, deducción UTC+1/UTC+0 marcada como cuenta propia (directiva + RD 236/2002), enlaces a la FAQ y a `/ferramentas/hora/`; entradilla nueva y `actualizado: 2026-11-17`. Build OK (155 páginas). https://galiciagmt.es/es/articulos/portugal-y-canarias/
+- **Verificador**: APTO a la 1ª vuelta.
+- **Qué funcionó**: `node scripts/gsc.mjs --dim query,page` dice qué consultas llegan a cada página: mejor que adivinar la palabra clave.
+- **Qué no / aprendizajes**: oal.ul.pt da error TLS en Firecrawl; el texto del DL 17/96 está en el PDF del OAL y en diariodarepublica.pt. N-5 revisada sin cambiar código: el único envío de Tally es una prueba del 23/10 anterior a PostHog; el evento no aparece porque no ha habido firmas (detalle en `fontes/noticias-2026-11-17.md`).
+- **Pendiente / siguiente**: N-7 en cuanto Oriol active Cookieless tracking (sigue desactivado hoy); seguir SEO-2 con `herramientas/amanecer` (71 impresiones, pos. 6,7, consulta «a qué hora amanece en galicia») y `galicia-al-oeste-de-greenwich` (27, pos. 6,0); N-4.
+- **Métricas** (PostHog): 16/11 1 carga de página; 0 firmas. Search Console 19/10-15/11: portugal-y-canarias 145 impr., herramienta es 71, 3 clics en total (cambio de hora, 1940, moción).
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-16 (lunes)
 - **Tarea**: pieza del lunes: kit de prensa (idea #3) con los gráficos descargables.
 - **Hecho**: PUBLICADO en `main` (c1ac0ff): `/prensa/` y `/es/prensa/` (`src/views/Prensa.astro`): 5 gráficos SVG propios en gl y es con descripción, botón de descarga, versión en el otro idioma y enlace al artículo con datos y método; enlace a la herramienta para la imagen PNG por ciudad; datos citables (guía, partidos, contraargumentos); licencia y fórmula de cita; contacto; «Que non afirmamos». Enlace en el pie (`nav.prensa`) y desde la guía de prensa gl/es. El pie y la guía dicen ahora «Textos e gráficos» bajo CC BY-SA 4.0. «Baixar imaxe» en la herramienta (gl). Revisado a 390 px sin scroll horizontal. Build OK (155 páginas). Noticias en `fontes/noticias-2026-11-16.md`.

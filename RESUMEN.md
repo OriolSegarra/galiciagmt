@@ -1,6 +1,6 @@
-# RESUMEN — última ejecución (2026-11-16)
+# RESUMEN — última ejecución (2026-11-17)
 
-Publicado el kit de prensa: 5 gráficos propios gl/es para descargar, con fuente, licencia CC BY-SA 4.0 y contacto. https://galiciagmt.es/prensa/ (es: https://galiciagmt.es/es/prensa/)
-Verificador: NO APTO a la 1ª, APTO condicionado a 3 cambios literales en la 2ª (aplicados). Build OK (155 páginas).
-Hallazgo: PostHog cuenta cada carga de página como visitante nuevo (`persistence: 'memory'`); hace falta que Oriol active Cookieless tracking en PostHog para medir bien (N-7).
-Siguiente: N-7 en cuanto esté el ajuste; N-5 (evento de firmas).
+Ampliado el artículo con más impresiones en Google (Portugal y Canarias, 145 impresiones, pos. 7,6): ahora responde si Portugal cambia la hora como España, con tabla UTC y fuentes (Directiva 2000/84/CE, Decreto-Lei 17/96). https://galiciagmt.es/es/articulos/portugal-y-canarias/ (gl: https://galiciagmt.es/artigos/portugal-e-canarias/)
+Verificador APTO a la 1ª. Build OK (155 páginas). Sin noticias relevantes en la semana.
+N-5 revisada: no hay fallo, el único envío de Tally es una prueba anterior a PostHog. N-7 sigue esperando a que Oriol active Cookieless tracking.
+Siguiente: SEO-2 con la herramienta de amaneceres es (71 impresiones) o N-7 si Oriol activa el ajuste.
