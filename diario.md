@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-18 (miércoles)
+- **Tarea**: SEO-2: `/es/herramientas/amanecer/` (71 impresiones, pos. 6,7-9, consulta «a qué hora amanece en galicia») y su pareja gl ahora responden la búsqueda.
+- **Hecho**: PUBLICADO en `main` (179ded8): `src/views/ToolAmencer.astro` con `<title>` «¿A qué hora amanece en Galicia? Amaneceres en cada ciudad» / «A que hora amence en Galicia? Amenceres en cada cidade», h1 «¿A qué hora amanece en Galicia y en cada ciudad?» y sección inicial con respuesta directa (6:50 a mediados de junio en Lugo – 9:06 a principios de enero en A Coruña; 21/12 de 8:57 a 9:03, Barcelona 8:14) y tabla calculada en build con `sol.ts` (6 ciudades gallegas enlazadas a su página + Madrid y Barcelona; 21/12, 20/3, 21/6, 22/9, más tarde del año y 21/12 con hora de Portugal). Método reescrito sin generalizar la validación. Sin scroll horizontal a 390 px. Build OK (155 páginas). https://galiciagmt.es/es/herramientas/amanecer/
+- **Verificador**: NO APTO a la 1ª (método generalizaba la validación de un día; «varía un minuto entre años» sin cálculo; NOAA sin enlace inline) → corregido → APTO a la 2ª.
+- **Qué funcionó**: generar las cifras del texto en build desde `sol.ts`: la frase-respuesta no puede desfasarse de la tabla.
+- **Qué no / aprendizajes**: no escribir afirmaciones de precisión que no salgan de un cálculo o fuente (lo de «entre años»).
+- **Pendiente / siguiente**: SEO-2 con `galicia-al-oeste-de-greenwich` (27 impr., pos. 6,0); N-7 en cuanto Oriol active Cookieless tracking (hoy `cookieless_server_hash_mode: 0`); N-4.
+- **Métricas** (PostHog): 17/11 3 cargas de página; 0 firmas. Noticias: nada en la semana (`fontes/noticias-2026-11-18.md`).
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-17 (martes)
 - **Tarea**: SEO-2 (tanda): `portugal-e-canarias` / `portugal-y-canarias`, la página con más impresiones en Search Console (145, pos. 7,6, 0 clics), ahora responde también a las búsquedas reales «en portugal se cambia la hora como en españa» y «portugal tiene la misma hora que canarias».
 - **Hecho**: PUBLICADO en `main` (0f7c184): sección nueva «Portugal cambia a hora coma España?» / «¿Portugal cambia la hora como España?» con tabla UTC invierno/verano (Península, Portugal continental, Canarias), fuentes nuevas Directiva 2000/84/CE (EUR-Lex) y Decreto-Lei 17/96, deducción UTC+1/UTC+0 marcada como cuenta propia (directiva + RD 236/2002), enlaces a la FAQ y a `/ferramentas/hora/`; entradilla nueva y `actualizado: 2026-11-17`. Build OK (155 páginas). https://galiciagmt.es/es/articulos/portugal-y-canarias/
