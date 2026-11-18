@@ -6,6 +6,7 @@ import Fontes from '../components/Fontes.astro';
 import Cta from '../components/Cta.astro';
 import { articleUrl, r, type Lang } from '../i18n/ui';
 import { WIKIDATA_SRC, cidades, slugCidade } from '../data/cidades';
+import { amencer, hhmm } from '../lib/sol';
 
 interface Props {
   lang: Lang;
@@ -15,8 +16,9 @@ const { lang } = Astro.props;
 const c = {
   gl: {
     kicker: 'Ferramenta',
-    h1: 'A que hora amence en cada cidade?',
+    h1: 'A que hora amence en Galicia e en cada cidade?',
     lede: 'Todas as capitais peninsulares e de Baleares, ordenadas de leste a oeste. Cambia o escenario e o día e mira como o mesmo reloxo cae moi distinto en Xirona e en Vigo.',
+    title: 'A que hora amence en Galicia? Amenceres en cada cidade',
     readH: 'Como lela',
     read: [
       'Cada punto é a hora oficial á que sae o sol ese día. Canto máis á dereita, máis tarde amence.',
@@ -26,7 +28,7 @@ const c = {
     ],
     methodH: 'Método',
     method:
-      'Os amenceres calcúlanse no teu navegador coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe refracción e tamaño do disco solar). Contrastámolos cos datos de timeanddate.com para Santiago e Lisboa e a diferenza é de 0 a 1 minuto. O horario de verán aplícase do último domingo de marzo ao último de outubro, como fixa o Real Decreto 236/2002. As coordenadas das cidades proceden de Wikidata. Canarias non aparece porque xa ten unha hora menos ca Península.',
+      'Os amenceres calcúlanse no teu navegador coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe refracción e tamaño do disco solar). Contrastámolos con timeanddate.com para o 21 de decembro: en Santiago dá 9:01 nos dous casos e en Lisboa, 7:51 fronte a 7:50. A precisión esperada é de ±1-2 minutos. O horario de verán aplícase do último domingo de marzo ao último de outubro, como fixa o Real Decreto 236/2002. As coordenadas das cidades proceden de Wikidata. Canarias non aparece porque xa ten unha hora menos ca Península.',
     related: 'Para entender por que pasa isto',
     relatedLink: 'Galicia está ao oeste de Greenwich',
     relatedSlug: 'galicia-ao-oeste-de-greenwich',
@@ -42,8 +44,9 @@ const c = {
   },
   es: {
     kicker: 'Herramienta',
-    h1: '¿A qué hora amanece en cada ciudad?',
+    h1: '¿A qué hora amanece en Galicia y en cada ciudad?',
     lede: 'Todas las capitales peninsulares y de Baleares, ordenadas de este a oeste. Cambia el escenario y el día y mira cómo el mismo reloj cae muy distinto en Girona y en Vigo.',
+    title: '¿A qué hora amanece en Galicia? Amaneceres en cada ciudad',
     readH: 'Cómo leerla',
     read: [
       'Cada punto es la hora oficial a la que sale el sol ese día. Cuanto más a la derecha, más tarde amanece.',
@@ -53,7 +56,7 @@ const c = {
     ],
     methodH: 'Método',
     method:
-      'Los amaneceres se calculan en tu navegador con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye refracción y tamaño del disco solar). Los hemos contrastado con los datos de timeanddate.com para Santiago y Lisboa y la diferencia es de 0 a 1 minuto. El horario de verano se aplica del último domingo de marzo al último de octubre, como fija el Real Decreto 236/2002. Las coordenadas de las ciudades proceden de Wikidata. Canarias no aparece porque ya tiene una hora menos que la Península.',
+      'Los amaneceres se calculan en tu navegador con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye refracción y tamaño del disco solar). Los hemos contrastado con timeanddate.com para el 21 de diciembre: en Santiago da 9:01 en ambos casos y en Lisboa, 7:51 frente a 7:50. La precisión esperada es de ±1-2 minutos. El horario de verano se aplica del último domingo de marzo al último de octubre, como fija el Real Decreto 236/2002. Las coordenadas de las ciudades proceden de Wikidata. Canarias no aparece porque ya tiene una hora menos que la Península.',
     related: 'Para entender por qué pasa esto',
     relatedLink: 'Galicia está al oeste de Greenwich',
     relatedSlug: 'galicia-al-oeste-de-greenwich',
@@ -66,6 +69,57 @@ const c = {
     ],
     ano: 'Verlo a lo largo del año: tu año de amaneceres',
     mapa: 'Verlo en un mapa: días al año con amanecer después de las 8:30',
+  },
+}[lang];
+
+// Táboa "A que hora amence en Galicia": cálculo propio en build con sol.ts (2026, hora oficial actual)
+const ANO = 2026;
+const datasT: [number, number][] = [[11, 21], [2, 20], [5, 21], [8, 22]];
+const mesesT = lang === 'gl' ? ['xan', 'feb', 'mar', 'abr', 'mai', 'xuñ', 'xul', 'ago', 'set', 'out', 'nov', 'dec'] : ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+const dia = (m: number, d: number) => new Date(Date.UTC(ANO, m, d, 12));
+const filaT = (cid: (typeof cidades)[number]) => {
+  let mx = { v: 0, d: dia(0, 1) };
+  let mn = { v: 9999, d: dia(0, 1) };
+  for (let i = 0; i < 365; i++) {
+    const d = dia(0, 1 + i);
+    const a = amencer(d, cid.lat, cid.lon, 'actual');
+    if (a > mx.v) mx = { v: a, d };
+    if (a < mn.v) mn = { v: a, d };
+  }
+  return {
+    cid,
+    nome: lang === 'gl' ? cid.gl : cid.es,
+    vals: datasT.map(([m, d]) => amencer(dia(m, d), cid.lat, cid.lon, 'actual')),
+    pt: amencer(dia(11, 21), cid.lat, cid.lon, 'portugal'),
+    mx,
+    mn,
+  };
+};
+const galT = cidades.filter((x) => x.galicia).map(filaT);
+const refT = cidades.filter((x) => x.es === 'Madrid' || x.es === 'Barcelona').map(filaT);
+const fd = (d: Date) => `${d.getUTCDate()} ${mesesT[d.getUTCMonth()]}`;
+const tardeT = galT.reduce((a, b) => (b.mx.v > a.mx.v ? b : a));
+const ceboT = galT.reduce((a, b) => (b.mn.v < a.mn.v ? b : a));
+const dec = galT.map((f) => f.vals[0]);
+const decMin = galT.find((f) => f.vals[0] === Math.min(...dec))!;
+const decMax = galT.find((f) => f.vals[0] === Math.max(...dec))!;
+const bcn = refT.find((f) => f.cid.es === 'Barcelona')!;
+const g = {
+  gl: {
+    h: 'A que hora amence en Galicia?',
+    p: `Coa hora oficial actual, en Galicia o sol sae entre as ${hhmm(ceboT.mn.v)} de mediados de xuño (${ceboT.nome}) e as ${hhmm(tardeT.mx.v)} de comezos de xaneiro (${tardeT.nome}). O 21 de decembro amence entre as ${hhmm(decMin.vals[0])} en ${decMin.nome} e as ${hhmm(decMax.vals[0])} en ${decMax.nome}; en Barcelona, ás ${hhmm(bcn.vals[0])}. Coa hora de Portugal, ese mesmo día amencería unha hora antes.`,
+    cols: ['Cidade', '21 dec', '20 mar', '21 xuñ', '22 set', 'Máis tarde do ano', '21 dec coa hora de Portugal'],
+    notaA: `Hora oficial á que sae o sol. Cálculo propio para ${ANO} co `,
+    notaL: 'método da NOAA',
+    notaB: ' (±1-2 min). Madrid e Barcelona, para comparar.',
+  },
+  es: {
+    h: '¿A qué hora amanece en Galicia?',
+    p: `Con la hora oficial actual, en Galicia el sol sale entre las ${hhmm(ceboT.mn.v)} de mediados de junio (${ceboT.nome}) y las ${hhmm(tardeT.mx.v)} de principios de enero (${tardeT.nome}). El 21 de diciembre amanece entre las ${hhmm(decMin.vals[0])} en ${decMin.nome} y las ${hhmm(decMax.vals[0])} en ${decMax.nome}; en Barcelona, a las ${hhmm(bcn.vals[0])}. Con la hora de Portugal, ese mismo día amanecería una hora antes.`,
+    cols: ['Ciudad', '21 dic', '20 mar', '21 jun', '22 sep', 'Más tarde del año', '21 dic con la hora de Portugal'],
+    notaA: `Hora oficial a la que sale el sol. Cálculo propio para ${ANO} con el `,
+    notaL: 'método de la NOAA',
+    notaB: ' (±1-2 min). Madrid y Barcelona, para comparar.',
   },
 }[lang];
 
@@ -98,13 +152,42 @@ const fontes = [
 ];
 ---
 
-<Base schema={webAppSchema({ lang, path: r(lang, 'amencer'), name: c.h1, description: c.lede })} lang={lang} title={c.h1} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'amencer')}>
+<Base schema={webAppSchema({ lang, path: r(lang, 'amencer'), name: c.h1, description: c.lede })} lang={lang} title={c.title} description={c.lede} alt={r(lang === 'gl' ? 'es' : 'gl', 'amencer')}>
   <div class="wrap page">
     <header class="head">
       <p class="kicker"><a href={r(lang, 'ferramentas')}>{c.kicker}</a></p>
       <h1>{c.h1}</h1>
       <p class="lede">{c.lede}</p>
     </header>
+
+    <section class="galicia">
+      <h2>{g.h}</h2>
+      <p class="resposta">{g.p}</p>
+      <div class="tscroll">
+        <table>
+          <thead><tr>{g.cols.map((x) => <th scope="col">{x}</th>)}</tr></thead>
+          <tbody>
+            {galT.map((f) => (
+              <tr>
+                <th scope="row"><a href={r(lang, 'amencer') + slugCidade(f.cid, lang) + '/'}>{f.nome}</a></th>
+                {f.vals.map((v) => <td>{hhmm(v)}</td>)}
+                <td>{hhmm(f.mx.v)} <span class="d">({fd(f.mx.d)})</span></td>
+                <td>{hhmm(f.pt)}</td>
+              </tr>
+            ))}
+            {refT.map((f, i) => (
+              <tr class={i === 0 ? 'ref first' : 'ref'}>
+                <th scope="row"><a href={r(lang, 'amencer') + slugCidade(f.cid, lang) + '/'}>{f.nome}</a></th>
+                {f.vals.map((v) => <td>{hhmm(v)}</td>)}
+                <td>{hhmm(f.mx.v)} <span class="d">({fd(f.mx.d)})</span></td>
+                <td>{hhmm(f.pt)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="tnota">{g.notaA}<a href="https://gml.noaa.gov/grad/solcalc/solareqns.PDF">{g.notaL}</a>{g.notaB}</p>
+    </section>
 
     <AmencerEspana lang={lang} />
 
@@ -185,6 +268,20 @@ const fontes = [
   .notes p {
     margin: 0 0 0.8rem;
   }
+  .galicia { max-width: 52rem; margin-bottom: 3rem; }
+  .galicia h2 { font-size: clamp(1.4rem, 3.5vw, 2rem); letter-spacing: -0.03em; margin: 0 0 0.8rem; }
+  .resposta { font-size: 1.05rem; margin: 0 0 1.2rem; max-width: 62ch; }
+  .tscroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 0.4rem 0.7rem 0.4rem 0; border-bottom: 1px solid var(--rule, #d6d1c4); white-space: nowrap; }
+  thead th { font-weight: 600; font-size: 0.8rem; color: var(--ink-2); vertical-align: bottom; white-space: normal; min-width: 3.2rem; }
+  thead th:last-child { min-width: 7rem; }
+  tbody th { font-weight: 600; }
+  tbody th a { color: inherit; }
+  tr.ref { color: var(--ink-2); }
+  tr.first th, tr.first td { border-top: 1px solid var(--ink, #111417); }
+  .d { color: var(--ink-2); font-size: 0.85em; }
+  .tnota { font-size: 0.85rem; color: var(--ink-2); margin: 0.6rem 0 0; }
   .lista { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; }
   .cidades { grid-template-columns: 1fr; }
   @media (max-width: 760px) {
