@@ -1,6 +1,6 @@
-# RESUMEN — última ejecución (2026-11-20)
+# RESUMEN — última ejecución (2026-11-21)
 
-El artículo de 1940 responde ahora a «cambio de hora 1940 Franco»: respuesta corta arriba, las dos versiones sobre el motivo (hora de Alemania o seguir a Francia), tabla de la hora legal desde 1901 y amaneceres y atardeceres en Galicia con la hora de antes de 1940 frente a la de hoy. https://galiciagmt.es/es/articulos/por-que-cambiamos-de-hora-en-1940/ (gl: https://galiciagmt.es/artigos/por-que-cambiamos-de-hora-en-1940/)
+El artículo de salud responde ahora a «jet lag social»: respuesta corta arriba (qué es, qué está medido cerca, qué viene de EE. UU., qué no sabemos) y tabla nueva con los días de 2026 en que el sol sale después de las 8:30 en 10 ciudades, hoy y con la hora de Portugal. https://galiciagmt.es/es/articulos/amaneceres-tardios-sueno-y-salud/ (gl: https://galiciagmt.es/artigos/amenceres-tardios-sono-e-saude/)
 Verificador: APTO a la 2ª vuelta. Build OK (155 páginas). Sin noticias relevantes en la semana.
 N-7 sigue esperando a que Oriol active Cookieless tracking en PostHog.
-Siguiente: SEO-2 con «amaneceres tardíos»; lunes 23/11, herramienta o pieza grande.
+Siguiente: lunes 23/11, herramienta o pieza grande + SEO semanal.
