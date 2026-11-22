@@ -53,11 +53,28 @@ const noonMin = 720 - 4 * cid.lon + 60; // mediodía solar medio en hora oficial
 const lonTxt = Math.abs(cid.lon).toFixed(2).replace('.', ',');
 const esteOeste = cid.lon < 0;
 
+const posDec = pos(cid, 12, 21, 'actual');
+const amXun = sol(cid, 6, 21, 'actual');
 const lede = gl
-  ? `O 21 de decembro o sol sae en ${N} ás ${hhmm(nat)} coa hora oficial actual. Coa hora de Portugal sairía ás ${hhmm(nPt)}.`
-  : `El 21 de diciembre el sol sale en ${N} a las ${hhmm(nat)} con la hora oficial actual. Con la hora de Portugal saldría a las ${hhmm(nPt)}.`;
-const h1 = gl ? `A que hora amence en ${N}` : `¿A qué hora amanece en ${N}?`;
-const title = gl ? `A que hora amence en ${N}: horario oficial e hora de Portugal` : `A qué hora amanece en ${N}: horario oficial y hora de Portugal`;
+  ? `Coa hora oficial actual, o 21 de decembro o sol sae en ${N} ás ${hhmm(nat)} e ponse ás ${hhmm(posDec)}; o 21 de xuño, ás ${hhmm(amXun)} e ás ${hhmm(solp)}. Coa hora de Portugal, en decembro sairía ás ${hhmm(nPt)}.`
+  : `Con la hora oficial actual, el 21 de diciembre el sol sale en ${N} a las ${hhmm(nat)} y se pone a las ${hhmm(posDec)}; el 21 de junio, a las ${hhmm(amXun)} y a las ${hhmm(solp)}. Con la hora de Portugal, en diciembre saldría a las ${hhmm(nPt)}.`;
+const desc = gl
+  ? `En ${N}, o 21 de decembro o sol sae ás ${hhmm(nat)} e ponse ás ${hhmm(posDec)}; o 21 de xuño, ás ${hhmm(amXun)} e ás ${hhmm(solp)}. Mes a mes e coa hora de Portugal.`
+  : `En ${N}, el 21 de diciembre el sol sale a las ${hhmm(nat)} y se pone a las ${hhmm(posDec)}; el 21 de junio, a las ${hhmm(amXun)} y a las ${hhmm(solp)}. Mes a mes y con la hora de Portugal.`;
+const h1 = gl ? `A que hora amence e anoitece en ${N}` : `¿A qué hora amanece y anochece en ${N}?`;
+const title = gl ? `A que hora amence e anoitece en ${N}: hora oficial e de Portugal` : `A qué hora amanece y anochece en ${N}: hora oficial y de Portugal`;
+
+// táboa mes a mes: día 15 de cada mes (ningún cambio de hora cae nese día)
+const nomesMes = gl
+  ? ['Xaneiro', 'Febreiro', 'Marzo', 'Abril', 'Maio', 'Xuño', 'Xullo', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Decembro']
+  : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+const mesAMes = nomesMes.map((l, i) => ({
+  l,
+  am: sol(cid, i + 1, 15, 'actual'),
+  po: pos(cid, i + 1, 15, 'actual'),
+  amPt: sol(cid, i + 1, 15, 'portugal'),
+  poPt: pos(cid, i + 1, 15, 'portugal'),
+}));
 
 // comparación co resto: Xirona (extremo leste) e Madrid
 const comp = (a: number, b: number) => Math.round(a - b);
@@ -148,7 +165,7 @@ const relSlug = gl ? 'galicia-ao-oeste-de-greenwich' : 'galicia-al-oeste-de-gree
   schema={webAppSchema({ lang, path, name: h1, description: lede })}
   lang={lang}
   title={title}
-  description={lede}
+  description={desc}
   alt={altPath}
 >
   <div class="wrap page">
@@ -192,6 +209,31 @@ const relSlug = gl ? 'galicia-ao-oeste-de-greenwich' : 'galicia-al-oeste-de-gree
         <p class="nota">{gl ? 'Amencer en hora oficial. “Hora actual”: CET en inverno e CEST en verán; “Portugal”: UTC en inverno e UTC+1 en verán; “Sen verán”: UTC+1 todo o ano.' : 'Amanecer en hora oficial. “Hora actual”: CET en invierno y CEST en verano; “Portugal”: UTC en invierno y UTC+1 en verano; “Sin verano”: UTC+1 todo el año.'}</p>
       </section>
     </div>
+
+    <section class="mes">
+      <h2 class="kicker">{gl ? `Amencer e solpor en ${N}, mes a mes` : `Amanecer y puesta de sol en ${N}, mes a mes`}</h2>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" rowspan="2">{gl ? 'Día 15 de' : 'Día 15 de'}</th>
+            <th scope="colgroup" colspan="2">{gl ? 'Hora actual' : 'Hora actual'}</th>
+            <th scope="colgroup" colspan="2">{gl ? 'Hora de Portugal' : 'Hora de Portugal'}</th>
+          </tr>
+          <tr>
+            <th scope="col">{T_.amencer}</th><th scope="col">{T_.solpor}</th>
+            <th scope="col">{T_.amencer}</th><th scope="col">{T_.solpor}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {mesAMes.map((m) => (
+            <tr><th scope="row">{m.l}</th><td>{hhmm(m.am)}</td><td>{hhmm(m.po)}</td><td class="pt">{hhmm(m.amPt)}</td><td class="pt">{hhmm(m.poPt)}</td></tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="nota">{gl
+        ? `Hora oficial de saída e posta do sol o día 15 de cada mes de ${ANO} (cálculo propio, NOAA). Solpor: hora á que se pon o sol. Coa hora de Portugal todo pasa unha hora antes no reloxo.`
+        : `Hora oficial de salida y puesta del sol el día 15 de cada mes de ${ANO} (cálculo propio, NOAA). Puesta: hora a la que se pone el sol. Con la hora de Portugal todo pasa una hora antes en el reloj.`}</p>
+    </section>
 
     <section class="graf">
       <h2 class="kicker">{T_.graf}</h2>
@@ -269,6 +311,9 @@ const relSlug = gl ? 'galicia-ao-oeste-de-greenwich' : 'galicia-al-oeste-de-gree
   tbody th { font-weight: 500; }
   .nota { font-size: 0.82rem; margin-top: 0.6rem; }
   .graf { margin-top: 3rem; }
+  .mes { margin-top: 3rem; max-width: 46rem; color: var(--ink-2); }
+  .mes thead th { text-align: left; }
+  .mes td.pt { color: #0d3b66; }
   figure { margin: 0.6rem 0 0; }
   svg { width: 100%; height: auto; max-width: 720px; display: block; }
   .grid { stroke: #d8d3c6; stroke-width: 1; }
