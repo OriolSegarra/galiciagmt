@@ -5,6 +5,7 @@ Se actualiza los lunes y el día 1 de cada mes (ver `AGENTE_NOCHE.md`, paso 2b).
 
 | Semana (lun-dom) | Visitantes | Páginas vistas | Firmas (`sinatura_enviada`) | Top 3 páginas | Principales procedencias | Lectura |
 |---|---|---|---|---|---|---|
+| 2026-11-16 → 22 | 13 (cargas de página; ver aviso del 16/11) | 13 | 0 | `/` 11, `/es/herramientas/amanecer/a-coruna/` 1, `/es/partidos/` 1 | directo 11, Google 2 | Igual que la semana anterior (14). Lo nuevo: las dos visitas no directas llegan de Google a páginas profundas (una página por ciudad y `/partidos/`), no a la home. Search Console 25/10-21/11: 45 consultas (antes 10), casi todas «a qué hora amanece/anochece en <ciudad>» con 1 impresión y posición 30-90; las gallegas sí están en el top 10 («a qué hora amanece en galicia» 9,3; «hora de galicia» 9,0). Apuesta de esta semana: la herramienta de los 313 concellos para captar búsquedas locales gallegas, donde la competencia es menor. N-7 sigue bloqueada. |
 | 2026-11-09 → 15 | 14 (ver aviso: en realidad son cargas de página) | 14 | 0 (evento inexistente) | `/` casi todo | directo y la propia web | **Error de medición detectado el 16/11**: con `persistence: 'memory'` cada carga de página crea un visitante nuevo. De 93 IDs desde el 23/10, ninguno tiene más de 1 página vista: «visitantes = páginas vistas» y «rebote 100 %» son un artefacto, no comportamiento real. Arreglo: activar *Cookieless tracking* en PostHog (Settings > Web analytics; hoy `cookieless_server_hash_mode: 0`) y después poner `cookieless_mode: 'always'` en `Analytics.astro` (si se cambia el código antes, PostHog descarta los eventos). Necesita a Oriol. Mientras tanto, las visitas que llegan desde `galiciagmt.es` son navegación interna. |
 | 2026-10-26 → 11-01 | 34 (aprox.: 12+3+4+3+2+3 + sin dato del 1/11) | 34 | 0 | por confirmar | por confirmar | Tras la semana de lanzamiento (29 visitantes el 23/10) el tráfico cae a 2-4 visitantes/día; sin difusión no crece. Search Console 3/10-30/10: 6 consultas, 1 clic; `portugal-y-canarias` 82 impresiones (pos. 7,4) y la herramienta (es) 38 (pos. 6,8): hay demanda, falta subir al top 3. El evento `sinatura_enviada` no existe en PostHog (revisar, N-5). |
 | 2026-10-19 → 25 | 37 | 37 | 0 | `/` (29), `/sobre/` (3), cambio de hora gl / Asínao (1 cada una) | directo 25, galiciagmt.es 7, Google 4 | Primera semana con analítica (desde el 23/10): casi todo entra por la home; sin firmas porque Tally sigue sin ID. Google ya envía algo de tráfico; Search Console aún sin filas. |
@@ -45,6 +46,7 @@ PostHog, visitantes únicos por día. Firmas = evento `sinatura_enviada`. Tally 
 | 2026-11-19 | 2 | 2 | 0 |
 | 2026-11-20 | 2 | 2 | 0 |
 | 2026-11-21 | 1 | 1 | 0 |
+| 2026-11-22 | 2 | 2 | 0 |
 
 Últimos 7 días, por página: `/` 33, `/sobre/` 5, `/ferramentas/` 3, `/artigos/` 2; el resto, 1 cada una. Procedencia: directo 29, galiciagmt.es 18, Google 4. Casi nadie pasa de la home (1 página vista por visitante).
 

@@ -1,6 +1,6 @@
-# RESUMEN — última ejecución (2026-11-22)
+# RESUMEN — última ejecución (2026-11-23)
 
-Las 104 páginas por ciudad responden ahora «a qué hora amanece y anochece en…»: título nuevo, entradilla con salida y puesta del sol el 21/12 y el 21/6, y tabla mes a mes (día 15) con la hora actual y la de Portugal. Ej.: https://galiciagmt.es/es/herramientas/amanecer/santiago/
-Verificador: APTO a la 2ª vuelta. Build OK (155 páginas). Sin noticias relevantes en la semana.
-N-7 sigue esperando a que Oriol active Cookieless tracking en PostHog.
-Siguiente: lunes 23/11, herramienta o pieza grande + SEO semanal.
+Hecha la herramienta «A que hora amence no teu concello» (313 concellos, Wikidata + `sol.ts`), pero SIN PUBLICAR: el verificador dio NO APTO en la 2ª vuelta por márgenes de precisión sin fuente. Queda en la rama `borrador/2026-11-23` con la corrección ya aplicada.
+El verificador encontró la misma atribución de «±1-2 min» a la NOAA en 5 páginas publicadas (FIX-2).
+Métricas: 13 cargas de página en la semana, 0 firmas. Search Console: 45 consultas (antes 10). Sin noticias.
+Siguiente: FIX-2 en todo el sitio, verificar el borrador y fusionarlo en `main` si sale APTO.
