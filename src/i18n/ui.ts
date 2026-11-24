@@ -11,6 +11,7 @@ export const routes = {
   ano: { gl: '/ferramentas/ano/', es: '/es/herramientas/ano/' },
   mapa: { gl: '/ferramentas/mapa/', es: '/es/herramientas/mapa/' },
   hora: { gl: '/ferramentas/hora/', es: '/es/herramientas/hora/' },
+  concello: { gl: '/ferramentas/concello/', es: '/es/herramientas/concello/' },
   asinao: { gl: '/asinao/', es: '/es/firmalo/' },
   mocion: { gl: '/mocion/', es: '/es/mocion/' },
   partidos: { gl: '/partidos/', es: '/es/partidos/' },

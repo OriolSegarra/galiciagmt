@@ -5,6 +5,7 @@ import Cta from '../components/Cta.astro';
 import { webAppSchema } from '../lib/schema';
 import { articleUrl, r, type Lang } from '../i18n/ui';
 import { cidades, slugCidade, WIKIDATA_SRC } from '../data/cidades';
+import { concellos } from '../data/concellos';
 import { amencer, solpor, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
 
 interface Props {
@@ -116,6 +117,13 @@ const horas = [5, 6, 7, 8, 9, 10, 11];
 const meses = gl ? ['X', 'F', 'M', 'A', 'M', 'X', 'X', 'A', 'S', 'O', 'N', 'D'] : ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
 const iniMes = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
 
+// Cidades galegas: ligazón á ferramenta de concellos, co concello preseleccionado se coincide o nome.
+const concelloCid = cid.galicia
+  ? concellos.find((x) => x.nome === cid.gl || (cid.gl === 'Santiago' && x.nome === 'Santiago de Compostela'))
+  : undefined;
+const concelloUrl = cid.galicia ? r(lang, 'concello') + (concelloCid ? `?c=${concelloCid.ine}` : '') : '';
+const concelloTxt = gl ? 'Busca calquera dos 313 concellos de Galicia' : 'Busca cualquiera de los 313 concellos de Galicia';
+
 const toolUrl = (esc: string) => `${r(lang, 'amencer')}?esc=${esc}&data=12-21&lim=510&cidade=${slug}`;
 
 const cap = gl
@@ -184,6 +192,7 @@ const relSlug = gl ? 'galicia-ao-oeste-de-greenwich' : 'galicia-al-oeste-de-gree
           <a href={toolUrl('actual')}>{T_.sw}</a> · <a href={toolUrl('portugal')}>{T_.sPt}</a> · <a href={toolUrl('senveran')}>{T_.sSv}</a>
           <br /><span>{T_.tool} →</span>
         </p>
+        {concelloUrl && <p class="tool"><a href={concelloUrl}>{concelloTxt} →</a></p>}
       </section>
 
       <section>

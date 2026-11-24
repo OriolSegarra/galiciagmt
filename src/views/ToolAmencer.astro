@@ -41,6 +41,7 @@ const c = {
     ],
     ano: 'Velo ao longo do ano: o teu ano de amenceres',
     mapa: 'Velo nun mapa: días ao ano con amencer despois das 8:30',
+    concello: 'O teu concello non está? Búscao entre os 313 de Galicia',
   },
   es: {
     kicker: 'Herramienta',
@@ -69,6 +70,7 @@ const c = {
     ],
     ano: 'Verlo a lo largo del año: tu año de amaneceres',
     mapa: 'Verlo en un mapa: días al año con amanecer después de las 8:30',
+    concello: '¿Tu concello no está? Búscalo entre los 313 de Galicia',
   },
 }[lang];
 
@@ -187,6 +189,7 @@ const fontes = [
         </table>
       </div>
       <p class="tnota">{g.notaA}<a href="https://gml.noaa.gov/grad/solcalc/solareqns.PDF">{g.notaL}</a>{g.notaB}</p>
+      <p class="concello"><a href={r(lang, 'concello')}>{c.concello} →</a></p>
     </section>
 
     <AmencerEspana lang={lang} />
@@ -282,6 +285,7 @@ const fontes = [
   tr.first th, tr.first td { border-top: 1px solid var(--ink, #111417); }
   .d { color: var(--ink-2); font-size: 0.85em; }
   .tnota { font-size: 0.85rem; color: var(--ink-2); margin: 0.6rem 0 0; }
+  .concello { margin: 0.8rem 0 0; font-weight: 600; }
   .lista { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; }
   .cidades { grid-template-columns: 1fr; }
   @media (max-width: 760px) {

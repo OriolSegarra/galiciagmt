@@ -1,0 +1,559 @@
+---
+import Base from '../layouts/Base.astro';
+import Fontes from '../components/Fontes.astro';
+import Cta from '../components/Cta.astro';
+import { webAppSchema } from '../lib/schema';
+import { articleUrl, r, type Lang } from '../i18n/ui';
+import { concellos, PROVINCIAS, WIKIDATA_CONCELLOS_SRC, type Concello } from '../data/concellos';
+import { WIKIDATA_SRC } from '../data/cidades';
+import { amencer, solpor, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const gl = lang === 'gl';
+const path = r(lang, 'concello');
+
+// Cálculo en build (táboas estáticas). Ano de referencia, como no resto de ferramentas.
+const ANO = 2026;
+const dia = (m: number, d: number, ano = ANO) => new Date(Date.UTC(ano, m - 1, d, 12));
+const DEC = dia(12, 21);
+const XUN = dia(6, 21);
+const LIM = 510; // 8:30
+
+const ordenados = [...concellos].sort((a, b) => a.nome.localeCompare(b.nome, 'gl'));
+const fila = (c: Concello) => ({
+  c,
+  decAct: amencer(DEC, c.lat, c.lon, 'actual'),
+  decPt: amencer(DEC, c.lat, c.lon, 'portugal'),
+  xunAct: solpor(XUN, c.lat, c.lon, 'actual'),
+  xunPt: solpor(XUN, c.lat, c.lon, 'portugal'),
+});
+const filas = ordenados.map(fila);
+const porDec = [...filas].sort((a, b) => b.decAct - a.decAct);
+const maisTarde = porDec.slice(0, 10);
+const maisCedo = porDec.slice(-10).reverse();
+const provs = (Object.keys(PROVINCIAS) as Concello['prov'][]).map((p) => ({
+  p,
+  nome: PROVINCIAS[p],
+  filas: filas.filter((f) => f.c.prov === p),
+}));
+
+// Estado inicial (sen JS): Santiago de Compostela. A data do primeiro bloque é a do build;
+// o script substitúea pola de hoxe en Europe/Madrid ao cargar.
+const DEF = '15078';
+const san = concellos.find((c) => c.ine === DEF)!;
+const hoxeMad = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid' }).format(new Date());
+const [hy, hm, hd] = hoxeMad.split('-').map(Number);
+const dHoxe = dia(hm, hd, hy);
+const ESC: Escenario[] = ['actual', 'portugal', 'senVeran'];
+const ini = {
+  hoxe: ESC.map((e) => [amencer(dHoxe, san.lat, san.lon, e), solpor(dHoxe, san.lat, san.lon, e)]),
+  dec: [amencer(dia(12, 21, hy), san.lat, san.lon, 'actual'), amencer(dia(12, 21, hy), san.lat, san.lon, 'portugal'), solpor(dia(12, 21, hy), san.lat, san.lon, 'actual'), solpor(dia(12, 21, hy), san.lat, san.lon, 'portugal')],
+  xun: [amencer(dia(6, 21, hy), san.lat, san.lon, 'actual'), amencer(dia(6, 21, hy), san.lat, san.lon, 'portugal'), solpor(dia(6, 21, hy), san.lat, san.lon, 'actual'), solpor(dia(6, 21, hy), san.lat, san.lon, 'portugal')],
+  dias: (['actual', 'senVeran', 'portugal'] as Escenario[]).map((e) => diasDespoisDe(hy, san.lat, san.lon, e, LIM)),
+};
+// Formato manual: non todos os navegadores teñen datos de locale para gl-ES.
+const MESES = gl
+  ? ['xaneiro', 'febreiro', 'marzo', 'abril', 'maio', 'xuño', 'xullo', 'agosto', 'setembro', 'outubro', 'novembro', 'decembro']
+  : ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+const fmtData = (d: Date) => `${d.getUTCDate()} de ${MESES[d.getUTCMonth()]} de ${d.getUTCFullYear()}`;
+const coord = (c: Concello) => {
+  const f = (v: number) => Math.abs(v).toFixed(2).replace('.', ',');
+  return `${f(c.lat)}° N, ${f(c.lon)}° O`;
+};
+
+const T = gl
+  ? {
+      kicker: 'Ferramenta',
+      title: 'A que hora amence no teu concello de Galicia',
+      h1: 'A que hora amence no teu concello: os 313 concellos de Galicia',
+      desc: 'Elixe un dos 313 concellos de Galicia e mira a que hora sae e se pon o sol calquera día, coa hora oficial actual e coa hora de Portugal.',
+      lede: 'Escribe o teu concello e elixe un día: verás a que hora sae e se pon o sol coa hora oficial actual, coa hora de Portugal e sen horario de verán. Os 313 concellos, de Fisterra á Mezquita.',
+      buscar: 'Concello',
+      buscarPh: 'Escribe o nome',
+      data: 'Día',
+      noAtopado: 'Non atopamos ese concello. Proba co nome oficial en galego (por exemplo, “Sanxenxo” ou “A Pobra do Caramiñal”).',
+      res: 'Amencer e solpor en',
+      escH: 'Horario',
+      am: 'Amencer',
+      so: 'Solpor',
+      esc: { actual: 'Hora actual (CET/CEST)', portugal: 'Hora de Portugal', senVeran: 'Sen horario de verán (UTC+1)' },
+      solsH: 'Os dous extremos do ano',
+      act: 'Hora actual',
+      pt: 'Portugal',
+      dec21: '21 decembro',
+      xun21: '21 xuño',
+      diasH: 'Días ao ano con amencer despois das 8:30',
+      diasEsc: ['Hora actual', 'Sen horario de verán', 'Hora de Portugal'],
+      diasN: 'días',
+      contraH: 'A outra cara',
+      coordL: 'Coordenadas',
+      outro: 'Ver outro concello',
+      topH: 'Os concellos onde o sol sae máis tarde e máis cedo o 21 de decembro',
+      topP: `Hora oficial do amencer o 21 de decembro de ${ANO}, o día máis curto do ano. O sol sae máis tarde canto máis ao oeste (e un pouco máis ao norte) está o concello.`,
+      tardeH: 'Máis tarde',
+      cedoH: 'Máis cedo',
+      colC: 'Concello',
+      todosH: 'Os 313 concellos, por provincia',
+      todosP: `Amencer o 21 de decembro e solpor o 21 de xuño de ${ANO}, coa hora actual e coa de Portugal. Preme no nome para abrilo na ferramenta.`,
+      amDec: 'Amencer 21/12',
+      soXun: 'Solpor 21/6',
+      concellosN: 'concellos',
+      metodoH: 'Método',
+      metodo: `Cálculo propio coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe a refracción e o tamaño do disco solar) e as coordenadas de cada concello en Wikidata. Contrastado con timeanddate.com en Santiago (21/12: 9:01 nos dous casos). O horario de verán aplícase do último domingo de marzo ao último de outubro (Real Decreto 236/2002). “Hora de Portugal”: UTC no inverno e UTC+1 no verán. “Sen horario de verán”: UTC+1 todo o ano. As coordenadas son as do núcleo que Wikidata asigna a cada concello; dentro dun concello grande o amencer pode variar segundo o punto escollido.`,
+      masH: 'Máis',
+      lAmencer: 'Amenceres en 52 cidades de España, de leste a oeste',
+      lMapa: 'Mapa: días ao ano con amencer despois das 8:30',
+      lArt: 'Por que: Galicia está ao oeste de Greenwich',
+      artSlug: 'galicia-ao-oeste-de-greenwich',
+      lAsinao: 'Se che parece razoable, asínao',
+      contraSlug: 'os-contraargumentos',
+      lContra: 'Os contraargumentos, un a un',
+      legal1: 'Un concello non pode cambiar a súa hora: a Constitución (',
+      legal2: ') reserva ao Estado a «determinación de la hora oficial». O que si pode facer é pedir que se estude. Ver ',
+      legalSlug: 'quen-pode-cambiar-a-hora-de-galicia',
+      lLegal: 'Quen pode cambiar a hora oficial de Galicia?',
+      aria: 'Resultados do concello elixido',
+    }
+  : {
+      kicker: 'Herramienta',
+      title: 'A qué hora amanece en tu concello de Galicia',
+      h1: 'A qué hora amanece en tu concello: los 313 concellos de Galicia',
+      desc: 'Elige uno de los 313 concellos de Galicia y mira a qué hora sale y se pone el sol cualquier día, con la hora oficial actual y con la hora de Portugal.',
+      lede: 'Escribe tu concello y elige un día: verás a qué hora sale y se pone el sol con la hora oficial actual, con la hora de Portugal y sin horario de verano. Los 313 concellos, de Fisterra a A Mezquita.',
+      buscar: 'Concello',
+      buscarPh: 'Escribe el nombre',
+      data: 'Día',
+      noAtopado: 'No encontramos ese concello. Prueba con el nombre oficial en gallego (por ejemplo, “Sanxenxo” o “A Pobra do Caramiñal”).',
+      res: 'Amanecer y puesta de sol en',
+      escH: 'Horario',
+      am: 'Amanecer',
+      so: 'Puesta',
+      esc: { actual: 'Hora actual (CET/CEST)', portugal: 'Hora de Portugal', senVeran: 'Sin horario de verano (UTC+1)' },
+      solsH: 'Los dos extremos del año',
+      act: 'Hora actual',
+      pt: 'Portugal',
+      dec21: '21 diciembre',
+      xun21: '21 junio',
+      diasH: 'Días al año con amanecer después de las 8:30',
+      diasEsc: ['Hora actual', 'Sin horario de verano', 'Hora de Portugal'],
+      diasN: 'días',
+      contraH: 'La otra cara',
+      coordL: 'Coordenadas',
+      outro: 'Ver otro concello',
+      topH: 'Los concellos donde el sol sale más tarde y más temprano el 21 de diciembre',
+      topP: `Hora oficial del amanecer el 21 de diciembre de ${ANO}, el día más corto del año. El sol sale más tarde cuanto más al oeste (y algo más al norte) está el concello.`,
+      tardeH: 'Más tarde',
+      cedoH: 'Más temprano',
+      colC: 'Concello',
+      todosH: 'Los 313 concellos, por provincia',
+      todosP: `Amanecer el 21 de diciembre y puesta de sol el 21 de junio de ${ANO}, con la hora actual y con la de Portugal. Pulsa en el nombre para abrirlo en la herramienta.`,
+      amDec: 'Amanecer 21/12',
+      soXun: 'Puesta 21/6',
+      concellosN: 'concellos',
+      metodoH: 'Método',
+      metodo: `Cálculo propio con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye la refracción y el tamaño del disco solar) y las coordenadas de cada concello en Wikidata. Contrastado con timeanddate.com en Santiago (21/12: 9:01 en ambos casos). El horario de verano se aplica del último domingo de marzo al último de octubre (Real Decreto 236/2002). «Hora de Portugal»: UTC en invierno y UTC+1 en verano. «Sin horario de verano»: UTC+1 todo el año. Las coordenadas son las del núcleo que Wikidata asigna a cada concello; dentro de un concello grande el amanecer puede variar según el punto elegido.`,
+      masH: 'Más',
+      lAmencer: 'Amaneceres en 52 ciudades de España, de este a oeste',
+      lMapa: 'Mapa: días al año con amanecer después de las 8:30',
+      lArt: 'Por qué: Galicia está al oeste de Greenwich',
+      artSlug: 'galicia-al-oeste-de-greenwich',
+      lAsinao: 'Si te parece razonable, fírmalo',
+      contraSlug: 'los-contraargumentos',
+      lContra: 'Los contraargumentos, uno a uno',
+      legal1: 'Un concello no puede cambiar su hora: la Constitución (',
+      legal2: ') reserva al Estado la «determinación de la hora oficial». Lo que sí puede hacer es pedir que se estudie. Ver ',
+      legalSlug: 'quien-puede-cambiar-la-hora-de-galicia',
+      lLegal: '¿Quién puede cambiar la hora oficial de Galicia?',
+      aria: 'Resultados del concello elegido',
+    };
+
+// Frase de contraargumento: cifras calculadas (Santiago no HTML inicial; o script actualízaas).
+const contraTxt = (nome: string, act: number, pt: number) =>
+  gl
+    ? `Coa hora de Portugal o sol tamén se pon unha hora antes no reloxo. En ${nome}, o 21 de xuño poríase ás ${hhmm(pt)} en lugar de ás ${hhmm(act)}. No reloxo, a luz pasa da tarde á mañá: o sol sae e ponse unha hora antes. Sen horario de verán pasaría o mesmo de marzo a outubro.`
+    : `Con la hora de Portugal el sol también se pone una hora antes en el reloj. En ${nome}, el 21 de junio se pondría a las ${hhmm(pt)} en lugar de a las ${hhmm(act)}. En el reloj, la luz pasa de la tarde a la mañana: el sol sale y se pone una hora antes. Sin horario de verano pasaría lo mismo de marzo a octubre.`;
+
+const fontes = [
+  {
+    titulo: 'NOAA — General Solar Position Calculations',
+    url: 'https://gml.noaa.gov/grad/solcalc/solareqns.PDF',
+    dato: gl ? 'Ecuacións de amencer e solpor (cénit 90,833°). Cálculo propio con elas.' : 'Ecuaciones de amanecer y puesta de sol (cénit 90,833°). Cálculo propio con ellas.',
+  },
+  {
+    titulo: 'Wikidata — coordenadas (P625)',
+    url: WIKIDATA_SRC,
+    dato: gl ? 'Latitude e lonxitude de cada concello (CC0), consulta do 23/11/2026.' : 'Latitud y longitud de cada concello (CC0), consulta del 23/11/2026.',
+  },
+  {
+    titulo: gl ? 'Wikidata — código INE de municipio (P772)' : 'Wikidata — código INE de municipio (P772)',
+    url: WIKIDATA_CONCELLOS_SRC,
+    dato: gl ? 'Os 313 concellos de Galicia identificados polo seu código INE (CC0).' : 'Los 313 concellos de Galicia identificados por su código INE (CC0).',
+  },
+  {
+    titulo: gl ? 'BOE — Constitución Española, art. 149.1.12.ª' : 'BOE — Constitución Española, art. 149.1.12.ª',
+    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229',
+    dato: gl ? 'O Estado ten competencia exclusiva sobre a «determinación de la hora oficial».' : 'El Estado tiene competencia exclusiva sobre la «determinación de la hora oficial».',
+  },
+  {
+    titulo: gl ? 'BOE — Real Decreto 236/2002, hora de verán' : 'BOE — Real Decreto 236/2002, hora de verano',
+    url: 'https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221',
+    dato: gl ? 'Verán: do último domingo de marzo ao último de outubro.' : 'Verano: del último domingo de marzo al último de octubre.',
+  },
+  {
+    titulo: `timeanddate.com — ${gl ? 'fuso horario de Lisboa' : 'huso horario de Lisboa'}`,
+    url: 'https://www.timeanddate.com/time/zone/portugal/lisbon',
+    dato: gl ? 'Portugal usa UTC no inverno e UTC+1 no verán.' : 'Portugal usa UTC en invierno y UTC+1 en verano.',
+  },
+  {
+    titulo: `timeanddate.com — Santiago de Compostela, ${gl ? 'decembro' : 'diciembre'} 2026`,
+    url: 'https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026',
+    dato: gl ? 'Validación do método: 21/12 amence ás 9:01 en Santiago (o cálculo dá 9:01).' : 'Validación del método: 21/12 amanece a las 9:01 en Santiago (el cálculo da 9:01).',
+  },
+];
+
+const ligazon = (c: Concello) => `?c=${c.ine}#buscador`;
+---
+
+<Base schema={webAppSchema({ lang, path, name: T.h1, description: T.desc })} lang={lang} title={T.title} description={T.desc} alt={r(gl ? 'es' : 'gl', 'concello')}>
+  <div class="wrap page">
+    <header class="head">
+      <p class="kicker"><a href={r(lang, 'ferramentas')}>{T.kicker}</a></p>
+      <h1>{T.h1}</h1>
+      <p class="lede">{T.lede}</p>
+    </header>
+
+    <section class="tool" id="buscador" data-lang={lang} data-def={DEF} data-meses={MESES.join(',')} aria-labelledby="res-h">
+      <form class="ctrl" autocomplete="off" onsubmit="return false">
+        <div class="f">
+          <label for="q">{T.buscar}</label>
+          <input id="q" name="c" type="text" list="lista-concellos" placeholder={T.buscarPh} value={san.nome} spellcheck="false" aria-describedby="q-msg" />
+          <datalist id="lista-concellos">
+            {ordenados.map((c) => <option value={c.nome} />)}
+          </datalist>
+        </div>
+        <div class="f fd">
+          <label for="data">{T.data}</label>
+          <input id="data" name="data" type="date" value={hoxeMad} />
+        </div>
+        <p id="q-msg" class="msg" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="out" aria-label={T.aria}>
+        <h2 id="res-h" class="res-h">{T.res} <span id="o-nome">{san.nome}</span></h2>
+        <p class="meta">
+          <span id="o-prov">{PROVINCIAS[san.prov]}</span> · {T.coordL}: <a id="o-wd" href={`https://www.wikidata.org/wiki/${san.wd}`}>{coord(san)}</a>
+        </p>
+
+        <div class="grid">
+          <div>
+            <h3 class="kicker" id="o-data">{fmtData(dHoxe)}</h3>
+            <table>
+              <thead><tr><th scope="col">{T.escH}</th><th scope="col">{T.am}</th><th scope="col">{T.so}</th></tr></thead>
+              <tbody>
+                {ESC.map((e, i) => (
+                  <tr class={e === 'portugal' ? 'pt' : undefined}>
+                    <th scope="row">{T.esc[e]}</th>
+                    <td class="big" data-o={`h-${e}-a`}>{hhmm(ini.hoxe[i][0])}</td>
+                    <td class="big" data-o={`h-${e}-s`}>{hhmm(ini.hoxe[i][1])}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <h3 class="kicker">{T.solsH}</h3>
+            <table>
+              <thead>
+                <tr><th scope="col"></th><th scope="col">{T.act}</th><th scope="col" class="ptc">{T.pt}</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">{T.am} · {T.dec21}</th><td data-o="dec-a-act">{hhmm(ini.dec[0])}</td><td class="ptc" data-o="dec-a-pt">{hhmm(ini.dec[1])}</td></tr>
+                <tr><th scope="row">{T.so} · {T.dec21}</th><td data-o="dec-s-act">{hhmm(ini.dec[2])}</td><td class="ptc" data-o="dec-s-pt">{hhmm(ini.dec[3])}</td></tr>
+                <tr><th scope="row">{T.am} · {T.xun21}</th><td data-o="xun-a-act">{hhmm(ini.xun[0])}</td><td class="ptc" data-o="xun-a-pt">{hhmm(ini.xun[1])}</td></tr>
+                <tr><th scope="row">{T.so} · {T.xun21}</th><td data-o="xun-s-act">{hhmm(ini.xun[2])}</td><td class="ptc" data-o="xun-s-pt">{hhmm(ini.xun[3])}</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <h3 class="kicker">{T.diasH} (<span data-o="ano">{hy}</span>)</h3>
+            <table>
+              <tbody>
+                {T.diasEsc.map((l, i) => (
+                  <tr class={i === 2 ? 'pt' : undefined}><th scope="row">{l}</th><td class="big"><span data-o={`dias-${i}`}>{ini.dias[i]}</span> <span class="u">{T.diasN}</span></td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="contra">
+            <h3 class="kicker">{T.contraH}</h3>
+            <p id="o-contra">{contraTxt(san.nome, ini.xun[2], ini.xun[3])}</p>
+            <p>{T.legal1}<a href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229">art. 149.1.12.ª</a>{T.legal2}<a href={articleUrl(lang, T.legalSlug)}>{T.lLegal}</a></p>
+            <p><a href={articleUrl(lang, T.contraSlug)}>{T.lContra} →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="top" aria-labelledby="top-h">
+      <h2 id="top-h">{T.topH}</h2>
+      <p class="sub">{T.topP}</p>
+      <div class="top2">
+        {[{ h: T.tardeH, l: maisTarde }, { h: T.cedoH, l: maisCedo }].map((g) => (
+          <table>
+            <caption class="kicker">{g.h}</caption>
+            <thead><tr><th scope="col">{T.colC}</th><th scope="col">{T.act}</th><th scope="col" class="ptc">{T.pt}</th></tr></thead>
+            <tbody>
+              {g.l.map((f) => (
+                <tr>
+                  <th scope="row"><a href={ligazon(f.c)}>{f.c.nome}</a> <span class="pv">{PROVINCIAS[f.c.prov]}</span></th>
+                  <td>{hhmm(f.decAct)}</td>
+                  <td class="ptc">{hhmm(f.decPt)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ))}
+      </div>
+    </section>
+
+    <section class="todos" aria-labelledby="todos-h">
+      <h2 id="todos-h">{T.todosH}</h2>
+      <p class="sub">{T.todosP}</p>
+      {provs.map((p) => (
+        <details>
+          <summary>{p.nome} <span class="n">{p.filas.length} {T.concellosN}</span></summary>
+          <table class="lt">
+            <thead>
+              <tr>
+                <th scope="col" rowspan="2">{T.colC}</th>
+                <th scope="colgroup" colspan="2">{T.amDec}</th>
+                <th scope="colgroup" colspan="2">{T.soXun}</th>
+              </tr>
+              <tr>
+                <th scope="col">{T.act}</th><th scope="col" class="ptc">{T.pt}</th>
+                <th scope="col">{T.act}</th><th scope="col" class="ptc">{T.pt}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {p.filas.map((f) => (
+                <tr>
+                  <th scope="row"><a href={ligazon(f.c)}>{f.c.nome}</a></th>
+                  <td>{hhmm(f.decAct)}</td>
+                  <td class="ptc">{hhmm(f.decPt)}</td>
+                  <td>{hhmm(f.xunAct)}</td>
+                  <td class="ptc">{hhmm(f.xunPt)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </details>
+      ))}
+    </section>
+
+    <div class="notes">
+      <section>
+        <h2 class="kicker">{T.metodoH}</h2>
+        <p>{T.metodo}</p>
+      </section>
+      <section>
+        <h2 class="kicker">{T.masH}</h2>
+        <ul>
+          <li><a href={r(lang, 'amencer')}>{T.lAmencer} →</a></li>
+          <li><a href={r(lang, 'mapa')}>{T.lMapa} →</a></li>
+          <li><a href={articleUrl(lang, T.artSlug)}>{T.lArt} →</a></li>
+          <li><a href={r(lang, 'asinao')}>{T.lAsinao} →</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <Fontes lang={lang} fontes={fontes} />
+  </div>
+  <Cta lang={lang} />
+</Base>
+
+<script>
+  import { amencer, solpor, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
+  import { concellos, PROVINCIAS, type Concello } from '../data/concellos';
+
+  const root = document.getElementById('buscador')!;
+  const gl = root.dataset.lang === 'gl';
+  const MESES = root.dataset.meses!.split(',');
+  const q = document.getElementById('q') as HTMLInputElement;
+  const fData = document.getElementById('data') as HTMLInputElement;
+  const msg = document.getElementById('q-msg')!;
+  const set = (k: string, v: string) => {
+    const el = root.querySelector<HTMLElement>(`[data-o="${k}"]`);
+    if (el) el.textContent = v;
+  };
+  const $ = (id: string) => document.getElementById(id)!;
+
+  const norm = (s: string) =>
+    s
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .replace(/\s+/g, ' ')
+      .trim();
+  const porNome = new Map(concellos.map((c) => [norm(c.nome), c]));
+  const porIne = new Map(concellos.map((c) => [c.ine, c]));
+
+  /** Concello exacto; se non, o único que empeza polo texto. */
+  function busca(txt: string): Concello | undefined {
+    const n = norm(txt);
+    if (!n) return undefined;
+    const ex = porNome.get(n);
+    if (ex) return ex;
+    const pref = concellos.filter((c) => norm(c.nome).startsWith(n));
+    return pref.length === 1 ? pref[0] : undefined;
+  }
+
+  const hoxeMad = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid' }).format(new Date());
+
+  let actual: Concello = porIne.get(root.dataset.def!)!;
+
+  function calcula(url = true) {
+    const [y, m, d] = (fData.value || hoxeMad()).split('-').map(Number);
+    const c = actual;
+    const D = new Date(Date.UTC(y, m - 1, d, 12));
+    const dec = new Date(Date.UTC(y, 11, 21, 12));
+    const xun = new Date(Date.UTC(y, 5, 21, 12));
+    for (const e of ['actual', 'portugal', 'senVeran'] as Escenario[]) {
+      set(`h-${e}-a`, hhmm(amencer(D, c.lat, c.lon, e)));
+      set(`h-${e}-s`, hhmm(solpor(D, c.lat, c.lon, e)));
+    }
+    set('dec-a-act', hhmm(amencer(dec, c.lat, c.lon, 'actual')));
+    set('dec-a-pt', hhmm(amencer(dec, c.lat, c.lon, 'portugal')));
+    set('dec-s-act', hhmm(solpor(dec, c.lat, c.lon, 'actual')));
+    set('dec-s-pt', hhmm(solpor(dec, c.lat, c.lon, 'portugal')));
+    const xa = solpor(xun, c.lat, c.lon, 'actual');
+    const xp = solpor(xun, c.lat, c.lon, 'portugal');
+    set('xun-a-act', hhmm(amencer(xun, c.lat, c.lon, 'actual')));
+    set('xun-a-pt', hhmm(amencer(xun, c.lat, c.lon, 'portugal')));
+    set('xun-s-act', hhmm(xa));
+    set('xun-s-pt', hhmm(xp));
+    (['actual', 'senVeran', 'portugal'] as Escenario[]).forEach((e, i) => set(`dias-${i}`, String(diasDespoisDe(y, c.lat, c.lon, e, 510))));
+    set('ano', String(y));
+
+    $('o-nome').textContent = c.nome;
+    $('o-prov').textContent = PROVINCIAS[c.prov];
+    const f = (v: number) => Math.abs(v).toFixed(2).replace('.', ',');
+    const wd = $('o-wd') as HTMLAnchorElement;
+    wd.textContent = `${f(c.lat)}° N, ${f(c.lon)}° O`;
+    wd.href = `https://www.wikidata.org/wiki/${c.wd}`;
+    $('o-data').textContent = `${d} de ${MESES[m - 1]} de ${y}`;
+    $('o-contra').textContent = gl
+      ? `Coa hora de Portugal o sol tamén se pon unha hora antes no reloxo. En ${c.nome}, o 21 de xuño poríase ás ${hhmm(xp)} en lugar de ás ${hhmm(xa)}. No reloxo, a luz pasa da tarde á mañá: o sol sae e ponse unha hora antes. Sen horario de verán pasaría o mesmo de marzo a outubro.`
+      : `Con la hora de Portugal el sol también se pone una hora antes en el reloj. En ${c.nome}, el 21 de junio se pondría a las ${hhmm(xp)} en lugar de a las ${hhmm(xa)}. En el reloj, la luz pasa de la tarde a la mañana: el sol sale y se pone una hora antes. Sin horario de verano pasaría lo mismo de marzo a octubre.`;
+
+    if (!url) return;
+    const u = new URL(location.href);
+    u.searchParams.set('c', c.ine);
+    u.searchParams.set('data', `${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`);
+    history.replaceState(null, '', u.pathname + u.search + u.hash);
+  }
+
+  function elixe(final: boolean) {
+    const c = busca(q.value);
+    if (c) {
+      msg.textContent = '';
+      actual = c;
+      if (final) q.value = c.nome;
+      calcula();
+    } else if (final && q.value.trim()) {
+      msg.textContent = gl
+        ? 'Non atopamos ese concello. Proba co nome oficial en galego (por exemplo, “Sanxenxo” ou “A Pobra do Caramiñal”).'
+        : 'No encontramos ese concello. Prueba con el nombre oficial en gallego (por ejemplo, «Sanxenxo» o «A Pobra do Caramiñal»).';
+    }
+  }
+
+  // Estado inicial desde a URL
+  const p = new URLSearchParams(location.search);
+  const cIni = porIne.get(p.get('c') ?? '');
+  if (cIni) actual = cIni;
+  q.value = actual.nome;
+  const hoxe = hoxeMad();
+  const dp = p.get('data');
+  fData.value = dp && /^\d{2}-\d{2}$/.test(dp) && !isNaN(Date.parse(`${hoxe.slice(0, 4)}-${dp}`)) ? `${hoxe.slice(0, 4)}-${dp}` : hoxe;
+  calcula(p.has('c') || p.has('data'));
+
+  q.addEventListener('input', () => elixe(false));
+  q.addEventListener('change', () => elixe(true));
+  q.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Enter') {
+      ev.preventDefault();
+      elixe(true);
+    }
+  });
+  q.addEventListener('focus', () => q.select());
+  fData.addEventListener('change', () => {
+    if (fData.value) calcula();
+  });
+</script>
+
+<style>
+  .page { padding-top: 3rem; }
+  .head { max-width: 52rem; margin-bottom: 2.2rem; }
+  .kicker a { color: inherit; text-decoration: none; }
+  h1 { margin: 0.8rem 0 1rem; font-size: clamp(2.1rem, 6vw, 4.2rem); letter-spacing: -0.045em; line-height: 0.98; font-weight: 800; }
+  .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 52ch; margin: 0; }
+
+  .tool { border-top: 3px solid var(--ink); padding-top: 1.2rem; scroll-margin-top: 1rem; }
+  .ctrl { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem 1.5rem; align-items: end; max-width: 46rem; }
+  .f label { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+  .f input { width: 100%; box-sizing: border-box; font: inherit; font-size: 1.15rem; font-weight: 700; color: var(--ink); background: var(--paper); border: 1px solid var(--ink); border-radius: 0; padding: 0.6rem 0.7rem; min-width: 0; }
+  .f input::placeholder { color: var(--muted); font-weight: 400; }
+  .msg { grid-column: 1 / -1; margin: 0; font-size: 0.9rem; color: var(--ink); min-height: 0; }
+  .msg:empty { display: none; }
+
+  .out { margin-top: 2rem; }
+  .res-h { font-size: clamp(1.5rem, 4vw, 2.4rem); letter-spacing: -0.03em; line-height: 1.05; margin: 0; font-weight: 800; }
+  .meta { margin: 0.4rem 0 0; color: var(--ink-2); font-size: 0.9rem; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; margin-top: 1.6rem; }
+  .grid h3 { margin: 0 0 0.4rem; }
+  .contra p { margin: 0 0 0.6rem; color: var(--ink-2); }
+
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 0.45rem 0.5rem 0.45rem 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; }
+  thead th { font-size: 0.75rem; font-weight: 600; color: var(--ink-2); vertical-align: bottom; }
+  tbody th { font-weight: 600; }
+  td { white-space: nowrap; }
+  td.big { font-size: 1.35rem; font-weight: 800; }
+  .u { font-size: 0.85rem; font-weight: 400; color: var(--ink-2); }
+  tr.pt td, td.ptc, th.ptc { color: var(--blue); }
+
+  .top, .todos { margin-top: 3.5rem; }
+  .top h2, .todos h2 { font-size: clamp(1.3rem, 3.4vw, 1.9rem); letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 0.6rem; max-width: 40ch; }
+  .sub { margin: 0 0 1.2rem; color: var(--ink-2); max-width: 62ch; font-size: 0.95rem; }
+  .top2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3rem; }
+  caption { text-align: left; padding-bottom: 0.4rem; }
+  .pv { display: block; font-weight: 400; font-size: 0.78rem; color: var(--muted); }
+  tbody th a { color: inherit; }
+
+  details { border-top: 1px solid var(--ink); }
+  details:last-of-type { border-bottom: 1px solid var(--ink); }
+  summary { cursor: pointer; padding: 0.8rem 0; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; }
+  summary .n { font-weight: 400; font-size: 0.85rem; color: var(--ink-2); margin-left: 0.4rem; }
+  .lt { font-size: 0.88rem; margin-bottom: 1rem; }
+  .lt thead th { text-align: left; }
+  .lt th[scope='row'] { font-weight: 500; }
+
+  .notes { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; font-size: 0.95rem; color: var(--ink-2); }
+  .notes h2 { margin: 0 0 0.6rem; }
+  .notes p { margin: 0 0 0.8rem; }
+  .notes ul { padding-left: 1.1rem; margin: 0; }
+  .notes li + li { margin-top: 0.4rem; }
+
+  @media (max-width: 760px) {
+    .grid, .top2, .notes { grid-template-columns: 1fr; gap: 1.5rem; }
+    .ctrl { grid-template-columns: 1fr; }
+    .lt { font-size: 0.8rem; }
+    .lt th, .lt td { padding-right: 0.35rem; }
+    td.big { font-size: 1.15rem; }
+  }
+</style>
