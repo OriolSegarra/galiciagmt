@@ -68,7 +68,7 @@ export const ui = {
     'amencer.img.city': 'Cidade para a imaxe',
     'amencer.img.button': 'Baixar imaxe',
     'amencer.img.title': 'Amencer en {c} o {d}',
-    'amencer.img.note': 'Cálculo NOAA (gml.noaa.gov/grad/solcalc), ±1-2 min',
+    'amencer.img.note': 'Cálculo NOAA (gml.noaa.gov/grad/solcalc)',
     'amencer.img.hint': 'PNG de 1200×630 co día e a cidade elixidos, para compartir.',
   },
   es: {
@@ -115,7 +115,7 @@ export const ui = {
     'amencer.img.city': 'Ciudad para la imagen',
     'amencer.img.button': 'Descargar imagen',
     'amencer.img.title': 'Amanecer en {c} el {d}',
-    'amencer.img.note': 'Cálculo NOAA (gml.noaa.gov/grad/solcalc), ±1-2 min',
+    'amencer.img.note': 'Cálculo NOAA (gml.noaa.gov/grad/solcalc)',
     'amencer.img.hint': 'PNG de 1200×630 con el día y la ciudad elegidos, para compartir.',
   },
 } as const;

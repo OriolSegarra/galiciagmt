@@ -102,7 +102,7 @@ const T = gl
       soXun: 'Solpor 21/6',
       concellosN: 'concellos',
       metodoH: 'Método',
-      metodo: `Cálculo propio coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe a refracción e o tamaño do disco solar) e as coordenadas de cada concello en Wikidata. Contrastado con timeanddate.com en Santiago (21/12: 9:01 nos dous casos). O horario de verán aplícase do último domingo de marzo ao último de outubro (Real Decreto 236/2002). “Hora de Portugal”: UTC no inverno e UTC+1 no verán. “Sen horario de verán”: UTC+1 todo o ano. As coordenadas son as do núcleo que Wikidata asigna a cada concello; dentro dun concello grande o amencer pode variar segundo o punto escollido.`,
+      metodo: `Cálculo propio coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe a refracción e o tamaño do disco solar) e as coordenadas de cada concello en Wikidata. Contrastado con timeanddate.com en Santiago (21/12: 9:01 tanto no cálculo como en timeanddate.com). O horario de verán aplícase do último domingo de marzo ao último de outubro (Real Decreto 236/2002). “Hora de Portugal”: UTC no inverno e UTC+1 no verán. “Sen horario de verán”: UTC+1 todo o ano. As coordenadas son as do núcleo que Wikidata asigna a cada concello; dentro dun concello grande o amencer pode variar segundo o punto escollido.`,
       masH: 'Máis',
       lAmencer: 'Amenceres en 52 cidades de España, de leste a oeste',
       lMapa: 'Mapa: días ao ano con amencer despois das 8:30',
@@ -154,7 +154,7 @@ const T = gl
       soXun: 'Puesta 21/6',
       concellosN: 'concellos',
       metodoH: 'Método',
-      metodo: `Cálculo propio con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye la refracción y el tamaño del disco solar) y las coordenadas de cada concello en Wikidata. Contrastado con timeanddate.com en Santiago (21/12: 9:01 en ambos casos). El horario de verano se aplica del último domingo de marzo al último de octubre (Real Decreto 236/2002). «Hora de Portugal»: UTC en invierno y UTC+1 en verano. «Sin horario de verano»: UTC+1 todo el año. Las coordenadas son las del núcleo que Wikidata asigna a cada concello; dentro de un concello grande el amanecer puede variar según el punto elegido.`,
+      metodo: `Cálculo propio con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye la refracción y el tamaño del disco solar) y las coordenadas de cada concello en Wikidata. Contrastado con timeanddate.com en Santiago (21/12: 9:01 tanto en el cálculo como en timeanddate.com). El horario de verano se aplica del último domingo de marzo al último de octubre (Real Decreto 236/2002). «Hora de Portugal»: UTC en invierno y UTC+1 en verano. «Sin horario de verano»: UTC+1 todo el año. Las coordenadas son las del núcleo que Wikidata asigna a cada concello; dentro de un concello grande el amanecer puede variar según el punto elegido.`,
       masH: 'Más',
       lAmencer: 'Amaneceres en 52 ciudades de España, de este a oeste',
       lMapa: 'Mapa: días al año con amanecer después de las 8:30',
@@ -174,7 +174,7 @@ const T = gl
 const contraTxt = (nome: string, act: number, pt: number) =>
   gl
     ? `Coa hora de Portugal o sol tamén se pon unha hora antes no reloxo. En ${nome}, o 21 de xuño poríase ás ${hhmm(pt)} en lugar de ás ${hhmm(act)}. No reloxo, a luz pasa da tarde á mañá: o sol sae e ponse unha hora antes. Sen horario de verán pasaría o mesmo de marzo a outubro.`
-    : `Con la hora de Portugal el sol también se pone una hora antes en el reloj. En ${nome}, el 21 de junio se pondría a las ${hhmm(pt)} en lugar de a las ${hhmm(act)}. En el reloj, la luz pasa de la tarde a la mañana: el sol sale y se pone una hora antes. Sin horario de verano pasaría lo mismo de marzo a octubre.`;
+    : `Con la hora de Portugal el sol también se pone una hora antes en el reloj. En ${nome}, el 21 de junio se pondría a las ${hhmm(pt)} en lugar de las ${hhmm(act)}. En el reloj, la luz pasa de la tarde a la mañana: el sol sale y se pone una hora antes. Sin horario de verano pasaría lo mismo de marzo a octubre.`;
 
 const fontes = [
   {
@@ -449,7 +449,7 @@ const ligazon = (c: Concello) => `?c=${c.ine}#buscador`;
     $('o-data').textContent = `${d} de ${MESES[m - 1]} de ${y}`;
     $('o-contra').textContent = gl
       ? `Coa hora de Portugal o sol tamén se pon unha hora antes no reloxo. En ${c.nome}, o 21 de xuño poríase ás ${hhmm(xp)} en lugar de ás ${hhmm(xa)}. No reloxo, a luz pasa da tarde á mañá: o sol sae e ponse unha hora antes. Sen horario de verán pasaría o mesmo de marzo a outubro.`
-      : `Con la hora de Portugal el sol también se pone una hora antes en el reloj. En ${c.nome}, el 21 de junio se pondría a las ${hhmm(xp)} en lugar de a las ${hhmm(xa)}. En el reloj, la luz pasa de la tarde a la mañana: el sol sale y se pone una hora antes. Sin horario de verano pasaría lo mismo de marzo a octubre.`;
+      : `Con la hora de Portugal el sol también se pone una hora antes en el reloj. En ${c.nome}, el 21 de junio se pondría a las ${hhmm(xp)} en lugar de las ${hhmm(xa)}. En el reloj, la luz pasa de la tarde a la mañana: el sol sale y se pone una hora antes. Sin horario de verano pasaría lo mismo de marzo a octubre.`;
 
     if (!url) return;
     const u = new URL(location.href);

@@ -2,7 +2,7 @@
  * Cálculo de amencer e solpor.
  * Método: ecuacións xerais de posición solar da NOAA
  * (https://gml.noaa.gov/grad/solcalc/solareqns.PDF), cénit de 90,833° (refracción + disco solar).
- * Precisión esperada: ±1-2 minutos.
+ * Validación contra timeanddate.com: fontes/coordenadas-e-calculo-solar.md.
  */
 
 export type Escenario = 'actual' | 'portugal' | 'senVeran';
