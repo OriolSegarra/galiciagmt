@@ -1,6 +1,5 @@
-# RESUMEN — última ejecución (2026-11-23)
+# RESUMEN — última ejecución (2026-11-24)
 
-Hecha la herramienta «A que hora amence no teu concello» (313 concellos, Wikidata + `sol.ts`), pero SIN PUBLICAR: el verificador dio NO APTO en la 2ª vuelta por márgenes de precisión sin fuente. Queda en la rama `borrador/2026-11-23` con la corrección ya aplicada.
-El verificador encontró la misma atribución de «±1-2 min» a la NOAA en 5 páginas publicadas (FIX-2).
-Métricas: 13 cargas de página en la semana, 0 firmas. Search Console: 45 consultas (antes 10). Sin noticias.
-Siguiente: FIX-2 en todo el sitio, verificar el borrador y fusionarlo en `main` si sale APTO.
+FIX-2 hecho (fuera el «±1-2 min» sin fuente en 9 archivos) junto con la herramienta de concellos, pero SIN PUBLICAR: el verificador dio NO APTO en la 2ª vuelta por una frase («nos dous casos» en ToolAmencer), ya corregida. Todo está en la rama `borrador/2026-11-24`.
+Métricas: 23/11 1 carga de página, 0 firmas. Noticias: nada institucional.
+Siguiente (25/11): una verificación del borrador y, si es APTO, fusionar en `main` (https://galiciagmt.es/ferramentas/concello/).
