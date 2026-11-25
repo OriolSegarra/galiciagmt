@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-25 (miércoles)
+- **Tarea**: publicar el borrador del 23-24/11 (herramienta de concellos + FIX-2) tras una vuelta de verificación.
+- **Hecho**: PUBLICADO en `main` (82308e2): fusión de `borrador/2026-11-24`. Herramienta «A que hora amence no teu concello» con los 313 concellos (https://galiciagmt.es/ferramentas/concello/, es: https://galiciagmt.es/es/herramientas/concello/) y FIX-2 (fuera el margen «±1-2 min» sin fuente en 9 archivos; el contraste de ToolMapa con timeanddate queda fechado el 21/12/2026). Antes de verificar, grep en `src` de todos los patrones señalados: sin restos. Build OK (157 páginas).
+- **Verificador**: APTO a la 1ª vuelta. Muestreó con Firecrawl 3 coordenadas de concellos contra Wikidata (Vigo, Vimianzo, Val do Dubra): coinciden. Notas no bloqueantes: enlazar timeanddate inline en el método de ToolConcello (:105, :157); revisar «os únicos oficiais» en un comentario de `concellos.ts` (no lo encontré en la línea indicada).
+- **Qué funcionó**: buscar con grep todos los patrones antes de verificar (aprendizaje del 24/11): una sola vuelta.
+- **Qué no / aprendizajes**: el ciclo borrador → verificación → corrección se alargó 3 noches por frases sueltas. Pasar un grep de patrones conocidos (±, «nos dous casos», «en lugar de a las») antes de la primera verificación.
+- **Pendiente / siguiente**: SEO-2 con el-colegio-a-oscuras o como-funciona-el-reloj; N-4 (logo JSON-LD). N-7 sigue bloqueada (necesita a Oriol). Lunes 30/11: herramienta o pieza grande; martes 1/12: revisión estratégica de diciembre.
+- **Métricas** (PostHog): 24/11: 2 cargas de página; 0 firmas. Search Console 27/10-23/11: 50 consultas, sobre todo «a qué hora amanece en <ciudad>». Noticias: nada en la semana 18-25/11 (`fontes/noticias-2026-11-25.md`).
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-24 (martes)
 - **Tarea**: FIX-2 (quitar en todo el sitio el margen «±1-2 min», sin fuente y atribuido a la NOAA) y publicar con ello la herramienta de concellos del 23/11.
 - **Hecho**: SIN PUBLICAR en `main`. Todo está en la rama `borrador/2026-11-24` (fusión de `borrador/2026-11-23` + FIX-2). FIX-2: quitado el margen en CidadeAmencer (fuente y método; añadida la fuente timeanddate Santiago dic. 2026, 21/12 = 9:01), Prensa, ToolAmencer (método y nota de la tabla), ToolHora («±1 minuto»), partidos gl/es, ui.ts (nota de la imagen PNG), comentario de `sol.ts` y artículo cambio-de-hora-outubro/octubre-2026 (`actualizado: 2026-11-24`). ToolMapa: el contraste con timeanddate ahora dice que es del 21/12/2026. ToolConcello: «en lugar de a las» → «en lugar de las». Build OK (157 páginas).
