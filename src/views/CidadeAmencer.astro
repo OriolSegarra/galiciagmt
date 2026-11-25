@@ -5,6 +5,7 @@ import Cta from '../components/Cta.astro';
 import { webAppSchema } from '../lib/schema';
 import { articleUrl, r, type Lang } from '../i18n/ui';
 import { cidades, slugCidade, WIKIDATA_SRC } from '../data/cidades';
+import { concellos } from '../data/concellos';
 import { amencer, solpor, diasDespoisDe, hhmm, type Escenario } from '../lib/sol';
 
 interface Props {
@@ -116,6 +117,13 @@ const horas = [5, 6, 7, 8, 9, 10, 11];
 const meses = gl ? ['X', 'F', 'M', 'A', 'M', 'X', 'X', 'A', 'S', 'O', 'N', 'D'] : ['E', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
 const iniMes = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
 
+// Cidades galegas: ligazón á ferramenta de concellos, co concello preseleccionado se coincide o nome.
+const concelloCid = cid.galicia
+  ? concellos.find((x) => x.nome === cid.gl || (cid.gl === 'Santiago' && x.nome === 'Santiago de Compostela'))
+  : undefined;
+const concelloUrl = cid.galicia ? r(lang, 'concello') + (concelloCid ? `?c=${concelloCid.ine}` : '') : '';
+const concelloTxt = gl ? 'Busca calquera dos 313 concellos de Galicia' : 'Busca cualquiera de los 313 concellos de Galicia';
+
 const toolUrl = (esc: string) => `${r(lang, 'amencer')}?esc=${esc}&data=12-21&lim=510&cidade=${slug}`;
 
 const cap = gl
@@ -126,7 +134,12 @@ const fontes = [
   {
     titulo: 'NOAA — General Solar Position Calculations',
     url: 'https://gml.noaa.gov/grad/solcalc/solareqns.PDF',
-    dato: gl ? 'Ecuacións de amencer e solpor (cénit 90,833°) e tempo solar (coeficiente de 4 minutos por grao de lonxitude nas fórmulas). Cálculo propio con elas, precisión ±1-2 min.' : 'Ecuaciones de amanecer y puesta de sol (cénit 90,833°) y tiempo solar (coeficiente de 4 minutos por grado de longitud en las fórmulas). Cálculo propio con ellas, precisión ±1-2 min.',
+    dato: gl ? 'Ecuacións de amencer e solpor (cénit 90,833°) e tempo solar (coeficiente de 4 minutos por grao de lonxitude nas fórmulas). Cálculo propio con elas.' : 'Ecuaciones de amanecer y puesta de sol (cénit 90,833°) y tiempo solar (coeficiente de 4 minutos por grado de longitud en las fórmulas). Cálculo propio con ellas.',
+  },
+  {
+    titulo: gl ? 'timeanddate.com — Santiago de Compostela, decembro de 2026' : 'timeanddate.com — Santiago de Compostela, diciembre de 2026',
+    url: 'https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026',
+    dato: gl ? 'Amencer o 21/12/2026: 9:01. O noso cálculo dá a mesma hora.' : 'Amanecer el 21/12/2026: 9:01. Nuestro cálculo da la misma hora.',
   },
   {
     titulo: 'Wikidata — coordenadas (P625)',
@@ -156,8 +169,8 @@ const fontes = [
 ];
 
 const T_ = gl
-  ? { kicker: 'Ferramenta', data: 'Data', amencer: 'Amencer', solpor: 'Solpor', esc: 'Horario', d830: 'Días con amencer despois das 8:30', d900: 'Días con amencer despois das 9:00', tabH: 'Amencer segundo o horario', diasH: 'Días ao ano con amencer tardío', diasP: `Cantos días de ${ANO} sae o sol despois desa hora oficial en ${N}:`, graf: 'Un ano de amenceres', tool: 'Cambia a data, a cidade e o escenario na ferramenta', toolV: 'Ver', outras: 'Outras cidades', outrasP: 'A mesma páxina para as outras 51 cidades da lista, de leste a oeste:', metodo: 'Método', metodoP: 'Calculado con ecuacións da NOAA para a latitude e lonxitude de Wikidata, para o ano ' + ANO + '. O horario de verán aplícase como fixa o Real Decreto 236/2002. Cada cifra pode variar ±1-2 minutos segundo o método.', lerMais: 'Para entender por que pasa isto', lerLink: 'Galicia está ao oeste de Greenwich', pt: 'Por que Portugal ten unha hora menos', ptSlug: 'portugal-e-canarias', sw: 'A hora actual', sPt: 'A hora de Portugal', sSv: 'Sen verán' }
-  : { kicker: 'Herramienta', data: 'Fecha', amencer: 'Amanecer', solpor: 'Puesta', esc: 'Horario', d830: 'Días con amanecer después de las 8:30', d900: 'Días con amanecer después de las 9:00', tabH: 'Amanecer según el horario', diasH: 'Días al año con amanecer tardío', diasP: `Cuántos días de ${ANO} sale el sol después de esa hora oficial en ${N}:`, graf: 'Un año de amaneceres', tool: 'Cambia la fecha, la ciudad y el escenario en la herramienta', toolV: 'Ver', outras: 'Otras ciudades', outrasP: 'La misma página para las otras 51 ciudades de la lista, de este a oeste:', metodo: 'Método', metodoP: 'Calculado con ecuaciones de la NOAA para la latitud y longitud de Wikidata, para el año ' + ANO + '. El horario de verano se aplica como fija el Real Decreto 236/2002. Cada cifra puede variar ±1-2 minutos según el método.', lerMais: 'Para entender por qué pasa esto', lerLink: 'Galicia está al oeste de Greenwich', pt: 'Por qué Portugal tiene una hora menos', ptSlug: 'portugal-y-canarias', sw: 'La hora actual', sPt: 'La hora de Portugal', sSv: 'Sin verano' };
+  ? { kicker: 'Ferramenta', data: 'Data', amencer: 'Amencer', solpor: 'Solpor', esc: 'Horario', d830: 'Días con amencer despois das 8:30', d900: 'Días con amencer despois das 9:00', tabH: 'Amencer segundo o horario', diasH: 'Días ao ano con amencer tardío', diasP: `Cantos días de ${ANO} sae o sol despois desa hora oficial en ${N}:`, graf: 'Un ano de amenceres', tool: 'Cambia a data, a cidade e o escenario na ferramenta', toolV: 'Ver', outras: 'Outras cidades', outrasP: 'A mesma páxina para as outras 51 cidades da lista, de leste a oeste:', metodo: 'Método', metodoP: 'Calculado con ecuacións da NOAA para a latitude e lonxitude de Wikidata, para o ano ' + ANO + '. O horario de verán aplícase como fixa o Real Decreto 236/2002. Contrastado con timeanddate.com para Santiago o 21 de decembro de 2026: amence ás 9:01 tanto no cálculo como en timeanddate.com (ver fontes).', lerMais: 'Para entender por que pasa isto', lerLink: 'Galicia está ao oeste de Greenwich', pt: 'Por que Portugal ten unha hora menos', ptSlug: 'portugal-e-canarias', sw: 'A hora actual', sPt: 'A hora de Portugal', sSv: 'Sen verán' }
+  : { kicker: 'Herramienta', data: 'Fecha', amencer: 'Amanecer', solpor: 'Puesta', esc: 'Horario', d830: 'Días con amanecer después de las 8:30', d900: 'Días con amanecer después de las 9:00', tabH: 'Amanecer según el horario', diasH: 'Días al año con amanecer tardío', diasP: `Cuántos días de ${ANO} sale el sol después de esa hora oficial en ${N}:`, graf: 'Un año de amaneceres', tool: 'Cambia la fecha, la ciudad y el escenario en la herramienta', toolV: 'Ver', outras: 'Otras ciudades', outrasP: 'La misma página para las otras 51 ciudades de la lista, de este a oeste:', metodo: 'Método', metodoP: 'Calculado con ecuaciones de la NOAA para la latitud y longitud de Wikidata, para el año ' + ANO + '. El horario de verano se aplica como fija el Real Decreto 236/2002. Contrastado con timeanddate.com para Santiago el 21 de diciembre de 2026: amanece a las 9:01 tanto en el cálculo como en timeanddate.com (ver fuentes).', lerMais: 'Para entender por qué pasa esto', lerLink: 'Galicia está al oeste de Greenwich', pt: 'Por qué Portugal tiene una hora menos', ptSlug: 'portugal-y-canarias', sw: 'La hora actual', sPt: 'La hora de Portugal', sSv: 'Sin verano' };
 const relSlug = gl ? 'galicia-ao-oeste-de-greenwich' : 'galicia-al-oeste-de-greenwich';
 ---
 
@@ -184,6 +197,7 @@ const relSlug = gl ? 'galicia-ao-oeste-de-greenwich' : 'galicia-al-oeste-de-gree
           <a href={toolUrl('actual')}>{T_.sw}</a> · <a href={toolUrl('portugal')}>{T_.sPt}</a> · <a href={toolUrl('senveran')}>{T_.sSv}</a>
           <br /><span>{T_.tool} →</span>
         </p>
+        {concelloUrl && <p class="tool"><a href={concelloUrl}>{concelloTxt} →</a></p>}
       </section>
 
       <section>

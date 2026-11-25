@@ -19,6 +19,7 @@ Revisar la lista el día 1 de cada mes (añadir/quitar según `seo-posicions.md`
 | 10 | horario de verano permanente Galicia amanecer 10 | es | artículo del cambio de hora | Estacional |
 | 11 | Galicia GMT | gl/es | `/` | Marca |
 | 12 | moción cambio de hora concello | gl/es | `/mocion/` | Campaña |
+| 13 | a que hora amence en <concello> / a qué hora amanece en <concello> (Fisterra, Sanxenxo…) | gl/es | `/ferramentas/concello/`, `/es/herramientas/concello/` | Herramienta (añadida 23/11/2026; volumen sin medir, competencia: calculadoras genéricas) |
 
 ## Cómo medimos posiciones (cada lunes)
 Sin Search Console vía MCP, medimos con Firecrawl:

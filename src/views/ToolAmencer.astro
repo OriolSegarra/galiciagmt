@@ -28,7 +28,7 @@ const c = {
     ],
     methodH: 'Método',
     method:
-      'Os amenceres calcúlanse no teu navegador coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe refracción e tamaño do disco solar). Contrastámolos con timeanddate.com para o 21 de decembro: en Santiago dá 9:01 nos dous casos e en Lisboa, 7:51 fronte a 7:50. A precisión esperada é de ±1-2 minutos. O horario de verán aplícase do último domingo de marzo ao último de outubro, como fixa o Real Decreto 236/2002. As coordenadas das cidades proceden de Wikidata. Canarias non aparece porque xa ten unha hora menos ca Península.',
+      'Os amenceres calcúlanse no teu navegador coas ecuacións de posición solar da NOAA (cénit de 90,833°, que inclúe refracción e tamaño do disco solar). Contrastámolos con timeanddate.com para o 21 de decembro: en Santiago dá 9:01 tanto no cálculo como en timeanddate.com e en Lisboa, 7:51 fronte a 7:50. O horario de verán aplícase do último domingo de marzo ao último de outubro, como fixa o Real Decreto 236/2002. As coordenadas das cidades proceden de Wikidata. Canarias non aparece porque xa ten unha hora menos ca Península.',
     related: 'Para entender por que pasa isto',
     relatedLink: 'Galicia está ao oeste de Greenwich',
     relatedSlug: 'galicia-ao-oeste-de-greenwich',
@@ -41,6 +41,7 @@ const c = {
     ],
     ano: 'Velo ao longo do ano: o teu ano de amenceres',
     mapa: 'Velo nun mapa: días ao ano con amencer despois das 8:30',
+    concello: 'O teu concello non está? Búscao entre os 313 de Galicia',
   },
   es: {
     kicker: 'Herramienta',
@@ -56,7 +57,7 @@ const c = {
     ],
     methodH: 'Método',
     method:
-      'Los amaneceres se calculan en tu navegador con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye refracción y tamaño del disco solar). Los hemos contrastado con timeanddate.com para el 21 de diciembre: en Santiago da 9:01 en ambos casos y en Lisboa, 7:51 frente a 7:50. La precisión esperada es de ±1-2 minutos. El horario de verano se aplica del último domingo de marzo al último de octubre, como fija el Real Decreto 236/2002. Las coordenadas de las ciudades proceden de Wikidata. Canarias no aparece porque ya tiene una hora menos que la Península.',
+      'Los amaneceres se calculan en tu navegador con las ecuaciones de posición solar de la NOAA (cénit de 90,833°, que incluye refracción y tamaño del disco solar). Los hemos contrastado con timeanddate.com para el 21 de diciembre: en Santiago da 9:01 tanto en el cálculo como en timeanddate.com y en Lisboa, 7:51 frente a 7:50. El horario de verano se aplica del último domingo de marzo al último de octubre, como fija el Real Decreto 236/2002. Las coordenadas de las ciudades proceden de Wikidata. Canarias no aparece porque ya tiene una hora menos que la Península.',
     related: 'Para entender por qué pasa esto',
     relatedLink: 'Galicia está al oeste de Greenwich',
     relatedSlug: 'galicia-al-oeste-de-greenwich',
@@ -69,6 +70,7 @@ const c = {
     ],
     ano: 'Verlo a lo largo del año: tu año de amaneceres',
     mapa: 'Verlo en un mapa: días al año con amanecer después de las 8:30',
+    concello: '¿Tu concello no está? Búscalo entre los 313 de Galicia',
   },
 }[lang];
 
@@ -111,7 +113,7 @@ const g = {
     cols: ['Cidade', '21 dec', '20 mar', '21 xuñ', '22 set', 'Máis tarde do ano', '21 dec coa hora de Portugal'],
     notaA: `Hora oficial á que sae o sol. Cálculo propio para ${ANO} co `,
     notaL: 'método da NOAA',
-    notaB: ' (±1-2 min). Madrid e Barcelona, para comparar.',
+    notaB: '. Madrid e Barcelona, para comparar.',
   },
   es: {
     h: '¿A qué hora amanece en Galicia?',
@@ -119,7 +121,7 @@ const g = {
     cols: ['Ciudad', '21 dic', '20 mar', '21 jun', '22 sep', 'Más tarde del año', '21 dic con la hora de Portugal'],
     notaA: `Hora oficial a la que sale el sol. Cálculo propio para ${ANO} con el `,
     notaL: 'método de la NOAA',
-    notaB: ' (±1-2 min). Madrid y Barcelona, para comparar.',
+    notaB: '. Madrid y Barcelona, para comparar.',
   },
 }[lang];
 
@@ -187,6 +189,7 @@ const fontes = [
         </table>
       </div>
       <p class="tnota">{g.notaA}<a href="https://gml.noaa.gov/grad/solcalc/solareqns.PDF">{g.notaL}</a>{g.notaB}</p>
+      <p class="concello"><a href={r(lang, 'concello')}>{c.concello} →</a></p>
     </section>
 
     <AmencerEspana lang={lang} />
@@ -282,6 +285,7 @@ const fontes = [
   tr.first th, tr.first td { border-top: 1px solid var(--ink, #111417); }
   .d { color: var(--ink-2); font-size: 0.85em; }
   .tnota { font-size: 0.85rem; color: var(--ink-2); margin: 0.6rem 0 0; }
+  .concello { margin: 0.8rem 0 0; font-weight: 600; }
   .lista { list-style: none; padding: 0 !important; display: flex; flex-wrap: wrap; gap: 0.3rem 1.1rem; }
   .cidades { grid-template-columns: 1fr; }
   @media (max-width: 760px) {

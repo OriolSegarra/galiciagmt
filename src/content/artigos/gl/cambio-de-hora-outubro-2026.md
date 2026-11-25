@@ -2,7 +2,7 @@
 titulo: "Cambio de hora en Galicia: por que atrasar o reloxo en outubro non basta"
 entradilla: "O 25 de outubro de 2026 rematou o horario de verán e o próximo cambio é o 28 de marzo de 2027. España propuxo á UE eliminar o cambio, pero non hai decisión nin prazo, e o verán permanente sería o peor escenario para Galicia."
 data: 2026-09-28
-actualizado: 2026-11-14
+actualizado: 2026-11-24
 par: cambio-hora-2026
 orde: 0
 seccion: actualidade
@@ -51,7 +51,7 @@ Xa en 2021 unha fonte diplomática recoñecía a EL PAÍS que "no hay novedades,
 
 Aquí convén ser precisos, porque "acabar co cambio de hora" pode significar dúas cousas moi distintas. Unha é quedar coa hora que hoxe chamamos de inverno (CET, UTC+1) durante todo o ano: é o horario que Galicia xa vive de novembro a marzo, e o que defendemos nesta web como mal menor se non se opta pola hora de Greenwich. A outra é quedar coa hora de verán (UTC+2) durante todo o ano, adiantando o reloxo para sempre. Ningunha das dúas opcións está decidida —o expediente, xa o vimos, segue parado— pero paga a pena saber que pasaría en Galicia se algún día se escollese a segunda.
 
-Fixemos o cálculo nós mesmos, co mesmo método (o algoritmo solar da NOAA, precisión esperada de ±1-2 minutos) que usa a nosa [ferramenta de amenceres](/ferramentas/amencer/): sumando unha hora ao horario de inverno actual, así lle quedaría a Santiago de Compostela:
+Fixemos o cálculo nós mesmos, co mesmo método (o algoritmo solar da NOAA) que usa a nosa [ferramenta de amenceres](/ferramentas/amencer/): sumando unha hora ao horario de inverno actual, así lle quedaría a Santiago de Compostela:
 
 | | 21 de decembro | 1 de xaneiro |
 |---|---|---|
