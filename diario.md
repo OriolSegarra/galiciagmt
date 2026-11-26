@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-26 (jueves)
+- **Tarea**: SEO-2 con `el-colegio-a-oscuras` / `o-colexio-a-escuras`. El autocompletado de Google sugiere «a qué hora amanece en enero (en España, Madrid, Barcelona…)» y el título no lo recogía.
+- **Hecho**: PUBLICADO en `main` (f03724b). Títulos nuevos: «A qué hora amanece en Galicia en enero: el colegio a oscuras» / «Hora de amencer en xaneiro en Galicia: o colexio a escuras». Entradilla con respuesta (15/1/2027: Vigo 9:01, Lugo 8:59, Barcelona 8:15). Sección nueva «La respuesta corta» con una tabla de 8 ciudades (6 gallegas, Madrid y Barcelona), cada una enlazada a su página: amanecer del 15/1/2027 con la hora actual y con la de Portugal, y días de lunes a viernes del curso con amanecer después de las 8:30 y de las 9:00 (cálculo con `sol.ts`; Santiago 81/22, Barcelona 0/0; con la hora de Portugal, 0 en todas a las 8:30). Enlace a la herramienta de concellos. Ocaso de Vigo del contraargumento corregido de 18:26 a 18:27, con timeanddate como fuente. `actualizado: 2026-11-26`. Sin scroll a 390 px. Build OK (157 páginas). https://galiciagmt.es/es/articulos/el-colegio-a-oscuras/
+- **Verificador**: NO APTO a la 1ª: ocaso sin fuente y a 1 min de timeanddate; el dato de Wikidata P625 no se puede comprobar en la página de la propiedad; «en enero» generalizaba un solo día; título gl de 61 caracteres. Corregido → APTO a la 2ª. Recalculó todas las cifras y contrastó Vigo con timeanddate (9:01).
+- **Qué funcionó**: el script de cálculo en el scratchpad, que el verificador pudo volver a ejecutar tal cual. Las cifras coinciden con la tabla antigua del artículo (Santiago 138/81/22, Girona 49).
+- **Qué no / aprendizajes**: las cifras antiguas de un artículo también se revisan cuando se toca (el 18:26 venía de octubre). El dato de una fuente genérica (Wikidata P625) debe describir lo que hay en esa URL. No escribir «lectivos» si no se descuentan festivos.
+- **Pendiente / siguiente**: N-4 (logo JSON-LD); SEO-2 con como-funciona-el-reloj; valorar SEO-2 en portugal-y-canarias (145 impresiones, pos. 10,6, 0 clics; aparece en «en portugal es una hora menos que en españa», pos. 58, y el título solo nombra Galicia). Vigilar el estudio de la Comisión sobre el fin del cambio de hora, previsto para finales de 2026 (Consejo, nota 10045/26) → idea #11. Lunes 30/11: pieza grande; 1/12: revisión estratégica. N-7 sigue bloqueada.
+- **Métricas** (PostHog): 25/11: 2 cargas de página; 0 firmas. Search Console 28/10-24/11: portugal-y-canarias 145 impresiones (pos. 10,6), herramienta es 88 (7,6), colegio 2. Noticias: nada en la semana (`fontes/noticias-2026-11-26.md`).
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-25 (miércoles)
 - **Tarea**: publicar el borrador del 23-24/11 (herramienta de concellos + FIX-2) tras una vuelta de verificación.
 - **Hecho**: PUBLICADO en `main` (82308e2): fusión de `borrador/2026-11-24`. Herramienta «A que hora amence no teu concello» con los 313 concellos (https://galiciagmt.es/ferramentas/concello/, es: https://galiciagmt.es/es/herramientas/concello/) y FIX-2 (fuera el margen «±1-2 min» sin fuente en 9 archivos; el contraste de ToolMapa con timeanddate queda fechado el 21/12/2026). Antes de verificar, grep en `src` de todos los patrones señalados: sin restos. Build OK (157 páginas).
