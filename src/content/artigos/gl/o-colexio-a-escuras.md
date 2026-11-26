@@ -1,8 +1,8 @@
 ---
-titulo: "O colexio a escuras: o sol e a hora de entrada en Galicia"
-entradilla: "En Vigo e Santiago, a finais de decembro e en xaneiro o sol sae ás 9:00 ou despois. Contamos en cantos días de luns a venres do curso 2026-27 se chega ao colexio antes do amencer, e por que depende da hora de entrada."
+titulo: "Hora de amencer en xaneiro en Galicia: o colexio a escuras"
+entradilla: "A mediados de xaneiro o sol sae en Galicia arredor das 9:00: o 15/1/2027, ás 9:01 en Vigo e ás 8:59 en Lugo, e ás 8:15 en Barcelona. Así afecta á entrada no colexio."
 data: 2026-10-08
-actualizado: 2026-11-11
+actualizado: 2026-11-26
 par: colexio-a-escuras
 orde: 8
 seccion: saude
@@ -22,9 +22,32 @@ fontes:
   - titulo: "Método NOAA de ecuacións solares (base do cálculo propio, src/lib/sol.ts)"
     url: "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
     dato: "Días de luns a venres do 9/9/2026 ao 21/6/2027 con amencer despois das 8:00, 8:30 e 9:00, co horario actual e coa hora de Lisboa"
+  - titulo: "Wikidata, propiedade P625 (coordenadas das cidades usadas no cálculo)"
+    url: "https://www.wikidata.org/wiki/Property:P625"
+    dato: "Coordenadas tomadas de Wikidata (propiedade P625, CC0) e recollidas en src/data/cidades.ts"
+  - titulo: "timeanddate.com — amencer e solpor en Vigo, xaneiro de 2027"
+    url: "https://www.timeanddate.com/sun/spain/vigo?month=1&year=2027"
+    dato: "15/1/2027: amencer ás 9:01 e solpor ás 18:27"
 ---
 
 Cando en xaneiro un neno entra no colexio, o sol aínda non saíu. É unha escena coñecida, pero poucas veces se pon en números. Aquí o facemos co noso propio cálculo solar ([método NOAA](https://gml.noaa.gov/grad/solcalc/solareqns.PDF)), e cunha advertencia previa: non atopamos ningunha norma da Xunta que fixe unha hora de entrada común. As [instrucións para o curso 2026/27](https://www.xunta.gal/dog/Publicados/2026/20260623/AnuncioG0761-110626-0003_es.html) deixan que cada centro organice o seu horario, así que non damos por boa ningunha hora concreta. O que si podemos dicir é canto amencer cae antes ou despois dos tres horarios máis habituais.
+
+## A resposta curta
+
+O 15 de xaneiro de 2027 o sol sae nas seis cidades galegas da táboa entre as 8:58 e as 9:03: amence ás 9:01 en Vigo, ás 9:02 en Santiago e ás 8:59 en Lugo; en Madrid, ás 8:36, e en Barcelona, ás 8:15. Coa hora de Portugal, o amencer en Galicia sería unha hora antes, arredor das 8:00. A táboa engade cantos días de luns a venres do curso 2026-27 (204) sae o sol despois das 8:30 e das 9:00. É un cálculo propio co [método NOAA](https://gml.noaa.gov/grad/solcalc/solareqns.PDF) e coordenadas de [Wikidata](https://www.wikidata.org/wiki/Property:P625).
+
+| Cidade | Amencer 15/1/2027 | Coa hora de Portugal | Días de luns a venres do curso con amencer despois das 8:30 | Despois das 9:00 |
+|---|---|---|---|---|
+| [A Coruña](/ferramentas/amencer/a-coruna/) | 9:03 | 8:03 | 82 | 25 |
+| [Santiago](/ferramentas/amencer/santiago/) | 9:02 | 8:02 | 81 | 22 |
+| [Pontevedra](/ferramentas/amencer/pontevedra/) | 9:01 | 8:01 | 80 | 20 |
+| [Vigo](/ferramentas/amencer/vigo/) | 9:01 | 8:01 | 80 | 20 |
+| [Lugo](/ferramentas/amencer/lugo/) | 8:59 | 7:59 | 75 | 12 |
+| [Ourense](/ferramentas/amencer/ourense/) | 8:58 | 7:58 | 75 | 8 |
+| [Madrid](/ferramentas/amencer/madrid/) | 8:36 | 7:36 | 33 | 0 |
+| [Barcelona](/ferramentas/amencer/barcelona/) | 8:15 | 7:15 | 0 | 0 |
+
+Coa hora de Portugal, ningunha destas cidades tería nin un só día de luns a venres do curso con amencer despois das 8:30. Para un concello concreto, consulta [a que hora amence no teu concello](/ferramentas/concello/).
 
 ## Tres horas de entrada, tres resultados
 
@@ -48,6 +71,6 @@ O corpo axusta o seu reloxo interno coa luz da mañá, como explicamos en [como 
 
 ## O contraargumento, na súa versión máis forte
 
-Coa hora de Lisboa o sol tamén se poñería unha hora antes. O 15 de xaneiro de 2027 o solpor en Vigo pasaría das 18:26 ás 17:26. Para unha familia que sae do traballo ás 18:00 ou unha rapaza que adestra á tarde, iso resta luz útil ao final do día. Tampouco hai en Galicia un estudo que mida cantos alumnos durmen peor por esta causa. Esta peza só mostra que, co horario actual, a luz chega máis tarde que a clase en moitos días, e que esa diferenza se reduce cunha hora menos.
+Coa hora de Lisboa o sol tamén se poñería unha hora antes. O 15 de xaneiro de 2027 o [solpor en Vigo](https://www.timeanddate.com/sun/spain/vigo?month=1&year=2027) pasaría das 18:27 ás 17:27. Para unha familia que sae do traballo ás 18:00 ou unha rapaza que adestra á tarde, iso resta luz útil ao final do día. Tampouco hai en Galicia un estudo que mida cantos alumnos durmen peor por esta causa. Esta peza só mostra que, co horario actual, a luz chega máis tarde que a clase en moitos días, e que esa diferenza se reduce cunha hora menos.
 
 Que decidan as escolas, as familias ou o Estado é outra cuestión: a hora oficial é [competencia estatal](/artigos/quen-pode-cambiar-a-hora-de-galicia/), e a de entrada a cada centro.
