@@ -7,7 +7,7 @@ Revisar la lista el día 1 de cada mes (añadir/quitar según `seo-posicions.md`
 
 | # | Búsqueda | Idioma | Página que debe posicionar | Intención |
 |---|---|---|---|---|
-| 1 | hora de Galicia Portugal | es | `/es/articulos/portugal-y-canarias/` | Informativa |
+| 1 | hora de Galicia Portugal; en Portugal es una hora menos que en España | es | `/es/articulos/portugal-y-canarias/` | Informativa |
 | 2 | por qué Galicia no tiene la hora de Portugal | es | `/es/articulos/galicia-al-oeste-de-greenwich/` | Informativa |
 | 3 | huso horario Galicia | es | `/es/` | Informativa |
 | 4 | fuso horario Galicia | gl | `/` | Informativa |
