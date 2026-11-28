@@ -1,8 +1,8 @@
 ---
-titulo: "Por que Portugal ten unha hora menos ca Galicia"
-entradilla: "Portugal ten unha hora menos porque usa a hora de Greenwich e Galicia a centroeuropea. Cambia o reloxo o mesmo día ca España e ten a mesma hora ca Canarias. Probou a CET de 1992 a 1996."
+titulo: "Por que Portugal ten unha hora menos ca España e Galicia"
+entradilla: "En Portugal é unha hora menos ca en España porque usa a hora de Greenwich, mentres a Península usa a centroeuropea. Cambia o reloxo o mesmo día ca España, ten a mesma hora ca Canarias e probou a CET de 1992 a 1996."
 data: 2026-09-27
-actualizado: 2026-11-17
+actualizado: 2026-11-27
 par: comparativa
 orde: 4
 seccion: comparativa
@@ -37,9 +37,12 @@ fontes:
   - titulo: "Método NOAA de ecuacións solares (base do cálculo propio, src/lib/sol.ts)"
     url: "https://gml.noaa.gov/grad/solcalc/solareqns.PDF"
     dato: "(tradución) «O cénit fíxase en 90,833° (corrección aproximada pola refracción atmosférica no amencer e no solpor e polo tamaño do disco solar)»"
+  - titulo: "Wikidata, propiedade P625 (coordenadas das cidades usadas no cálculo)"
+    url: "https://www.wikidata.org/wiki/Property:P625"
+    dato: "Coordenadas tomadas de Wikidata (propiedade P625, CC0) e recollidas en src/data/cidades.ts"
 ---
 
-Portugal ten unha hora menos ca Galicia porque a súa hora oficial é a de Greenwich, mentres que España leva a centroeuropea (CET) dende a orde de 1940, que [explicamos noutro artigo](/artigos/por-que-cambiamos-de-hora-en-1940/). Portugal probou a CET entre 1992 e 1996 e abandonouna ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)). O resultado vese no amencer: o 21 de decembro sae ás 7:50 en [Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026) e ás 9:01 en [Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), como amosa a [ferramenta de amenceres](/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=santiago).
+En Portugal é unha hora menos ca en España, e polo tanto ca en Galicia, porque a súa hora oficial é a de Greenwich, mentres que España leva a centroeuropea (CET) dende a orde de 1940, que [explicamos noutro artigo](/artigos/por-que-cambiamos-de-hora-en-1940/). Portugal probou a CET entre 1992 e 1996 e abandonouna ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)). O resultado vese no amencer: o 21 de decembro sae ás 7:50 en [Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026) e ás 9:01 en [Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), como amosa a [ferramenta de amenceres](/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=santiago).
 
 Cando se fala de que Galicia use a hora de Greenwich, adoita saír a mesma obxección: "iso sería un lío". Pero xa temos dous exemplos reais, moi preto de nós, de territorios que viven cunha hora distinta á do resto do Estado ao que pertencen. Un saíu mal e rectificouse. O outro leva un século funcionando sen que ninguén o cuestione. Paga a pena mirar os dous con calma antes de sacar conclusións.
 
@@ -54,6 +57,24 @@ Si. Portugal e España adiantan e atrasan o reloxo o mesmo día e no mesmo insta
 | Canarias | UTC+0 | UTC+1 |
 
 Por iso Portugal e Canarias teñen sempre a mesma hora, e Galicia sempre unha máis. O próximo cambio é o 28 de marzo de 2027, como contamos nas [preguntas frecuentes](/artigos/preguntas-frecuentes/); a que hora sería agora en cada lado pódese ver no [reloxo de Galicia e Portugal](/ferramentas/hora/).
+
+## A mesma luz con dous reloxos: o oeste de España
+
+A fronteira con Portugal separa dous reloxos. A táboa colle sete cidades do oeste peninsular, de Vigo a Huelva, e dá, para cada unha, a hora do amencer do 21 de decembro de 2026 e a do solpor do 21 de xuño de 2027 coa hora española e coa portuguesa, e cantos días de 2027 sae o sol despois das 8:30.
+
+| Cidade | Amencer 21/12, hora española | Con hora de Portugal | Solpor 21/6, hora española | Con hora de Portugal | Días con amencer despois das 8:30 (hora española / de Portugal) |
+|---|---|---|---|---|---|
+| [Vigo](/ferramentas/amencer/vigo/) | 9:00 | 8:00 | 22:14 | 21:14 | 119 / 0 |
+| [Ourense](/ferramentas/amencer/ourense/) | 8:57 | 7:57 | 22:11 | 21:11 | 112 / 0 |
+| [Zamora](/ferramentas/amencer/zamora/) | 8:46 | 7:46 | 22:00 | 21:00 | 86 / 0 |
+| [Salamanca](/ferramentas/amencer/salamanca/) | 8:44 | 7:44 | 21:58 | 20:58 | 81 / 0 |
+| [Cáceres](/ferramentas/amencer/caceres/) | 8:42 | 7:42 | 21:56 | 20:56 | 81 / 0 |
+| [Badaxoz](/ferramentas/amencer/badaxoz/) | 8:43 | 7:43 | 21:56 | 20:56 | 86 / 0 |
+| [Huelva](/ferramentas/amencer/huelva/) | 8:38 | 7:38 | 21:51 | 20:51 | 75 / 0 |
+
+Cálculo propio co [método NOAA](https://gml.noaa.gov/grad/solcalc/solareqns.PDF) e as coordenadas de cada cidade tomadas de [Wikidata](https://www.wikidata.org/wiki/Property:P625); a columna «con hora de Portugal» aplica a esas mesmas coordenadas a hora legal portuguesa (UTC+0 no inverno, UTC+1 no verán).
+
+Galicia é o extremo, pero non o único caso: Huelva, Badaxoz ou Zamora tamén suman entre 75 e 86 días ao ano con amencer despois das 8:30. O prezo da hora portuguesa tamén aparece na táboa: en xuño o sol poríase unha hora antes, entre as 20:51 e as 21:14 en lugar de entre as 21:51 e as 22:14. Cantos días de 2026 amence tarde en cada provincia vese no [mapa de amenceres](/ferramentas/mapa/), e cada concello galego ten o seu cálculo en [a que hora amence no teu concello](/ferramentas/concello/).
 
 ## Portugal probou o contrario e deu marcha atrás
 
