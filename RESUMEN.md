@@ -1,6 +1,6 @@
-# RESUMEN — última ejecución (2026-11-27)
+# RESUMEN — última ejecución (2026-11-28)
 
-SEO-2 en «Portugal y Canarias»: título con «España y Galicia» (la búsqueda es «en Portugal es una hora menos que en España») y una tabla nueva de 7 ciudades del oeste peninsular, de Vigo a Huelva, con amanecer y puesta de sol con hora española y portuguesa.
-Sin publicar: el verificador dio NO APTO a la 2ª vuelta solo por una coma (ya corregida). Está en la rama `borrador/2026-11-27`. Build OK.
-Métricas: 26/11, 5 cargas de página, 0 firmas. Noticias: nada en la semana.
-Siguiente: 28/11, una vuelta de verificación del borrador y fusión en `main`; lunes 30/11, pieza grande; 1/12, revisión estratégica. N-7 sigue esperando a Oriol.
+Publicado el SEO-2 de «Portugal y Canarias»: título «Por qué Portugal tiene una hora menos que España y Galicia» y tabla de 7 ciudades del oeste peninsular, de Vigo a Huelva. https://galiciagmt.es/es/articulos/portugal-y-canarias/
+El verificador encontró y se corrigieron errores en texto antiguo (Santiago y Lisboa comparten longitud, no latitud; Canarias lleva más de un siglo con su hora). APTO a la 2ª vuelta, build OK.
+Métricas: 27/11, 2 cargas de página, 0 firmas. Noticias: nada en la semana.
+Siguiente: 29/11, N-4 o SEO-2 en como-funciona-el-reloj; lunes 30/11, pieza grande; 1/12, revisión estratégica. N-7 sigue esperando a Oriol.

@@ -2,6 +2,16 @@
 
 La entrada más reciente va arriba.
 
+## 2026-11-28 (sábado)
+- **Tarea**: publicar el borrador del 27/11 (SEO-2 en `portugal-y-canarias` / `portugal-e-canarias`) tras una vuelta de verificación.
+- **Hecho**: PUBLICADO en `main` (596c020): fusión de `borrador/2026-11-27` (título «Por qué Portugal tiene una hora menos que España y Galicia», tabla de 7 ciudades del oeste peninsular). En la verificación salieron fallos en texto ya publicado, corregidos: el título «Santiago y Lisboa, latitud parecida» pasa a «longitud casi igual» (42,9° N frente a 38,7° N; lo que coincide es la longitud); «casi un siglo» → «más de un siglo» (desde 1922); Portugal no «pertenece al Estado»; «sin que nadie lo cuestione» → «aunque no sin debate»; «salió mal» atribuido a las asociaciones de padres; «el motivo no fue técnico» → «el detonante fue social»; límites del estudio de Bonmatí-Carrión (solo jubilados) en el texto y enlace al artículo de salud; una coma. `actualizado: 2026-11-28`. Build OK (157 páginas). https://galiciagmt.es/es/articulos/portugal-y-canarias/
+- **Verificador**: NO APTO a la 1ª (8 puntos en texto antiguo; las 42 cifras de la tabla, recalculadas otra vez, coinciden) → corregido con su texto literal → APTO a la 2ª.
+- **Qué funcionó**: pedir una revisión completa del archivo y no solo del diff sacó un error de hecho que llevaba publicado desde septiembre (latitud).
+- **Qué no / aprendizajes**: cuando se toca un artículo con SEO-2, releer también los subtítulos y frases antiguas: los títulos de sección tenían afirmaciones sin comprobar («latitud parecida», «casi un siglo»).
+- **Pendiente / siguiente**: domingo 29/11: N-4 (logo JSON-LD) o SEO-2 en como-funciona-el-reloj. Lunes 30/11: pieza grande + SEO semanal; 1/12: revisión estratégica. Vigilar el estudio de la Comisión (idea #11). N-7 sigue bloqueada.
+- **Métricas** (PostHog): 27/11: 2 cargas de página; 0 firmas. Search Console 30/10-26/11: 50 consultas, casi todas «a qué hora amanece en <ciudad>». Noticias: nada en la semana (`fontes/noticias-2026-11-28.md`).
+- **Slack**: leído. Sin peticiones nuevas de Oriol.
+
 ## 2026-11-27 (viernes)
 - **Tarea**: SEO-2 con `portugal-y-canarias` / `portugal-e-canarias` (Search Console 29/10-25/11: 142 impresiones, pos. 10,6, 0 clics; aparece en «en portugal es una hora menos que en españa», pos. 58, y el título solo nombraba Galicia).
 - **Hecho**: SIN PUBLICAR en `main`. Está en la rama `borrador/2026-11-27`. Título «Por qué Portugal tiene una hora menos que España y Galicia» / «Por que Portugal ten unha hora menos ca España e Galicia»; entradilla y primer párrafo empiezan con «En Portugal es una hora menos que en España»; sección nueva «La misma luz con dos relojes: el oeste de España» con tabla de 7 ciudades (Vigo, Ourense, Zamora, Salamanca, Cáceres, Badajoz, Huelva): amanecer 21/12/2026 y puesta 21/6/2027 con hora española y portuguesa, y días de 2027 con amanecer después de las 8:30 (Vigo 119, Huelva 75; con hora de Portugal, 0 en todas). Contraargumento con cifras: en junio el sol se pondría entre las 20:51 y las 21:14. Enlaces a 7 páginas por ciudad, al mapa y a la herramienta de concellos; fuente Wikidata P625; `actualizado: 2026-11-27`; palabra clave añadida en SEO.md. Build OK (157 páginas), sin scroll a 390 px.
