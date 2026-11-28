@@ -2,7 +2,7 @@
 titulo: "Por que Portugal ten unha hora menos ca España e Galicia"
 entradilla: "En Portugal é unha hora menos ca en España porque usa a hora de Greenwich, mentres a Península usa a centroeuropea. Cambia o reloxo o mesmo día ca España, ten a mesma hora ca Canarias e probou a CET de 1992 a 1996."
 data: 2026-09-27
-actualizado: 2026-11-27
+actualizado: 2026-11-28
 par: comparativa
 orde: 4
 seccion: comparativa
@@ -44,7 +44,7 @@ fontes:
 
 En Portugal é unha hora menos ca en España, e polo tanto ca en Galicia, porque a súa hora oficial é a de Greenwich, mentres que España leva a centroeuropea (CET) dende a orde de 1940, que [explicamos noutro artigo](/artigos/por-que-cambiamos-de-hora-en-1940/). Portugal probou a CET entre 1992 e 1996 e abandonouna ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)). O resultado vese no amencer: o 21 de decembro sae ás 7:50 en [Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026) e ás 9:01 en [Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026), como amosa a [ferramenta de amenceres](/ferramentas/amencer/?esc=actual&data=12-21&lim=510&cidade=santiago).
 
-Cando se fala de que Galicia use a hora de Greenwich, adoita saír a mesma obxección: "iso sería un lío". Pero xa temos dous exemplos reais, moi preto de nós, de territorios que viven cunha hora distinta á do resto do Estado ao que pertencen. Un saíu mal e rectificouse. O outro leva un século funcionando sen que ninguén o cuestione. Paga a pena mirar os dous con calma antes de sacar conclusións.
+Cando se fala de que Galicia use a hora de Greenwich, adoita saír a mesma obxección: "iso sería un lío". Pero xa temos dous exemplos reais, moi preto de nós, de territorios que viven cunha hora distinta á do seu entorno: Portugal, un país veciño, e Canarias, parte de España. Un, segundo as asociacións de nais e pais que presionaron para cambialo, saíu mal e rectificouse. O outro leva máis dun século funcionando, aínda que non sen debate. Paga a pena mirar os dous con calma antes de sacar conclusións.
 
 ## Portugal cambia a hora coma España?
 
@@ -80,25 +80,25 @@ Galicia é o extremo, pero non o único caso: Huelva, Badaxoz ou Zamora tamén s
 
 En 1992 Portugal fixo o movemento inverso ao que aquí se propón: adiantou o reloxo para adoptar a hora centroeuropea (CET), coa idea de aliñarse coa maioría dos socios da Unión Europea. O experimento durou catro anos. En febreiro de 1996, o entón primeiro ministro António Guterres anunciou que o país abandonaba "a four-year experiment with Central European Time" ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)).
 
-O motivo non foi técnico, senón social: segundo recolle esa mesma crónica, houbo "fierce pressure from parents' associations which complained that children were going to school in the dark and refused to go to bed at night because it was still light". A propia UPI describe o cambio de 1992 como algo que puxera o reloxo "about 2 hours ahead of the sun". Guterres xustificou a marcha atrás cunha frase que resume ben o argumento de fondo deste debate: "There are undoubted advantages in bringing legal time back closer to solar time. It is wrong to go against nature" ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)).
+O detonante foi social: segundo recolle esa mesma crónica, houbo "fierce pressure from parents' associations which complained that children were going to school in the dark and refused to go to bed at night because it was still light". A propia UPI describe o cambio de 1992 como algo que puxera o reloxo "about 2 hours ahead of the sun". Guterres xustificou a marcha atrás cunha frase que resume ben o argumento de fondo deste debate: "There are undoubted advantages in bringing legal time back closer to solar time. It is wrong to go against nature" ([UPI, 1996](https://www.upi.com/Archives/1996/02/16/Portugal-turns-back-the-clock/1455824446800/)).
 
 Dende entón, Portugal mantén a hora de Greenwich (con horario de verán, coma España), e quen custodia esa hora legal é unha institución concreta: o Observatório Astronómico de Lisboa, que "é a instituição que tem a incumbência legal de manter e distribuir a Hora Legal em Portugal" ([OAL](https://oal.ul.pt/hora-legal/)). É dicir: hai un organismo claro, con nome e enderezo, responsable de que a hora oficial portuguesa siga sendo a que é.
 
-## Canarias leva case un século cunha hora menos
+## Canarias leva máis dun século cunha hora menos
 
 O outro caso é máis próximo aínda, porque é parte do mesmo Estado. Dende 1922, ao arquipélago canario "se les aplicó a estas el huso 23, uno menos que el resto de España", segundo recolle o documento do Archivo Digital da UPM sobre o problema do fuso horario español ([UPM, 2017](https://oa.upm.es/45296/1/CCG_2017_Es-nuestro-huso-horario-un-problema.pdf)). Ese mesmo documento sinala que a franxa occidental de Galicia comparte fuso xeográfico con Canarias dende aquel ano, aínda que na práctica mantivo sempre a hora peninsular.
 
 Hoxe esa diferenza segue regulada por lei. O Real Decreto 236/2002, que fixa o horario de verán en España, distingue explicitamente Canarias no seu propio articulado: o cambio "comenzará el último domingo del mes de marzo de cada año a las dos horas de la madrugada (la una hora de la madrugada en Canarias)" ([BOE, RD 236/2002](https://www.boe.es/buscar/doc.php?id=BOE-A-2002-4221)). Non é unha excepción escondida nin unha anomalía tolerada: está escrita no mesmo decreto que regula o horario para todo o Estado.
 
-## Santiago e Lisboa, a mesma latitude aproximada, horas distintas
+## Santiago e Lisboa, case a mesma lonxitude, horas distintas
 
-A diferenza entre ter GMT ou CET faise visible cando se compara o amencer. O 21 de decembro de 2026, o sol sae en Santiago de Compostela ás 9:01 da mañá; en Lisboa, ese mesmo día, sae ás 7:50 ([timeanddate, Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026); [timeanddate, Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026)). Máis dunha hora de diferenza no amencer, entre dous puntos que comparten fuso xeográfico pero non hora oficial. Un estudo de 2022 comparou persoas maiores e xubiladas, de preto de 72 anos de media do oeste de España (Lugo, Ponferrada e Huelva) coas de Coimbra e atopou unha tendencia a maior desincronización circadiana nas primeiras ([Bonmatí-Carrión et al., Biology](https://www.mdpi.com/2079-7737/11/8/1130)); as súas limitacións explícanse no artigo dedicado á saúde.
+A diferenza entre ter GMT ou CET faise visible cando se compara o amencer. O 21 de decembro de 2026, o sol sae en Santiago de Compostela ás 9:01 da mañá; en Lisboa, ese mesmo día, sae ás 7:50 ([timeanddate, Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026); [timeanddate, Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026)). Máis dunha hora de diferenza no amencer, entre dous puntos que comparten fuso xeográfico pero non hora oficial. Un estudo de 2022 comparou persoas maiores e xubiladas, de preto de 72 anos de media (só persoas xubiladas, e o propio estudo advirte de que os seus resultados poden non xeneralizarse), do oeste de España (Lugo, Ponferrada e Huelva) coas de Coimbra e atopou unha tendencia a maior desincronización circadiana nas primeiras ([Bonmatí-Carrión et al., Biology](https://www.mdpi.com/2079-7737/11/8/1130)); as súas limitacións explícanse no [artigo dedicado á saúde](/artigos/amenceres-tardios-sono-e-saude/).
 
 ![Gráfico: hora do amencer en Lisboa e en Santiago o 21 de decembro de 2026](/img/amencer-lisboa-santiago-gl.svg)
 
 Coa hora de Lisboa, Santiago amencería ás 8:01 (cálculo propio: o 9:01 de [timeanddate, Santiago](https://www.timeanddate.com/sun/spain/santiago-de-compostela?month=12&year=2026) en hora de inverno, restando unha hora). Lisboa, 7:50 segundo [timeanddate, Lisboa](https://www.timeanddate.com/sun/portugal/lisbon?month=12&year=2026); o noso cálculo para Santiago coincide co de timeanddate (9:01).
 
-## Un Estado, un arquipélago, e o caso galego
+## Un Estado, un arquipélago e o caso galego
 
 Convén ser honestos co que cada exemplo demostra e co que non. Portugal é un Estado enteiro: cando cambia a hora, cambia para todo o territorio, sen ningunha fronteira horaria interna que xestionar. Canarias é un arquipélago separado por mar do resto de España: a fronteira horaria non a cruza ninguén camiñando ou conducindo cada día.
 
